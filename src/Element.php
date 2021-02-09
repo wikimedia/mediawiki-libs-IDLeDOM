@@ -192,12 +192,6 @@ interface Element extends ChildNode, NonDocumentTypeChildNode, ParentNode, Slott
 	public function matches( string $selectors ) : bool;
 
 	/**
-	 * @param string $selectors
-	 * @return bool
-	 */
-	public function webkitMatchesSelector( string $selectors ) : bool;
-
-	/**
 	 * @param string $qualifiedName
 	 * @return HTMLCollection
 	 */
@@ -215,19 +209,5 @@ interface Element extends ChildNode, NonDocumentTypeChildNode, ParentNode, Slott
 	 * @return HTMLCollection
 	 */
 	public function getElementsByClassName( string $classNames ) : HTMLCollection;
-
-	/**
-	 * @param string $where
-	 * @param Element $element
-	 * @return ?Element
-	 */
-	public function insertAdjacentElement( string $where, Element $element ) : ?Element;
-
-	/**
-	 * @param string $where
-	 * @param string $data
-	 * @return void
-	 */
-	public function insertAdjacentText( string $where, string $data ) : void;
 
 }

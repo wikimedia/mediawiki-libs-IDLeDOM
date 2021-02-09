@@ -35,16 +35,6 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	/**
 	 * @return string
 	 */
-	public function getCharset() : string;
-
-	/**
-	 * @return string
-	 */
-	public function getInputEncoding() : string;
-
-	/**
-	 * @return string
-	 */
 	public function getContentType() : string;
 
 	/**
@@ -146,12 +136,6 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	 * @return Attr
 	 */
 	public function createAttributeNS( ?string $namespace, string $qualifiedName ) : Attr;
-
-	/**
-	 * @param string $interface
-	 * @return Event
-	 */
-	public function createEvent( string $interface ) : Event;
 
 	/**
 	 * @return Range

@@ -20,11 +20,6 @@ interface Event {
 	/**
 	 * @return ?EventTarget
 	 */
-	public function getSrcElement() : ?EventTarget;
-
-	/**
-	 * @return ?EventTarget
-	 */
 	public function getCurrentTarget() : ?EventTarget;
 
 	/**
@@ -55,16 +50,6 @@ interface Event {
 	public function stopPropagation() : void;
 
 	/**
-	 * @return bool
-	 */
-	public function getCancelBubble() : bool;
-
-	/**
-	 * @param bool $val
-	 */
-	public function setCancelBubble( bool $val ) : void;
-
-	/**
 	 * @return void
 	 */
 	public function stopImmediatePropagation() : void;
@@ -78,16 +63,6 @@ interface Event {
 	 * @return bool
 	 */
 	public function getCancelable() : bool;
-
-	/**
-	 * @return bool
-	 */
-	public function getReturnValue() : bool;
-
-	/**
-	 * @param bool $val
-	 */
-	public function setReturnValue( bool $val ) : void;
 
 	/**
 	 * @return void
@@ -113,13 +88,5 @@ interface Event {
 	 * @return DOMHighResTimeStamp
 	 */
 	public function getTimeStamp() : DOMHighResTimeStamp;
-
-	/**
-	 * @param string $type
-	 * @param bool $bubbles
-	 * @param bool $cancelable
-	 * @return void
-	 */
-	public function initEvent( string $type, bool $bubbles = false, bool $cancelable = false ) : void;
 
 }

@@ -9,6 +9,8 @@ class Generator {
 	/** @var array */
 	private $ast;
 	/** @var array */
+	private $options;
+	/** @var array */
 	private $mixins = [];
 	/** @var array */
 	private $defs = [];
@@ -93,9 +95,11 @@ class Generator {
 	/**
 	 * Construct a new generator.
 	 * @param array $ast
+	 * @param array $options
 	 */
-	private function __construct( $ast ) {
+	private function __construct( array $ast, array $options = [] ) {
 		$this->ast = $ast;
+		$this->options = $options;
 		foreach ( $ast as $definition ) {
 			if ( $definition['type'] === 'includes' ) {
 				// Collect mixins
@@ -432,6 +436,13 @@ class Generator {
 	}
 
 	private function emitMember( string $topName, array $m, callable $emit ) {
+		if ( $this->options['skipLegacy'] ?? false ) {
+			foreach ( $m['trailingComments'] ?? [] as $c ) {
+				if ( preg_match( '|^// legacy|', $c ) ) {
+					return; // skip this legacy member
+				}
+			}
+		}
 		$methodName = 'emitMember' .
 			str_replace( ' ', '', ucwords( $m['type'] ) );
 		$this->$methodName( $topName, $m, $emit );
@@ -566,6 +577,9 @@ class Generator {
 		$idl = WebIDL::parse( file_get_contents( $filename ), [
 			'keepComments' => true
 		] );
-		( new Generator( $idl ) )->write( __DIR__ . '/../src' );
+		$options = [
+			'skipLegacy' => true,
+		];
+		( new Generator( $idl, $options ) )->write( __DIR__ . '/../src' );
 	}
 }

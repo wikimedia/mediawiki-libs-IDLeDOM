@@ -31,12 +31,6 @@ interface NodeFilter {
 	public const SHOW_CDATA_SECTION = 0x8;
 
 	/** @var int */
-	public const SHOW_ENTITY_REFERENCE = 0x10;
-
-	/** @var int */
-	public const SHOW_ENTITY = 0x20;
-
-	/** @var int */
 	public const SHOW_PROCESSING_INSTRUCTION = 0x40;
 
 	/** @var int */
@@ -50,9 +44,6 @@ interface NodeFilter {
 
 	/** @var int */
 	public const SHOW_DOCUMENT_FRAGMENT = 0x400;
-
-	/** @var int */
-	public const SHOW_NOTATION = 0x800;
 
 	/**
 	 * @param Node $node
