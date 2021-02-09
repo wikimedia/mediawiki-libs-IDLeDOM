@@ -9,10 +9,10 @@ interface MutationObserver {
 
 	/**
 	 * @param Node $target
-	 * @param ?MutationObserverInit $options
+	 * @param MutationObserverInit|associative-array|null $options
 	 * @return void
 	 */
-	public function observe( Node $target, ?MutationObserverInit $options = null ) : void;
+	public function observe( Node $target, ?mixed $options = null ) : void;
 
 	/**
 	 * @return void

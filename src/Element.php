@@ -169,10 +169,10 @@ interface Element extends ChildNode, NonDocumentTypeChildNode, ParentNode, Slott
 	public function removeAttributeNode( Attr $attr ) : Attr;
 
 	/**
-	 * @param ShadowRootInit $init
+	 * @param ShadowRootInit|associative-array $init
 	 * @return ShadowRoot
 	 */
-	public function attachShadow( ShadowRootInit $init ) : ShadowRoot;
+	public function attachShadow( mixed $init ) : ShadowRoot;
 
 	/**
 	 * @return ?ShadowRoot

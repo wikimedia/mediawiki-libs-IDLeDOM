@@ -10,7 +10,7 @@ interface EventTarget {
 	/**
 	 * @param string $type
 	 * @param ?EventListener $callback
-	 * @param AddEventListenerOptions|bool|null $options
+	 * @param AddEventListenerOptions|associative-array|bool|null $options
 	 * @return void
 	 */
 	public function addEventListener( string $type, ?EventListener $callback, ?mixed $options = null ) : void;
@@ -18,7 +18,7 @@ interface EventTarget {
 	/**
 	 * @param string $type
 	 * @param ?EventListener $callback
-	 * @param EventListenerOptions|bool|null $options
+	 * @param EventListenerOptions|associative-array|bool|null $options
 	 * @return void
 	 */
 	public function removeEventListener( string $type, ?EventListener $callback, ?mixed $options = null ) : void;

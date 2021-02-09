@@ -68,10 +68,10 @@ interface Node {
 	public function getOwnerDocument() : ?Document;
 
 	/**
-	 * @param ?GetRootNodeOptions $options
+	 * @param GetRootNodeOptions|associative-array|null $options
 	 * @return Node
 	 */
-	public function getRootNode( ?GetRootNodeOptions $options = null ) : Node;
+	public function getRootNode( ?mixed $options = null ) : Node;
 
 	/**
 	 * @return ?Node

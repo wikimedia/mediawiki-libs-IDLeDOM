@@ -78,7 +78,7 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 
 	/**
 	 * @param string $localName
-	 * @param string|ElementCreationOptions|null $options
+	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
 	public function createElement( string $localName, ?mixed $options = null ) : Element;
@@ -86,7 +86,7 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	/**
 	 * @param ?string $namespace
 	 * @param string $qualifiedName
-	 * @param string|ElementCreationOptions|null $options
+	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
 	public function createElementNS( ?string $namespace, string $qualifiedName, ?mixed $options = null ) : Element;

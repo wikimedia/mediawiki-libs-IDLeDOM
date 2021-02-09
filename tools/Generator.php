@@ -185,6 +185,10 @@ class Generator {
 				$this->nameMap["$topName:const:$name"] = $findName( $name );
 			}
 		}
+		// Dictionaries have a special 'cast' method
+		if ( $def['type'] === 'dictionary' ) {
+			$this->nameMap["$topName:op:cast"] = $findName( "cast" );
+		}
 		// Then attribute getters/setters (including dictionary getters/setters)
 		foreach ( $def['members'] as $m ) {
 			if ( $m['type'] === 'attribute' || $m['type'] === 'field' ) {
@@ -214,6 +218,26 @@ class Generator {
 			$firstLine .= " extends " . implode( ', ', $mixins );
 		}
 		$emit( "$firstLine {" );
+	}
+
+	private function typeIncludesDict( array $ty ) {
+		if ( $ty['union'] ?? false ) {
+			foreach ( $ty['idlType'] as $t ) {
+				if ( $this->typeIncludesDict( $t ) ) {
+					return true;
+				}
+			}
+			return false;
+		}
+		$generic = $ty['generic'] ?? '';
+		if ( $generic !== '' ) {
+			return false;
+		}
+		if ( !array_key_exists( $ty['idlType'], $this->defs ) ) {
+			return false;
+		}
+		$d = $this->defs[$ty['idlType']] ?? null;
+		return $d && $d['type'] === 'dictionary';
 	}
 
 	private function typeToPHPDoc( array $ty, array $opts = [] ):string {
@@ -252,7 +276,14 @@ class Generator {
 
 		if ( array_key_exists( $ty['idlType'], $this->defs ) ) {
 			// An object type
-			return $n . $ty['idlType'];
+			$result = $ty['idlType'];
+			if ( $this->typeIncludesDict( $ty ) ) {
+				if ( !$phpdoc ) {
+					return $n . "mixed";
+				}
+				return "$result|associative-array" . ( $n === '' ? '' : '|null' );
+			}
+			return $n . $result;
 		}
 		switch ( $ty['idlType'] ) {
 		case 'any':
