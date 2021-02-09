@@ -1,6 +1,6 @@
 <?php
 
-namespace Wikimedia\IDLeDOM\Test;
+namespace Wikimedia\IDLeDOM\Tests;
 
 class IDLeDOMTest {
 

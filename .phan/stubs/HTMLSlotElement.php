@@ -2,6 +2,5 @@
 
 namespace Wikimedia\IDLeDOM;
 
-class IDLeDOM {
-
+class HTMLSlotElement {
 }
