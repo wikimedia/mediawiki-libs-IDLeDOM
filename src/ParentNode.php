@@ -26,4 +26,34 @@ interface ParentNode {
 	 */
 	public function getChildElementCount() : int;
 
+	/**
+	 * @param Node|string ...$nodes
+	 * @return void
+	 */
+	public function prepend( mixed ...$nodes ) : void;
+
+	/**
+	 * @param Node|string ...$nodes
+	 * @return void
+	 */
+	public function append( mixed ...$nodes ) : void;
+
+	/**
+	 * @param Node|string ...$nodes
+	 * @return void
+	 */
+	public function replaceChildren( mixed ...$nodes ) : void;
+
+	/**
+	 * @param string $selectors
+	 * @return ?Element
+	 */
+	public function querySelector( string $selectors ) : ?Element;
+
+	/**
+	 * @param string $selectors
+	 * @return NodeList
+	 */
+	public function querySelectorAll( string $selectors ) : NodeList;
+
 }

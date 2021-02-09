@@ -7,5 +7,5 @@ namespace Wikimedia\IDLeDOM;
 
 class ShadowRootMode {
 	public const open = 0;
-	public const closed = 0;
+	public const closed = 1;
 }

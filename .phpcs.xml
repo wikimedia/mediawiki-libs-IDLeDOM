@@ -16,4 +16,8 @@
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase">
 		<exclude-pattern>src</exclude-pattern>
 	</rule>
+	<!-- Can't enforce line length limits on auto-generated code -->
+	<rule ref="Generic.Files.LineLength.TooLong">
+		<exclude-pattern>src</exclude-pattern>
+	</rule>
 </ruleset>

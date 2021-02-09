@@ -256,7 +256,7 @@ class Generator {
 		}
 		switch ( $ty['idlType'] ) {
 		case 'any':
-			return $n . 'mixed';
+			return '?mixed';
 		case 'void':
 			self::unreachable( "void is now 'undefined'" );
 		case 'undefined':
@@ -293,6 +293,20 @@ class Generator {
 		}
 	}
 
+	private function valueToPHP( array $val, array $opts = [] ):string {
+		switch ( $val['type'] ) {
+		case 'number':
+			return $val['value'];
+		case 'boolean':
+			return $val['value'] ? 'true' : 'false';
+		case 'null':
+			return 'null';
+		default:
+			self::unreachable( "Unknown value type " . var_export( $val, true ) );
+		}
+		return '<broken>';
+	}
+
 	private function emitMemberConstructor( string $topName, array $m, callable $emit ) {
 	}
 
@@ -319,9 +333,55 @@ class Generator {
 	}
 
 	private function emitMemberOperation( string $topName, array $m, callable $emit ) {
+		$special = $m['special'] ?? '';
+		if ( $special !== '' ) {
+			return; // XXX special methods not yet supported
+		}
+		$op = $m['name'];
+		$funcName = $this->nameMap["$topName:op:$op"];
+		$retTypeDoc = $this->typeToPHPDoc( $m['idlType'], [ 'returnType' => true ] );
+		$retType = $this->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
+		$paramDocs = [];
+		$phpArgs = [];
+		foreach ( $m['arguments'] as $a ) {
+			$v = ( $a['variadic'] ?? false ) ? '...' : '';
+			$ty = $a['idlType'];
+			$default = '';
+			if ( $a['optional'] ?? false ) {
+				// If a value is optional but has no default, then broaden the
+				// type to allow null and make the default null.
+				// Similarly for dictionary types, use null as the default.
+				if ( ( $a['default'] ?? null ) === null ||
+					( $a['default']['type'] ?? null ) === 'dictionary' ) {
+					$ty['nullable'] = true;
+					$default = ' = null';
+				} else {
+					$default = ' = ' . $this->valueToPHP( $a['default'] );
+				}
+			}
+			$paramDocs[] = $this->typeToPHPDoc( $ty ) .
+						" $v\$" . $a['name'];
+			$phpArgs[] = $this->typeToPHP( $ty ) .
+					  " $v\$" . $a['name'] . $default;
+		}
+		$phpArgs = count( $phpArgs ) ? ( ' ' . implode( ', ', $phpArgs ) . ' ' ) : '';
+
+		$emit( '/**' );
+		foreach ( $paramDocs as $a ) {
+			$emit( " * @param $a" );
+		}
+		$emit( " * @return $retTypeDoc" );
+		$emit( ' */' );
+		$emit( "public function $funcName($phpArgs) : $retType;" );
 	}
 
 	private function emitMemberConst( string $topName, array $m, callable $emit ) {
+		$name = $m['name'];
+		$name = $this->nameMap["$topName:const:$name"];
+		$docType = $this->typeToPHPDoc( $m['idlType'] );
+		$val = $this->valueToPHP( $m['value'] );
+		$emit( "/** @var $docType */" );
+		$emit( "public const $name = $val;" );
 	}
 
 	private function emitMemberIterable( string $topName, array $m, callable $emit ) {
@@ -380,10 +440,12 @@ class Generator {
 		$topName = $def['name'];
 		$this->firstLine( 'class', $topName, $emit );
 		// Treat enumerations like interfaces with const members
+		$val = 0;
 		foreach ( $def['values'] as $m ) {
 			$name = $m['value'];
 			$name = $this->nameMap["$topName:const:$name"];
-			$emit( "public const $name = 0;" ); // XXX value
+			$emit( "public const $name = $val;" );
+			$val += 1;
 		}
 		$emit( '}' );
 	}

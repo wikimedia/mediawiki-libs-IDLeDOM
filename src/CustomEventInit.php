@@ -7,8 +7,8 @@ namespace Wikimedia\IDLeDOM;
 
 interface CustomEventInit {
 	/**
-	 * @return mixed
+	 * @return ?mixed
 	 */
-	public function getDetail() : mixed;
+	public function getDetail() : ?mixed;
 
 }

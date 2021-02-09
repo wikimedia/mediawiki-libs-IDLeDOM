@@ -6,5 +6,10 @@
 namespace Wikimedia\IDLeDOM;
 
 interface NonElementParentNode {
+	/**
+	 * @param string $elementId
+	 * @return ?Element
+	 */
+	public function getElementById( string $elementId ) : ?Element;
 
 }

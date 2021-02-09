@@ -31,4 +31,19 @@ interface NodeIterator {
 	 */
 	public function getFilter() : ?NodeFilter;
 
+	/**
+	 * @return ?Node
+	 */
+	public function nextNode() : ?Node;
+
+	/**
+	 * @return ?Node
+	 */
+	public function previousNode() : ?Node;
+
+	/**
+	 * @return void
+	 */
+	public function detach() : void;
+
 }

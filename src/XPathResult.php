@@ -6,6 +6,35 @@
 namespace Wikimedia\IDLeDOM;
 
 interface XPathResult {
+	/** @var int */
+	public const ANY_TYPE = 0;
+
+	/** @var int */
+	public const NUMBER_TYPE = 1;
+
+	/** @var int */
+	public const STRING_TYPE = 2;
+
+	/** @var int */
+	public const BOOLEAN_TYPE = 3;
+
+	/** @var int */
+	public const UNORDERED_NODE_ITERATOR_TYPE = 4;
+
+	/** @var int */
+	public const ORDERED_NODE_ITERATOR_TYPE = 5;
+
+	/** @var int */
+	public const UNORDERED_NODE_SNAPSHOT_TYPE = 6;
+
+	/** @var int */
+	public const ORDERED_NODE_SNAPSHOT_TYPE = 7;
+
+	/** @var int */
+	public const ANY_UNORDERED_NODE_TYPE = 8;
+
+	/** @var int */
+	public const FIRST_ORDERED_NODE_TYPE = 9;
 
 	/**
 	 * @return int
@@ -41,5 +70,16 @@ interface XPathResult {
 	 * @return int
 	 */
 	public function getSnapshotLength() : int;
+
+	/**
+	 * @return ?Node
+	 */
+	public function iterateNext() : ?Node;
+
+	/**
+	 * @param int $index
+	 * @return ?Node
+	 */
+	public function snapshotItem( int $index ) : ?Node;
 
 }
