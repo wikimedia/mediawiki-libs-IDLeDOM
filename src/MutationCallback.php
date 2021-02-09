@@ -6,5 +6,10 @@
 namespace Wikimedia\IDLeDOM;
 
 interface MutationCallback {
-	public function invoke();
+	/**
+	 * @param list<MutationRecord> $mutations
+	 * @param MutationObserver $observer
+	 * @return void
+	 */
+	public function invoke( array $mutations, MutationObserver $observer ) : void;
 }

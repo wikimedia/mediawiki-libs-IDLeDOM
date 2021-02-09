@@ -6,4 +6,10 @@
 namespace Wikimedia\IDLeDOM;
 
 interface EventListener {
+	/**
+	 * @param Event $event
+	 * @return void
+	 */
+	public function handleEvent( Event $event ) : void;
+
 }

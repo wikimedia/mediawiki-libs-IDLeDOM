@@ -161,7 +161,7 @@ class Generator {
 		// Move on to members of this type.
 		if ( $def['type'] === 'callback' ) {
 			// Callbacks have a synthetic 'invoke' method.
-			$this->nameMap["$topName:op:invoke"] = $findName( "invoke" );
+			$this->nameMap["$topName:op:_invoke"] = $findName( "invoke" );
 			$done[$topName] = $allNames;
 			return $allNames;
 		}
@@ -185,9 +185,11 @@ class Generator {
 				$this->nameMap["$topName:const:$name"] = $findName( $name );
 			}
 		}
-		// Dictionaries have a special 'cast' method
-		if ( $def['type'] === 'dictionary' ) {
-			$this->nameMap["$topName:op:cast"] = $findName( "cast" );
+		// Dictionaries and callback interfaces have a special 'cast' method
+		if ( $def['type'] === 'dictionary' ||
+			 $def['type'] === 'callback' ||
+			 $def['type'] === 'callback interface' ) {
+			$this->nameMap["$topName:op:_cast"] = $findName( "cast" );
 		}
 		// Then attribute getters/setters (including dictionary getters/setters)
 		foreach ( $def['members'] as $m ) {
@@ -220,10 +222,10 @@ class Generator {
 		$emit( "$firstLine {" );
 	}
 
-	private function typeIncludesDict( array $ty ) {
+	private function typeIncludes( array $ty, string $which ) {
 		if ( $ty['union'] ?? false ) {
-			foreach ( $ty['idlType'] as $t ) {
-				if ( $this->typeIncludesDict( $t ) ) {
+			foreach ( $ty['idlType'] as $subtype ) {
+				if ( $this->typeIncludes( $subtype, $which ) ) {
 					return true;
 				}
 			}
@@ -237,7 +239,7 @@ class Generator {
 			return false;
 		}
 		$d = $this->defs[$ty['idlType']] ?? null;
-		return $d && $d['type'] === 'dictionary';
+		return $d && $d['type'] === $which;
 	}
 
 	private function typeToPHPDoc( array $ty, array $opts = [] ):string {
@@ -277,11 +279,19 @@ class Generator {
 		if ( array_key_exists( $ty['idlType'], $this->defs ) ) {
 			// An object type
 			$result = $ty['idlType'];
-			if ( $this->typeIncludesDict( $ty ) ) {
+			$extraType = null;
+			if ( $this->typeIncludes( $ty, 'dictionary' ) ) {
+				$extraType = 'associative-array';
+			}
+			if ( $this->typeIncludes( $ty, 'callback' ) ||
+				 $this->typeIncludes( $ty, 'callback interface' ) ) {
+				$extraType = 'callable';
+			}
+			if ( $extraType ) {
 				if ( !$phpdoc ) {
 					return $n . "mixed";
 				}
-				return "$result|associative-array" . ( $n === '' ? '' : '|null' );
+				return "$result|$extraType" . ( $n === '' ? '' : '|null' );
 			}
 			return $n . $result;
 		}
@@ -450,7 +460,11 @@ class Generator {
 	private function emitCallbackInterface( array $def, callable $emit ): void {
 		$topName = $def['name'];
 		$this->firstLine( 'interface', $topName, $emit );
-		// XXX this should have an __invoke method
+		foreach ( $def['members'] as $m ) {
+			$this->emitMember( $topName, $m, $emit );
+		}
+		// XXX this should have a static cast(callable):$topName method
+		// XXX this should also have an __invoke method
 		$emit( '}' );
 	}
 
@@ -461,9 +475,13 @@ class Generator {
 	private function emitCallback( array $def, callable $emit ): void {
 		$topName = $def['name'];
 		$this->firstLine( 'interface', $topName, $emit );
-		$invoke = $this->nameMap["$topName:op:invoke"];
-		$emit( "public function $invoke();" ); // XXX should have args/types
-		// XXX this should have an __invoke method
+		$this->emitMemberOperation( $topName, [
+			'name' => '_invoke',
+			'idlType' => $def['idlType'],
+			'arguments' => $def['arguments'],
+		], $emit );
+		// XXX this should have a static cast(callable):$topName method
+		// XXX this should also have an __invoke method to make it callable
 		$emit( '}' );
 	}
 

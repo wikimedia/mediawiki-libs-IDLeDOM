@@ -6,4 +6,10 @@
 namespace Wikimedia\IDLeDOM;
 
 interface XPathNSResolver {
+	/**
+	 * @param ?string $prefix
+	 * @return ?string
+	 */
+	public function lookupNamespaceURI( ?string $prefix ) : ?string;
+
 }

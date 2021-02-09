@@ -161,17 +161,17 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	/**
 	 * @param Node $root
 	 * @param int $whatToShow
-	 * @param ?NodeFilter $filter
+	 * @param NodeFilter|callable|null $filter
 	 * @return NodeIterator
 	 */
-	public function createNodeIterator( Node $root, int $whatToShow = 0xFFFFFFFF, ?NodeFilter $filter = null ) : NodeIterator;
+	public function createNodeIterator( Node $root, int $whatToShow = 0xFFFFFFFF, ?mixed $filter = null ) : NodeIterator;
 
 	/**
 	 * @param Node $root
 	 * @param int $whatToShow
-	 * @param ?NodeFilter $filter
+	 * @param NodeFilter|callable|null $filter
 	 * @return TreeWalker
 	 */
-	public function createTreeWalker( Node $root, int $whatToShow = 0xFFFFFFFF, ?NodeFilter $filter = null ) : TreeWalker;
+	public function createTreeWalker( Node $root, int $whatToShow = 0xFFFFFFFF, ?mixed $filter = null ) : TreeWalker;
 
 }

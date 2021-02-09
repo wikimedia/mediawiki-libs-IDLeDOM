@@ -17,9 +17,9 @@ interface TreeWalker {
 	public function getWhatToShow() : int;
 
 	/**
-	 * @return ?NodeFilter
+	 * @return NodeFilter|callable|null
 	 */
-	public function getFilter() : ?NodeFilter;
+	public function getFilter() : ?mixed;
 
 	/**
 	 * @return Node
