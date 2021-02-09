@@ -7,9 +7,9 @@ namespace Wikimedia\IDLeDOM;
 
 interface ShadowRoot extends DocumentOrShadowRoot {
 	/**
-	 * @return ShadowRootMode
+	 * @return int
 	 */
-	public function getMode() : ShadowRootMode;
+	public function getMode() : int;
 
 	/**
 	 * @return Element

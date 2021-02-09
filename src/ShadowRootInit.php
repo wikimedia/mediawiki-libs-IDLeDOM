@@ -7,9 +7,9 @@ namespace Wikimedia\IDLeDOM;
 
 interface ShadowRootInit {
 	/**
-	 * @return ShadowRootMode
+	 * @return int
 	 */
-	public function getMode() : ShadowRootMode;
+	public function getMode() : int;
 
 	/**
 	 * @return bool

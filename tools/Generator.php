@@ -280,6 +280,9 @@ class Generator {
 			// An object type
 			$result = $ty['idlType'];
 			$extraType = null;
+			if ( $this->typeIncludes( $ty, 'enum' ) ) {
+				$result = 'int'; // enumerations are integers
+			}
 			if ( $this->typeIncludes( $ty, 'dictionary' ) ) {
 				$extraType = 'associative-array';
 			}
