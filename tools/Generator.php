@@ -217,13 +217,24 @@ class Generator {
 		return $allNames;
 	}
 
-	private function firstLine( string $type, string $topName, Emitter $e ):void {
-		$firstLine = "$type $topName";
-		$mixins = $this->mixins[$topName] ?? [];
-		if ( count( $mixins ) ) {
-			$firstLine .= " extends " . implode( ', ', $mixins );
-		}
-		$e->nl( "$firstLine {" );
+	/**
+	 * Returns the conflict-resolved PHP name of a member.
+	 * @param string $topName
+	 * @param string $type
+	 * @param string $name
+	 * @return string
+	 */
+	public function map( string $topName, string $type, string $name ): string {
+		return $this->nameMap[ "$topName:$type:$name" ];
+	}
+
+	/**
+	 * Return the set of mixins for an interface.
+	 * @param string $topName
+	 * @return array
+	 */
+	public function mixins( string $topName ): array {
+		return $this->mixins[ $topName ] ?? [];
 	}
 
 	private function typeIncludes( array $ty, string $which ) {
@@ -246,13 +257,25 @@ class Generator {
 		return $d && $d['type'] === $which;
 	}
 
-	private function typeToPHPDoc( array $ty, array $opts = [] ):string {
+	/**
+	 * Return the 'phan compatible' version of a type, for use in PHP doc.
+	 * @param array $ty The WebIDL AST type
+	 * @param array $opts Whether this is a return type, etc.
+	 * @return string
+	 */
+	public function typeToPHPDoc( array $ty, array $opts = [] ):string {
 		return $this->typeToPHP( $ty, [
 			'phpdoc' => true,
 		] + $opts );
 	}
 
-	private function typeToPHP( array $ty, array $opts = [] ):string {
+	/**
+	 * Return the 'PHP' version of a type, for use in type hints.
+	 * @param array $ty The WebIDL AST type
+	 * @param array $opts Whether this is a return type, etc.
+	 * @return string
+	 */
+	public function typeToPHP( array $ty, array $opts = [] ):string {
 		$phpdoc = $opts['phpdoc'] ?? false;
 		$n = ( $ty['nullable'] ?? false ) ? '?' : '';
 		if ( $ty['union'] ?? false ) {
@@ -341,7 +364,13 @@ class Generator {
 		}
 	}
 
-	private function valueToPHP( array $val, array $opts = [] ):string {
+	/**
+	 * Return the 'PHP' version of a value, for use in defaults/constants/etc.
+	 * @param array $val The WebIDL AST value
+	 * @param array $opts Options that may affect the conversion
+	 * @return string
+	 */
+	public function valueToPHP( array $val, array $opts = [] ):string {
 		switch ( $val['type'] ) {
 		case 'number':
 			return $val['value'];
@@ -355,174 +384,6 @@ class Generator {
 		return '<broken>';
 	}
 
-	private function emitMemberConstructor( string $topName, array $m, Emitter $e ) {
-	}
-
-	private function emitMemberAttribute( string $topName, array $m, Emitter $e ) {
-		// Getter
-		$attr = $m['name'];
-		$getter = $this->nameMap["$topName:get:$attr"];
-		$docType = $this->typeToPHPDoc( $m['idlType'] );
-		$phpType = $this->typeToPHP( $m['idlType'] );
-		$e->nl( '/**' );
-		$e->nl( " * @return $docType" );
-		$e->nl( ' */' );
-		$e->nl( "public function $getter() : $phpType;" );
-		if ( $m['readonly'] ?? false ) {
-			return;
-		}
-		$e->nl();
-		// Setter
-		$setter = $this->nameMap["$topName:set:$attr"];
-		$e->nl( '/**' );
-		$e->nl( " * @param $docType \$val" );
-		$e->nl( ' */' );
-		$e->nl( "public function $setter( $phpType \$val ) : void;" );
-	}
-
-	private function emitMemberOperation( string $topName, array $m, Emitter $e ) {
-		$special = $m['special'] ?? '';
-		if ( $special !== '' ) {
-			return; // XXX special methods not yet supported
-		}
-		$op = $m['name'];
-		$funcName = $this->nameMap["$topName:op:$op"];
-		$retTypeDoc = $this->typeToPHPDoc( $m['idlType'], [ 'returnType' => true ] );
-		$retType = $this->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
-		$paramDocs = [];
-		$phpArgs = [];
-		foreach ( $m['arguments'] as $a ) {
-			$v = ( $a['variadic'] ?? false ) ? '...' : '';
-			$ty = $a['idlType'];
-			$default = '';
-			if ( $a['optional'] ?? false ) {
-				// If a value is optional but has no default, then broaden the
-				// type to allow null and make the default null.
-				// Similarly for dictionary types, use null as the default.
-				if ( ( $a['default'] ?? null ) === null ||
-					( $a['default']['type'] ?? null ) === 'dictionary' ) {
-					$ty['nullable'] = true;
-					$default = ' = null';
-				} else {
-					$default = ' = ' . $this->valueToPHP( $a['default'] );
-				}
-			}
-			$paramDocs[] = $this->typeToPHPDoc( $ty ) .
-						" $v\$" . $a['name'];
-			$phpArgs[] = $this->typeToPHP( $ty ) .
-					  " $v\$" . $a['name'] . $default;
-		}
-		$phpArgs = count( $phpArgs ) ? ( ' ' . implode( ', ', $phpArgs ) . ' ' ) : '';
-
-		$e->nl( '/**' );
-		foreach ( $paramDocs as $a ) {
-			$e->nl( " * @param $a" );
-		}
-		$e->nl( " * @return $retTypeDoc" );
-		$e->nl( ' */' );
-		$e->nl( "public function $funcName($phpArgs) : $retType;" );
-	}
-
-	private function emitMemberConst( string $topName, array $m, Emitter $e ) {
-		$name = $m['name'];
-		$name = $this->nameMap["$topName:const:$name"];
-		$docType = $this->typeToPHPDoc( $m['idlType'] );
-		$val = $this->valueToPHP( $m['value'] );
-		$e->nl( "/** @var $docType */" );
-		$e->nl( "public const $name = $val;" );
-	}
-
-	private function emitMemberIterable( string $topName, array $m, Emitter $e ) {
-	}
-
-	private function emitMember( string $topName, array $m, Emitter $e ) {
-		if ( $this->options['skipLegacy'] ?? false ) {
-			foreach ( $m['trailingComments'] ?? [] as $c ) {
-				if ( preg_match( '|^// legacy|', $c ) ) {
-					return; // skip this legacy member
-				}
-			}
-		}
-		$methodName = 'emitMember' .
-			str_replace( ' ', '', ucwords( $m['type'] ) );
-		$this->$methodName( $topName, $m, $e );
-		$e->nl();
-	}
-
-	private function emitInterface( array $def, Emitter $e ): void {
-		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $e );
-		foreach ( $def['members'] as $m ) {
-			$this->emitMember( $topName, $m, $e );
-		}
-		$e->nl( '}' );
-	}
-
-	private function emitDictionary( array $def, Emitter $e ): void {
-		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $e );
-		foreach ( $def['members'] as $m ) {
-			// Treat as pseudo-attributes
-			$this->emitMemberAttribute( $topName, [
-				'readonly' => true,
-			] + $m, $e );
-			$e->nl();
-		}
-		$e->nl( '}' );
-	}
-
-	private function emitCallbackInterface( array $def, Emitter $e ): void {
-		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $e );
-		foreach ( $def['members'] as $m ) {
-			$this->emitMember( $topName, $m, $e );
-		}
-		// XXX this should have a static cast(callable):$topName method
-		// XXX this should also have an __invoke method
-		$e->nl( '}' );
-	}
-
-	private function emitInterfaceMixin( array $def, Emitter $e ): void {
-		$this->emitInterface( $def, $e );
-	}
-
-	private function emitCallback( array $def, Emitter $e ): void {
-		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $e );
-		$this->emitMemberOperation( $topName, [
-			'name' => '_invoke',
-			'idlType' => $def['idlType'],
-			'arguments' => $def['arguments'],
-		], $e );
-		// XXX this should have a static cast(callable):$topName method
-		// XXX this should also have an __invoke method to make it callable
-		$e->nl( '}' );
-	}
-
-	private function emitEnum( array $def, Emitter $e ): void {
-		$topName = $def['name'];
-		$this->firstLine( 'class', $topName, $e );
-		// Treat enumerations like interfaces with const members
-		$val = 0;
-		foreach ( $def['values'] as $m ) {
-			$name = $m['value'];
-			$name = $this->nameMap["$topName:const:$name"];
-			$e->nl( "public const $name = $val;" );
-			$val += 1;
-		}
-		$e->nl( '}' );
-	}
-
-	private function genOne( array $def ) : string {
-		$emitter = new Emitter();
-		$emitter->phpPrologue( 'Wikimedia\IDLeDOM' );
-
-		$methodName = 'emit' . str_replace( ' ', '', ucwords( $def['type'] ) );
-		$this->$methodName( $def, $emitter );
-
-		return (string)$emitter;
-	}
-
 	/**
 	 * Write out the generated interfaces to the given directory.
 	 * @param string $dir
@@ -530,8 +391,10 @@ class Generator {
 	public function write( string $dir ): void {
 		foreach ( $this->defs as $name => $def ) {
 			$filename = $dir . "/$name.php";
-			$out = $this->genOne( $def );
-			file_put_contents( $filename, $out );
+			$out = InterfaceBuilder::emit( $this, $def, $this->options );
+			if ( $out !== null ) {
+				file_put_contents( $filename, $out );
+			}
 		}
 	}
 
