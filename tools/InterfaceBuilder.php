@@ -2,6 +2,11 @@
 
 namespace Wikimedia\IDLeDOM\Tools;
 
+/**
+ * This class builds PHP interfaces. These are completely generic, and
+ * should be implemented by any DOM implementation compliant with our
+ * WebIDL mapping.
+ */
 class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
@@ -31,21 +36,29 @@ class InterfaceBuilder extends Builder {
 		$this->nl( "public function $setter( $phpType \$val ) : void;" );
 	}
 
-	/** @inheritDoc */
-	protected function emitMemberOperation( string $topName, string $name, array $m ) {
-		$special = $m['special'] ?? '';
-		if ( $special !== '' ) {
-			return; // XXX special methods not yet supported
-		}
-		$funcName = $this->map( $topName, 'op', $name );
-		$retTypeDoc = $this->gen->typeToPHPDoc( $m['idlType'], [ 'returnType' => true ] );
-		$retType = $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
+	/**
+	 * A helper method to compute argument types and properties for a
+	 * WebIDL operation.
+	 * @param Generator $gen
+	 * @param string $topName
+	 * @param string $name
+	 * @param array $m The WebIDL AST for the operation
+	 * @return array
+	 */
+	public static function memberOperationHelper( Generator $gen, string $topName, string $name, array $m ): array {
+		$funcName = $gen->map( $topName, 'op', $name );
+		$retTypeDoc = $gen->typeToPHPDoc( $m['idlType'], [ 'returnType' => true ] );
+		$retType = $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
 		$paramDocs = [];
 		$phpArgs = [];
+		$invokeArgs = [];
+		$castArgs = [];
+		$i = 0;
 		foreach ( $m['arguments'] as $a ) {
 			$v = ( $a['variadic'] ?? false ) ? '...' : '';
 			$ty = $a['idlType'];
-			$default = '';
+			$declareDefault = '';
+			$invokeDefault = '';
 			if ( $a['optional'] ?? false ) {
 				// If a value is optional but has no default, then broaden the
 				// type to allow null and make the default null.
@@ -53,25 +66,52 @@ class InterfaceBuilder extends Builder {
 				if ( ( $a['default'] ?? null ) === null ||
 					( $a['default']['type'] ?? null ) === 'dictionary' ) {
 					$ty['nullable'] = true;
-					$default = ' = null';
+					$declareDefault = ' = null';
+					$invokeDefault = ' ?? null';
 				} else {
-					$default = ' = ' . $this->gen->valueToPHP( $a['default'] );
+					$val = $gen->valueToPHP( $a['default'] );
+					$declareDefault = " = $val";
+					$invokeDefault = " ?? $val";
 				}
 			}
-			$paramDocs[] = $this->gen->typeToPHPDoc( $ty ) .
+			$paramDocs[] = $gen->typeToPHPDoc( $ty ) .
 						" $v\$" . $a['name'];
-			$phpArgs[] = $this->gen->typeToPHP( $ty ) .
-					  " $v\$" . $a['name'] . $default;
+			$phpArgs[] = $gen->typeToPHP( $ty ) .
+					  " $v\$" . $a['name'] . $declareDefault;
+			$invokeArgs[] = "\$args[$i]$invokeDefault";
+			$castArgs[] = $v . '$' . $a['name'];
+			$i++;
 		}
 		$phpArgs = count( $phpArgs ) ? ( ' ' . implode( ', ', $phpArgs ) . ' ' ) : '';
+		$invokeArgs = count( $invokeArgs ) ? ( ' ' . implode( ', ', $invokeArgs ) . ' ' ) : '';
+		$castArgs = count( $castArgs ) ? ( ' ' . implode( ', ', $castArgs ) . ' ' ) : '';
 
+		return [
+			'funcName' => $funcName,
+			'phpArgs' => $phpArgs,
+			'invokeArgs' => $invokeArgs,
+			'castArgs' => $castArgs,
+			'paramDocs' => $paramDocs,
+			'retType' => $retType,
+			'retTypeDoc' => $retTypeDoc,
+			'return' => ( $retType === 'void' ) ? '' : 'return ',
+		];
+	}
+
+	/** @inheritDoc */
+	protected function emitMemberOperation( string $topName, string $name, array $m ) {
+		$special = $m['special'] ?? '';
+		if ( $special !== '' ) {
+			return; // XXX special methods not yet supported
+		}
+		$r = self::memberOperationHelper( $this->gen, $topName, $name, $m );
 		$this->nl( '/**' );
-		foreach ( $paramDocs as $a ) {
+		foreach ( $r['paramDocs'] as $a ) {
 			$this->nl( " * @param $a" );
 		}
-		$this->nl( " * @return $retTypeDoc" );
+		$this->nl( " * @return {$r['retTypeDoc']}" );
 		$this->nl( ' */' );
-		$this->nl( "public function $funcName($phpArgs) : $retType;" );
+		$this->nl( "public function {$r['funcName']}({$r['phpArgs']}) : {$r['retType']};" );
 	}
 
 	/** @inheritDoc */

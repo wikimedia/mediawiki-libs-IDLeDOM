@@ -11,6 +11,8 @@ class Builder {
 	protected $options;
 	/** @var bool */
 	protected $skip = false;
+	/** @var array<string,bool> */
+	protected $used = [];
 
 	/**
 	 * Protected constructor, not for use outside the class.
@@ -47,8 +49,46 @@ class Builder {
 	 * @param string $name
 	 * @return string
 	 */
-	public function map( string $topName, string $type, string $name ): string {
+	protected function map( string $topName, string $type, string $name ): string {
 		return $this->gen->map( $topName, $type, $name );
+	}
+
+	/**
+	 * Helper method: record that a given type has been used.
+	 * @param array $ty WebIDL AST type
+	 */
+	protected function use( array $ty ):void {
+		if ( $ty['union'] ?? false ) {
+			foreach ( $ty['idlType'] as $subtype ) {
+				$this->use( $subtype );
+			}
+			return;
+		}
+		$generic = $ty['generic'] ?? '';
+		if ( $generic !== '' ) {
+			foreach ( $ty['idlType'] as $subtype ) {
+				$this->use( $subtype );
+			}
+			return;
+		}
+		$name = $ty['idlType'];
+		if ( $this->gen->def( $name ) !== null ) {
+			$this->used[$name] = true;
+		}
+	}
+
+	/**
+	 * Replace a marker with use statements, based on the contents of the
+	 * used array.
+	 * @param string $namespace The top-level namespace
+	 */
+	protected function addUseStatements( string $namespace ): void {
+		ksort( $this->used );
+		$useStmts = [];
+		foreach ( $this->used as $name => $ignore ) {
+			$useStmts[] = "use $namespace\\$name;";
+		}
+		$this->e->replaceMarker( 'UseStatements', ...$useStmts );
 	}
 
 	/**
@@ -178,8 +218,9 @@ class Builder {
 	 * @return ?string The output, or null to skip this definition.
 	 */
 	public static function emit( Generator $gen, array $def, array $options ): ?string {
-		$gen = new static( $gen, $options );
-		$gen->emitDefinition( $def );
-		return $gen->skip ? null : (string)$gen;
+		$b = new static( $gen, $options );
+		$b->emitDefinition( $def );
+		$b->addUseStatements( $options['namespace'] ?? 'Wikimedia\IDLeDOM' );
+		return $b->skip ? null : (string)$b;
 	}
 }

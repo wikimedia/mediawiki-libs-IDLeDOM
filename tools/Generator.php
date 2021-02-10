@@ -166,6 +166,7 @@ class Generator {
 		if ( $def['type'] === 'callback' ) {
 			// Callbacks have a synthetic 'invoke' method.
 			$this->nameMap["$topName:op:_invoke"] = $findName( "invoke" );
+			$this->nameMap["$topName:op:_cast"] = $findName( "cast" );
 			$done[$topName] = $allNames;
 			return $allNames;
 		}
@@ -235,6 +236,15 @@ class Generator {
 	 */
 	public function mixins( string $topName ): array {
 		return $this->mixins[ $topName ] ?? [];
+	}
+
+	/**
+	 * Look up a definition.
+	 * @param string $topName
+	 * @return ?array
+	 */
+	public function def( string $topName ): ?array {
+		return $this->defs[ $topName ] ?? null;
 	}
 
 	private function typeIncludes( array $ty, string $which ) {
@@ -390,8 +400,15 @@ class Generator {
 	 */
 	public function write( string $dir ): void {
 		foreach ( $this->defs as $name => $def ) {
+			// Interface
 			$filename = $dir . "/$name.php";
 			$out = InterfaceBuilder::emit( $this, $def, $this->options );
+			if ( $out !== null ) {
+				file_put_contents( $filename, $out );
+			}
+			// Trait
+			$filename = $dir . "/Stubs/$name.php";
+			$out = TraitBuilder::emit( $this, $def, $this->options );
 			if ( $out !== null ) {
 				file_put_contents( $filename, $out );
 			}

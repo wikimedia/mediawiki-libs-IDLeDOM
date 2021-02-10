@@ -30,6 +30,37 @@ class Emitter {
 	}
 
 	/**
+	 * Add a marker to the output which can be later replaced.
+	 * @param string $marker The name of the marker
+	 */
+	public function emitMarker( string $marker ): void {
+		$this->nl( "%MARKER%$marker%" );
+	}
+
+	/**
+	 * Replace a marker with the specified lines, indenting appropriately.
+	 * @param string $marker The name of the marker
+	 * @param string ...$replacement The replacement lines
+	 */
+	public function replaceMarker( string $marker, string ...$replacement ): void {
+		$needle = "%MARKER%$marker%";
+		$this->out = preg_replace_callback(
+			'/(^|\n)([\t]*)' . preg_quote( $needle, '/' ) . '\n/',
+			function ( $matches ) use ( $replacement ) {
+				$repl = [];
+				foreach ( $replacement as $s ) {
+					$repl[] = $matches[2] . $s;
+				}
+				if ( count( $repl ) === 0 ) {
+					return '';
+				}
+				return $matches[1] . implode( "\n", $repl ) . "\n";
+			},
+			$this->out
+		);
+	}
+
+	/**
 	 * Add a line of text to the output, terminated by a newline.
 	 * @param string $line
 	 */
@@ -45,7 +76,7 @@ class Emitter {
 			}
 			return;
 		}
-		if ( $line === '}' ) {
+		if ( substr( $line, 0, 1 ) === '}' ) {
 			$this->indentLevel -= 1;
 		}
 		if ( preg_match( '/^\s*$/', $line ) ) {
