@@ -35,6 +35,18 @@ trait NamedNodeMap {
 	abstract public function getLength() : int;
 
 	/**
+	 * @param int $index
+	 * @return ?Attr
+	 */
+	abstract public function item( int $index ) : ?Attr;
+
+	/**
+	 * @param string $qualifiedName
+	 * @return ?Attr
+	 */
+	abstract public function getNamedItem( string $qualifiedName ) : ?Attr;
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
@@ -98,17 +110,5 @@ trait NamedNodeMap {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @param int $index
-	 * @return ?Attr
-	 */
-	abstract public function item( int $index ) : ?Attr;
-
-	/**
-	 * @param string $qualifiedName
-	 * @return ?Attr
-	 */
-	abstract public function getNamedItem( string $qualifiedName ) : ?Attr;
 
 }

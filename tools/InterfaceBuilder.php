@@ -2,6 +2,8 @@
 
 namespace Wikimedia\IDLeDOM\Tools;
 
+use Wikimedia\Assert\Assert;
+
 /**
  * This class builds PHP interfaces. These are completely generic, and
  * should be implemented by any DOM implementation compliant with our
@@ -47,19 +49,42 @@ class InterfaceBuilder extends Builder {
 	public static function specialOperationHelper( Generator $gen, string $topName, array $def ) {
 		$specials = [];
 		foreach ( $def['members'] as $m ) {
-			if ( $m['type'] !== 'operation' ) {
-				continue;
-			}
 			$special = $m['special'] ?? '';
-			if ( $special !== '' && ( $m['name'] ?? '' ) === '' ) {
+			if ( $special === '' ) {
+				continue; // only interested in specials
+			}
+			if ( ( $m['name'] ?? '' ) === '' ) {
 				continue; // skip unnamed specials (for now)
 			}
-			$info = self::memberOperationHelper(
-				$gen, $topName, $m['name'], $m
-			);
-			$specials[$info['special']] = [ 'ast' => $m ] + $info;
+			if ( $m['type'] === 'attribute' ) {
+				Assert::invariant(
+					$special === 'stringifier', 'only stringifier supported'
+				);
+				$name = $m['name'];
+				$typeOpts = [
+					'returnType' => true,
+					'topName' => $topName,
+				];
+				$info = [
+					'funcName' => $gen->map( $topName, 'get', $name ),
+					'phpArgs' => '',
+					'invokeArgs' => '',
+					'castArgs' => '',
+					'paramDocs' => [],
+					'retType' => $gen->typeToPHP( $m['idlType'], $typeOpts ),
+					'retTypeDoc' => $gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
+					'return' => 'return ',
+					'special' => $special,
+				];
+				$specials[$info['special']] = [ 'ast' => $m ] + $info;
+			}
+			if ( $m['type'] === 'operation' ) {
+				$info = self::memberOperationHelper(
+					$gen, $topName, $m['name'], $m
+				);
+				$specials[$info['special']] = [ 'ast' => $m ] + $info;
+			}
 		}
-		unset( $specials[''] );
 		return $specials;
 	}
 

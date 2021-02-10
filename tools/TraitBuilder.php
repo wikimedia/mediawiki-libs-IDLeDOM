@@ -289,6 +289,45 @@ class TraitBuilder extends Builder {
 			$this->nl( '}' );
 			return;
 		}
+		// declarations of all the specials
+		foreach ( $specials as $s => $r ) {
+			// Record types used
+			$m = $r['ast'];
+			$this->use( $m['idlType'], $typeOpts );
+			foreach ( $m['arguments'] ?? [] as $a ) {
+				$this->use( $a['idlType'], $typeOpts );
+			}
+			if ( $m['type'] !== 'operation' ) {
+				continue;
+			}
+			// Emit abstract declaration
+			$this->nl( '/**' );
+			foreach ( $r['paramDocs'] as $a ) {
+				$this->nl( " * @param $a" );
+			}
+			$this->nl( " * @return {$r['retTypeDoc']}" );
+			$this->nl( ' */' );
+			$this->nl( "abstract public function {$r['funcName']}({$r['phpArgs']}){$r['retType']};" );
+			$this->nl();
+		}
+		// Handle stringifier first
+		$stringifier = $specials['stringifier'] ?? null;
+		if ( $stringifier ) {
+			$this->nl( '/**' );
+			$this->nl( ' * @return string' );
+			$this->nl( ' */' );
+			$this->nl( 'public function __toString() : string {' );
+			$this->nl( "return \$this->{$stringifier['funcName']}();" );
+			$this->nl( '}' );
+			$this->nl();
+			unset( $specials['stringifier'] );
+		}
+		if ( count( $specials ) === 0 ) {
+			$this->nl( '}' );
+			return;
+		}
+
+		// Now ArrayAccess
 		$this->nl( '/**' );
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' * @return bool' );
@@ -370,24 +409,6 @@ class TraitBuilder extends Builder {
 		$this->nl( '}' );
 		$this->nl();
 
-		// declarations of all the specials
-		foreach ( $specials as $s => $r ) {
-			// Record types used
-			$m = $r['ast'];
-			$this->use( $m['idlType'], $typeOpts );
-			foreach ( $m['arguments'] as $a ) {
-				$this->use( $a['idlType'], $typeOpts );
-			}
-			// Emit abstract declaration
-			$this->nl( '/**' );
-			foreach ( $r['paramDocs'] as $a ) {
-				$this->nl( " * @param $a" );
-			}
-			$this->nl( " * @return {$r['retTypeDoc']}" );
-			$this->nl( ' */' );
-			$this->nl( "abstract public function {$r['funcName']}({$r['phpArgs']}){$r['retType']};" );
-			$this->nl();
-		}
 		$this->nl( '}' );
 	}
 

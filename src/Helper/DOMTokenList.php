@@ -66,6 +66,19 @@ trait DOMTokenList {
 	abstract public function setValue( string $value ) : void;
 
 	/**
+	 * @param int $index
+	 * @return ?string
+	 */
+	abstract public function item( int $index ) : ?string;
+
+	/**
+	 * @return string
+	 */
+	public function __toString() : string {
+		return $this->getValue();
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
@@ -129,11 +142,5 @@ trait DOMTokenList {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @param int $index
-	 * @return ?string
-	 */
-	abstract public function item( int $index ) : ?string;
 
 }

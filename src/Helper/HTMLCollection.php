@@ -35,6 +35,18 @@ trait HTMLCollection {
 	abstract public function getLength() : int;
 
 	/**
+	 * @param int $index
+	 * @return ?Element
+	 */
+	abstract public function item( int $index ) : ?Element;
+
+	/**
+	 * @param string $name
+	 * @return ?Element
+	 */
+	abstract public function namedItem( string $name ) : ?Element;
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
@@ -98,17 +110,5 @@ trait HTMLCollection {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @param int $index
-	 * @return ?Element
-	 */
-	abstract public function item( int $index ) : ?Element;
-
-	/**
-	 * @param string $name
-	 * @return ?Element
-	 */
-	abstract public function namedItem( string $name ) : ?Element;
 
 }

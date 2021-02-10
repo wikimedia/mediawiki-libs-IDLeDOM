@@ -35,6 +35,12 @@ trait NodeList {
 	abstract public function getLength() : int;
 
 	/**
+	 * @param int $index
+	 * @return ?Node
+	 */
+	abstract public function item( int $index ) : ?Node;
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
@@ -98,11 +104,5 @@ trait NodeList {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @param int $index
-	 * @return ?Node
-	 */
-	abstract public function item( int $index ) : ?Node;
 
 }
