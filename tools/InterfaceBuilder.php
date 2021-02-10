@@ -38,6 +38,32 @@ class InterfaceBuilder extends Builder {
 	}
 
 	/**
+	 * A helper method to find the special operations among the members.
+	 * @param Generator $gen
+	 * @param string $topName
+	 * @param array $def WebIDL AST definition
+	 * @return array
+	 */
+	public static function specialOperationHelper( Generator $gen, string $topName, array $def ) {
+		$specials = [];
+		foreach ( $def['members'] as $m ) {
+			if ( $m['type'] !== 'operation' ) {
+				continue;
+			}
+			$special = $m['special'] ?? '';
+			if ( $special !== '' && ( $m['name'] ?? '' ) === '' ) {
+				continue; // skip unnamed specials (for now)
+			}
+			$info = self::memberOperationHelper(
+				$gen, $topName, $m['name'], $m
+			);
+			$specials[$info['special']] = [ 'ast' => $m ] + $info;
+		}
+		unset( $specials[''] );
+		return $specials;
+	}
+
+	/**
 	 * A helper method to compute argument types and properties for a
 	 * WebIDL operation.
 	 * @param Generator $gen
@@ -88,6 +114,14 @@ class InterfaceBuilder extends Builder {
 		$invokeArgs = count( $invokeArgs ) ? ( ' ' . implode( ', ', $invokeArgs ) . ' ' ) : '';
 		$castArgs = count( $castArgs ) ? ( ' ' . implode( ', ', $castArgs ) . ' ' ) : '';
 
+		$special = $m['special'] ?? '';
+		if ( $special === 'getter' || $special === 'setter' || $special === 'deleter' ) {
+			if ( preg_match( '/^ int /', $phpArgs ) ) {
+				$special = "indexed $special";
+			} else {
+				$special = "named $special";
+			}
+		}
 		return [
 			'funcName' => $funcName,
 			'phpArgs' => $phpArgs,
@@ -97,14 +131,21 @@ class InterfaceBuilder extends Builder {
 			'retType' => $retType,
 			'retTypeDoc' => $retTypeDoc,
 			'return' => ( $retType === ' : void' ) ? '' : 'return ',
+			'special' => $special,
 		];
 	}
 
 	/** @inheritDoc */
 	protected function emitMemberOperation( string $topName, string $name, array $m ) {
+		// Special operations are added to the interface as ordinary
+		// methods.  The "special" behavior is implemented by the
+		// helper trait.
 		$special = $m['special'] ?? '';
-		if ( $special !== '' ) {
-			return; // XXX special methods not yet supported
+		if ( $special !== '' && ( $m['name'] ?? '' ) === '' ) {
+			// If the identifier is missing, then omit the method from
+			// the interface; we'll handle this special case in the
+			// helper trait.
+			return;
 		}
 		$r = self::memberOperationHelper( $this->gen, $topName, $name, $m );
 		$this->nl( '/**' );
@@ -132,7 +173,7 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitInterface( string $topName, array $def ): void {
-		$this->firstLine( 'interface', $topName );
+		$this->firstLine( 'interface', $topName, $def );
 		foreach ( $def['members'] as $m ) {
 			$this->emitMember( $topName, $m );
 		}
@@ -144,7 +185,7 @@ class InterfaceBuilder extends Builder {
 		// Only the top-level dictionary needs to extend \ArrayAccess;
 		// child classes will pick it up from the parent.
 		$extendArray = ( $def['inheritance'] ?? null ) === null;
-		$this->firstLine( 'interface', $topName, $extendArray );
+		$this->firstLine( 'interface', $topName, $def );
 		foreach ( $def['members'] as $m ) {
 			// Treat as pseudo-attributes
 			$this->emitMemberAttribute( $topName, $m['name'], [
@@ -157,7 +198,7 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitCallbackInterface( string $topName, array $def ): void {
-		$this->firstLine( 'interface', $topName );
+		$this->firstLine( 'interface', $topName, $def );
 		foreach ( $def['members'] as $m ) {
 			$this->emitMember( $topName, $m );
 		}
@@ -172,7 +213,7 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitCallback( string $topName, array $def ): void {
-		$this->firstLine( 'interface', $topName );
+		$this->firstLine( 'interface', $topName, $def );
 		$this->emitMemberOperation( $topName, '_invoke', [
 			'idlType' => $def['idlType'],
 			'arguments' => $def['arguments'],
@@ -183,7 +224,7 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitEnum( string $topName, array $def ): void {
-		$this->firstLine( 'class', $topName );
+		$this->firstLine( 'class', $topName, $def );
 		// Treat enumerations like interfaces with const members
 		$val = 0;
 		foreach ( $def['values'] as $m ) {
@@ -199,13 +240,30 @@ class InterfaceBuilder extends Builder {
 	 * Helper method: generates a typical class/interface start.
 	 * @param string $type Class/interface/etc
 	 * @param string $topName The class name
-	 * @param bool $extendArray Whther the interface should extend \ArrayAccess
+	 * @param array $def WebIDL AST definition
 	 */
-	protected function firstLine( string $type, string $topName, bool $extendArray = false ): void {
+	protected function firstLine( string $type, string $topName, array $def ): void {
 		$this->e->phpPrologue( 'Wikimedia\IDLeDOM' );
 
 		$firstLine = "$type $topName";
 		$mixins = $this->gen->mixins( $topName );
+		$extendArray = false;
+		// Top level dictionaries extend \ArrayAccess
+		if (
+			$def['type'] === 'dictionary' &&
+			( $def['inheritance'] ?? null ) === null
+		) {
+			$extendArray = true;
+		}
+		// If there's a getter, it should also extend \ArrayAccess
+		foreach ( $def['members'] ?? [] as $m ) {
+			if (
+				$m['type'] === 'operation' &&
+				( $m['special'] ?? '' ) === 'getter'
+			) {
+				$extendArray = true;
+			}
+		}
 		if ( $extendArray ) {
 			$mixins[] = '\ArrayAccess';
 		}

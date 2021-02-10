@@ -5,7 +5,12 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface NodeList {
+interface NodeList extends \ArrayAccess {
+	/**
+	 * @param int $index
+	 * @return ?Node
+	 */
+	public function item( int $index ) : ?Node;
 
 	/**
 	 * @return int

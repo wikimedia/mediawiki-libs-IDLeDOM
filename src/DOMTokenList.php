@@ -5,11 +5,17 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface DOMTokenList {
+interface DOMTokenList extends \ArrayAccess {
 	/**
 	 * @return int
 	 */
 	public function getLength() : int;
+
+	/**
+	 * @param int $index
+	 * @return ?string
+	 */
+	public function item( int $index ) : ?string;
 
 	/**
 	 * @param string $token

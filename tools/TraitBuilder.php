@@ -280,7 +280,125 @@ class TraitBuilder extends Builder {
 		$this->firstLine( $topName );
 		$this->emitGetterSetter( $topName, $attrs, $typeOpts );
 
+		// If there's a getter or setter, then we need to implement
+		// \ArrayAccess as well.
+		$specials = InterfaceBuilder::specialOperationHelper(
+			$this->gen, $topName, $def
+		);
+		if ( count( $specials ) === 0 ) {
+			$this->nl( '}' );
+			return;
+		}
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' * @return bool' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetExists( $offset ): bool {' );
+		$this->nl( 'return $this->offsetGet( $offset ) !== null;' );
 		$this->nl( '}' );
+		$this->nl();
+
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' * @return mixed' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetGet( $offset ) {' );
+		$this->nl( 'if ( is_numeric( $offset ) ) {' );
+		$getter = $specials['indexed getter'] ?? null;
+		if ( $getter ) {
+			$this->nl( "return \$this->{$getter['funcName']}( \$offset );" );
+		} else {
+			$this->nl( '/* Fall through */' );
+		}
+		$this->nl( '} elseif ( is_string( $offset ) ) {' );
+		$getter = $specials['named getter'] ?? null;
+		if ( $getter ) {
+			$this->nl( "return \$this->{$getter['funcName']}( \$offset );" );
+		} else {
+			$this->nl( '/* Fall through */' );
+		}
+		$this->nl( '}' );
+		$this->triggerError( 'offsetGet', 'offset' );
+		$this->nl( 'return null;' );
+		$this->nl( '}' );
+		$this->nl();
+
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' * @param mixed $value' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetSet( $offset, $value ) : void {' );
+		$this->nl( 'if ( is_numeric( $offset ) ) {' );
+		$setter = $specials['indexed setter'] ?? null;
+		if ( $setter ) {
+			$this->nl( "\$this->{$setter['funcName']}( \$offset, \$value );" );
+		} else {
+			$this->nl( '/* Fall through */' );
+		}
+		$this->nl( '} elseif ( is_string( $offset ) ) {' );
+		$setter = $specials['named setter'] ?? null;
+		if ( $setter ) {
+			$this->nl( "\$this->{$setter['funcName']}( \$offset, \$value );" );
+		} else {
+			$this->nl( '/* Fall through */' );
+		}
+		$this->nl( '}' );
+		$this->triggerError( 'offsetSet', 'offset' );
+		$this->nl( '}' );
+		$this->nl();
+
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetUnset( $offset ) : void {' );
+		$this->nl( 'if ( is_numeric( $offset ) ) {' );
+		$deleter = $specials['indexed deleter'] ?? null;
+		if ( $deleter ) {
+			$this->nl( "\$this->{$deleter['funcName']}( \$offset );" );
+		} else {
+			$this->nl( '/* Fall through */' );
+		}
+		$this->nl( '} elseif ( is_string( $offset ) ) {' );
+		$deleter = $specials['named deleter'] ?? null;
+		if ( $deleter ) {
+			$this->nl( "\$this->{$deleter['funcName']}( \$offset );" );
+		} else {
+			$this->nl( '/* Fall through */' );
+		}
+		$this->nl( '}' );
+		$this->triggerError( 'offsetUnset', 'offset' );
+		$this->nl( '}' );
+		$this->nl();
+
+		// declarations of all the specials
+		foreach ( $specials as $s => $r ) {
+			// Record types used
+			$m = $r['ast'];
+			$this->use( $m['idlType'], $typeOpts );
+			foreach ( $m['arguments'] as $a ) {
+				$this->use( $a['idlType'], $typeOpts );
+			}
+			// Emit abstract declaration
+			$this->nl( '/**' );
+			foreach ( $r['paramDocs'] as $a ) {
+				$this->nl( " * @param $a" );
+			}
+			$this->nl( " * @return {$r['retTypeDoc']}" );
+			$this->nl( ' */' );
+			$this->nl( "abstract public function {$r['funcName']}({$r['phpArgs']}){$r['retType']};" );
+			$this->nl();
+		}
+		$this->nl( '}' );
+	}
+
+	private function triggerError( string $method, string $var ) {
+		$this->nl( '$trace = debug_backtrace();' );
+		$this->nl( 'trigger_error(' );
+		$this->nl( "\t'Undefined property via {$method}(): ' . \${$var} ." );
+		$this->nl( "\t' in ' . \$trace[0]['file'] ." );
+		$this->nl( "\t' on line ' . \$trace[0]['line']," );
+		$this->nl( "\tE_USER_NOTICE" );
+		$this->nl( ');' );
 	}
 
 	private function emitGetterSetter( string $topName, array $attrs, array $typeOpts ): void {
@@ -308,13 +426,7 @@ class TraitBuilder extends Builder {
 		$this->nl( 'default:' );
 		$this->nl( "\tbreak;" );
 		$this->nl( '}' );
-		$this->nl( '$trace = debug_backtrace();' );
-		$this->nl( 'trigger_error(' );
-		$this->nl( "\t'Undefined property via __get(): ' . \$name ." );
-		$this->nl( "\t' in ' . \$trace[0]['file'] ." );
-		$this->nl( "\t' on line ' . \$trace[0]['line']," );
-		$this->nl( "\tE_USER_NOTICE" );
-		$this->nl( ');' );
+		$this->triggerError( '__get', 'name' );
 		$this->nl( 'return null;' );
 		$this->nl( '}' );
 		$this->nl();
@@ -340,13 +452,7 @@ class TraitBuilder extends Builder {
 			$this->nl( 'default:' );
 			$this->nl( "\tbreak;" );
 			$this->nl( '}' );
-			$this->nl( '$trace = debug_backtrace();' );
-			$this->nl( 'trigger_error(' );
-			$this->nl( "\t'Undefined property via __set(): ' . \$name ." );
-			$this->nl( "\t' in ' . \$trace[0]['file'] ." );
-			$this->nl( "\t' on line ' . \$trace[0]['line']," );
-			$this->nl( "\tE_USER_NOTICE" );
-			$this->nl( ');' );
+			$this->triggerError( '__set', 'name' );
 			$this->nl( '}' );
 			$this->nl();
 		}

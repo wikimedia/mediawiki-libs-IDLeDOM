@@ -66,8 +66,8 @@ class StubBuilder extends Builder {
 	protected function emitMemberOperation( string $topName, string $name, array $m ) {
 		$typeOpts = [ 'topName' => $topName ];
 		$special = $m['special'] ?? '';
-		if ( $special !== '' ) {
-			return; // XXX special methods not yet supported
+		if ( $special !== '' && ( $m['name'] ?? '' ) === '' ) {
+			return; // Unnamed specials handled by the helper trait
 		}
 		$r = InterfaceBuilder::memberOperationHelper( $this->gen, $topName, $name, $m );
 		// Record types used, so we can generate proper import statements

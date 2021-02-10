@@ -5,11 +5,23 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface NamedNodeMap {
+interface NamedNodeMap extends \ArrayAccess {
 	/**
 	 * @return int
 	 */
 	public function getLength() : int;
+
+	/**
+	 * @param int $index
+	 * @return ?Attr
+	 */
+	public function item( int $index ) : ?Attr;
+
+	/**
+	 * @param string $qualifiedName
+	 * @return ?Attr
+	 */
+	public function getNamedItem( string $qualifiedName ) : ?Attr;
 
 	/**
 	 * @param ?string $namespace

@@ -20,6 +20,14 @@ trait DOMTokenList {
 	}
 
 	/**
+	 * @param int $index
+	 * @return ?string
+	 */
+	public function item( int $index ) : ?string {
+		throw self::unimplemented();
+	}
+
+	/**
 	 * @param string $token
 	 * @return bool
 	 */

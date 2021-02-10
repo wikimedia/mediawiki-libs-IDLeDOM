@@ -22,6 +22,22 @@ trait NamedNodeMap {
 	}
 
 	/**
+	 * @param int $index
+	 * @return ?Attr
+	 */
+	public function item( int $index ) : ?Attr {
+		throw self::unimplemented();
+	}
+
+	/**
+	 * @param string $qualifiedName
+	 * @return ?Attr
+	 */
+	public function getNamedItem( string $qualifiedName ) : ?Attr {
+		throw self::unimplemented();
+	}
+
+	/**
 	 * @param ?string $namespace
 	 * @param string $localName
 	 * @return ?Attr
