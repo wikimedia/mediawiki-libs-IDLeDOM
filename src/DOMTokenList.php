@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface DOMTokenList extends \ArrayAccess {
+interface DOMTokenList extends \ArrayAccess, \IteratorAggregate {
 	/**
 	 * @return int
 	 */
@@ -64,5 +64,10 @@ interface DOMTokenList extends \ArrayAccess {
 	 * @param string $val
 	 */
 	public function setValue( string $val ) : void;
+
+	/**
+	 * @return \Iterator<string>
+	 */
+	public function getIterator();
 
 }

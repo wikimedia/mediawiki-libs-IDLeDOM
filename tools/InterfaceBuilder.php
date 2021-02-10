@@ -193,7 +193,12 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitMemberIterable( string $topName, string $name, array $m ) {
-		/* not yet implemented */
+		$iteratorName = $this->map( $topName, 'op', '_iterable' );
+		$docType = $this->gen->typeToPHPDoc( $m['idlType'][0] );
+		$this->nl( '/**' );
+		$this->nl( " * @return \\Iterator<$docType>" );
+		$this->nl( ' */' );
+		$this->nl( "public function $iteratorName();" );
 	}
 
 	/** @inheritDoc */
@@ -273,6 +278,7 @@ class InterfaceBuilder extends Builder {
 		$firstLine = "$type $topName";
 		$mixins = $this->gen->mixins( $topName );
 		$extendArray = false;
+		$extendIterator = false;
 		// Top level dictionaries extend \ArrayAccess
 		if (
 			$def['type'] === 'dictionary' &&
@@ -281,6 +287,7 @@ class InterfaceBuilder extends Builder {
 			$extendArray = true;
 		}
 		// If there's a getter, it should also extend \ArrayAccess
+		// If there's an iterable, it should extend IteratorAggregate
 		foreach ( $def['members'] ?? [] as $m ) {
 			if (
 				$m['type'] === 'operation' &&
@@ -288,9 +295,15 @@ class InterfaceBuilder extends Builder {
 			) {
 				$extendArray = true;
 			}
+			if ( $m['type'] === 'iterable' ) {
+				$extendIterator = true;
+			}
 		}
 		if ( $extendArray ) {
 			$mixins[] = '\ArrayAccess';
+		}
+		if ( $extendIterator ) {
+			$mixins[] = '\IteratorAggregate';
 		}
 		if ( count( $mixins ) ) {
 			$firstLine .= " extends " . implode( ', ', $mixins );

@@ -63,6 +63,19 @@ class StubBuilder extends Builder {
 	}
 
 	/** @inheritDoc */
+	protected function emitMemberIterable( string $topName, string $name, array $m ) {
+		$typeOpts = [ 'topName' => $topName ];
+		$iteratorName = $this->map( $topName, 'op', '_iterable' );
+		$docType = $this->gen->typeToPHPDoc( $m['idlType'][0], $typeOpts );
+		$this->nl( '/**' );
+		$this->nl( " * @return \\Iterator<$docType>" );
+		$this->nl( ' */' );
+		$this->nl( "public function $iteratorName() {" );
+		$this->nl( 'throw self::unimplemented();' );
+		$this->nl( '}' );
+	}
+
+	/** @inheritDoc */
 	protected function emitMemberOperation( string $topName, string $name, array $m ) {
 		$typeOpts = [ 'topName' => $topName ];
 		$special = $m['special'] ?? '';

@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface NodeList extends \ArrayAccess {
+interface NodeList extends \ArrayAccess, \IteratorAggregate {
 	/**
 	 * @param int $index
 	 * @return ?Node
@@ -16,5 +16,10 @@ interface NodeList extends \ArrayAccess {
 	 * @return int
 	 */
 	public function getLength() : int;
+
+	/**
+	 * @return \Iterator<Node>
+	 */
+	public function getIterator();
 
 }

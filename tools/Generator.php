@@ -162,7 +162,8 @@ class Generator {
 		foreach ( self::RESERVED_NAMES as $n ) {
 			$used[$n] = true;
 		}
-		$findName = function ( $n ) use ( &$used, &$allNames ) {
+		$findName = function ( $n, $builtin = false ) use ( &$used, &$allNames ) {
+			$origName = $n;
 			if ( $used[$n] ?? false ) {
 				for ( $i = 1; ; $i++ ) {
 					$n2 = "idl" . str_repeat( '_', $i ) . $n;
@@ -175,6 +176,12 @@ class Generator {
 			Assert::invariant( !( $used[$n] ?? false ), "$n should be unused" );
 			$used[$n] = true;
 			$allNames[] = $n;
+			if ( $builtin ) {
+				Assert::invariant(
+					$n === $origName,
+					"Name conflict for built-in method $origName"
+				);
+			}
 			return $n;
 		};
 		// If there are mixins, resolve names in the mixins first
@@ -192,7 +199,7 @@ class Generator {
 			// names. (Subclasses get it from the parent.)
 			$aa = [ 'offsetExists','offsetGet','offsetSet','offsetUnset' ];
 			foreach ( $aa as $name ) {
-				$this->nameMap["$topName:op:_$name"] = $findName( $name );
+				$this->nameMap["$topName:op:_$name"] = $findName( $name, true );
 			}
 		}
 		if ( $def['type'] === 'callback' ) {
@@ -215,6 +222,12 @@ class Generator {
 			array_key_exists( 'members', $def ),
 			"$topName doesn't have members!"
 		);
+		// Reserve `getIterator` for iterables
+		foreach ( $def['members'] as $m ) {
+			if ( $m['type'] === 'iterable' ) {
+				$this->nameMap["$topName:op:_iterable"] = $findName( 'getIterator', true );
+			}
+		}
 		// First resolve constants
 		foreach ( $def['members'] as $m ) {
 			if ( $m['type'] === 'const' ) {

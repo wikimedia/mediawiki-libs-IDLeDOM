@@ -91,4 +91,11 @@ trait DOMTokenList {
 		throw self::unimplemented();
 	}
 
+	/**
+	 * @return \Iterator<string>
+	 */
+	public function getIterator() {
+		throw self::unimplemented();
+	}
+
 }

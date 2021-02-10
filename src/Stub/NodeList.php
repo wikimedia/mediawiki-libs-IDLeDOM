@@ -29,4 +29,11 @@ trait NodeList {
 		throw self::unimplemented();
 	}
 
+	/**
+	 * @return \Iterator<Node>
+	 */
+	public function getIterator() {
+		throw self::unimplemented();
+	}
+
 }
