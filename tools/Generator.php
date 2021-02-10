@@ -217,13 +217,13 @@ class Generator {
 		return $allNames;
 	}
 
-	private function firstLine( string $type, string $topName, callable $emit ):void {
+	private function firstLine( string $type, string $topName, Emitter $e ):void {
 		$firstLine = "$type $topName";
 		$mixins = $this->mixins[$topName] ?? [];
 		if ( count( $mixins ) ) {
 			$firstLine .= " extends " . implode( ', ', $mixins );
 		}
-		$emit( "$firstLine {" );
+		$e->nl( "$firstLine {" );
 	}
 
 	private function typeIncludes( array $ty, string $which ) {
@@ -355,32 +355,32 @@ class Generator {
 		return '<broken>';
 	}
 
-	private function emitMemberConstructor( string $topName, array $m, callable $emit ) {
+	private function emitMemberConstructor( string $topName, array $m, Emitter $e ) {
 	}
 
-	private function emitMemberAttribute( string $topName, array $m, callable $emit ) {
+	private function emitMemberAttribute( string $topName, array $m, Emitter $e ) {
 		// Getter
 		$attr = $m['name'];
 		$getter = $this->nameMap["$topName:get:$attr"];
 		$docType = $this->typeToPHPDoc( $m['idlType'] );
 		$phpType = $this->typeToPHP( $m['idlType'] );
-		$emit( '/**' );
-		$emit( " * @return $docType" );
-		$emit( ' */' );
-		$emit( "public function $getter() : $phpType;" );
+		$e->nl( '/**' );
+		$e->nl( " * @return $docType" );
+		$e->nl( ' */' );
+		$e->nl( "public function $getter() : $phpType;" );
 		if ( $m['readonly'] ?? false ) {
 			return;
 		}
-		$emit( '' );
+		$e->nl();
 		// Setter
 		$setter = $this->nameMap["$topName:set:$attr"];
-		$emit( '/**' );
-		$emit( " * @param $docType \$val" );
-		$emit( ' */' );
-		$emit( "public function $setter( $phpType \$val ) : void;" );
+		$e->nl( '/**' );
+		$e->nl( " * @param $docType \$val" );
+		$e->nl( ' */' );
+		$e->nl( "public function $setter( $phpType \$val ) : void;" );
 	}
 
-	private function emitMemberOperation( string $topName, array $m, callable $emit ) {
+	private function emitMemberOperation( string $topName, array $m, Emitter $e ) {
 		$special = $m['special'] ?? '';
 		if ( $special !== '' ) {
 			return; // XXX special methods not yet supported
@@ -414,28 +414,28 @@ class Generator {
 		}
 		$phpArgs = count( $phpArgs ) ? ( ' ' . implode( ', ', $phpArgs ) . ' ' ) : '';
 
-		$emit( '/**' );
+		$e->nl( '/**' );
 		foreach ( $paramDocs as $a ) {
-			$emit( " * @param $a" );
+			$e->nl( " * @param $a" );
 		}
-		$emit( " * @return $retTypeDoc" );
-		$emit( ' */' );
-		$emit( "public function $funcName($phpArgs) : $retType;" );
+		$e->nl( " * @return $retTypeDoc" );
+		$e->nl( ' */' );
+		$e->nl( "public function $funcName($phpArgs) : $retType;" );
 	}
 
-	private function emitMemberConst( string $topName, array $m, callable $emit ) {
+	private function emitMemberConst( string $topName, array $m, Emitter $e ) {
 		$name = $m['name'];
 		$name = $this->nameMap["$topName:const:$name"];
 		$docType = $this->typeToPHPDoc( $m['idlType'] );
 		$val = $this->valueToPHP( $m['value'] );
-		$emit( "/** @var $docType */" );
-		$emit( "public const $name = $val;" );
+		$e->nl( "/** @var $docType */" );
+		$e->nl( "public const $name = $val;" );
 	}
 
-	private function emitMemberIterable( string $topName, array $m, callable $emit ) {
+	private function emitMemberIterable( string $topName, array $m, Emitter $e ) {
 	}
 
-	private function emitMember( string $topName, array $m, callable $emit ) {
+	private function emitMember( string $topName, array $m, Emitter $e ) {
 		if ( $this->options['skipLegacy'] ?? false ) {
 			foreach ( $m['trailingComments'] ?? [] as $c ) {
 				if ( preg_match( '|^// legacy|', $c ) ) {
@@ -445,108 +445,82 @@ class Generator {
 		}
 		$methodName = 'emitMember' .
 			str_replace( ' ', '', ucwords( $m['type'] ) );
-		$this->$methodName( $topName, $m, $emit );
-		$emit( '' );
+		$this->$methodName( $topName, $m, $e );
+		$e->nl();
 	}
 
-	private function emitInterface( array $def, callable $emit ): void {
+	private function emitInterface( array $def, Emitter $e ): void {
 		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $emit );
+		$this->firstLine( 'interface', $topName, $e );
 		foreach ( $def['members'] as $m ) {
-			$this->emitMember( $topName, $m, $emit );
+			$this->emitMember( $topName, $m, $e );
 		}
-		$emit( '}' );
+		$e->nl( '}' );
 	}
 
-	private function emitDictionary( array $def, callable $emit ): void {
+	private function emitDictionary( array $def, Emitter $e ): void {
 		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $emit );
+		$this->firstLine( 'interface', $topName, $e );
 		foreach ( $def['members'] as $m ) {
 			// Treat as pseudo-attributes
 			$this->emitMemberAttribute( $topName, [
 				'readonly' => true,
-			] + $m, $emit );
-			$emit( '' );
+			] + $m, $e );
+			$e->nl();
 		}
-		$emit( '}' );
+		$e->nl( '}' );
 	}
 
-	private function emitCallbackInterface( array $def, callable $emit ): void {
+	private function emitCallbackInterface( array $def, Emitter $e ): void {
 		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $emit );
+		$this->firstLine( 'interface', $topName, $e );
 		foreach ( $def['members'] as $m ) {
-			$this->emitMember( $topName, $m, $emit );
+			$this->emitMember( $topName, $m, $e );
 		}
 		// XXX this should have a static cast(callable):$topName method
 		// XXX this should also have an __invoke method
-		$emit( '}' );
+		$e->nl( '}' );
 	}
 
-	private function emitInterfaceMixin( array $def, callable $emit ): void {
-		$this->emitInterface( $def, $emit );
+	private function emitInterfaceMixin( array $def, Emitter $e ): void {
+		$this->emitInterface( $def, $e );
 	}
 
-	private function emitCallback( array $def, callable $emit ): void {
+	private function emitCallback( array $def, Emitter $e ): void {
 		$topName = $def['name'];
-		$this->firstLine( 'interface', $topName, $emit );
+		$this->firstLine( 'interface', $topName, $e );
 		$this->emitMemberOperation( $topName, [
 			'name' => '_invoke',
 			'idlType' => $def['idlType'],
 			'arguments' => $def['arguments'],
-		], $emit );
+		], $e );
 		// XXX this should have a static cast(callable):$topName method
 		// XXX this should also have an __invoke method to make it callable
-		$emit( '}' );
+		$e->nl( '}' );
 	}
 
-	private function emitEnum( array $def, callable $emit ): void {
+	private function emitEnum( array $def, Emitter $e ): void {
 		$topName = $def['name'];
-		$this->firstLine( 'class', $topName, $emit );
+		$this->firstLine( 'class', $topName, $e );
 		// Treat enumerations like interfaces with const members
 		$val = 0;
 		foreach ( $def['values'] as $m ) {
 			$name = $m['value'];
 			$name = $this->nameMap["$topName:const:$name"];
-			$emit( "public const $name = $val;" );
+			$e->nl( "public const $name = $val;" );
 			$val += 1;
 		}
-		$emit( '}' );
+		$e->nl( '}' );
 	}
 
 	private function genOne( array $def ) : string {
-		$out = '';
-		$indentLevel = 0;
-		$wasNL = false;
-		$emit = function ( $s ) use( &$out, &$indentLevel, &$wasNL ) {
-			if ( $s === '}' ) {
-				$indentLevel -= 1;
-			}
-			if ( preg_match( '/^\s*$/', $s ) ) {
-				if ( !$wasNL ) {
-					$out .= "\n";
-					$wasNL = true;
-				}
-			} else {
-				$out .= str_repeat( "\t", $indentLevel ) . $s . "\n";
-				$wasNL = false;
-			}
-			if ( substr( $s, -1 ) === '{' ) {
-				$indentLevel += 1;
-			}
-		};
-
-		$emit( '<?php' );
-		$emit( '' );
-		$emit( '// AUTOMATICALLY GENERATED.  DO NOT EDIT.' );
-		$emit( '// Use `composer build` to regenerate.' );
-		$emit( '' );
-		$emit( 'namespace Wikimedia\IDLeDOM;' );
-		$emit( '' );
+		$emitter = new Emitter();
+		$emitter->phpPrologue( 'Wikimedia\IDLeDOM' );
 
 		$methodName = 'emit' . str_replace( ' ', '', ucwords( $def['type'] ) );
-		$this->$methodName( $def, $emit );
+		$this->$methodName( $def, $emitter );
 
-		return $out;
+		return (string)$emitter;
 	}
 
 	/**
@@ -577,9 +551,10 @@ class Generator {
 		$idl = WebIDL::parse( file_get_contents( $filename ), [
 			'keepComments' => true
 		] );
-		$options = [
+		$gen = new Generator( $idl, [
 			'skipLegacy' => true,
-		];
-		( new Generator( $idl, $options ) )->write( __DIR__ . '/../src' );
+		] );
+		// Write interfaces
+		$gen->write( __DIR__ . '/../src' );
 	}
 }
