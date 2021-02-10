@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface ElementCreationOptions {
+interface ElementCreationOptions extends \ArrayAccess {
 	/**
 	 * @return string
 	 */

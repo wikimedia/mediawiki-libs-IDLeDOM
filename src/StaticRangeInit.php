@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface StaticRangeInit {
+interface StaticRangeInit extends \ArrayAccess {
 	/**
 	 * @return Node
 	 */

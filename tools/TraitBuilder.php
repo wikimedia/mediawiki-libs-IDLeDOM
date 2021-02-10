@@ -22,8 +22,25 @@ class TraitBuilder extends Builder {
 		$this->nl( "trait $topName {" );
 	}
 
+	/**
+	 * Return the top-most parent definition, which is the one that
+	 * will define the cast/ArrayAccess/etc methods.
+	 * @param string $topName Name of this definition
+	 * @return string Name of the topmost parent
+	 */
+	private function parentName( string $topName ): string {
+		$parentDef = $this->gen->def( $topName );
+		while ( ( $parentDef['inheritance'] ?? null ) !== null ) {
+			'@phan-var array $parentDef'; /** @var array $parentDef */
+			$parentDef = $this->gen->def( $parentDef['inheritance'] );
+		}
+		'@phan-var array $parentDef'; /** @var array $parentDef */
+		return $parentDef['name'];
+	}
+
 	private function callbackHelper( string $topName, string $name, array $m ): void {
 		$typeOpts = [ 'topName' => $topName ];
+		$parentName = $this->parentName( $topName );
 		Assert::invariant(
 			( $m['special'] ?? '' ) === '', "Special callback method?"
 		);
@@ -63,7 +80,7 @@ class TraitBuilder extends Builder {
 		$this->nl( " * @param callable|\\Wikimedia\\IDLeDOM\\$topName \$f" );
 		$this->nl( " * @return \\Wikimedia\\IDLeDOM\\$topName" );
 		$this->nl( ' */' );
-		$cast = $this->map( $topName, 'op', '_cast' );
+		$cast = $this->map( $parentName, 'op', '_cast' );
 		$this->nl( "public static function $cast( \$f ): \\Wikimedia\\IDLeDOM\\$topName {" );
 		$this->nl( "if ( \$f instanceof \\Wikimedia\\IDLeDOM\\$topName ) {" );
 		$this->nl( 'return $f;' );
@@ -127,7 +144,12 @@ class TraitBuilder extends Builder {
 		'@phan-var array $def'; // @var array $def
 		foreach ( $def['members'] as $m ) {
 			if ( $m['type'] === 'attribute' || $m['type'] === 'field' ) {
-				$readonly = $m['readonly'] ?? false;
+				$readonly = ( $m['readonly'] ?? false ) || ( $m['type'] === 'field' );
+				$default = '';
+				if ( ( $m['required'] ?? false ) === false && ( $m['default'] ?? null ) !== null ) {
+					$val = $this->gen->valueToPHP( $m['default'] );
+					$default = " ?? $val";
+				}
 				$attrs[] = [
 					'topName' => $topName,
 					'type' => $m['type'],
@@ -140,9 +162,108 @@ class TraitBuilder extends Builder {
 					'getter' => $this->map( $topName, 'get', $m['name'] ),
 					'setter' => $readonly ? null :
 						$this->map( $topName, 'set', $m['name'] ),
+					'default' => $default,
 				];
 			}
 		}
+	}
+
+	/** @inheritDoc */
+	protected function emitDictionary( string $topName, array $def ): void {
+		$typeOpts = [ 'topName' => $topName ];
+		$parentName = $this->parentName( $topName );
+		/* Only create helpers for interface which contain attributes */
+		$attrs = [];
+		$this->collectAttributes( $topName, $typeOpts, $attrs );
+		if ( count( $attrs ) === 0 ) {
+			parent::emitDictionary( $topName, $def );
+			return;
+		}
+
+		$this->firstLine( $topName );
+		// Getters and setters
+		$this->emitGetterSetter( $topName, $attrs, $typeOpts );
+		// ArrayAccess
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' * @return bool' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetExists( $offset ): bool {' );
+		$this->nl( 'switch ( $offset ) {' );
+		foreach ( $attrs as $a ) {
+			$this->nl( 'case ' . json_encode( $a['name'] ) . ':' );
+		}
+		$this->nl( "\treturn true;" );
+		$this->nl( 'default:' );
+		$this->nl( "\tbreak;" );
+		$this->nl( '}' );
+		$this->nl( "return false;" );
+		$this->nl( '}' );
+		$this->nl();
+
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' * @return mixed' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetGet( $offset ) {' );
+		$this->nl( 'return $this->$offset;' );
+		$this->nl( '}' );
+		$this->nl();
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' * @param mixed $value' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetSet( $offset, $value ) : void {' );
+		$this->nl( '$this->$offset = $value;' );
+		$this->nl( '}' );
+		$this->nl();
+		$this->nl( '/**' );
+		$this->nl( ' * @param mixed $offset' );
+		$this->nl( ' */' );
+		$this->nl( 'public function offsetUnset( $offset ) : void {' );
+		$this->nl( 'unset( $this->$offset );' );
+		$this->nl( '}' );
+		$this->nl();
+
+		// Cast from array
+		$this->nl( '/**' );
+		$this->nl( " * Create a $topName from an associative array." );
+		$this->nl( ' *' );
+		$this->nl( " * @param array|\\Wikimedia\\IDLeDOM\\$topName \$a" );
+		$this->nl( " * @return \\Wikimedia\\IDLeDOM\\$topName" );
+		$this->nl( ' */' );
+		$cast = $this->map( $parentName, 'op', '_cast' );
+		$this->nl( "public static function $cast( \$a ): \\Wikimedia\\IDLeDOM\\$topName {" );
+		$this->nl( "if ( \$a instanceof \\Wikimedia\\IDLeDOM\\$topName ) {" );
+		$this->nl( 'return $a;' );
+		$this->nl( '}' );
+		$this->nl( "return new class( \$a ) implements \\Wikimedia\\IDLeDOM\\$topName {" );
+		$this->nl( "use $topName;" );
+		$this->nl();
+		$this->nl( '/** @var array */' );
+		$this->nl( 'private $a;' );
+		$this->nl();
+		$this->nl( '/**' );
+		$this->nl( ' * @param array $a' );
+		$this->nl( ' */' );
+		$this->nl( 'public function __construct( $a ) {' );
+		$this->nl( '$this->a = $a;' );
+		$this->nl( '}' );
+		$this->nl();
+		foreach ( $attrs as $a ) {
+			$this->nl( '/**' );
+			$this->nl( " * @return {$a['docType']}" );
+			$this->nl( ' */' );
+			$this->nl( "public function {$a['getter']}(){$a['retType']} {" );
+			$this->nl( 'return $this->a[' . json_encode( $a['name'] ) . ']' . $a['default'] . ';' );
+			$this->nl( '}' );
+			$this->nl();
+		}
+		$this->nl( '};' );
+		$this->nl( '}' );
+		$this->nl();
+
+		$this->nl( '}' );
 	}
 
 	/** @inheritDoc */
@@ -155,6 +276,14 @@ class TraitBuilder extends Builder {
 			parent::emitInterface( $topName, $def );
 			return;
 		}
+
+		$this->firstLine( $topName );
+		$this->emitGetterSetter( $topName, $attrs, $typeOpts );
+
+		$this->nl( '}' );
+	}
+
+	private function emitGetterSetter( string $topName, array $attrs, array $typeOpts ): void {
 		$needsSetter = false;
 		foreach ( $attrs as $a ) {
 			if ( !$a['readonly'] ) {
@@ -162,8 +291,6 @@ class TraitBuilder extends Builder {
 				break;
 			}
 		}
-
-		$this->firstLine( $topName );
 
 		/* Create magic method __get dispatcher */
 		$this->nl( '/**' );
@@ -241,7 +368,5 @@ class TraitBuilder extends Builder {
 			$this->nl( "abstract public function {$a['setter']}( {$a['phpType']} \$value ) : void;" );
 			$this->nl();
 		}
-
-		$this->nl( '}' );
 	}
 }

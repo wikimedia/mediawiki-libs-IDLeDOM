@@ -120,4 +120,17 @@ class StubBuilder extends Builder {
 		}
 		$this->nl( '}' );
 	}
+
+	/** @inheritDoc */
+	protected function emitDictionary( string $topName, array $def ): void {
+		$this->firstLine( $topName );
+		foreach ( $def['members'] as $m ) {
+			// Treat as pseudo-attributes
+			$this->emitMemberAttribute( $topName, $m['name'], [
+				'readonly' => true,
+			] + $m );
+			$this->nl();
+		}
+		$this->nl( '}' );
+	}
 }

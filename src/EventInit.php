@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface EventInit {
+interface EventInit extends \ArrayAccess {
 	/**
 	 * @return bool
 	 */

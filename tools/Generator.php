@@ -185,6 +185,16 @@ class Generator {
 			}
 		}
 		// Move on to members of this type.
+		if ( $def['type'] === 'dictionary' &&
+			 ( $def['inheritance'] ?? null ) === null
+		) {
+			// *Top level* dictionaries implement ArrayAccess; reserve those
+			// names. (Subclasses get it from the parent.)
+			$aa = [ 'offsetExists','offsetGet','offsetSet','offsetUnset' ];
+			foreach ( $aa as $name ) {
+				$this->nameMap["$topName:op:_$name"] = $findName( $name );
+			}
+		}
 		if ( $def['type'] === 'callback' ) {
 			// Callbacks have a synthetic 'invoke' method.
 			$this->nameMap["$topName:op:_invoke"] = $findName( "invoke" );
@@ -213,10 +223,13 @@ class Generator {
 			}
 		}
 		// Dictionaries and callback interfaces have a special 'cast' method
+		// (But only top-level; children inherit from parent.)
 		if ( $def['type'] === 'dictionary' ||
 			 $def['type'] === 'callback' ||
 			 $def['type'] === 'callback interface' ) {
-			$this->nameMap["$topName:op:_cast"] = $findName( "cast" );
+			if ( ( $def['inheritance'] ?? null ) === null ) {
+				$this->nameMap["$topName:op:_cast"] = $findName( "cast" );
+			}
 		}
 		// Then attribute getters/setters (including dictionary getters/setters)
 		foreach ( $def['members'] as $m ) {

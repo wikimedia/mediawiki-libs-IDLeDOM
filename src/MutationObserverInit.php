@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface MutationObserverInit {
+interface MutationObserverInit extends \ArrayAccess {
 	/**
 	 * @return bool
 	 */

@@ -141,7 +141,10 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitDictionary( string $topName, array $def ): void {
-		$this->firstLine( 'interface', $topName );
+		// Only the top-level dictionary needs to extend \ArrayAccess;
+		// child classes will pick it up from the parent.
+		$extendArray = ( $def['inheritance'] ?? null ) === null;
+		$this->firstLine( 'interface', $topName, $extendArray );
 		foreach ( $def['members'] as $m ) {
 			// Treat as pseudo-attributes
 			$this->emitMemberAttribute( $topName, $m['name'], [
@@ -196,12 +199,16 @@ class InterfaceBuilder extends Builder {
 	 * Helper method: generates a typical class/interface start.
 	 * @param string $type Class/interface/etc
 	 * @param string $topName The class name
+	 * @param bool $extendArray Whther the interface should extend \ArrayAccess
 	 */
-	protected function firstLine( string $type, string $topName ): void {
+	protected function firstLine( string $type, string $topName, bool $extendArray = false ): void {
 		$this->e->phpPrologue( 'Wikimedia\IDLeDOM' );
 
 		$firstLine = "$type $topName";
 		$mixins = $this->gen->mixins( $topName );
+		if ( $extendArray ) {
+			$mixins[] = '\ArrayAccess';
+		}
 		if ( count( $mixins ) ) {
 			$firstLine .= " extends " . implode( ', ', $mixins );
 		}

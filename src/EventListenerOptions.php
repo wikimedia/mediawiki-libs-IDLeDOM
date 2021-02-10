@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface EventListenerOptions {
+interface EventListenerOptions extends \ArrayAccess {
 	/**
 	 * @return bool
 	 */

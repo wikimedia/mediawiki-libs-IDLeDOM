@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface ShadowRootInit {
+interface ShadowRootInit extends \ArrayAccess {
 	/**
 	 * @return int
 	 */

@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface GetRootNodeOptions {
+interface GetRootNodeOptions extends \ArrayAccess {
 	/**
 	 * @return bool
 	 */
