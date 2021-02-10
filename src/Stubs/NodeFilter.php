@@ -26,10 +26,13 @@ trait NodeFilter {
 	/**
 	 * Create a NodeFilter from a callable.
 	 *
-	 * @param callable $f
+	 * @param callable|\Wikimedia\IDLeDOM\NodeFilter $f
 	 * @return \Wikimedia\IDLeDOM\NodeFilter
 	 */
-	public static function cast( callable $f ): \Wikimedia\IDLeDOM\NodeFilter {
+	public static function cast( $f ): \Wikimedia\IDLeDOM\NodeFilter {
+		if ( $f instanceof \Wikimedia\IDLeDOM\NodeFilter ) {
+			return $f;
+		}
 		return new class( $f ) implements \Wikimedia\IDLeDOM\NodeFilter {
 			use NodeFilter;
 

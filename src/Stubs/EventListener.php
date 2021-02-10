@@ -26,10 +26,13 @@ trait EventListener {
 	/**
 	 * Create a EventListener from a callable.
 	 *
-	 * @param callable $f
+	 * @param callable|\Wikimedia\IDLeDOM\EventListener $f
 	 * @return \Wikimedia\IDLeDOM\EventListener
 	 */
-	public static function cast( callable $f ): \Wikimedia\IDLeDOM\EventListener {
+	public static function cast( $f ): \Wikimedia\IDLeDOM\EventListener {
+		if ( $f instanceof \Wikimedia\IDLeDOM\EventListener ) {
+			return $f;
+		}
 		return new class( $f ) implements \Wikimedia\IDLeDOM\EventListener {
 			use EventListener;
 

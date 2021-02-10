@@ -24,10 +24,13 @@ trait XPathNSResolver {
 	/**
 	 * Create a XPathNSResolver from a callable.
 	 *
-	 * @param callable $f
+	 * @param callable|\Wikimedia\IDLeDOM\XPathNSResolver $f
 	 * @return \Wikimedia\IDLeDOM\XPathNSResolver
 	 */
-	public static function cast( callable $f ): \Wikimedia\IDLeDOM\XPathNSResolver {
+	public static function cast( $f ): \Wikimedia\IDLeDOM\XPathNSResolver {
+		if ( $f instanceof \Wikimedia\IDLeDOM\XPathNSResolver ) {
+			return $f;
+		}
 		return new class( $f ) implements \Wikimedia\IDLeDOM\XPathNSResolver {
 			use XPathNSResolver;
 

@@ -59,11 +59,14 @@ class TraitBuilder extends Builder {
 		$this->nl( '/**' );
 		$this->nl( " * Create a $topName from a callable." );
 		$this->nl( ' *' );
-		$this->nl( ' * @param callable $f' );
+		$this->nl( " * @param callable|\\Wikimedia\\IDLeDOM\\$topName \$f" );
 		$this->nl( " * @return \\Wikimedia\\IDLeDOM\\$topName" );
 		$this->nl( ' */' );
 		$cast = $this->map( $topName, 'op', '_cast' );
-		$this->nl( "public static function $cast( callable \$f ): \\Wikimedia\\IDLeDOM\\$topName {" );
+		$this->nl( "public static function $cast( \$f ): \\Wikimedia\\IDLeDOM\\$topName {" );
+		$this->nl( "if ( \$f instanceof \\Wikimedia\\IDLeDOM\\$topName ) {" );
+		$this->nl( 'return $f;' );
+		$this->nl( '}' );
 		$this->nl( "return new class( \$f ) implements \\Wikimedia\\IDLeDOM\\$topName {" );
 		$this->nl( "use $topName;" );
 		$this->nl();

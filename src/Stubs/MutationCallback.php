@@ -28,10 +28,13 @@ trait MutationCallback {
 	/**
 	 * Create a MutationCallback from a callable.
 	 *
-	 * @param callable $f
+	 * @param callable|\Wikimedia\IDLeDOM\MutationCallback $f
 	 * @return \Wikimedia\IDLeDOM\MutationCallback
 	 */
-	public static function cast( callable $f ): \Wikimedia\IDLeDOM\MutationCallback {
+	public static function cast( $f ): \Wikimedia\IDLeDOM\MutationCallback {
+		if ( $f instanceof \Wikimedia\IDLeDOM\MutationCallback ) {
+			return $f;
+		}
 		return new class( $f ) implements \Wikimedia\IDLeDOM\MutationCallback {
 			use MutationCallback;
 
