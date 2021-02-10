@@ -100,9 +100,23 @@ class Generator {
 	private function __construct( array $ast, array $options = [] ) {
 		$this->ast = $ast;
 		$this->options = $options;
-		foreach ( $ast as $definition ) {
+		foreach ( $ast as &$definition ) {
+			// Optionally remove legacy members
+			if ( $this->options['skipLegacy'] ?? false ) {
+				$definition['members'] = array_values( array_filter(
+					$definition['members'] ?? [],
+					function ( $m ) {
+						foreach ( $m['trailingComments'] ?? [] as $c ) {
+							if ( preg_match( '|^// legacy|', $c ) ) {
+								// Skip this legacy member
+								return false;
+							}
+						}
+						return true;
+					} ) );
+			}
+			// Collect mixins
 			if ( $definition['type'] === 'includes' ) {
-				// Collect mixins
 				$this->mixins[$definition['target']][] = $definition['includes'];
 			} else {
 				$name = $definition['name'];
@@ -113,6 +127,7 @@ class Generator {
 				$this->defs[$name] = $definition;
 			}
 		}
+		unset( $definition );
 		// Sort definitions so that name resolution is deterministic
 		ksort( $this->defs );
 		foreach ( $this->defs as $name => $def ) {

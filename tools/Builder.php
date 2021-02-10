@@ -149,13 +149,6 @@ class Builder {
 	 * @param array $m The WebIDL AST for the member
 	 */
 	protected function emitMember( string $topName, array $m ) {
-		if ( $this->options['skipLegacy'] ?? false ) {
-			foreach ( $m['trailingComments'] ?? [] as $c ) {
-				if ( preg_match( '|^// legacy|', $c ) ) {
-					return; // skip this legacy member
-				}
-			}
-		}
 		$methodName = 'emitMember' .
 			str_replace( ' ', '', ucwords( $m['type'] ) );
 		$name = $m['type'] === 'constructor' ? '__construct' :
