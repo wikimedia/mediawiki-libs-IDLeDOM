@@ -56,8 +56,9 @@ class Builder {
 	/**
 	 * Helper method: record that a given type has been used.
 	 * @param array $ty WebIDL AST type
+	 * @param array $typeOpts Optional type options (top-level name)
 	 */
-	protected function use( array $ty ):void {
+	protected function use( array $ty, array $typeOpts = [] ):void {
 		if ( $ty['union'] ?? false ) {
 			foreach ( $ty['idlType'] as $subtype ) {
 				$this->use( $subtype );
@@ -72,7 +73,18 @@ class Builder {
 			return;
 		}
 		$name = $ty['idlType'];
-		if ( $this->gen->def( $name ) !== null ) {
+		$def = $this->gen->def( $name );
+		if ( $def !== null ) {
+			if ( $name !== ( $typeOpts['topName'] ?? null ) &&
+				 $def['type'] !== 'enum' ) {
+				$this->used[$name] = true;
+			}
+		}
+		// Some other unusual types
+		switch ( $name ) {
+		case 'DOMHighResTimeStamp':
+		case 'EventHandler':
+		case 'HTMLSlotElement':
 			$this->used[$name] = true;
 		}
 	}
@@ -83,7 +95,7 @@ class Builder {
 	 * @param string $namespace The top-level namespace
 	 */
 	protected function addUseStatements( string $namespace ): void {
-		ksort( $this->used );
+		ksort( $this->used, SORT_STRING | SORT_FLAG_CASE );
 		$useStmts = [];
 		foreach ( $this->used as $name => $ignore ) {
 			$useStmts[] = "use $namespace\\$name;";

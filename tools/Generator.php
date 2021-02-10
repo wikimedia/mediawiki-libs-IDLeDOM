@@ -316,6 +316,11 @@ class Generator {
 		if ( array_key_exists( $ty['idlType'], $this->defs ) ) {
 			// An object type
 			$result = $ty['idlType'];
+			if ( $result === ( $opts['topName'] ?? null ) ) {
+				'@phan-var string $result'; // @var string $result
+				$namespace = $opts['namespace'] ?? '\Wikimedia\IDLeDOM';
+				$result = "$namespace\\$result";
+			}
 			$extraType = null;
 			if ( $this->typeIncludes( $ty, 'enum' ) ) {
 				$result = 'int'; // enumerations are integers

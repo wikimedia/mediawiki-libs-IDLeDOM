@@ -117,4 +117,129 @@ class TraitBuilder extends Builder {
 		$this->callbackHelper( $topName, $m['name'], $m );
 		$this->nl( '}' );
 	}
+
+	private function collectAttributes( string $topName, array $typeOpts, array &$attrs ) {
+		foreach ( $this->gen->mixins( $topName ) as $m ) {
+			$this->collectAttributes( $m, $typeOpts, $attrs );
+		}
+		$def = $this->gen->def( $topName );
+		'@phan-var array $def'; // @var array $def
+		foreach ( $def['members'] as $m ) {
+			if ( $m['type'] === 'attribute' || $m['type'] === 'field' ) {
+				$readonly = $m['readonly'] ?? false;
+				$attrs[] = [
+					'topName' => $topName,
+					'type' => $m['type'],
+					'name' => $m['name'],
+					'idlType' => $m['idlType'],
+					'readonly' => $readonly,
+					'docType' => $this->gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
+					'phpType' => $this->gen->typeToPHP( $m['idlType'], $typeOpts ),
+					'getter' => $this->map( $topName, 'get', $m['name'] ),
+					'setter' => $readonly ? null :
+						$this->map( $topName, 'set', $m['name'] ),
+				];
+			}
+		}
+	}
+
+	/** @inheritDoc */
+	protected function emitInterface( string $topName, array $def ):void {
+		$typeOpts = [ 'topName' => $topName ];
+		/* Only create helpers for interface which contain attributes */
+		$attrs = [];
+		$this->collectAttributes( $topName, $typeOpts, $attrs );
+		if ( count( $attrs ) === 0 ) {
+			parent::emitInterface( $topName, $def );
+			return;
+		}
+		$needsSetter = false;
+		foreach ( $attrs as $a ) {
+			if ( !$a['readonly'] ) {
+				$needsSetter = true;
+				break;
+			}
+		}
+
+		$this->firstLine( $topName );
+
+		/* Create magic method __get dispatcher */
+		$this->nl( '/**' );
+		$this->nl( ' * @param string $name' );
+		$this->nl( ' * @return mixed' );
+		$this->nl( ' */' );
+		$this->nl( 'public function __get( string $name ) {' );
+		$this->nl( 'switch ( $name ) {' );
+		foreach ( $attrs as $a ) {
+			$name = $a['name'];
+			$getter = $a['getter'];
+			$this->nl( 'case ' . json_encode( $name ) . ':' );
+			$this->nl( "\treturn \$this->$getter();" );
+		}
+		$this->nl( 'default:' );
+		$this->nl( "\tbreak;" );
+		$this->nl( '}' );
+		$this->nl( '$trace = debug_backtrace();' );
+		$this->nl( 'trigger_error(' );
+		$this->nl( "\t'Undefined property via __get(): ' . \$name ." );
+		$this->nl( "\t' in ' . \$trace[0]['file'] ." );
+		$this->nl( "\t' on line ' . \$trace[0]['line']," );
+		$this->nl( "\tE_USER_NOTICE" );
+		$this->nl( ');' );
+		$this->nl( 'return null;' );
+		$this->nl( '}' );
+		$this->nl();
+
+		/* Create magic method __set dispatcher */
+		if ( $needsSetter ) {
+			$this->nl( '/**' );
+			$this->nl( ' * @param string $name' );
+			$this->nl( ' * @param mixed $value' );
+			$this->nl( ' */' );
+			$this->nl( 'public function __set( string $name, mixed $value ) : void {' );
+			$this->nl( 'switch ( $name ) {' );
+			foreach ( $attrs as $a ) {
+				if ( $a['readonly'] ) {
+					continue;
+				}
+				$name = $a['name'];
+				$setter = $a['setter'];
+				$this->nl( 'case ' . json_encode( $name ) . ':' );
+				$this->nl( "\t\$this->$setter( \$value );" );
+				$this->nl( "\treturn;" );
+			}
+			$this->nl( 'default:' );
+			$this->nl( "\tbreak;" );
+			$this->nl( '}' );
+			$this->nl( '$trace = debug_backtrace();' );
+			$this->nl( 'trigger_error(' );
+			$this->nl( "\t'Undefined property via __set(): ' . \$name ." );
+			$this->nl( "\t' in ' . \$trace[0]['file'] ." );
+			$this->nl( "\t' on line ' . \$trace[0]['line']," );
+			$this->nl( "\tE_USER_NOTICE" );
+			$this->nl( ');' );
+			$this->nl( '}' );
+			$this->nl();
+		}
+
+		/** Create abstract methods for getters and setters */
+		foreach ( $attrs as $a ) {
+			$this->nl( '/**' );
+			$this->nl( " * @return {$a['docType']}" );
+			$this->nl( ' */' );
+			$this->nl( "abstract public function {$a['getter']}() : {$a['phpType']};" );
+			$this->nl();
+			$this->use( $a['idlType'], $typeOpts );
+			if ( $a['readonly'] ) {
+				continue;
+			}
+			$this->nl( '/**' );
+			$this->nl( " * @param {$a['docType']} \$value" );
+			$this->nl( ' */' );
+			$this->nl( "abstract public function {$a['setter']}( {$a['phpType']} \$value ) : void;" );
+			$this->nl();
+		}
+
+		$this->nl( '}' );
+	}
 }
