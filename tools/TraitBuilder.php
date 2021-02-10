@@ -23,6 +23,7 @@ class TraitBuilder extends Builder {
 	}
 
 	private function callbackHelper( string $topName, string $name, array $m ): void {
+		$typeOpts = [ 'topName' => $topName ];
 		Assert::invariant(
 			( $m['special'] ?? '' ) === '', "Special callback method?"
 		);
@@ -33,9 +34,9 @@ class TraitBuilder extends Builder {
 		}
 		$r = InterfaceBuilder::memberOperationHelper( $this->gen, $topName, $name, $m );
 		// Record types used, so we can generate proper import statements
-		$this->use( $m['idlType'] );
+		$this->use( $m['idlType'], $typeOpts );
 		foreach ( $m['arguments'] as $a ) {
-			$this->use( $a['idlType'] );
+			$this->use( $a['idlType'], $typeOpts );
 		}
 
 		$this->nl( '/**' );
@@ -53,7 +54,7 @@ class TraitBuilder extends Builder {
 		}
 		$this->nl( " * @return {$r['retTypeDoc']}" );
 		$this->nl( ' */' );
-		$this->nl( "abstract public function {$r['funcName']}({$r['phpArgs']}) : {$r['retType']};" );
+		$this->nl( "abstract public function {$r['funcName']}({$r['phpArgs']}){$r['retType']};" );
 		$this->nl();
 
 		$this->nl( '/**' );
@@ -86,7 +87,7 @@ class TraitBuilder extends Builder {
 		}
 		$this->nl( " * @return {$r['retTypeDoc']}" );
 		$this->nl( ' */' );
-		$this->nl( "public function {$r['funcName']}({$r['phpArgs']}) : {$r['retType']} {" );
+		$this->nl( "public function {$r['funcName']}({$r['phpArgs']}){$r['retType']} {" );
 		$this->nl( '$f = $this->f;' );
 		$this->nl( "{$r['return']}\$f({$r['castArgs']});" );
 		$this->nl( '}' );
@@ -135,6 +136,7 @@ class TraitBuilder extends Builder {
 					'readonly' => $readonly,
 					'docType' => $this->gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
 					'phpType' => $this->gen->typeToPHP( $m['idlType'], $typeOpts ),
+					'retType' => $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
 					'getter' => $this->map( $topName, 'get', $m['name'] ),
 					'setter' => $readonly ? null :
 						$this->map( $topName, 'set', $m['name'] ),
@@ -227,7 +229,7 @@ class TraitBuilder extends Builder {
 			$this->nl( '/**' );
 			$this->nl( " * @return {$a['docType']}" );
 			$this->nl( ' */' );
-			$this->nl( "abstract public function {$a['getter']}() : {$a['phpType']};" );
+			$this->nl( "abstract public function {$a['getter']}(){$a['retType']};" );
 			$this->nl();
 			$this->use( $a['idlType'], $typeOpts );
 			if ( $a['readonly'] ) {

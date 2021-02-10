@@ -5,5 +5,5 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface CDATASection {
+interface CDATASection extends Text {
 }

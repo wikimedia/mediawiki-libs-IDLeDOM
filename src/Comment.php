@@ -5,6 +5,6 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface Comment {
+interface Comment extends CharacterData {
 
 }

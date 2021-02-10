@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface AbortSignal {
+interface AbortSignal extends EventTarget {
 	/**
 	 * @return bool
 	 */

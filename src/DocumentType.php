@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface DocumentType extends ChildNode {
+interface DocumentType extends Node, ChildNode {
 	/**
 	 * @return string
 	 */

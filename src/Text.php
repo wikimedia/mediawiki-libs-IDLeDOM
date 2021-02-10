@@ -5,13 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface Text extends Slottable {
+interface Text extends CharacterData, Slottable {
 
 	/**
 	 * @param int $offset
-	 * @return Text
+	 * @return \Wikimedia\IDLeDOM\Text
 	 */
-	public function splitText( int $offset ) : Text;
+	public function splitText( int $offset ) : \Wikimedia\IDLeDOM\Text;
 
 	/**
 	 * @return string

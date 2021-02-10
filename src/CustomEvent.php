@@ -5,11 +5,11 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface CustomEvent {
+interface CustomEvent extends Event {
 
 	/**
 	 * @return ?mixed
 	 */
-	public function getDetail() : ?mixed;
+	public function getDetail();
 
 }

@@ -5,6 +5,6 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface DocumentFragment extends NonElementParentNode, ParentNode {
+interface DocumentFragment extends Node, NonElementParentNode, ParentNode {
 
 }

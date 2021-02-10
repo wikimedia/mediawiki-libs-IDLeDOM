@@ -20,10 +20,11 @@ class InterfaceBuilder extends Builder {
 		$getter = $this->map( $topName, 'get', $name );
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'] );
 		$phpType = $this->gen->typeToPHP( $m['idlType'] );
+		$retType = $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
 		$this->nl( '/**' );
 		$this->nl( " * @return $docType" );
 		$this->nl( ' */' );
-		$this->nl( "public function $getter() : $phpType;" );
+		$this->nl( "public function $getter()$retType;" );
 		if ( $m['readonly'] ?? false ) {
 			return;
 		}
@@ -46,9 +47,10 @@ class InterfaceBuilder extends Builder {
 	 * @return array
 	 */
 	public static function memberOperationHelper( Generator $gen, string $topName, string $name, array $m ): array {
+		$typeOpts = [ 'topName' => $topName ];
 		$funcName = $gen->map( $topName, 'op', $name );
-		$retTypeDoc = $gen->typeToPHPDoc( $m['idlType'], [ 'returnType' => true ] );
-		$retType = $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
+		$retTypeDoc = $gen->typeToPHPDoc( $m['idlType'], [ 'returnType' => true ] + $typeOpts );
+		$retType = $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts );
 		$paramDocs = [];
 		$phpArgs = [];
 		$invokeArgs = [];
@@ -74,9 +76,9 @@ class InterfaceBuilder extends Builder {
 					$invokeDefault = " ?? $val";
 				}
 			}
-			$paramDocs[] = $gen->typeToPHPDoc( $ty ) .
+			$paramDocs[] = $gen->typeToPHPDoc( $ty, $typeOpts ) .
 						" $v\$" . $a['name'];
-			$phpArgs[] = $gen->typeToPHP( $ty ) .
+			$phpArgs[] = $gen->typeToPHP( $ty, $typeOpts ) .
 					  " $v\$" . $a['name'] . $declareDefault;
 			$invokeArgs[] = "\$args[$i]$invokeDefault";
 			$castArgs[] = $v . '$' . $a['name'];
@@ -94,7 +96,7 @@ class InterfaceBuilder extends Builder {
 			'paramDocs' => $paramDocs,
 			'retType' => $retType,
 			'retTypeDoc' => $retTypeDoc,
-			'return' => ( $retType === 'void' ) ? '' : 'return ',
+			'return' => ( $retType === ' : void' ) ? '' : 'return ',
 		];
 	}
 
@@ -111,7 +113,7 @@ class InterfaceBuilder extends Builder {
 		}
 		$this->nl( " * @return {$r['retTypeDoc']}" );
 		$this->nl( ' */' );
-		$this->nl( "public function {$r['funcName']}({$r['phpArgs']}) : {$r['retType']};" );
+		$this->nl( "public function {$r['funcName']}({$r['phpArgs']}){$r['retType']};" );
 	}
 
 	/** @inheritDoc */
@@ -156,8 +158,7 @@ class InterfaceBuilder extends Builder {
 		foreach ( $def['members'] as $m ) {
 			$this->emitMember( $topName, $m );
 		}
-		// XXX this should have a static cast(callable):$topName method
-		// XXX this should also have an __invoke method
+		// static cast() method and __invoke are in the helper trait
 		$this->nl( '}' );
 	}
 
@@ -173,8 +174,7 @@ class InterfaceBuilder extends Builder {
 			'idlType' => $def['idlType'],
 			'arguments' => $def['arguments'],
 		] );
-		// XXX this should have a static cast(callable):$topName method
-		// XXX this should also have an __invoke method to make it callable
+		// static cast() method and __invoke are in the helper trait
 		$this->nl( '}' );
 	}
 

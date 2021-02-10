@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface AddEventListenerOptions {
+interface AddEventListenerOptions extends EventListenerOptions {
 	/**
 	 * @return bool
 	 */

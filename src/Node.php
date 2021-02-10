@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface Node {
+interface Node extends EventTarget {
 	/** @var int */
 	public const ELEMENT_NODE = 1;
 
@@ -60,9 +60,9 @@ interface Node {
 
 	/**
 	 * @param GetRootNodeOptions|associative-array|null $options
-	 * @return Node
+	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function getRootNode( ?mixed $options = null ) : Node;
+	public function getRootNode( /* ?mixed */ $options = null ) : \Wikimedia\IDLeDOM\Node;
 
 	/**
 	 * @return ?Node
@@ -131,15 +131,15 @@ interface Node {
 
 	/**
 	 * @param bool $deep
-	 * @return Node
+	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function cloneNode( bool $deep = false ) : Node;
+	public function cloneNode( bool $deep = false ) : \Wikimedia\IDLeDOM\Node;
 
 	/**
-	 * @param ?Node $otherNode
+	 * @param ?\Wikimedia\IDLeDOM\Node $otherNode
 	 * @return bool
 	 */
-	public function isEqualNode( ?Node $otherNode ) : bool;
+	public function isEqualNode( ?\Wikimedia\IDLeDOM\Node $otherNode ) : bool;
 
 	/** @var int */
 	public const DOCUMENT_POSITION_DISCONNECTED = 0x01;
@@ -160,16 +160,16 @@ interface Node {
 	public const DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 0x20;
 
 	/**
-	 * @param Node $other
+	 * @param \Wikimedia\IDLeDOM\Node $other
 	 * @return int
 	 */
-	public function compareDocumentPosition( Node $other ) : int;
+	public function compareDocumentPosition( \Wikimedia\IDLeDOM\Node $other ) : int;
 
 	/**
-	 * @param ?Node $other
+	 * @param ?\Wikimedia\IDLeDOM\Node $other
 	 * @return bool
 	 */
-	public function contains( ?Node $other ) : bool;
+	public function contains( ?\Wikimedia\IDLeDOM\Node $other ) : bool;
 
 	/**
 	 * @param ?string $namespace
@@ -190,29 +190,29 @@ interface Node {
 	public function isDefaultNamespace( ?string $namespace ) : bool;
 
 	/**
-	 * @param Node $node
-	 * @param ?Node $child
-	 * @return Node
+	 * @param \Wikimedia\IDLeDOM\Node $node
+	 * @param ?\Wikimedia\IDLeDOM\Node $child
+	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function insertBefore( Node $node, ?Node $child ) : Node;
+	public function insertBefore( \Wikimedia\IDLeDOM\Node $node, ?\Wikimedia\IDLeDOM\Node $child ) : \Wikimedia\IDLeDOM\Node;
 
 	/**
-	 * @param Node $node
-	 * @return Node
+	 * @param \Wikimedia\IDLeDOM\Node $node
+	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function appendChild( Node $node ) : Node;
+	public function appendChild( \Wikimedia\IDLeDOM\Node $node ) : \Wikimedia\IDLeDOM\Node;
 
 	/**
-	 * @param Node $node
-	 * @param Node $child
-	 * @return Node
+	 * @param \Wikimedia\IDLeDOM\Node $node
+	 * @param \Wikimedia\IDLeDOM\Node $child
+	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function replaceChild( Node $node, Node $child ) : Node;
+	public function replaceChild( \Wikimedia\IDLeDOM\Node $node, \Wikimedia\IDLeDOM\Node $child ) : \Wikimedia\IDLeDOM\Node;
 
 	/**
-	 * @param Node $child
-	 * @return Node
+	 * @param \Wikimedia\IDLeDOM\Node $child
+	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function removeChild( Node $child ) : Node;
+	public function removeChild( \Wikimedia\IDLeDOM\Node $child ) : \Wikimedia\IDLeDOM\Node;
 
 }

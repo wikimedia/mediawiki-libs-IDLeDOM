@@ -30,19 +30,19 @@ interface ParentNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function prepend( mixed ...$nodes ) : void;
+	public function prepend( /* mixed */ ...$nodes ) : void;
 
 	/**
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function append( mixed ...$nodes ) : void;
+	public function append( /* mixed */ ...$nodes ) : void;
 
 	/**
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function replaceChildren( mixed ...$nodes ) : void;
+	public function replaceChildren( /* mixed */ ...$nodes ) : void;
 
 	/**
 	 * @param string $selectors

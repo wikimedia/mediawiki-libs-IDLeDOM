@@ -32,6 +32,6 @@ trait Window {
 	/**
 	 * @return Event|null
 	 */
-	abstract public function getEvent() : mixed;
+	abstract public function getEvent();
 
 }

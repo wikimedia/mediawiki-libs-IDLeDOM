@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface CharacterData extends ChildNode, NonDocumentTypeChildNode {
+interface CharacterData extends Node, ChildNode, NonDocumentTypeChildNode {
 	/**
 	 * @return string
 	 */

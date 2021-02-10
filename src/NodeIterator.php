@@ -29,7 +29,7 @@ interface NodeIterator {
 	/**
 	 * @return NodeFilter|callable|null
 	 */
-	public function getFilter() : ?mixed;
+	public function getFilter();
 
 	/**
 	 * @return ?Node

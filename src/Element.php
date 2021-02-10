@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface Element extends ChildNode, NonDocumentTypeChildNode, ParentNode, Slottable {
+interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode, Slottable {
 	/**
 	 * @return ?string
 	 */
@@ -172,7 +172,7 @@ interface Element extends ChildNode, NonDocumentTypeChildNode, ParentNode, Slott
 	 * @param ShadowRootInit|associative-array $init
 	 * @return ShadowRoot
 	 */
-	public function attachShadow( mixed $init ) : ShadowRoot;
+	public function attachShadow( /* mixed */ $init ) : ShadowRoot;
 
 	/**
 	 * @return ?ShadowRoot
@@ -181,9 +181,9 @@ interface Element extends ChildNode, NonDocumentTypeChildNode, ParentNode, Slott
 
 	/**
 	 * @param string $selectors
-	 * @return ?Element
+	 * @return ?\Wikimedia\IDLeDOM\Element
 	 */
-	public function closest( string $selectors ) : ?Element;
+	public function closest( string $selectors ) : ?\Wikimedia\IDLeDOM\Element;
 
 	/**
 	 * @param string $selectors

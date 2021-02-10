@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface Attr {
+interface Attr extends Node {
 	/**
 	 * @return ?string
 	 */

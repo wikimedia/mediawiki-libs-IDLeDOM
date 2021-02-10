@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface ProcessingInstruction {
+interface ProcessingInstruction extends CharacterData {
 	/**
 	 * @return string
 	 */

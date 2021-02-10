@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface Range {
+interface Range extends AbstractRange {
 
 	/**
 	 * @return Node
@@ -82,10 +82,10 @@ interface Range {
 
 	/**
 	 * @param int $how
-	 * @param Range $sourceRange
+	 * @param \Wikimedia\IDLeDOM\Range $sourceRange
 	 * @return int
 	 */
-	public function compareBoundaryPoints( int $how, Range $sourceRange ) : int;
+	public function compareBoundaryPoints( int $how, \Wikimedia\IDLeDOM\Range $sourceRange ) : int;
 
 	/**
 	 * @return void
@@ -115,9 +115,9 @@ interface Range {
 	public function surroundContents( Node $newParent ) : void;
 
 	/**
-	 * @return Range
+	 * @return \Wikimedia\IDLeDOM\Range
 	 */
-	public function cloneRange() : Range;
+	public function cloneRange() : \Wikimedia\IDLeDOM\Range;
 
 	/**
 	 * @return void

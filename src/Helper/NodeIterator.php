@@ -61,6 +61,6 @@ trait NodeIterator {
 	/**
 	 * @return NodeFilter|callable|null
 	 */
-	abstract public function getFilter() : ?mixed;
+	abstract public function getFilter();
 
 }

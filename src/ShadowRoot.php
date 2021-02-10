@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface ShadowRoot extends DocumentOrShadowRoot {
+interface ShadowRoot extends DocumentFragment, DocumentOrShadowRoot {
 	/**
 	 * @return int
 	 */

@@ -5,5 +5,5 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface XMLDocument {
+interface XMLDocument extends Document {
 }

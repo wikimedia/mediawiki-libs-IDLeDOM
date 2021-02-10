@@ -14,6 +14,16 @@ trait Range {
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
+			case "startContainer":
+				return $this->getStartContainer();
+			case "startOffset":
+				return $this->getStartOffset();
+			case "endContainer":
+				return $this->getEndContainer();
+			case "endOffset":
+				return $this->getEndOffset();
+			case "collapsed":
+				return $this->getCollapsed();
 			case "commonAncestorContainer":
 				return $this->getCommonAncestorContainer();
 			default:
@@ -28,6 +38,31 @@ trait Range {
 		);
 		return null;
 	}
+
+	/**
+	 * @return Node
+	 */
+	abstract public function getStartContainer() : Node;
+
+	/**
+	 * @return int
+	 */
+	abstract public function getStartOffset() : int;
+
+	/**
+	 * @return Node
+	 */
+	abstract public function getEndContainer() : Node;
+
+	/**
+	 * @return int
+	 */
+	abstract public function getEndOffset() : int;
+
+	/**
+	 * @return bool
+	 */
+	abstract public function getCollapsed() : bool;
 
 	/**
 	 * @return Node

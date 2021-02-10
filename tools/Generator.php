@@ -119,6 +119,13 @@ class Generator {
 			if ( array_key_exists( $name, $this->mixins ) ) {
 				sort( $this->mixins[$name] ); // sort mixins
 			}
+			// Direct inheritance always has precedence
+			if ( ( $def['inheritance'] ?? null ) !== null ) {
+				if ( !array_key_exists( $name, $this->mixins ) ) {
+					$this->mixins[$name] = [];
+				}
+				array_unshift( $this->mixins[$name], $def['inheritance'] );
+			}
 		}
 		// Resolve name conflicts
 		$done = [];
@@ -287,10 +294,20 @@ class Generator {
 	 */
 	public function typeToPHP( array $ty, array $opts = [] ):string {
 		$phpdoc = $opts['phpdoc'] ?? false;
+		if ( ( $opts['returnType'] ?? false ) &&
+			 !( $opts['returnType2'] ?? false ) &&
+			 !$phpdoc ) {
+			$result = $this->typeToPHP( $ty, [ 'returnType2' => true ] + $opts );
+			if ( substr( $result, 0, 1 ) === '/' ) {
+				return '';
+			} else {
+				return " : $result";
+			}
+		}
 		$n = ( $ty['nullable'] ?? false ) ? '?' : '';
 		if ( $ty['union'] ?? false ) {
 			if ( !$phpdoc ) {
-				return $n . 'mixed';
+				return "/* {$n}mixed */";
 			}
 			$result = implode( '|', array_map( function ( $ty ) {
 				return $this->typeToPHPDoc( $ty );
@@ -334,7 +351,7 @@ class Generator {
 			}
 			if ( $extraType ) {
 				if ( !$phpdoc ) {
-					return $n . "mixed";
+					return "/* {$n}mixed */";
 				}
 				return "$result|$extraType" . ( $n === '' ? '' : '|null' );
 			}
@@ -342,6 +359,9 @@ class Generator {
 		}
 		switch ( $ty['idlType'] ) {
 		case 'any':
+			if ( !$phpdoc ) {
+				return '/* any */';
+			}
 			return '?mixed';
 		case 'void':
 			self::unreachable( "void is now 'undefined'" );
@@ -352,7 +372,7 @@ class Generator {
 			if ( $phpdoc ) {
 				return 'null';
 			}
-			return 'mixed'; // bail
+			return '/* undefined */'; // bail
 		case 'boolean':
 			return $n . 'bool';
 		case 'octet':
@@ -414,6 +434,12 @@ class Generator {
 			// Helper Traits
 			$filename = $dir . "/Helper/$name.php";
 			$out = TraitBuilder::emit( $this, $def, $this->options );
+			if ( $out !== null ) {
+				file_put_contents( $filename, $out );
+			}
+			// Stubs
+			$filename = $dir . "/Stub/$name.php";
+			$out = StubBuilder::emit( $this, $def, $this->options );
 			if ( $out !== null ) {
 				file_put_contents( $filename, $out );
 			}

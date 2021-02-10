@@ -5,10 +5,13 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Document;
 use Wikimedia\IDLeDOM\DOMTokenList;
 use Wikimedia\IDLeDOM\HTMLCollection;
 use Wikimedia\IDLeDOM\HTMLSlotElement;
 use Wikimedia\IDLeDOM\NamedNodeMap;
+use Wikimedia\IDLeDOM\Node;
+use Wikimedia\IDLeDOM\NodeList;
 use Wikimedia\IDLeDOM\ShadowRoot;
 
 trait Element {
@@ -18,6 +21,34 @@ trait Element {
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
+			case "nodeType":
+				return $this->getNodeType();
+			case "nodeName":
+				return $this->getNodeName();
+			case "baseURI":
+				return $this->getBaseURI();
+			case "isConnected":
+				return $this->getIsConnected();
+			case "ownerDocument":
+				return $this->getOwnerDocument();
+			case "parentNode":
+				return $this->getParentNode();
+			case "parentElement":
+				return $this->getParentElement();
+			case "childNodes":
+				return $this->getChildNodes();
+			case "firstChild":
+				return $this->getFirstChild();
+			case "lastChild":
+				return $this->getLastChild();
+			case "previousSibling":
+				return $this->getPreviousSibling();
+			case "nextSibling":
+				return $this->getNextSibling();
+			case "nodeValue":
+				return $this->getNodeValue();
+			case "textContent":
+				return $this->getTextContent();
 			case "previousElementSibling":
 				return $this->getPreviousElementSibling();
 			case "nextElementSibling":
@@ -71,6 +102,12 @@ trait Element {
 	 */
 	public function __set( string $name, mixed $value ) : void {
 		switch ( $name ) {
+			case "nodeValue":
+				$this->setNodeValue( $value );
+				return;
+			case "textContent":
+				$this->setTextContent( $value );
+				return;
 			case "id":
 				$this->setId( $value );
 				return;
@@ -91,6 +128,86 @@ trait Element {
 			E_USER_NOTICE
 		);
 	}
+
+	/**
+	 * @return int
+	 */
+	abstract public function getNodeType() : int;
+
+	/**
+	 * @return string
+	 */
+	abstract public function getNodeName() : string;
+
+	/**
+	 * @return string
+	 */
+	abstract public function getBaseURI() : string;
+
+	/**
+	 * @return bool
+	 */
+	abstract public function getIsConnected() : bool;
+
+	/**
+	 * @return ?Document
+	 */
+	abstract public function getOwnerDocument() : ?Document;
+
+	/**
+	 * @return ?Node
+	 */
+	abstract public function getParentNode() : ?Node;
+
+	/**
+	 * @return ?\Wikimedia\IDLeDOM\Element
+	 */
+	abstract public function getParentElement() : ?\Wikimedia\IDLeDOM\Element;
+
+	/**
+	 * @return NodeList
+	 */
+	abstract public function getChildNodes() : NodeList;
+
+	/**
+	 * @return ?Node
+	 */
+	abstract public function getFirstChild() : ?Node;
+
+	/**
+	 * @return ?Node
+	 */
+	abstract public function getLastChild() : ?Node;
+
+	/**
+	 * @return ?Node
+	 */
+	abstract public function getPreviousSibling() : ?Node;
+
+	/**
+	 * @return ?Node
+	 */
+	abstract public function getNextSibling() : ?Node;
+
+	/**
+	 * @return ?string
+	 */
+	abstract public function getNodeValue() : ?string;
+
+	/**
+	 * @param ?string $value
+	 */
+	abstract public function setNodeValue( ?string $value ) : void;
+
+	/**
+	 * @return ?string
+	 */
+	abstract public function getTextContent() : ?string;
+
+	/**
+	 * @param ?string $value
+	 */
+	abstract public function setTextContent( ?string $value ) : void;
 
 	/**
 	 * @return ?\Wikimedia\IDLeDOM\Element

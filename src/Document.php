@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNode, XPathEvaluatorBase {
+interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, ParentNode, XPathEvaluatorBase {
 
 	/**
 	 * @return DOMImplementation
@@ -71,7 +71,7 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
-	public function createElement( string $localName, ?mixed $options = null ) : Element;
+	public function createElement( string $localName, /* ?mixed */ $options = null ) : Element;
 
 	/**
 	 * @param ?string $namespace
@@ -79,7 +79,7 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
-	public function createElementNS( ?string $namespace, string $qualifiedName, ?mixed $options = null ) : Element;
+	public function createElementNS( ?string $namespace, string $qualifiedName, /* ?mixed */ $options = null ) : Element;
 
 	/**
 	 * @return DocumentFragment
@@ -148,7 +148,7 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	 * @param NodeFilter|callable|null $filter
 	 * @return NodeIterator
 	 */
-	public function createNodeIterator( Node $root, int $whatToShow = 0xFFFFFFFF, ?mixed $filter = null ) : NodeIterator;
+	public function createNodeIterator( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : NodeIterator;
 
 	/**
 	 * @param Node $root
@@ -156,6 +156,6 @@ interface Document extends DocumentOrShadowRoot, NonElementParentNode, ParentNod
 	 * @param NodeFilter|callable|null $filter
 	 * @return TreeWalker
 	 */
-	public function createTreeWalker( Node $root, int $whatToShow = 0xFFFFFFFF, ?mixed $filter = null ) : TreeWalker;
+	public function createTreeWalker( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : TreeWalker;
 
 }

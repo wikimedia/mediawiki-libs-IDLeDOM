@@ -5,6 +5,6 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface StaticRange {
+interface StaticRange extends AbstractRange {
 
 }
