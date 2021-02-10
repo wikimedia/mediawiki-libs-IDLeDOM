@@ -3,21 +3,19 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\EventHandler;
-
-trait AbortSignal {
+trait DOMTokenList {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "aborted":
-				return $this->getAborted();
-			case "onabort":
-				return $this->getOnabort();
+			case "length":
+				return $this->getLength();
+			case "value":
+				return $this->getValue();
 			default:
 				break;
 		}
@@ -37,8 +35,8 @@ trait AbortSignal {
 	 */
 	public function __set( string $name, mixed $value ) : void {
 		switch ( $name ) {
-			case "onabort":
-				$this->setOnabort( $value );
+			case "value":
+				$this->setValue( $value );
 				return;
 			default:
 				break;
@@ -53,18 +51,18 @@ trait AbortSignal {
 	}
 
 	/**
-	 * @return bool
+	 * @return int
 	 */
-	abstract public function getAborted() : bool;
+	abstract public function getLength() : int;
 
 	/**
-	 * @return EventHandler
+	 * @return string
 	 */
-	abstract public function getOnabort() : EventHandler;
+	abstract public function getValue() : string;
 
 	/**
-	 * @param EventHandler $value
+	 * @param string $value
 	 */
-	abstract public function setOnabort( EventHandler $value ) : void;
+	abstract public function setValue( string $value ) : void;
 
 }

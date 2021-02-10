@@ -15,7 +15,7 @@ class TraitBuilder extends Builder {
 	 * @param string $topName The class name
 	 */
 	protected function firstLine( string $topName ): void {
-		$this->e->phpPrologue( 'Wikimedia\IDLeDOM\Stubs' );
+		$this->e->phpPrologue( 'Wikimedia\IDLeDOM\Helper' );
 
 		$this->e->emitMarker( 'UseStatements' );
 		$this->nl();

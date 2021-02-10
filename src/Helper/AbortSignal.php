@@ -3,26 +3,21 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeFilter;
+use Wikimedia\IDLeDOM\EventHandler;
 
-trait TreeWalker {
+trait AbortSignal {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "root":
-				return $this->getRoot();
-			case "whatToShow":
-				return $this->getWhatToShow();
-			case "filter":
-				return $this->getFilter();
-			case "currentNode":
-				return $this->getCurrentNode();
+			case "aborted":
+				return $this->getAborted();
+			case "onabort":
+				return $this->getOnabort();
 			default:
 				break;
 		}
@@ -42,8 +37,8 @@ trait TreeWalker {
 	 */
 	public function __set( string $name, mixed $value ) : void {
 		switch ( $name ) {
-			case "currentNode":
-				$this->setCurrentNode( $value );
+			case "onabort":
+				$this->setOnabort( $value );
 				return;
 			default:
 				break;
@@ -58,28 +53,18 @@ trait TreeWalker {
 	}
 
 	/**
-	 * @return Node
+	 * @return bool
 	 */
-	abstract public function getRoot() : Node;
+	abstract public function getAborted() : bool;
 
 	/**
-	 * @return int
+	 * @return EventHandler
 	 */
-	abstract public function getWhatToShow() : int;
+	abstract public function getOnabort() : EventHandler;
 
 	/**
-	 * @return NodeFilter|callable|null
+	 * @param EventHandler $value
 	 */
-	abstract public function getFilter() : ?mixed;
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getCurrentNode() : Node;
-
-	/**
-	 * @param Node $value
-	 */
-	abstract public function setCurrentNode( Node $value ) : void;
+	abstract public function setOnabort( EventHandler $value ) : void;
 
 }

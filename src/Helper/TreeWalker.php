@@ -3,25 +3,26 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
+use Wikimedia\IDLeDOM\Node;
+use Wikimedia\IDLeDOM\NodeFilter;
 
-trait CharacterData {
+trait TreeWalker {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "previousElementSibling":
-				return $this->getPreviousElementSibling();
-			case "nextElementSibling":
-				return $this->getNextElementSibling();
-			case "data":
-				return $this->getData();
-			case "length":
-				return $this->getLength();
+			case "root":
+				return $this->getRoot();
+			case "whatToShow":
+				return $this->getWhatToShow();
+			case "filter":
+				return $this->getFilter();
+			case "currentNode":
+				return $this->getCurrentNode();
 			default:
 				break;
 		}
@@ -41,8 +42,8 @@ trait CharacterData {
 	 */
 	public function __set( string $name, mixed $value ) : void {
 		switch ( $name ) {
-			case "data":
-				$this->setData( $value );
+			case "currentNode":
+				$this->setCurrentNode( $value );
 				return;
 			default:
 				break;
@@ -57,28 +58,28 @@ trait CharacterData {
 	}
 
 	/**
-	 * @return ?Element
+	 * @return Node
 	 */
-	abstract public function getPreviousElementSibling() : ?Element;
-
-	/**
-	 * @return ?Element
-	 */
-	abstract public function getNextElementSibling() : ?Element;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getData() : string;
-
-	/**
-	 * @param string $value
-	 */
-	abstract public function setData( string $value ) : void;
+	abstract public function getRoot() : Node;
 
 	/**
 	 * @return int
 	 */
-	abstract public function getLength() : int;
+	abstract public function getWhatToShow() : int;
+
+	/**
+	 * @return NodeFilter|callable|null
+	 */
+	abstract public function getFilter() : ?mixed;
+
+	/**
+	 * @return Node
+	 */
+	abstract public function getCurrentNode() : Node;
+
+	/**
+	 * @param Node $value
+	 */
+	abstract public function setCurrentNode( Node $value ) : void;
 
 }

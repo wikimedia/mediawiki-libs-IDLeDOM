@@ -3,19 +3,19 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\AbortSignal;
+use Wikimedia\IDLeDOM\Node;
 
-trait AbortController {
+trait Range {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "signal":
-				return $this->getSignal();
+			case "commonAncestorContainer":
+				return $this->getCommonAncestorContainer();
 			default:
 				break;
 		}
@@ -30,8 +30,8 @@ trait AbortController {
 	}
 
 	/**
-	 * @return AbortSignal
+	 * @return Node
 	 */
-	abstract public function getSignal() : AbortSignal;
+	abstract public function getCommonAncestorContainer() : Node;
 
 }

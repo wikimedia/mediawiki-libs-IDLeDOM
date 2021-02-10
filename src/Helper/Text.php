@@ -3,19 +3,21 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Node;
+use Wikimedia\IDLeDOM\HTMLSlotElement;
 
-trait Range {
+trait Text {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "commonAncestorContainer":
-				return $this->getCommonAncestorContainer();
+			case "assignedSlot":
+				return $this->getAssignedSlot();
+			case "wholeText":
+				return $this->getWholeText();
 			default:
 				break;
 		}
@@ -30,8 +32,13 @@ trait Range {
 	}
 
 	/**
-	 * @return Node
+	 * @return ?HTMLSlotElement
 	 */
-	abstract public function getCommonAncestorContainer() : Node;
+	abstract public function getAssignedSlot() : ?HTMLSlotElement;
+
+	/**
+	 * @return string
+	 */
+	abstract public function getWholeText() : string;
 
 }

@@ -3,7 +3,7 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
 use Wikimedia\IDLeDOM\DocumentType;
 use Wikimedia\IDLeDOM\DOMImplementation;

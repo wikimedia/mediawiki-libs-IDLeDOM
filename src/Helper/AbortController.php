@@ -3,19 +3,19 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Event;
+use Wikimedia\IDLeDOM\AbortSignal;
 
-trait Window {
+trait AbortController {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "event":
-				return $this->getEvent();
+			case "signal":
+				return $this->getSignal();
 			default:
 				break;
 		}
@@ -30,8 +30,8 @@ trait Window {
 	}
 
 	/**
-	 * @return Event|null
+	 * @return AbortSignal
 	 */
-	abstract public function getEvent() : mixed;
+	abstract public function getSignal() : AbortSignal;
 
 }

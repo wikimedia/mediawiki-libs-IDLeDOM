@@ -3,21 +3,17 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-trait DocumentType {
+trait HTMLCollection {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "name":
-				return $this->getName();
-			case "publicId":
-				return $this->getPublicId();
-			case "systemId":
-				return $this->getSystemId();
+			case "length":
+				return $this->getLength();
 			default:
 				break;
 		}
@@ -32,18 +28,8 @@ trait DocumentType {
 	}
 
 	/**
-	 * @return string
+	 * @return int
 	 */
-	abstract public function getName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getPublicId() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getSystemId() : string;
+	abstract public function getLength() : int;
 
 }

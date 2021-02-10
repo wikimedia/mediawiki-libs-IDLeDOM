@@ -3,17 +3,19 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-trait HTMLCollection {
+use Wikimedia\IDLeDOM\Event;
+
+trait Window {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "length":
-				return $this->getLength();
+			case "event":
+				return $this->getEvent();
 			default:
 				break;
 		}
@@ -28,8 +30,8 @@ trait HTMLCollection {
 	}
 
 	/**
-	 * @return int
+	 * @return Event|null
 	 */
-	abstract public function getLength() : int;
+	abstract public function getEvent() : mixed;
 
 }

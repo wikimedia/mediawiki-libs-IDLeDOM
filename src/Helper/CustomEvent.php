@@ -3,21 +3,17 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\HTMLSlotElement;
-
-trait Text {
+trait CustomEvent {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "assignedSlot":
-				return $this->getAssignedSlot();
-			case "wholeText":
-				return $this->getWholeText();
+			case "detail":
+				return $this->getDetail();
 			default:
 				break;
 		}
@@ -32,13 +28,8 @@ trait Text {
 	}
 
 	/**
-	 * @return ?HTMLSlotElement
+	 * @return ?mixed
 	 */
-	abstract public function getAssignedSlot() : ?HTMLSlotElement;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getWholeText() : string;
+	abstract public function getDetail() : ?mixed;
 
 }

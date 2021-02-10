@@ -3,19 +3,25 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-trait DOMTokenList {
+use Wikimedia\IDLeDOM\Element;
+
+trait CharacterData {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
+			case "previousElementSibling":
+				return $this->getPreviousElementSibling();
+			case "nextElementSibling":
+				return $this->getNextElementSibling();
+			case "data":
+				return $this->getData();
 			case "length":
 				return $this->getLength();
-			case "value":
-				return $this->getValue();
 			default:
 				break;
 		}
@@ -35,8 +41,8 @@ trait DOMTokenList {
 	 */
 	public function __set( string $name, mixed $value ) : void {
 		switch ( $name ) {
-			case "value":
-				$this->setValue( $value );
+			case "data":
+				$this->setData( $value );
 				return;
 			default:
 				break;
@@ -51,18 +57,28 @@ trait DOMTokenList {
 	}
 
 	/**
-	 * @return int
+	 * @return ?Element
 	 */
-	abstract public function getLength() : int;
+	abstract public function getPreviousElementSibling() : ?Element;
+
+	/**
+	 * @return ?Element
+	 */
+	abstract public function getNextElementSibling() : ?Element;
 
 	/**
 	 * @return string
 	 */
-	abstract public function getValue() : string;
+	abstract public function getData() : string;
 
 	/**
 	 * @param string $value
 	 */
-	abstract public function setValue( string $value ) : void;
+	abstract public function setData( string $value ) : void;
+
+	/**
+	 * @return int
+	 */
+	abstract public function getLength() : int;
 
 }

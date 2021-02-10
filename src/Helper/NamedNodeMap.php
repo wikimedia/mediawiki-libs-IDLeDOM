@@ -3,17 +3,17 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-trait CustomEvent {
+trait NamedNodeMap {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "detail":
-				return $this->getDetail();
+			case "length":
+				return $this->getLength();
 			default:
 				break;
 		}
@@ -28,8 +28,8 @@ trait CustomEvent {
 	}
 
 	/**
-	 * @return ?mixed
+	 * @return int
 	 */
-	abstract public function getDetail() : ?mixed;
+	abstract public function getLength() : int;
 
 }

@@ -3,17 +3,21 @@
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.
 
-namespace Wikimedia\IDLeDOM\Stubs;
+namespace Wikimedia\IDLeDOM\Helper;
 
-trait NamedNodeMap {
+trait DocumentType {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
 		switch ( $name ) {
-			case "length":
-				return $this->getLength();
+			case "name":
+				return $this->getName();
+			case "publicId":
+				return $this->getPublicId();
+			case "systemId":
+				return $this->getSystemId();
 			default:
 				break;
 		}
@@ -28,8 +32,18 @@ trait NamedNodeMap {
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	abstract public function getLength() : int;
+	abstract public function getName() : string;
+
+	/**
+	 * @return string
+	 */
+	abstract public function getPublicId() : string;
+
+	/**
+	 * @return string
+	 */
+	abstract public function getSystemId() : string;
 
 }
