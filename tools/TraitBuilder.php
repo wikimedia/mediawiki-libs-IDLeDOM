@@ -327,6 +327,23 @@ class TraitBuilder extends Builder {
 			return;
 		}
 
+		// Then countable
+		$countable = $specials['countable'] ?? null;
+		if ( $countable ) {
+			$this->nl( '/**' );
+			$this->nl( ' * @return int' );
+			$this->nl( ' */' );
+			$this->nl( 'public function count() : int {' );
+			$this->nl( "return \$this->{$countable['funcName']}();" );
+			$this->nl( '}' );
+			$this->nl();
+			unset( $specials['countable'] );
+		}
+		if ( count( $specials ) === 0 ) {
+			$this->nl( '}' );
+			return;
+		}
+
 		// Now ArrayAccess
 		$this->nl( '/**' );
 		$this->nl( ' * @param mixed $offset' );
@@ -343,16 +360,16 @@ class TraitBuilder extends Builder {
 		$this->nl( ' */' );
 		$this->nl( 'public function offsetGet( $offset ) {' );
 		$this->nl( 'if ( is_numeric( $offset ) ) {' );
-		$getter = $specials['indexed getter'] ?? null;
-		if ( $getter ) {
-			$this->nl( "return \$this->{$getter['funcName']}( \$offset );" );
+		$igetter = $specials['indexed getter'] ?? null;
+		if ( $igetter ) {
+			$this->nl( "return \$this->{$igetter['funcName']}( \$offset );" );
 		} else {
 			$this->nl( '/* Fall through */' );
 		}
 		$this->nl( '} elseif ( is_string( $offset ) ) {' );
-		$getter = $specials['named getter'] ?? null;
-		if ( $getter ) {
-			$this->nl( "return \$this->{$getter['funcName']}( \$offset );" );
+		$ngetter = $specials['named getter'] ?? null;
+		if ( $ngetter ) {
+			$this->nl( "return \$this->{$ngetter['funcName']}( \$offset );" );
 		} else {
 			$this->nl( '/* Fall through */' );
 		}
@@ -409,6 +426,23 @@ class TraitBuilder extends Builder {
 		$this->nl( '}' );
 		$this->nl();
 
+		// If there's an indexed getter and a countable, then we can
+		// provide a default implementation of the iterator
+		if ( $igetter && $countable ) {
+			$iteratorName = $this->map( $topName, 'op', '_iterable' );
+			$iteratorType = $igetter['ast']['idlType'];
+			// the getter is nullable, but the iterator is not!
+			$iteratorType['nullable'] = false;
+			$retTypeDoc = $this->gen->typeToPHPDoc( $iteratorType, $typeOpts );
+			$this->nl( '/**' );
+			$this->nl( " * @return \\Traversable<{$retTypeDoc}>" );
+			$this->nl( ' */' );
+			$this->nl( "public function $iteratorName() {" );
+			$this->nl( "for ( \$i = 0; \$i < \$this->{$countable['funcName']}(); \$i++ ) {" );
+			$this->nl( "yield \$this->{$igetter['funcName']}( \$i );" );
+			$this->nl( "}\n}" );
+			$this->nl();
+		}
 		$this->nl( '}' );
 	}
 

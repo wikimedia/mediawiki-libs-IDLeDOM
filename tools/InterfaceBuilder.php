@@ -50,6 +50,9 @@ class InterfaceBuilder extends Builder {
 		$specials = [];
 		foreach ( $def['members'] as $m ) {
 			$special = $m['special'] ?? '';
+			if ( Generator::extAttrsContain( $m, 'PHPCountable' ) ) {
+				$special = "countable";
+			}
 			if ( $special === '' ) {
 				continue; // only interested in specials
 			}
@@ -58,7 +61,8 @@ class InterfaceBuilder extends Builder {
 			}
 			if ( $m['type'] === 'attribute' ) {
 				Assert::invariant(
-					$special === 'stringifier', 'only stringifier supported'
+					$special === 'stringifier' || $special === "countable",
+					'only stringifier or countable supported'
 				);
 				$name = $m['name'];
 				$typeOpts = [
@@ -196,7 +200,7 @@ class InterfaceBuilder extends Builder {
 		$iteratorName = $this->map( $topName, 'op', '_iterable' );
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'][0] );
 		$this->nl( '/**' );
-		$this->nl( " * @return \\Iterator<$docType>" );
+		$this->nl( " * @return \\Traversable<$docType>" );
 		$this->nl( ' */' );
 		$this->nl( "public function $iteratorName();" );
 	}
@@ -279,6 +283,7 @@ class InterfaceBuilder extends Builder {
 		$mixins = $this->gen->mixins( $topName );
 		$extendArray = false;
 		$extendIterator = false;
+		$extendCountable = false;
 		// Top level dictionaries extend \ArrayAccess
 		if (
 			$def['type'] === 'dictionary' &&
@@ -287,7 +292,8 @@ class InterfaceBuilder extends Builder {
 			$extendArray = true;
 		}
 		// If there's a getter, it should also extend \ArrayAccess
-		// If there's an iterable, it should extend IteratorAggregate
+		// If there's an iterable, it should extend \IteratorAggregate
+		// If there's a PHPCountable, it should extend \Countable
 		foreach ( $def['members'] ?? [] as $m ) {
 			if (
 				$m['type'] === 'operation' &&
@@ -298,12 +304,18 @@ class InterfaceBuilder extends Builder {
 			if ( $m['type'] === 'iterable' ) {
 				$extendIterator = true;
 			}
+			if ( Generator::extAttrsContain( $m, 'PHPCountable' ) ) {
+				$extendCountable = true;
+			}
 		}
 		if ( $extendArray ) {
 			$mixins[] = '\ArrayAccess';
 		}
 		if ( $extendIterator ) {
 			$mixins[] = '\IteratorAggregate';
+		}
+		if ( $extendCountable ) {
+			$mixins[] = '\Countable';
 		}
 		if ( count( $mixins ) ) {
 			$firstLine .= " extends " . implode( ', ', $mixins );

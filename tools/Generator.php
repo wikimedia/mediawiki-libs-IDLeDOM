@@ -232,10 +232,13 @@ class Generator {
 			array_key_exists( 'members', $def ),
 			"$topName doesn't have members!"
 		);
-		// Reserve `getIterator` for iterables
+		// Reserve `getIterator` for iterables and `count` for [PHPCountable]
 		foreach ( $def['members'] as $m ) {
 			if ( $m['type'] === 'iterable' ) {
 				$this->nameMap["$topName:op:_iterable"] = $findName( 'getIterator', true );
+			}
+			if ( self::extAttrsContain( $m, 'PHPCountable' ) ) {
+				$this->nameMap["$topName:op:_count"] = $findName( 'count', true );
 			}
 		}
 		// First resolve constants
@@ -312,6 +315,23 @@ class Generator {
 	 */
 	public function typedef( string $topName ): ?array {
 		return $this->typedefs[ $topName ] ?? null;
+	}
+
+	/**
+	 * Search the extended attributes for the given member for an attribute
+	 * with the given name.
+	 * @param array $m WebIDL AST for a member
+	 * @param string $name Name of the extended attribute to search for
+	 * @return bool True if an extended attribute with the given name is
+	 *   among the extended attributes of the member.
+	 */
+	public static function extAttrsContain( array $m, string $name ) : bool {
+		foreach ( $m['extAttrs'] ?? [] as $ea ) {
+			if ( ( $ea['name'] ?? '' ) === $name ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private function typeIncludes( array $ty, string $which ) {

@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface HTMLCollection extends \ArrayAccess {
+interface HTMLCollection extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @return int
 	 */
@@ -22,5 +22,10 @@ interface HTMLCollection extends \ArrayAccess {
 	 * @return Element|null
 	 */
 	public function namedItem( string $name );
+
+	/**
+	 * @return \Traversable<Element>
+	 */
+	public function getIterator();
 
 }

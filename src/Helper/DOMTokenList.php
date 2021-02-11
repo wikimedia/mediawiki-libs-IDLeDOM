@@ -79,6 +79,13 @@ trait DOMTokenList {
 	}
 
 	/**
+	 * @return int
+	 */
+	public function count() : int {
+		return $this->getLength();
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
@@ -141,6 +148,15 @@ trait DOMTokenList {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return \Traversable<string>
+	 */
+	public function getIterator() {
+		for ( $i = 0; $i < $this->getLength(); $i++ ) {
+			yield $this->item( $i );
+		}
 	}
 
 }

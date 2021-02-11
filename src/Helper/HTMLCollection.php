@@ -47,6 +47,13 @@ trait HTMLCollection {
 	abstract public function namedItem( string $name );
 
 	/**
+	 * @return int
+	 */
+	public function count() : int {
+		return $this->getLength();
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
@@ -109,6 +116,15 @@ trait HTMLCollection {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return \Traversable<Element>
+	 */
+	public function getIterator() {
+		for ( $i = 0; $i < $this->getLength(); $i++ ) {
+			yield $this->item( $i );
+		}
 	}
 
 }

@@ -41,6 +41,13 @@ trait NodeList {
 	abstract public function item( int $index );
 
 	/**
+	 * @return int
+	 */
+	public function count() : int {
+		return $this->getLength();
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
@@ -103,6 +110,15 @@ trait NodeList {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return \Traversable<Node>
+	 */
+	public function getIterator() {
+		for ( $i = 0; $i < $this->getLength(); $i++ ) {
+			yield $this->item( $i );
+		}
 	}
 
 }

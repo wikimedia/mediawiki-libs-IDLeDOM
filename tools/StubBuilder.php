@@ -70,11 +70,23 @@ class StubBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitMemberIterable( string $topName, string $name, array $m ) {
+		$def = $this->gen->def( $topName );
+		'@phan-var array $def'; // @var array $def
+		$specials = InterfaceBuilder::specialOperationHelper(
+			$this->gen, $topName, $def
+		);
+		if (
+			( $specials['indexed getter'] ?? null ) &&
+			( $specials['countable'] ?? null )
+		) {
+			// Skip this stub; it's already present in the helper.
+			return;
+		}
 		$typeOpts = [ 'topName' => $topName ];
 		$iteratorName = $this->map( $topName, 'op', '_iterable' );
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'][0], $typeOpts );
 		$this->nl( '/**' );
-		$this->nl( " * @return \\Iterator<$docType>" );
+		$this->nl( " * @return \\Traversable<$docType>" );
 		$this->nl( ' */' );
 		$this->nl( "public function $iteratorName() {" );
 		$this->nl( 'throw self::_unimplemented();' );

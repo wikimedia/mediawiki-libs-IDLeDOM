@@ -1,6 +1,10 @@
 # IDLeDOM x.x.x (not yet released)
 * Strip explicit PHP type hints for DOM interface types, in order to
   accomodate the weak covariant/contravariance checks in PHP 7.2.
+* Make NodeList, HTMLCollection, NamedNodeMap, and DOMTokenList
+  implement \Countable so they can be used with the PHP `count()` function.
+* Add an `iterable` to HTMLCollection and NamedNodeMap so they can be
+  used in a PHP `foreach` statement, like the built-in \DOMNamedNodeMap.
 
 # IDLeDOM 0.1.1 (2021-02-11)
 * Replace HTMLSlotElement/EventHandler/DOMHighRestTimeStamp stubs with

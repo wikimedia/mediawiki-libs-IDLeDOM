@@ -149,15 +149,19 @@ Text includes Slottable;
 [Exposed=Window]
 interface NodeList {
   getter Node? item(unsigned long index);
+  [PHPCountable]
   readonly attribute unsigned long length;
   iterable<Node>;
 };
 
 [Exposed=Window, LegacyUnenumerableNamedProperties]
 interface HTMLCollection {
+  [PHPCountable]
   readonly attribute unsigned long length;
   getter Element? item(unsigned long index);
   getter Element? namedItem(DOMString name);
+  [PHPExtension]
+  iterable<Element>;
 };
 
 [Exposed=Window]
@@ -389,6 +393,7 @@ dictionary ShadowRootInit {
 [Exposed=Window,
  LegacyUnenumerableNamedProperties]
 interface NamedNodeMap {
+  [PHPCountable]
   readonly attribute unsigned long length;
   getter Attr? item(unsigned long index);
   getter Attr? getNamedItem(DOMString qualifiedName);
@@ -397,6 +402,8 @@ interface NamedNodeMap {
   [CEReactions] Attr? setNamedItemNS(Attr attr);
   [CEReactions] Attr removeNamedItem(DOMString qualifiedName);
   [CEReactions] Attr removeNamedItemNS(DOMString? namespace, DOMString localName);
+  [PHPExtension]
+  iterable<Attr>;
 };
 
 [Exposed=Window]
@@ -559,6 +566,7 @@ callback interface NodeFilter {
 
 [Exposed=Window]
 interface DOMTokenList {
+  [PHPCountable]
   readonly attribute unsigned long length;
   getter DOMString? item(unsigned long index);
   boolean contains(DOMString token);

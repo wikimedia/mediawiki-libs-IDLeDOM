@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM;
 
-interface NamedNodeMap extends \ArrayAccess {
+interface NamedNodeMap extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @return int
 	 */
@@ -54,5 +54,10 @@ interface NamedNodeMap extends \ArrayAccess {
 	 * @return Attr
 	 */
 	public function removeNamedItemNS( ?string $namespace, string $localName );
+
+	/**
+	 * @return \Traversable<Attr>
+	 */
+	public function getIterator();
 
 }
