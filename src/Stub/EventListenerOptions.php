@@ -14,7 +14,7 @@ trait EventListenerOptions {
 	/**
 	 * @return \Exception
 	 */
-	abstract public function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : \Exception;
 
 	// phpcs:enable
 

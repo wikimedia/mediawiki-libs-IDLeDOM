@@ -32,7 +32,7 @@ class StubBuilder extends Builder {
 		$this->nl( '/**' );
 		$this->nl( ' * @return \Exception' );
 		$this->nl( ' */' );
-		$this->nl( 'abstract public function _unimplemented() : \Exception;' );
+		$this->nl( 'abstract protected function _unimplemented() : \Exception;' );
 		$this->nl();
 		$this->nl( '// phpcs:enable' );
 		$this->nl();
