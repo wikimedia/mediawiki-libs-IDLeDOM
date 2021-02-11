@@ -29,65 +29,71 @@ trait Document {
 	use \Wikimedia\IDLeDOM\Stub\ParentNode;
 	use \Wikimedia\IDLeDOM\Stub\XPathEvaluatorBase;
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return DOMImplementation
 	 */
 	public function getImplementation() : DOMImplementation {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getURL() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getDocumentURI() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getCompatMode() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getCharacterSet() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getContentType() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?DocumentType
 	 */
 	public function getDoctype() : ?DocumentType {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?Element
 	 */
 	public function getDocumentElement() : ?Element {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -95,7 +101,7 @@ trait Document {
 	 * @return HTMLCollection
 	 */
 	public function getElementsByTagName( string $qualifiedName ) : HTMLCollection {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -104,7 +110,7 @@ trait Document {
 	 * @return HTMLCollection
 	 */
 	public function getElementsByTagNameNS( ?string $namespace, string $localName ) : HTMLCollection {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -112,7 +118,7 @@ trait Document {
 	 * @return HTMLCollection
 	 */
 	public function getElementsByClassName( string $classNames ) : HTMLCollection {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -121,7 +127,7 @@ trait Document {
 	 * @return Element
 	 */
 	public function createElement( string $localName, /* ?mixed */ $options = null ) : Element {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -131,14 +137,14 @@ trait Document {
 	 * @return Element
 	 */
 	public function createElementNS( ?string $namespace, string $qualifiedName, /* ?mixed */ $options = null ) : Element {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return DocumentFragment
 	 */
 	public function createDocumentFragment() : DocumentFragment {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -146,7 +152,7 @@ trait Document {
 	 * @return Text
 	 */
 	public function createTextNode( string $data ) : Text {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -154,7 +160,7 @@ trait Document {
 	 * @return CDATASection
 	 */
 	public function createCDATASection( string $data ) : CDATASection {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -162,7 +168,7 @@ trait Document {
 	 * @return Comment
 	 */
 	public function createComment( string $data ) : Comment {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -171,7 +177,7 @@ trait Document {
 	 * @return ProcessingInstruction
 	 */
 	public function createProcessingInstruction( string $target, string $data ) : ProcessingInstruction {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -180,7 +186,7 @@ trait Document {
 	 * @return Node
 	 */
 	public function importNode( Node $node, bool $deep = false ) : Node {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -188,7 +194,7 @@ trait Document {
 	 * @return Node
 	 */
 	public function adoptNode( Node $node ) : Node {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -196,7 +202,7 @@ trait Document {
 	 * @return Attr
 	 */
 	public function createAttribute( string $localName ) : Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -205,14 +211,14 @@ trait Document {
 	 * @return Attr
 	 */
 	public function createAttributeNS( ?string $namespace, string $qualifiedName ) : Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return Range
 	 */
 	public function createRange() : Range {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -222,7 +228,7 @@ trait Document {
 	 * @return NodeIterator
 	 */
 	public function createNodeIterator( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : NodeIterator {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -232,7 +238,7 @@ trait Document {
 	 * @return TreeWalker
 	 */
 	public function createTreeWalker( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : TreeWalker {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

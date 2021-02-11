@@ -7,58 +7,64 @@ namespace Wikimedia\IDLeDOM\Stub;
 
 trait MutationObserverInit {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
 	public function getChildList() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getAttributes() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getCharacterData() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getSubtree() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getAttributeOldValue() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getCharacterDataOldValue() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return list<string>
 	 */
 	public function getAttributeFilter() : array {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

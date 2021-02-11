@@ -9,16 +9,22 @@ use Wikimedia\IDLeDOM\Attr;
 
 trait NamedNodeMap {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
 	public function getLength() : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -26,7 +32,7 @@ trait NamedNodeMap {
 	 * @return ?Attr
 	 */
 	public function item( int $index ) : ?Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -34,7 +40,7 @@ trait NamedNodeMap {
 	 * @return ?Attr
 	 */
 	public function getNamedItem( string $qualifiedName ) : ?Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -43,7 +49,7 @@ trait NamedNodeMap {
 	 * @return ?Attr
 	 */
 	public function getNamedItemNS( ?string $namespace, string $localName ) : ?Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -51,7 +57,7 @@ trait NamedNodeMap {
 	 * @return ?Attr
 	 */
 	public function setNamedItem( Attr $attr ) : ?Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -59,7 +65,7 @@ trait NamedNodeMap {
 	 * @return ?Attr
 	 */
 	public function setNamedItemNS( Attr $attr ) : ?Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -67,7 +73,7 @@ trait NamedNodeMap {
 	 * @return Attr
 	 */
 	public function removeNamedItem( string $qualifiedName ) : Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -76,7 +82,7 @@ trait NamedNodeMap {
 	 * @return Attr
 	 */
 	public function removeNamedItemNS( ?string $namespace, string $localName ) : Attr {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

@@ -9,17 +9,23 @@ use Wikimedia\IDLeDOM\Node;
 
 trait NodeFilter {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @param Node $node
 	 * @return int
 	 */
 	public function acceptNode( Node $node ) : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

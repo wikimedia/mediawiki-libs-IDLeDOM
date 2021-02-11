@@ -11,10 +11,16 @@ use Wikimedia\IDLeDOM\XMLDocument;
 
 trait DOMImplementation {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @param string $qualifiedName
@@ -23,7 +29,7 @@ trait DOMImplementation {
 	 * @return DocumentType
 	 */
 	public function createDocumentType( string $qualifiedName, string $publicId, string $systemId ) : DocumentType {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -33,7 +39,7 @@ trait DOMImplementation {
 	 * @return XMLDocument
 	 */
 	public function createDocument( ?string $namespace, string $qualifiedName, ?DocumentType $doctype = null ) : XMLDocument {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -41,14 +47,14 @@ trait DOMImplementation {
 	 * @return Document
 	 */
 	public function createHTMLDocument( ?string $title = null ) : Document {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function hasFeature() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

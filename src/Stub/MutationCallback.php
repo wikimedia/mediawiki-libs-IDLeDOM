@@ -10,10 +10,16 @@ use Wikimedia\IDLeDOM\MutationRecord;
 
 trait MutationCallback {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @param list<MutationRecord> $mutations
@@ -21,7 +27,7 @@ trait MutationCallback {
 	 * @return void
 	 */
 	public function invoke( array $mutations, MutationObserver $observer ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

@@ -12,10 +12,16 @@ use Wikimedia\IDLeDOM\EventListenerOptions;
 
 trait EventTarget {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @param string $type
@@ -24,7 +30,7 @@ trait EventTarget {
 	 * @return void
 	 */
 	public function addEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -34,7 +40,7 @@ trait EventTarget {
 	 * @return void
 	 */
 	public function removeEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -42,7 +48,7 @@ trait EventTarget {
 	 * @return bool
 	 */
 	public function dispatchEvent( Event $event ) : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

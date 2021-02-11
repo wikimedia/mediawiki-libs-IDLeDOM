@@ -25,10 +25,16 @@ class StubBuilder extends Builder {
 			}
 		}
 		$this->nl();
+		$this->nl( '// Underscore is used to avoid conflicts with DOM-reserved names' );
+		$this->nl( '// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore' );
+		$this->nl( '// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName' );
+		$this->nl();
 		$this->nl( '/**' );
 		$this->nl( ' * @return \Exception' );
 		$this->nl( ' */' );
-		$this->nl( 'abstract public function unimplemented() : \Exception;' );
+		$this->nl( 'abstract public function _unimplemented() : \Exception;' );
+		$this->nl();
+		$this->nl( '// phpcs:enable' );
 		$this->nl();
 	}
 
@@ -46,7 +52,7 @@ class StubBuilder extends Builder {
 		$this->nl( " * @return $docType" );
 		$this->nl( ' */' );
 		$this->nl( "public function $getter()$retType {" );
-		$this->nl( 'throw self::unimplemented();' );
+		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
 		if ( $m['readonly'] ?? false ) {
 			return;
@@ -58,7 +64,7 @@ class StubBuilder extends Builder {
 		$this->nl( " * @param $docType \$val" );
 		$this->nl( ' */' );
 		$this->nl( "public function $setter( $phpType \$val ) : void {" );
-		$this->nl( 'throw self::unimplemented();' );
+		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
 	}
 
@@ -71,7 +77,7 @@ class StubBuilder extends Builder {
 		$this->nl( " * @return \\Iterator<$docType>" );
 		$this->nl( ' */' );
 		$this->nl( "public function $iteratorName() {" );
-		$this->nl( 'throw self::unimplemented();' );
+		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
 	}
 
@@ -96,7 +102,7 @@ class StubBuilder extends Builder {
 		$this->nl( " * @return {$r['retTypeDoc']}" );
 		$this->nl( ' */' );
 		$this->nl( "public function {$r['funcName']}({$r['phpArgs']}){$r['retType']} {" );
-		$this->nl( 'throw self::unimplemented();' );
+		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
 		$this->nl();
 	}

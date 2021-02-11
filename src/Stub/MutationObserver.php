@@ -11,10 +11,16 @@ use Wikimedia\IDLeDOM\Node;
 
 trait MutationObserver {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @param Node $target
@@ -22,21 +28,21 @@ trait MutationObserver {
 	 * @return void
 	 */
 	public function observe( Node $target, /* ?mixed */ $options = null ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
 	public function disconnect() : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return list<MutationRecord>
 	 */
 	public function takeRecords() : array {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

@@ -9,24 +9,30 @@ trait Text {
 	use \Wikimedia\IDLeDOM\Stub\CharacterData;
 	use \Wikimedia\IDLeDOM\Stub\Slottable;
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @param int $offset
 	 * @return \Wikimedia\IDLeDOM\Text
 	 */
 	public function splitText( int $offset ) : \Wikimedia\IDLeDOM\Text {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getWholeText() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

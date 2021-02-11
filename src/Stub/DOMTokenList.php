@@ -7,16 +7,22 @@ namespace Wikimedia\IDLeDOM\Stub;
 
 trait DOMTokenList {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
 	public function getLength() : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -24,7 +30,7 @@ trait DOMTokenList {
 	 * @return ?string
 	 */
 	public function item( int $index ) : ?string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -32,7 +38,7 @@ trait DOMTokenList {
 	 * @return bool
 	 */
 	public function contains( string $token ) : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -40,7 +46,7 @@ trait DOMTokenList {
 	 * @return void
 	 */
 	public function add( string ...$tokens ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -48,7 +54,7 @@ trait DOMTokenList {
 	 * @return void
 	 */
 	public function remove( string ...$tokens ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -57,7 +63,7 @@ trait DOMTokenList {
 	 * @return bool
 	 */
 	public function toggle( string $token, ?bool $force = null ) : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -66,7 +72,7 @@ trait DOMTokenList {
 	 * @return bool
 	 */
 	public function replace( string $token, string $newToken ) : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -74,28 +80,28 @@ trait DOMTokenList {
 	 * @return bool
 	 */
 	public function supports( string $token ) : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getValue() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
 	public function setValue( string $val ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return \Iterator<string>
 	 */
 	public function getIterator() {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

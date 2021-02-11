@@ -9,65 +9,71 @@ use Wikimedia\IDLeDOM\Node;
 
 trait XPathResult {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
 	public function getResultType() : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
 	public function getNumberValue() : float {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getStringValue() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getBooleanValue() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?Node
 	 */
 	public function getSingleNodeValue() : ?Node {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getInvalidIteratorState() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
 	public function getSnapshotLength() : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?Node
 	 */
 	public function iterateNext() : ?Node {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -75,7 +81,7 @@ trait XPathResult {
 	 * @return ?Node
 	 */
 	public function snapshotItem( int $index ) : ?Node {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

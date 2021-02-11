@@ -10,30 +10,36 @@ trait CharacterData {
 	use \Wikimedia\IDLeDOM\Stub\ChildNode;
 	use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
 	public function getData() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
 	public function setData( string $val ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
 	public function getLength() : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -42,7 +48,7 @@ trait CharacterData {
 	 * @return string
 	 */
 	public function substringData( int $offset, int $count ) : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -50,7 +56,7 @@ trait CharacterData {
 	 * @return void
 	 */
 	public function appendData( string $data ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -59,7 +65,7 @@ trait CharacterData {
 	 * @return void
 	 */
 	public function insertData( int $offset, string $data ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -68,7 +74,7 @@ trait CharacterData {
 	 * @return void
 	 */
 	public function deleteData( int $offset, int $count ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -78,7 +84,7 @@ trait CharacterData {
 	 * @return void
 	 */
 	public function replaceData( int $offset, int $count, string $data ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

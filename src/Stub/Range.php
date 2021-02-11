@@ -11,16 +11,22 @@ use Wikimedia\IDLeDOM\Node;
 trait Range {
 	use \Wikimedia\IDLeDOM\Stub\AbstractRange;
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return Node
 	 */
 	public function getCommonAncestorContainer() : Node {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -29,7 +35,7 @@ trait Range {
 	 * @return void
 	 */
 	public function setStart( Node $node, int $offset ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -38,7 +44,7 @@ trait Range {
 	 * @return void
 	 */
 	public function setEnd( Node $node, int $offset ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -46,7 +52,7 @@ trait Range {
 	 * @return void
 	 */
 	public function setStartBefore( Node $node ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -54,7 +60,7 @@ trait Range {
 	 * @return void
 	 */
 	public function setStartAfter( Node $node ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -62,7 +68,7 @@ trait Range {
 	 * @return void
 	 */
 	public function setEndBefore( Node $node ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -70,7 +76,7 @@ trait Range {
 	 * @return void
 	 */
 	public function setEndAfter( Node $node ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -78,7 +84,7 @@ trait Range {
 	 * @return void
 	 */
 	public function collapse( bool $toStart = false ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -86,7 +92,7 @@ trait Range {
 	 * @return void
 	 */
 	public function selectNode( Node $node ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -94,7 +100,7 @@ trait Range {
 	 * @return void
 	 */
 	public function selectNodeContents( Node $node ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -103,28 +109,28 @@ trait Range {
 	 * @return int
 	 */
 	public function compareBoundaryPoints( int $how, \Wikimedia\IDLeDOM\Range $sourceRange ) : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
 	public function deleteContents() : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return DocumentFragment
 	 */
 	public function extractContents() : DocumentFragment {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return DocumentFragment
 	 */
 	public function cloneContents() : DocumentFragment {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -132,7 +138,7 @@ trait Range {
 	 * @return void
 	 */
 	public function insertNode( Node $node ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -140,21 +146,21 @@ trait Range {
 	 * @return void
 	 */
 	public function surroundContents( Node $newParent ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return \Wikimedia\IDLeDOM\Range
 	 */
 	public function cloneRange() : \Wikimedia\IDLeDOM\Range {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
 	public function detach() : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -163,7 +169,7 @@ trait Range {
 	 * @return bool
 	 */
 	public function isPointInRange( Node $node, int $offset ) : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -172,7 +178,7 @@ trait Range {
 	 * @return int
 	 */
 	public function comparePoint( Node $node, int $offset ) : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -180,7 +186,7 @@ trait Range {
 	 * @return bool
 	 */
 	public function intersectsNode( Node $node ) : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

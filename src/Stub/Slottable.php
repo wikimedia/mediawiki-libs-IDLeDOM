@@ -9,16 +9,22 @@ use Wikimedia\IDLeDOM\HTMLSlotElement;
 
 trait Slottable {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return ?HTMLSlotElement
 	 */
 	public function getAssignedSlot() : ?HTMLSlotElement {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

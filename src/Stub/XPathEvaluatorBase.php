@@ -12,10 +12,16 @@ use Wikimedia\IDLeDOM\XPathResult;
 
 trait XPathEvaluatorBase {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @param string $expression
@@ -23,7 +29,7 @@ trait XPathEvaluatorBase {
 	 * @return XPathExpression
 	 */
 	public function createExpression( string $expression, /* ?mixed */ $resolver = null ) : XPathExpression {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -31,7 +37,7 @@ trait XPathEvaluatorBase {
 	 * @return XPathNSResolver|callable
 	 */
 	public function createNSResolver( Node $nodeResolver ) {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -43,7 +49,7 @@ trait XPathEvaluatorBase {
 	 * @return XPathResult
 	 */
 	public function evaluate( string $expression, Node $contextNode, /* ?mixed */ $resolver = null, int $type = 0, ?XPathResult $result = null ) : XPathResult {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

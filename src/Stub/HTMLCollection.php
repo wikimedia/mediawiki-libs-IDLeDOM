@@ -9,16 +9,22 @@ use Wikimedia\IDLeDOM\Element;
 
 trait HTMLCollection {
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
 	public function getLength() : int {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -26,7 +32,7 @@ trait HTMLCollection {
 	 * @return ?Element
 	 */
 	public function item( int $index ) : ?Element {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
@@ -34,7 +40,7 @@ trait HTMLCollection {
 	 * @return ?Element
 	 */
 	public function namedItem( string $name ) : ?Element {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }

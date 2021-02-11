@@ -10,65 +10,71 @@ use Wikimedia\IDLeDOM\Element;
 trait Attr {
 	use \Wikimedia\IDLeDOM\Stub\Node;
 
+	// Underscore is used to avoid conflicts with DOM-reserved names
+	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 	/**
 	 * @return \Exception
 	 */
-	abstract public function unimplemented() : \Exception;
+	abstract public function _unimplemented() : \Exception;
+
+	// phpcs:enable
 
 	/**
 	 * @return ?string
 	 */
 	public function getNamespaceURI() : ?string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
 	public function getPrefix() : ?string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getLocalName() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getName() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getValue() : string {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
 	public function setValue( string $val ) : void {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?Element
 	 */
 	public function getOwnerElement() : ?Element {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function getSpecified() : bool {
-		throw self::unimplemented();
+		throw self::_unimplemented();
 	}
 
 }
