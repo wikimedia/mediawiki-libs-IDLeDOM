@@ -24,7 +24,7 @@ trait TreeWalker {
 	/**
 	 * @return Node
 	 */
-	public function getRoot() : Node {
+	public function getRoot() {
 		throw self::_unimplemented();
 	}
 
@@ -45,63 +45,63 @@ trait TreeWalker {
 	/**
 	 * @return Node
 	 */
-	public function getCurrentNode() : Node {
+	public function getCurrentNode() {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param Node $val
 	 */
-	public function setCurrentNode( Node $val ) : void {
+	public function setCurrentNode( /* Node */ $val ) : void {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function parentNode() : ?Node {
+	public function parentNode() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function firstChild() : ?Node {
+	public function firstChild() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function lastChild() : ?Node {
+	public function lastChild() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function previousSibling() : ?Node {
+	public function previousSibling() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function nextSibling() : ?Node {
+	public function nextSibling() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function previousNode() : ?Node {
+	public function previousNode() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function nextNode() : ?Node {
+	public function nextNode() {
 		throw self::_unimplemented();
 	}
 

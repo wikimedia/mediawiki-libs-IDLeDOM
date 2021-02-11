@@ -203,44 +203,44 @@ trait HTMLElement {
 	abstract public function getIsConnected() : bool;
 
 	/**
-	 * @return ?Document
+	 * @return Document|null
 	 */
-	abstract public function getOwnerDocument() : ?Document;
+	abstract public function getOwnerDocument();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getParentNode() : ?Node;
+	abstract public function getParentNode();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getParentElement() : ?Element;
+	abstract public function getParentElement();
 
 	/**
 	 * @return NodeList
 	 */
-	abstract public function getChildNodes() : NodeList;
+	abstract public function getChildNodes();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getFirstChild() : ?Node;
+	abstract public function getFirstChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getLastChild() : ?Node;
+	abstract public function getLastChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getPreviousSibling() : ?Node;
+	abstract public function getPreviousSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getNextSibling() : ?Node;
+	abstract public function getNextSibling();
 
 	/**
 	 * @return ?string
@@ -263,29 +263,29 @@ trait HTMLElement {
 	abstract public function setTextContent( ?string $value ) : void;
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getPreviousElementSibling() : ?Element;
+	abstract public function getPreviousElementSibling();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getNextElementSibling() : ?Element;
+	abstract public function getNextElementSibling();
 
 	/**
 	 * @return HTMLCollection
 	 */
-	abstract public function getChildren() : HTMLCollection;
+	abstract public function getChildren();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getFirstElementChild() : ?Element;
+	abstract public function getFirstElementChild();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getLastElementChild() : ?Element;
+	abstract public function getLastElementChild();
 
 	/**
 	 * @return int
@@ -293,9 +293,9 @@ trait HTMLElement {
 	abstract public function getChildElementCount() : int;
 
 	/**
-	 * @return ?HTMLSlotElement
+	 * @return HTMLSlotElement|null
 	 */
-	abstract public function getAssignedSlot() : ?HTMLSlotElement;
+	abstract public function getAssignedSlot();
 
 	/**
 	 * @return ?string
@@ -340,7 +340,7 @@ trait HTMLElement {
 	/**
 	 * @return DOMTokenList
 	 */
-	abstract public function getClassList() : DOMTokenList;
+	abstract public function getClassList();
 
 	/**
 	 * @return string
@@ -355,12 +355,12 @@ trait HTMLElement {
 	/**
 	 * @return NamedNodeMap
 	 */
-	abstract public function getAttributes() : NamedNodeMap;
+	abstract public function getAttributes();
 
 	/**
-	 * @return ?ShadowRoot
+	 * @return ShadowRoot|null
 	 */
-	abstract public function getShadowRoot() : ?ShadowRoot;
+	abstract public function getShadowRoot();
 
 	/**
 	 * @return string

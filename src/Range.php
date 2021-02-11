@@ -10,45 +10,45 @@ interface Range extends AbstractRange {
 	/**
 	 * @return Node
 	 */
-	public function getCommonAncestorContainer() : Node;
+	public function getCommonAncestorContainer();
 
 	/**
 	 * @param Node $node
 	 * @param int $offset
 	 * @return void
 	 */
-	public function setStart( Node $node, int $offset ) : void;
+	public function setStart( /* Node */ $node, int $offset ) : void;
 
 	/**
 	 * @param Node $node
 	 * @param int $offset
 	 * @return void
 	 */
-	public function setEnd( Node $node, int $offset ) : void;
+	public function setEnd( /* Node */ $node, int $offset ) : void;
 
 	/**
 	 * @param Node $node
 	 * @return void
 	 */
-	public function setStartBefore( Node $node ) : void;
+	public function setStartBefore( /* Node */ $node ) : void;
 
 	/**
 	 * @param Node $node
 	 * @return void
 	 */
-	public function setStartAfter( Node $node ) : void;
+	public function setStartAfter( /* Node */ $node ) : void;
 
 	/**
 	 * @param Node $node
 	 * @return void
 	 */
-	public function setEndBefore( Node $node ) : void;
+	public function setEndBefore( /* Node */ $node ) : void;
 
 	/**
 	 * @param Node $node
 	 * @return void
 	 */
-	public function setEndAfter( Node $node ) : void;
+	public function setEndAfter( /* Node */ $node ) : void;
 
 	/**
 	 * @param bool $toStart
@@ -60,13 +60,13 @@ interface Range extends AbstractRange {
 	 * @param Node $node
 	 * @return void
 	 */
-	public function selectNode( Node $node ) : void;
+	public function selectNode( /* Node */ $node ) : void;
 
 	/**
 	 * @param Node $node
 	 * @return void
 	 */
-	public function selectNodeContents( Node $node ) : void;
+	public function selectNodeContents( /* Node */ $node ) : void;
 
 	/** @var int */
 	public const START_TO_START = 0;
@@ -85,7 +85,7 @@ interface Range extends AbstractRange {
 	 * @param \Wikimedia\IDLeDOM\Range $sourceRange
 	 * @return int
 	 */
-	public function compareBoundaryPoints( int $how, \Wikimedia\IDLeDOM\Range $sourceRange ) : int;
+	public function compareBoundaryPoints( int $how, /* \Wikimedia\IDLeDOM\Range */ $sourceRange ) : int;
 
 	/**
 	 * @return void
@@ -95,29 +95,29 @@ interface Range extends AbstractRange {
 	/**
 	 * @return DocumentFragment
 	 */
-	public function extractContents() : DocumentFragment;
+	public function extractContents();
 
 	/**
 	 * @return DocumentFragment
 	 */
-	public function cloneContents() : DocumentFragment;
+	public function cloneContents();
 
 	/**
 	 * @param Node $node
 	 * @return void
 	 */
-	public function insertNode( Node $node ) : void;
+	public function insertNode( /* Node */ $node ) : void;
 
 	/**
 	 * @param Node $newParent
 	 * @return void
 	 */
-	public function surroundContents( Node $newParent ) : void;
+	public function surroundContents( /* Node */ $newParent ) : void;
 
 	/**
 	 * @return \Wikimedia\IDLeDOM\Range
 	 */
-	public function cloneRange() : \Wikimedia\IDLeDOM\Range;
+	public function cloneRange();
 
 	/**
 	 * @return void
@@ -129,19 +129,19 @@ interface Range extends AbstractRange {
 	 * @param int $offset
 	 * @return bool
 	 */
-	public function isPointInRange( Node $node, int $offset ) : bool;
+	public function isPointInRange( /* Node */ $node, int $offset ) : bool;
 
 	/**
 	 * @param Node $node
 	 * @param int $offset
 	 * @return int
 	 */
-	public function comparePoint( Node $node, int $offset ) : int;
+	public function comparePoint( /* Node */ $node, int $offset ) : int;
 
 	/**
 	 * @param Node $node
 	 * @return bool
 	 */
-	public function intersectsNode( Node $node ) : bool;
+	public function intersectsNode( /* Node */ $node ) : bool;
 
 }

@@ -13,46 +13,46 @@ interface NamedNodeMap extends \ArrayAccess {
 
 	/**
 	 * @param int $index
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function item( int $index ) : ?Attr;
+	public function item( int $index );
 
 	/**
 	 * @param string $qualifiedName
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function getNamedItem( string $qualifiedName ) : ?Attr;
+	public function getNamedItem( string $qualifiedName );
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function getNamedItemNS( ?string $namespace, string $localName ) : ?Attr;
+	public function getNamedItemNS( ?string $namespace, string $localName );
 
 	/**
 	 * @param Attr $attr
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function setNamedItem( Attr $attr ) : ?Attr;
+	public function setNamedItem( /* Attr */ $attr );
 
 	/**
 	 * @param Attr $attr
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function setNamedItemNS( Attr $attr ) : ?Attr;
+	public function setNamedItemNS( /* Attr */ $attr );
 
 	/**
 	 * @param string $qualifiedName
 	 * @return Attr
 	 */
-	public function removeNamedItem( string $qualifiedName ) : Attr;
+	public function removeNamedItem( string $qualifiedName );
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
 	 * @return Attr
 	 */
-	public function removeNamedItemNS( ?string $namespace, string $localName ) : Attr;
+	public function removeNamedItemNS( ?string $namespace, string $localName );
 
 }

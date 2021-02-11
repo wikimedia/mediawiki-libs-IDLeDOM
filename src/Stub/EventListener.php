@@ -24,7 +24,7 @@ trait EventListener {
 	 * @param Event $event
 	 * @return void
 	 */
-	public function handleEvent( Event $event ) : void {
+	public function handleEvent( /* Event */ $event ) : void {
 		throw self::_unimplemented();
 	}
 

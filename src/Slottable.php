@@ -7,8 +7,8 @@ namespace Wikimedia\IDLeDOM;
 
 interface Slottable {
 	/**
-	 * @return ?HTMLSlotElement
+	 * @return HTMLSlotElement|null
 	 */
-	public function getAssignedSlot() : ?HTMLSlotElement;
+	public function getAssignedSlot();
 
 }

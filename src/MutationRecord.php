@@ -14,27 +14,27 @@ interface MutationRecord {
 	/**
 	 * @return Node
 	 */
-	public function getTarget() : Node;
+	public function getTarget();
 
 	/**
 	 * @return NodeList
 	 */
-	public function getAddedNodes() : NodeList;
+	public function getAddedNodes();
 
 	/**
 	 * @return NodeList
 	 */
-	public function getRemovedNodes() : NodeList;
+	public function getRemovedNodes();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getPreviousSibling() : ?Node;
+	public function getPreviousSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getNextSibling() : ?Node;
+	public function getNextSibling();
 
 	/**
 	 * @return ?string

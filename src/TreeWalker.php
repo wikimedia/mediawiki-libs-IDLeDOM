@@ -9,7 +9,7 @@ interface TreeWalker {
 	/**
 	 * @return Node
 	 */
-	public function getRoot() : Node;
+	public function getRoot();
 
 	/**
 	 * @return int
@@ -24,46 +24,46 @@ interface TreeWalker {
 	/**
 	 * @return Node
 	 */
-	public function getCurrentNode() : Node;
+	public function getCurrentNode();
 
 	/**
 	 * @param Node $val
 	 */
-	public function setCurrentNode( Node $val ) : void;
+	public function setCurrentNode( /* Node */ $val ) : void;
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function parentNode() : ?Node;
+	public function parentNode();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function firstChild() : ?Node;
+	public function firstChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function lastChild() : ?Node;
+	public function lastChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function previousSibling() : ?Node;
+	public function previousSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function nextSibling() : ?Node;
+	public function nextSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function previousNode() : ?Node;
+	public function previousNode();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function nextNode() : ?Node;
+	public function nextNode();
 
 }

@@ -64,9 +64,9 @@ trait Attr {
 	}
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getOwnerElement() : ?Element {
+	public function getOwnerElement() {
 		throw self::_unimplemented();
 	}
 

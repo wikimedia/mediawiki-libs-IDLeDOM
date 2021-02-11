@@ -32,6 +32,6 @@ trait AbortController {
 	/**
 	 * @return AbortSignal
 	 */
-	abstract public function getSignal() : AbortSignal;
+	abstract public function getSignal();
 
 }

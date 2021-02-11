@@ -36,9 +36,9 @@ trait NodeList {
 
 	/**
 	 * @param int $index
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function item( int $index ) : ?Node;
+	abstract public function item( int $index );
 
 	/**
 	 * @param mixed $offset

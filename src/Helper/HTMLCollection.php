@@ -36,15 +36,15 @@ trait HTMLCollection {
 
 	/**
 	 * @param int $index
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function item( int $index ) : ?Element;
+	abstract public function item( int $index );
 
 	/**
 	 * @param string $name
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function namedItem( string $name ) : ?Element;
+	abstract public function namedItem( string $name );
 
 	/**
 	 * @param mixed $offset

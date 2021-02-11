@@ -89,7 +89,7 @@ trait Element {
 	/**
 	 * @return DOMTokenList
 	 */
-	public function getClassList() : DOMTokenList {
+	public function getClassList() {
 		throw self::_unimplemented();
 	}
 
@@ -117,7 +117,7 @@ trait Element {
 	/**
 	 * @return NamedNodeMap
 	 */
-	public function getAttributes() : NamedNodeMap {
+	public function getAttributes() {
 		throw self::_unimplemented();
 	}
 
@@ -209,34 +209,34 @@ trait Element {
 
 	/**
 	 * @param string $qualifiedName
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function getAttributeNode( string $qualifiedName ) : ?Attr {
+	public function getAttributeNode( string $qualifiedName ) {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function getAttributeNodeNS( ?string $namespace, string $localName ) : ?Attr {
+	public function getAttributeNodeNS( ?string $namespace, string $localName ) {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param Attr $attr
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function setAttributeNode( Attr $attr ) : ?Attr {
+	public function setAttributeNode( /* Attr */ $attr ) {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param Attr $attr
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function setAttributeNodeNS( Attr $attr ) : ?Attr {
+	public function setAttributeNodeNS( /* Attr */ $attr ) {
 		throw self::_unimplemented();
 	}
 
@@ -244,7 +244,7 @@ trait Element {
 	 * @param Attr $attr
 	 * @return Attr
 	 */
-	public function removeAttributeNode( Attr $attr ) : Attr {
+	public function removeAttributeNode( /* Attr */ $attr ) {
 		throw self::_unimplemented();
 	}
 
@@ -252,22 +252,22 @@ trait Element {
 	 * @param ShadowRootInit|associative-array $init
 	 * @return ShadowRoot
 	 */
-	public function attachShadow( /* mixed */ $init ) : ShadowRoot {
+	public function attachShadow( /* mixed */ $init ) {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?ShadowRoot
+	 * @return ShadowRoot|null
 	 */
-	public function getShadowRoot() : ?ShadowRoot {
+	public function getShadowRoot() {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $selectors
-	 * @return ?\Wikimedia\IDLeDOM\Element
+	 * @return \Wikimedia\IDLeDOM\Element|null
 	 */
-	public function closest( string $selectors ) : ?\Wikimedia\IDLeDOM\Element {
+	public function closest( string $selectors ) {
 		throw self::_unimplemented();
 	}
 
@@ -283,7 +283,7 @@ trait Element {
 	 * @param string $qualifiedName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagName( string $qualifiedName ) : HTMLCollection {
+	public function getElementsByTagName( string $qualifiedName ) {
 		throw self::_unimplemented();
 	}
 
@@ -292,7 +292,7 @@ trait Element {
 	 * @param string $localName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagNameNS( ?string $namespace, string $localName ) : HTMLCollection {
+	public function getElementsByTagNameNS( ?string $namespace, string $localName ) {
 		throw self::_unimplemented();
 	}
 
@@ -300,7 +300,7 @@ trait Element {
 	 * @param string $classNames
 	 * @return HTMLCollection
 	 */
-	public function getElementsByClassName( string $classNames ) : HTMLCollection {
+	public function getElementsByClassName( string $classNames ) {
 		throw self::_unimplemented();
 	}
 

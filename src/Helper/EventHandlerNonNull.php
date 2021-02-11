@@ -21,7 +21,7 @@ trait EventHandlerNonNull {
 	 * @param Event $event
 	 * @return ?mixed
 	 */
-	abstract public function invoke( Event $event );
+	abstract public function invoke( /* Event */ $event );
 
 	/**
 	 * Create a EventHandlerNonNull from a callable.
@@ -50,7 +50,7 @@ trait EventHandlerNonNull {
 			 * @param Event $event
 			 * @return ?mixed
 			 */
-			public function invoke( Event $event ) {
+			public function invoke( /* Event */ $event ) {
 				$f = $this->f;
 				return $f( $event );
 			}

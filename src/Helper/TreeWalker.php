@@ -60,7 +60,7 @@ trait TreeWalker {
 	/**
 	 * @return Node
 	 */
-	abstract public function getRoot() : Node;
+	abstract public function getRoot();
 
 	/**
 	 * @return int
@@ -75,11 +75,11 @@ trait TreeWalker {
 	/**
 	 * @return Node
 	 */
-	abstract public function getCurrentNode() : Node;
+	abstract public function getCurrentNode();
 
 	/**
 	 * @param Node $value
 	 */
-	abstract public function setCurrentNode( Node $value ) : void;
+	abstract public function setCurrentNode( /* Node */ $value ) : void;
 
 }

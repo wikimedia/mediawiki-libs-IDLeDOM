@@ -42,7 +42,7 @@ trait Range {
 	/**
 	 * @return Node
 	 */
-	abstract public function getStartContainer() : Node;
+	abstract public function getStartContainer();
 
 	/**
 	 * @return int
@@ -52,7 +52,7 @@ trait Range {
 	/**
 	 * @return Node
 	 */
-	abstract public function getEndContainer() : Node;
+	abstract public function getEndContainer();
 
 	/**
 	 * @return int
@@ -67,6 +67,6 @@ trait Range {
 	/**
 	 * @return Node
 	 */
-	abstract public function getCommonAncestorContainer() : Node;
+	abstract public function getCommonAncestorContainer();
 
 }

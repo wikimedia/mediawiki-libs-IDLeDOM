@@ -54,27 +54,27 @@ trait MutationRecord {
 	/**
 	 * @return Node
 	 */
-	abstract public function getTarget() : Node;
+	abstract public function getTarget();
 
 	/**
 	 * @return NodeList
 	 */
-	abstract public function getAddedNodes() : NodeList;
+	abstract public function getAddedNodes();
 
 	/**
 	 * @return NodeList
 	 */
-	abstract public function getRemovedNodes() : NodeList;
+	abstract public function getRemovedNodes();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getPreviousSibling() : ?Node;
+	abstract public function getPreviousSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getNextSibling() : ?Node;
+	abstract public function getNextSibling();
 
 	/**
 	 * @return ?string

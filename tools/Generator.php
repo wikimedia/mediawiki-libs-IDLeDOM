@@ -409,6 +409,7 @@ class Generator {
 			$extraType = null;
 			if ( $this->typeIncludes( $ty, 'enum' ) ) {
 				$result = 'int'; // enumerations are integers
+				return $n . $result;
 			}
 			if ( $this->typeIncludes( $ty, 'dictionary' ) ) {
 				$extraType = 'associative-array';
@@ -423,7 +424,20 @@ class Generator {
 				}
 				return "$result|$extraType" . ( $n === '' ? '' : '|null' );
 			}
-			return $n . $result;
+			if ( !$phpdoc ) {
+				// PHP doesn't support full contravariance and covariance
+				// of interfaces until 7.4 -- and even when it does strict
+				// runtime typing makes incremental adoption of IDLeDOM
+				// interfaces hard.  So avoid strict PHP type hints for
+				// DOM types.
+				return "/* $n$result */";
+			} elseif ( $n === '?' ) {
+				// work around phpcs bug which flags parameters w/ defaults
+				// but w/o explicit PHP type hint as violations of
+				// MediaWiki.Commenting.FunctionComment.PHP71NullableDocOptionalArg
+				return "$result|null";
+			}
+			return "$n$result";
 		}
 		switch ( $ty['idlType'] ) {
 		case 'any':

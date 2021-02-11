@@ -8,8 +8,8 @@ namespace Wikimedia\IDLeDOM;
 interface NonElementParentNode {
 	/**
 	 * @param string $elementId
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getElementById( string $elementId ) : ?Element;
+	public function getElementById( string $elementId );
 
 }

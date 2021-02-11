@@ -21,9 +21,9 @@ trait Slottable {
 	// phpcs:enable
 
 	/**
-	 * @return ?HTMLSlotElement
+	 * @return HTMLSlotElement|null
 	 */
-	public function getAssignedSlot() : ?HTMLSlotElement {
+	public function getAssignedSlot() {
 		throw self::_unimplemented();
 	}
 

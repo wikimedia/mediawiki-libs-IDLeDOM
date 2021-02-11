@@ -23,7 +23,7 @@ trait StaticRangeInit {
 	/**
 	 * @return Node
 	 */
-	public function getStartContainer() : Node {
+	public function getStartContainer() {
 		throw self::_unimplemented();
 	}
 
@@ -37,7 +37,7 @@ trait StaticRangeInit {
 	/**
 	 * @return Node
 	 */
-	public function getEndContainer() : Node {
+	public function getEndContainer() {
 		throw self::_unimplemented();
 	}
 

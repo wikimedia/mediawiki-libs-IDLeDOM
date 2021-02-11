@@ -9,7 +9,7 @@ interface AbstractRange {
 	/**
 	 * @return Node
 	 */
-	public function getStartContainer() : Node;
+	public function getStartContainer();
 
 	/**
 	 * @return int
@@ -19,7 +19,7 @@ interface AbstractRange {
 	/**
 	 * @return Node
 	 */
-	public function getEndContainer() : Node;
+	public function getEndContainer();
 
 	/**
 	 * @return int

@@ -150,44 +150,44 @@ trait Element {
 	abstract public function getIsConnected() : bool;
 
 	/**
-	 * @return ?Document
+	 * @return Document|null
 	 */
-	abstract public function getOwnerDocument() : ?Document;
+	abstract public function getOwnerDocument();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getParentNode() : ?Node;
+	abstract public function getParentNode();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Element
+	 * @return \Wikimedia\IDLeDOM\Element|null
 	 */
-	abstract public function getParentElement() : ?\Wikimedia\IDLeDOM\Element;
+	abstract public function getParentElement();
 
 	/**
 	 * @return NodeList
 	 */
-	abstract public function getChildNodes() : NodeList;
+	abstract public function getChildNodes();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getFirstChild() : ?Node;
+	abstract public function getFirstChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getLastChild() : ?Node;
+	abstract public function getLastChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getPreviousSibling() : ?Node;
+	abstract public function getPreviousSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getNextSibling() : ?Node;
+	abstract public function getNextSibling();
 
 	/**
 	 * @return ?string
@@ -210,29 +210,29 @@ trait Element {
 	abstract public function setTextContent( ?string $value ) : void;
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Element
+	 * @return \Wikimedia\IDLeDOM\Element|null
 	 */
-	abstract public function getPreviousElementSibling() : ?\Wikimedia\IDLeDOM\Element;
+	abstract public function getPreviousElementSibling();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Element
+	 * @return \Wikimedia\IDLeDOM\Element|null
 	 */
-	abstract public function getNextElementSibling() : ?\Wikimedia\IDLeDOM\Element;
+	abstract public function getNextElementSibling();
 
 	/**
 	 * @return HTMLCollection
 	 */
-	abstract public function getChildren() : HTMLCollection;
+	abstract public function getChildren();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Element
+	 * @return \Wikimedia\IDLeDOM\Element|null
 	 */
-	abstract public function getFirstElementChild() : ?\Wikimedia\IDLeDOM\Element;
+	abstract public function getFirstElementChild();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Element
+	 * @return \Wikimedia\IDLeDOM\Element|null
 	 */
-	abstract public function getLastElementChild() : ?\Wikimedia\IDLeDOM\Element;
+	abstract public function getLastElementChild();
 
 	/**
 	 * @return int
@@ -240,9 +240,9 @@ trait Element {
 	abstract public function getChildElementCount() : int;
 
 	/**
-	 * @return ?HTMLSlotElement
+	 * @return HTMLSlotElement|null
 	 */
-	abstract public function getAssignedSlot() : ?HTMLSlotElement;
+	abstract public function getAssignedSlot();
 
 	/**
 	 * @return ?string
@@ -287,7 +287,7 @@ trait Element {
 	/**
 	 * @return DOMTokenList
 	 */
-	abstract public function getClassList() : DOMTokenList;
+	abstract public function getClassList();
 
 	/**
 	 * @return string
@@ -302,11 +302,11 @@ trait Element {
 	/**
 	 * @return NamedNodeMap
 	 */
-	abstract public function getAttributes() : NamedNodeMap;
+	abstract public function getAttributes();
 
 	/**
-	 * @return ?ShadowRoot
+	 * @return ShadowRoot|null
 	 */
-	abstract public function getShadowRoot() : ?ShadowRoot;
+	abstract public function getShadowRoot();
 
 }

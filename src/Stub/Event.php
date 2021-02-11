@@ -28,16 +28,16 @@ trait Event {
 	}
 
 	/**
-	 * @return ?EventTarget
+	 * @return EventTarget|null
 	 */
-	public function getTarget() : ?EventTarget {
+	public function getTarget() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?EventTarget
+	 * @return EventTarget|null
 	 */
-	public function getCurrentTarget() : ?EventTarget {
+	public function getCurrentTarget() {
 		throw self::_unimplemented();
 	}
 

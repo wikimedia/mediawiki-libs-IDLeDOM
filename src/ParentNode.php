@@ -9,17 +9,17 @@ interface ParentNode {
 	/**
 	 * @return HTMLCollection
 	 */
-	public function getChildren() : HTMLCollection;
+	public function getChildren();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getFirstElementChild() : ?Element;
+	public function getFirstElementChild();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getLastElementChild() : ?Element;
+	public function getLastElementChild();
 
 	/**
 	 * @return int
@@ -46,14 +46,14 @@ interface ParentNode {
 
 	/**
 	 * @param string $selectors
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function querySelector( string $selectors ) : ?Element;
+	public function querySelector( string $selectors );
 
 	/**
 	 * @param string $selectors
 	 * @return NodeList
 	 */
-	public function querySelectorAll( string $selectors ) : NodeList;
+	public function querySelectorAll( string $selectors );
 
 }

@@ -43,7 +43,7 @@ trait Document {
 	/**
 	 * @return DOMImplementation
 	 */
-	public function getImplementation() : DOMImplementation {
+	public function getImplementation() {
 		throw self::_unimplemented();
 	}
 
@@ -83,16 +83,16 @@ trait Document {
 	}
 
 	/**
-	 * @return ?DocumentType
+	 * @return DocumentType|null
 	 */
-	public function getDoctype() : ?DocumentType {
+	public function getDoctype() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getDocumentElement() : ?Element {
+	public function getDocumentElement() {
 		throw self::_unimplemented();
 	}
 
@@ -100,7 +100,7 @@ trait Document {
 	 * @param string $qualifiedName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagName( string $qualifiedName ) : HTMLCollection {
+	public function getElementsByTagName( string $qualifiedName ) {
 		throw self::_unimplemented();
 	}
 
@@ -109,7 +109,7 @@ trait Document {
 	 * @param string $localName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagNameNS( ?string $namespace, string $localName ) : HTMLCollection {
+	public function getElementsByTagNameNS( ?string $namespace, string $localName ) {
 		throw self::_unimplemented();
 	}
 
@@ -117,7 +117,7 @@ trait Document {
 	 * @param string $classNames
 	 * @return HTMLCollection
 	 */
-	public function getElementsByClassName( string $classNames ) : HTMLCollection {
+	public function getElementsByClassName( string $classNames ) {
 		throw self::_unimplemented();
 	}
 
@@ -126,7 +126,7 @@ trait Document {
 	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
-	public function createElement( string $localName, /* ?mixed */ $options = null ) : Element {
+	public function createElement( string $localName, /* ?mixed */ $options = null ) {
 		throw self::_unimplemented();
 	}
 
@@ -136,14 +136,14 @@ trait Document {
 	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
-	public function createElementNS( ?string $namespace, string $qualifiedName, /* ?mixed */ $options = null ) : Element {
+	public function createElementNS( ?string $namespace, string $qualifiedName, /* ?mixed */ $options = null ) {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return DocumentFragment
 	 */
-	public function createDocumentFragment() : DocumentFragment {
+	public function createDocumentFragment() {
 		throw self::_unimplemented();
 	}
 
@@ -151,7 +151,7 @@ trait Document {
 	 * @param string $data
 	 * @return Text
 	 */
-	public function createTextNode( string $data ) : Text {
+	public function createTextNode( string $data ) {
 		throw self::_unimplemented();
 	}
 
@@ -159,7 +159,7 @@ trait Document {
 	 * @param string $data
 	 * @return CDATASection
 	 */
-	public function createCDATASection( string $data ) : CDATASection {
+	public function createCDATASection( string $data ) {
 		throw self::_unimplemented();
 	}
 
@@ -167,7 +167,7 @@ trait Document {
 	 * @param string $data
 	 * @return Comment
 	 */
-	public function createComment( string $data ) : Comment {
+	public function createComment( string $data ) {
 		throw self::_unimplemented();
 	}
 
@@ -176,7 +176,7 @@ trait Document {
 	 * @param string $data
 	 * @return ProcessingInstruction
 	 */
-	public function createProcessingInstruction( string $target, string $data ) : ProcessingInstruction {
+	public function createProcessingInstruction( string $target, string $data ) {
 		throw self::_unimplemented();
 	}
 
@@ -185,7 +185,7 @@ trait Document {
 	 * @param bool $deep
 	 * @return Node
 	 */
-	public function importNode( Node $node, bool $deep = false ) : Node {
+	public function importNode( /* Node */ $node, bool $deep = false ) {
 		throw self::_unimplemented();
 	}
 
@@ -193,7 +193,7 @@ trait Document {
 	 * @param Node $node
 	 * @return Node
 	 */
-	public function adoptNode( Node $node ) : Node {
+	public function adoptNode( /* Node */ $node ) {
 		throw self::_unimplemented();
 	}
 
@@ -201,7 +201,7 @@ trait Document {
 	 * @param string $localName
 	 * @return Attr
 	 */
-	public function createAttribute( string $localName ) : Attr {
+	public function createAttribute( string $localName ) {
 		throw self::_unimplemented();
 	}
 
@@ -210,14 +210,14 @@ trait Document {
 	 * @param string $qualifiedName
 	 * @return Attr
 	 */
-	public function createAttributeNS( ?string $namespace, string $qualifiedName ) : Attr {
+	public function createAttributeNS( ?string $namespace, string $qualifiedName ) {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return Range
 	 */
-	public function createRange() : Range {
+	public function createRange() {
 		throw self::_unimplemented();
 	}
 
@@ -227,7 +227,7 @@ trait Document {
 	 * @param NodeFilter|callable|null $filter
 	 * @return NodeIterator
 	 */
-	public function createNodeIterator( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : NodeIterator {
+	public function createNodeIterator( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) {
 		throw self::_unimplemented();
 	}
 
@@ -237,7 +237,7 @@ trait Document {
 	 * @param NodeFilter|callable|null $filter
 	 * @return TreeWalker
 	 */
-	public function createTreeWalker( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : TreeWalker {
+	public function createTreeWalker( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) {
 		throw self::_unimplemented();
 	}
 

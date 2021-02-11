@@ -27,7 +27,7 @@ trait MutationObserver {
 	 * @param MutationObserverInit|associative-array|null $options
 	 * @return void
 	 */
-	public function observe( Node $target, /* ?mixed */ $options = null ) : void {
+	public function observe( /* Node */ $target, /* ?mixed */ $options = null ) : void {
 		throw self::_unimplemented();
 	}
 

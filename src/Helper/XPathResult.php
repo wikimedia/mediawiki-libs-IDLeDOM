@@ -62,9 +62,9 @@ trait XPathResult {
 	abstract public function getBooleanValue() : bool;
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getSingleNodeValue() : ?Node;
+	abstract public function getSingleNodeValue();
 
 	/**
 	 * @return bool

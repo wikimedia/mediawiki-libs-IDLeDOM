@@ -22,9 +22,9 @@ trait NodeList {
 
 	/**
 	 * @param int $index
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function item( int $index ) : ?Node {
+	public function item( int $index ) {
 		throw self::_unimplemented();
 	}
 

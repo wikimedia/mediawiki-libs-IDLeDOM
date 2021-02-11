@@ -54,25 +54,25 @@ interface Node extends EventTarget {
 	public function getIsConnected() : bool;
 
 	/**
-	 * @return ?Document
+	 * @return Document|null
 	 */
-	public function getOwnerDocument() : ?Document;
+	public function getOwnerDocument();
 
 	/**
 	 * @param GetRootNodeOptions|associative-array|null $options
 	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function getRootNode( /* ?mixed */ $options = null ) : \Wikimedia\IDLeDOM\Node;
+	public function getRootNode( /* ?mixed */ $options = null );
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getParentNode() : ?Node;
+	public function getParentNode();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getParentElement() : ?Element;
+	public function getParentElement();
 
 	/**
 	 * @return bool
@@ -82,27 +82,27 @@ interface Node extends EventTarget {
 	/**
 	 * @return NodeList
 	 */
-	public function getChildNodes() : NodeList;
+	public function getChildNodes();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getFirstChild() : ?Node;
+	public function getFirstChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getLastChild() : ?Node;
+	public function getLastChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getPreviousSibling() : ?Node;
+	public function getPreviousSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getNextSibling() : ?Node;
+	public function getNextSibling();
 
 	/**
 	 * @return ?string
@@ -133,13 +133,13 @@ interface Node extends EventTarget {
 	 * @param bool $deep
 	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function cloneNode( bool $deep = false ) : \Wikimedia\IDLeDOM\Node;
+	public function cloneNode( bool $deep = false );
 
 	/**
-	 * @param ?\Wikimedia\IDLeDOM\Node $otherNode
+	 * @param \Wikimedia\IDLeDOM\Node|null $otherNode
 	 * @return bool
 	 */
-	public function isEqualNode( ?\Wikimedia\IDLeDOM\Node $otherNode ) : bool;
+	public function isEqualNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool;
 
 	/** @var int */
 	public const DOCUMENT_POSITION_DISCONNECTED = 0x01;
@@ -163,13 +163,13 @@ interface Node extends EventTarget {
 	 * @param \Wikimedia\IDLeDOM\Node $other
 	 * @return int
 	 */
-	public function compareDocumentPosition( \Wikimedia\IDLeDOM\Node $other ) : int;
+	public function compareDocumentPosition( /* \Wikimedia\IDLeDOM\Node */ $other ) : int;
 
 	/**
-	 * @param ?\Wikimedia\IDLeDOM\Node $other
+	 * @param \Wikimedia\IDLeDOM\Node|null $other
 	 * @return bool
 	 */
-	public function contains( ?\Wikimedia\IDLeDOM\Node $other ) : bool;
+	public function contains( /* ?\Wikimedia\IDLeDOM\Node */ $other ) : bool;
 
 	/**
 	 * @param ?string $namespace
@@ -191,28 +191,28 @@ interface Node extends EventTarget {
 
 	/**
 	 * @param \Wikimedia\IDLeDOM\Node $node
-	 * @param ?\Wikimedia\IDLeDOM\Node $child
+	 * @param \Wikimedia\IDLeDOM\Node|null $child
 	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function insertBefore( \Wikimedia\IDLeDOM\Node $node, ?\Wikimedia\IDLeDOM\Node $child ) : \Wikimedia\IDLeDOM\Node;
+	public function insertBefore( /* \Wikimedia\IDLeDOM\Node */ $node, /* ?\Wikimedia\IDLeDOM\Node */ $child );
 
 	/**
 	 * @param \Wikimedia\IDLeDOM\Node $node
 	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function appendChild( \Wikimedia\IDLeDOM\Node $node ) : \Wikimedia\IDLeDOM\Node;
+	public function appendChild( /* \Wikimedia\IDLeDOM\Node */ $node );
 
 	/**
 	 * @param \Wikimedia\IDLeDOM\Node $node
 	 * @param \Wikimedia\IDLeDOM\Node $child
 	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function replaceChild( \Wikimedia\IDLeDOM\Node $node, \Wikimedia\IDLeDOM\Node $child ) : \Wikimedia\IDLeDOM\Node;
+	public function replaceChild( /* \Wikimedia\IDLeDOM\Node */ $node, /* \Wikimedia\IDLeDOM\Node */ $child );
 
 	/**
 	 * @param \Wikimedia\IDLeDOM\Node $child
 	 * @return \Wikimedia\IDLeDOM\Node
 	 */
-	public function removeChild( \Wikimedia\IDLeDOM\Node $child ) : \Wikimedia\IDLeDOM\Node;
+	public function removeChild( /* \Wikimedia\IDLeDOM\Node */ $child );
 
 }

@@ -13,14 +13,14 @@ interface Event {
 	public function getType() : string;
 
 	/**
-	 * @return ?EventTarget
+	 * @return EventTarget|null
 	 */
-	public function getTarget() : ?EventTarget;
+	public function getTarget();
 
 	/**
-	 * @return ?EventTarget
+	 * @return EventTarget|null
 	 */
-	public function getCurrentTarget() : ?EventTarget;
+	public function getCurrentTarget();
 
 	/**
 	 * @return list<EventTarget>

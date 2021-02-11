@@ -47,7 +47,7 @@ trait EventTarget {
 	 * @param Event $event
 	 * @return bool
 	 */
-	public function dispatchEvent( Event $event ) : bool {
+	public function dispatchEvent( /* Event */ $event ) : bool {
 		throw self::_unimplemented();
 	}
 

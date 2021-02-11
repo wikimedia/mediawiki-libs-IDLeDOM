@@ -129,44 +129,44 @@ trait Document {
 	abstract public function getIsConnected() : bool;
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Document
+	 * @return \Wikimedia\IDLeDOM\Document|null
 	 */
-	abstract public function getOwnerDocument() : ?\Wikimedia\IDLeDOM\Document;
+	abstract public function getOwnerDocument();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getParentNode() : ?Node;
+	abstract public function getParentNode();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getParentElement() : ?Element;
+	abstract public function getParentElement();
 
 	/**
 	 * @return NodeList
 	 */
-	abstract public function getChildNodes() : NodeList;
+	abstract public function getChildNodes();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getFirstChild() : ?Node;
+	abstract public function getFirstChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getLastChild() : ?Node;
+	abstract public function getLastChild();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getPreviousSibling() : ?Node;
+	abstract public function getPreviousSibling();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	abstract public function getNextSibling() : ?Node;
+	abstract public function getNextSibling();
 
 	/**
 	 * @return ?string
@@ -191,17 +191,17 @@ trait Document {
 	/**
 	 * @return HTMLCollection
 	 */
-	abstract public function getChildren() : HTMLCollection;
+	abstract public function getChildren();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getFirstElementChild() : ?Element;
+	abstract public function getFirstElementChild();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getLastElementChild() : ?Element;
+	abstract public function getLastElementChild();
 
 	/**
 	 * @return int
@@ -211,7 +211,7 @@ trait Document {
 	/**
 	 * @return DOMImplementation
 	 */
-	abstract public function getImplementation() : DOMImplementation;
+	abstract public function getImplementation();
 
 	/**
 	 * @return string
@@ -239,13 +239,13 @@ trait Document {
 	abstract public function getContentType() : string;
 
 	/**
-	 * @return ?DocumentType
+	 * @return DocumentType|null
 	 */
-	abstract public function getDoctype() : ?DocumentType;
+	abstract public function getDoctype();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getDocumentElement() : ?Element;
+	abstract public function getDocumentElement();
 
 }

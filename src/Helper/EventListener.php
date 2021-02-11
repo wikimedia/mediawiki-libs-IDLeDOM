@@ -21,7 +21,7 @@ trait EventListener {
 	 * @param Event $event
 	 * @return void
 	 */
-	abstract public function handleEvent( Event $event ) : void;
+	abstract public function handleEvent( /* Event */ $event ) : void;
 
 	/**
 	 * Create a EventListener from a callable.
@@ -50,7 +50,7 @@ trait EventListener {
 			 * @param Event $event
 			 * @return void
 			 */
-			public function handleEvent( Event $event ) : void {
+			public function handleEvent( /* Event */ $event ) : void {
 				$f = $this->f;
 				$f( $event );
 			}

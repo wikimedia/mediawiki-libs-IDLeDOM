@@ -10,7 +10,7 @@ interface AbortController {
 	/**
 	 * @return AbortSignal
 	 */
-	public function getSignal() : AbortSignal;
+	public function getSignal();
 
 	/**
 	 * @return void

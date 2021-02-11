@@ -41,12 +41,12 @@ trait NodeIterator {
 	/**
 	 * @return Node
 	 */
-	abstract public function getRoot() : Node;
+	abstract public function getRoot();
 
 	/**
 	 * @return Node
 	 */
-	abstract public function getReferenceNode() : Node;
+	abstract public function getReferenceNode();
 
 	/**
 	 * @return bool

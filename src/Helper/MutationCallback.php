@@ -23,7 +23,7 @@ trait MutationCallback {
 	 * @param MutationObserver $observer
 	 * @return void
 	 */
-	abstract public function invoke( array $mutations, MutationObserver $observer ) : void;
+	abstract public function invoke( array $mutations, /* MutationObserver */ $observer ) : void;
 
 	/**
 	 * Create a MutationCallback from a callable.
@@ -53,7 +53,7 @@ trait MutationCallback {
 			 * @param MutationObserver $observer
 			 * @return void
 			 */
-			public function invoke( array $mutations, MutationObserver $observer ) : void {
+			public function invoke( array $mutations, /* MutationObserver */ $observer ) : void {
 				$f = $this->f;
 				$f( $mutations, $observer );
 			}

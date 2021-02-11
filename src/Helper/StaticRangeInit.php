@@ -38,7 +38,7 @@ trait StaticRangeInit {
 	/**
 	 * @return Node
 	 */
-	abstract public function getStartContainer() : Node;
+	abstract public function getStartContainer();
 
 	/**
 	 * @return int
@@ -48,7 +48,7 @@ trait StaticRangeInit {
 	/**
 	 * @return Node
 	 */
-	abstract public function getEndContainer() : Node;
+	abstract public function getEndContainer();
 
 	/**
 	 * @return int
@@ -121,7 +121,7 @@ trait StaticRangeInit {
 			/**
 			 * @return Node
 			 */
-			public function getStartContainer() : Node {
+			public function getStartContainer() {
 				return $this->a["startContainer"];
 			}
 
@@ -135,7 +135,7 @@ trait StaticRangeInit {
 			/**
 			 * @return Node
 			 */
-			public function getEndContainer() : Node {
+			public function getEndContainer() {
 				return $this->a["endContainer"];
 			}
 

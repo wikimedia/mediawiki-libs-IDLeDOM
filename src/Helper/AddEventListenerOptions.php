@@ -53,7 +53,7 @@ trait AddEventListenerOptions {
 	/**
 	 * @return AbortSignal
 	 */
-	abstract public function getSignal() : AbortSignal;
+	abstract public function getSignal();
 
 	/**
 	 * @param mixed $offset
@@ -142,7 +142,7 @@ trait AddEventListenerOptions {
 			/**
 			 * @return AbortSignal
 			 */
-			public function getSignal() : AbortSignal {
+			public function getSignal() {
 				return $this->a["signal"];
 			}
 

@@ -49,9 +49,9 @@ trait XPathResult {
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getSingleNodeValue() : ?Node {
+	public function getSingleNodeValue() {
 		throw self::_unimplemented();
 	}
 
@@ -70,17 +70,17 @@ trait XPathResult {
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function iterateNext() : ?Node {
+	public function iterateNext() {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $index
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function snapshotItem( int $index ) : ?Node {
+	public function snapshotItem( int $index ) {
 		throw self::_unimplemented();
 	}
 

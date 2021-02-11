@@ -49,7 +49,7 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 	/**
 	 * @return DOMTokenList
 	 */
-	public function getClassList() : DOMTokenList;
+	public function getClassList();
 
 	/**
 	 * @return string
@@ -69,7 +69,7 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 	/**
 	 * @return NamedNodeMap
 	 */
-	public function getAttributes() : NamedNodeMap;
+	public function getAttributes();
 
 	/**
 	 * @return list<string>
@@ -139,51 +139,51 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 
 	/**
 	 * @param string $qualifiedName
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function getAttributeNode( string $qualifiedName ) : ?Attr;
+	public function getAttributeNode( string $qualifiedName );
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function getAttributeNodeNS( ?string $namespace, string $localName ) : ?Attr;
+	public function getAttributeNodeNS( ?string $namespace, string $localName );
 
 	/**
 	 * @param Attr $attr
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function setAttributeNode( Attr $attr ) : ?Attr;
+	public function setAttributeNode( /* Attr */ $attr );
 
 	/**
 	 * @param Attr $attr
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	public function setAttributeNodeNS( Attr $attr ) : ?Attr;
+	public function setAttributeNodeNS( /* Attr */ $attr );
 
 	/**
 	 * @param Attr $attr
 	 * @return Attr
 	 */
-	public function removeAttributeNode( Attr $attr ) : Attr;
+	public function removeAttributeNode( /* Attr */ $attr );
 
 	/**
 	 * @param ShadowRootInit|associative-array $init
 	 * @return ShadowRoot
 	 */
-	public function attachShadow( /* mixed */ $init ) : ShadowRoot;
+	public function attachShadow( /* mixed */ $init );
 
 	/**
-	 * @return ?ShadowRoot
+	 * @return ShadowRoot|null
 	 */
-	public function getShadowRoot() : ?ShadowRoot;
+	public function getShadowRoot();
 
 	/**
 	 * @param string $selectors
-	 * @return ?\Wikimedia\IDLeDOM\Element
+	 * @return \Wikimedia\IDLeDOM\Element|null
 	 */
-	public function closest( string $selectors ) : ?\Wikimedia\IDLeDOM\Element;
+	public function closest( string $selectors );
 
 	/**
 	 * @param string $selectors
@@ -195,19 +195,19 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 	 * @param string $qualifiedName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagName( string $qualifiedName ) : HTMLCollection;
+	public function getElementsByTagName( string $qualifiedName );
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagNameNS( ?string $namespace, string $localName ) : HTMLCollection;
+	public function getElementsByTagNameNS( ?string $namespace, string $localName );
 
 	/**
 	 * @param string $classNames
 	 * @return HTMLCollection
 	 */
-	public function getElementsByClassName( string $classNames ) : HTMLCollection;
+	public function getElementsByClassName( string $classNames );
 
 }

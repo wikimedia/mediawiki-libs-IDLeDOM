@@ -26,21 +26,21 @@ trait ParentNode {
 	/**
 	 * @return HTMLCollection
 	 */
-	public function getChildren() : HTMLCollection {
+	public function getChildren() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getFirstElementChild() : ?Element {
+	public function getFirstElementChild() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getLastElementChild() : ?Element {
+	public function getLastElementChild() {
 		throw self::_unimplemented();
 	}
 
@@ -77,9 +77,9 @@ trait ParentNode {
 
 	/**
 	 * @param string $selectors
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function querySelector( string $selectors ) : ?Element {
+	public function querySelector( string $selectors ) {
 		throw self::_unimplemented();
 	}
 
@@ -87,7 +87,7 @@ trait ParentNode {
 	 * @param string $selectors
 	 * @return NodeList
 	 */
-	public function querySelectorAll( string $selectors ) : NodeList {
+	public function querySelectorAll( string $selectors ) {
 		throw self::_unimplemented();
 	}
 

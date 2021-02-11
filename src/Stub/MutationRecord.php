@@ -31,35 +31,35 @@ trait MutationRecord {
 	/**
 	 * @return Node
 	 */
-	public function getTarget() : Node {
+	public function getTarget() {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return NodeList
 	 */
-	public function getAddedNodes() : NodeList {
+	public function getAddedNodes() {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return NodeList
 	 */
-	public function getRemovedNodes() : NodeList {
+	public function getRemovedNodes() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getPreviousSibling() : ?Node {
+	public function getPreviousSibling() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getNextSibling() : ?Node {
+	public function getNextSibling() {
 		throw self::_unimplemented();
 	}
 

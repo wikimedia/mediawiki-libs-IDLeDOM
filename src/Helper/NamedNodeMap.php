@@ -36,15 +36,15 @@ trait NamedNodeMap {
 
 	/**
 	 * @param int $index
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	abstract public function item( int $index ) : ?Attr;
+	abstract public function item( int $index );
 
 	/**
 	 * @param string $qualifiedName
-	 * @return ?Attr
+	 * @return Attr|null
 	 */
-	abstract public function getNamedItem( string $qualifiedName ) : ?Attr;
+	abstract public function getNamedItem( string $qualifiedName );
 
 	/**
 	 * @param mixed $offset

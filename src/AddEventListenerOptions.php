@@ -19,6 +19,6 @@ interface AddEventListenerOptions extends EventListenerOptions {
 	/**
 	 * @return AbortSignal
 	 */
-	public function getSignal() : AbortSignal;
+	public function getSignal();
 
 }

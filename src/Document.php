@@ -10,7 +10,7 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	/**
 	 * @return DOMImplementation
 	 */
-	public function getImplementation() : DOMImplementation;
+	public function getImplementation();
 
 	/**
 	 * @return string
@@ -38,40 +38,40 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	public function getContentType() : string;
 
 	/**
-	 * @return ?DocumentType
+	 * @return DocumentType|null
 	 */
-	public function getDoctype() : ?DocumentType;
+	public function getDoctype();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getDocumentElement() : ?Element;
+	public function getDocumentElement();
 
 	/**
 	 * @param string $qualifiedName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagName( string $qualifiedName ) : HTMLCollection;
+	public function getElementsByTagName( string $qualifiedName );
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
 	 * @return HTMLCollection
 	 */
-	public function getElementsByTagNameNS( ?string $namespace, string $localName ) : HTMLCollection;
+	public function getElementsByTagNameNS( ?string $namespace, string $localName );
 
 	/**
 	 * @param string $classNames
 	 * @return HTMLCollection
 	 */
-	public function getElementsByClassName( string $classNames ) : HTMLCollection;
+	public function getElementsByClassName( string $classNames );
 
 	/**
 	 * @param string $localName
 	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
-	public function createElement( string $localName, /* ?mixed */ $options = null ) : Element;
+	public function createElement( string $localName, /* ?mixed */ $options = null );
 
 	/**
 	 * @param ?string $namespace
@@ -79,68 +79,68 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	 * @param string|ElementCreationOptions|associative-array|null $options
 	 * @return Element
 	 */
-	public function createElementNS( ?string $namespace, string $qualifiedName, /* ?mixed */ $options = null ) : Element;
+	public function createElementNS( ?string $namespace, string $qualifiedName, /* ?mixed */ $options = null );
 
 	/**
 	 * @return DocumentFragment
 	 */
-	public function createDocumentFragment() : DocumentFragment;
+	public function createDocumentFragment();
 
 	/**
 	 * @param string $data
 	 * @return Text
 	 */
-	public function createTextNode( string $data ) : Text;
+	public function createTextNode( string $data );
 
 	/**
 	 * @param string $data
 	 * @return CDATASection
 	 */
-	public function createCDATASection( string $data ) : CDATASection;
+	public function createCDATASection( string $data );
 
 	/**
 	 * @param string $data
 	 * @return Comment
 	 */
-	public function createComment( string $data ) : Comment;
+	public function createComment( string $data );
 
 	/**
 	 * @param string $target
 	 * @param string $data
 	 * @return ProcessingInstruction
 	 */
-	public function createProcessingInstruction( string $target, string $data ) : ProcessingInstruction;
+	public function createProcessingInstruction( string $target, string $data );
 
 	/**
 	 * @param Node $node
 	 * @param bool $deep
 	 * @return Node
 	 */
-	public function importNode( Node $node, bool $deep = false ) : Node;
+	public function importNode( /* Node */ $node, bool $deep = false );
 
 	/**
 	 * @param Node $node
 	 * @return Node
 	 */
-	public function adoptNode( Node $node ) : Node;
+	public function adoptNode( /* Node */ $node );
 
 	/**
 	 * @param string $localName
 	 * @return Attr
 	 */
-	public function createAttribute( string $localName ) : Attr;
+	public function createAttribute( string $localName );
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $qualifiedName
 	 * @return Attr
 	 */
-	public function createAttributeNS( ?string $namespace, string $qualifiedName ) : Attr;
+	public function createAttributeNS( ?string $namespace, string $qualifiedName );
 
 	/**
 	 * @return Range
 	 */
-	public function createRange() : Range;
+	public function createRange();
 
 	/**
 	 * @param Node $root
@@ -148,7 +148,7 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	 * @param NodeFilter|callable|null $filter
 	 * @return NodeIterator
 	 */
-	public function createNodeIterator( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : NodeIterator;
+	public function createNodeIterator( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null );
 
 	/**
 	 * @param Node $root
@@ -156,6 +156,6 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	 * @param NodeFilter|callable|null $filter
 	 * @return TreeWalker
 	 */
-	public function createTreeWalker( Node $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) : TreeWalker;
+	public function createTreeWalker( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null );
 
 }

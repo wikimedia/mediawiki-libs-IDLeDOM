@@ -14,7 +14,7 @@ interface ShadowRoot extends DocumentFragment, DocumentOrShadowRoot {
 	/**
 	 * @return Element
 	 */
-	public function getHost() : Element;
+	public function getHost();
 
 	/**
 	 * @return EventHandlerNonNull|callable|null

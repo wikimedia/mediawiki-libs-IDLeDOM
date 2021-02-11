@@ -24,7 +24,7 @@ trait Text {
 	 * @param int $offset
 	 * @return \Wikimedia\IDLeDOM\Text
 	 */
-	public function splitText( int $offset ) : \Wikimedia\IDLeDOM\Text {
+	public function splitText( int $offset ) {
 		throw self::_unimplemented();
 	}
 

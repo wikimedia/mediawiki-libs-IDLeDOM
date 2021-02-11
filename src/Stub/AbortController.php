@@ -23,7 +23,7 @@ trait AbortController {
 	/**
 	 * @return AbortSignal
 	 */
-	public function getSignal() : AbortSignal {
+	public function getSignal() {
 		throw self::_unimplemented();
 	}
 

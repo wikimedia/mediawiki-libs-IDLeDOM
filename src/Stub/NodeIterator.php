@@ -24,14 +24,14 @@ trait NodeIterator {
 	/**
 	 * @return Node
 	 */
-	public function getRoot() : Node {
+	public function getRoot() {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return Node
 	 */
-	public function getReferenceNode() : Node {
+	public function getReferenceNode() {
 		throw self::_unimplemented();
 	}
 
@@ -57,16 +57,16 @@ trait NodeIterator {
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function nextNode() : ?Node {
+	public function nextNode() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function previousNode() : ?Node {
+	public function previousNode() {
 		throw self::_unimplemented();
 	}
 

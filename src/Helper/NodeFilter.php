@@ -21,7 +21,7 @@ trait NodeFilter {
 	 * @param Node $node
 	 * @return int
 	 */
-	abstract public function acceptNode( Node $node ) : int;
+	abstract public function acceptNode( /* Node */ $node ) : int;
 
 	/**
 	 * Create a NodeFilter from a callable.
@@ -50,7 +50,7 @@ trait NodeFilter {
 			 * @param Node $node
 			 * @return int
 			 */
-			public function acceptNode( Node $node ) : int {
+			public function acceptNode( /* Node */ $node ) : int {
 				$f = $this->f;
 				return $f( $node );
 			}

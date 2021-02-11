@@ -9,12 +9,12 @@ interface NodeIterator {
 	/**
 	 * @return Node
 	 */
-	public function getRoot() : Node;
+	public function getRoot();
 
 	/**
 	 * @return Node
 	 */
-	public function getReferenceNode() : Node;
+	public function getReferenceNode();
 
 	/**
 	 * @return bool
@@ -32,14 +32,14 @@ interface NodeIterator {
 	public function getFilter();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function nextNode() : ?Node;
+	public function nextNode();
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function previousNode() : ?Node;
+	public function previousNode();
 
 	/**
 	 * @return void

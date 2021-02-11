@@ -28,17 +28,17 @@ trait DOMImplementation {
 	 * @param string $systemId
 	 * @return DocumentType
 	 */
-	public function createDocumentType( string $qualifiedName, string $publicId, string $systemId ) : DocumentType {
+	public function createDocumentType( string $qualifiedName, string $publicId, string $systemId ) {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $qualifiedName
-	 * @param ?DocumentType $doctype
+	 * @param DocumentType|null $doctype
 	 * @return XMLDocument
 	 */
-	public function createDocument( ?string $namespace, string $qualifiedName, ?DocumentType $doctype = null ) : XMLDocument {
+	public function createDocument( ?string $namespace, string $qualifiedName, /* ?DocumentType */ $doctype = null ) {
 		throw self::_unimplemented();
 	}
 
@@ -46,7 +46,7 @@ trait DOMImplementation {
 	 * @param ?string $title
 	 * @return Document
 	 */
-	public function createHTMLDocument( ?string $title = null ) : Document {
+	public function createHTMLDocument( ?string $title = null ) {
 		throw self::_unimplemented();
 	}
 

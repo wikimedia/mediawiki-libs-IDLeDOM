@@ -8,9 +8,9 @@ namespace Wikimedia\IDLeDOM;
 interface NodeList extends \ArrayAccess, \IteratorAggregate {
 	/**
 	 * @param int $index
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function item( int $index ) : ?Node;
+	public function item( int $index );
 
 	/**
 	 * @return int

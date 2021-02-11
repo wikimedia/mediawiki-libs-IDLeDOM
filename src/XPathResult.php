@@ -57,9 +57,9 @@ interface XPathResult {
 	public function getBooleanValue() : bool;
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function getSingleNodeValue() : ?Node;
+	public function getSingleNodeValue();
 
 	/**
 	 * @return bool
@@ -72,14 +72,14 @@ interface XPathResult {
 	public function getSnapshotLength() : int;
 
 	/**
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function iterateNext() : ?Node;
+	public function iterateNext();
 
 	/**
 	 * @param int $index
-	 * @return ?Node
+	 * @return Node|null
 	 */
-	public function snapshotItem( int $index ) : ?Node;
+	public function snapshotItem( int $index );
 
 }

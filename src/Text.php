@@ -11,7 +11,7 @@ interface Text extends CharacterData, Slottable {
 	 * @param int $offset
 	 * @return \Wikimedia\IDLeDOM\Text
 	 */
-	public function splitText( int $offset ) : \Wikimedia\IDLeDOM\Text;
+	public function splitText( int $offset );
 
 	/**
 	 * @return string

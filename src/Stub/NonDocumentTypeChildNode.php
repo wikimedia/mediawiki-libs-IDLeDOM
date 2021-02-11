@@ -21,16 +21,16 @@ trait NonDocumentTypeChildNode {
 	// phpcs:enable
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getPreviousElementSibling() : ?Element {
+	public function getPreviousElementSibling() {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getNextElementSibling() : ?Element {
+	public function getNextElementSibling() {
 		throw self::_unimplemented();
 	}
 

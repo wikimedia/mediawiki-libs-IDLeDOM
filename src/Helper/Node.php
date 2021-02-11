@@ -102,44 +102,44 @@ trait Node {
 	abstract public function getIsConnected() : bool;
 
 	/**
-	 * @return ?Document
+	 * @return Document|null
 	 */
-	abstract public function getOwnerDocument() : ?Document;
+	abstract public function getOwnerDocument();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Node
+	 * @return \Wikimedia\IDLeDOM\Node|null
 	 */
-	abstract public function getParentNode() : ?\Wikimedia\IDLeDOM\Node;
+	abstract public function getParentNode();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	abstract public function getParentElement() : ?Element;
+	abstract public function getParentElement();
 
 	/**
 	 * @return NodeList
 	 */
-	abstract public function getChildNodes() : NodeList;
+	abstract public function getChildNodes();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Node
+	 * @return \Wikimedia\IDLeDOM\Node|null
 	 */
-	abstract public function getFirstChild() : ?\Wikimedia\IDLeDOM\Node;
+	abstract public function getFirstChild();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Node
+	 * @return \Wikimedia\IDLeDOM\Node|null
 	 */
-	abstract public function getLastChild() : ?\Wikimedia\IDLeDOM\Node;
+	abstract public function getLastChild();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Node
+	 * @return \Wikimedia\IDLeDOM\Node|null
 	 */
-	abstract public function getPreviousSibling() : ?\Wikimedia\IDLeDOM\Node;
+	abstract public function getPreviousSibling();
 
 	/**
-	 * @return ?\Wikimedia\IDLeDOM\Node
+	 * @return \Wikimedia\IDLeDOM\Node|null
 	 */
-	abstract public function getNextSibling() : ?\Wikimedia\IDLeDOM\Node;
+	abstract public function getNextSibling();
 
 	/**
 	 * @return ?string

@@ -37,9 +37,9 @@ interface Attr extends Node {
 	public function setValue( string $val ) : void;
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getOwnerElement() : ?Element;
+	public function getOwnerElement();
 
 	/**
 	 * @return bool

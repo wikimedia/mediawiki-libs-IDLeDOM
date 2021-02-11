@@ -55,14 +55,14 @@ trait CustomEvent {
 	abstract public function getType() : string;
 
 	/**
-	 * @return ?EventTarget
+	 * @return EventTarget|null
 	 */
-	abstract public function getTarget() : ?EventTarget;
+	abstract public function getTarget();
 
 	/**
-	 * @return ?EventTarget
+	 * @return EventTarget|null
 	 */
-	abstract public function getCurrentTarget() : ?EventTarget;
+	abstract public function getCurrentTarget();
 
 	/**
 	 * @return int

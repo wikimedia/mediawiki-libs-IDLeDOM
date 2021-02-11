@@ -10,5 +10,5 @@ interface EventHandlerNonNull {
 	 * @param Event $event
 	 * @return ?mixed
 	 */
-	public function invoke( Event $event );
+	public function invoke( /* Event */ $event );
 }

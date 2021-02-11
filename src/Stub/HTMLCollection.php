@@ -29,17 +29,17 @@ trait HTMLCollection {
 
 	/**
 	 * @param int $index
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function item( int $index ) : ?Element {
+	public function item( int $index ) {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $name
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function namedItem( string $name ) : ?Element {
+	public function namedItem( string $name ) {
 		throw self::_unimplemented();
 	}
 

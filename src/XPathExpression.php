@@ -9,9 +9,9 @@ interface XPathExpression {
 	/**
 	 * @param Node $contextNode
 	 * @param int $type
-	 * @param ?XPathResult $result
+	 * @param XPathResult|null $result
 	 * @return XPathResult
 	 */
-	public function evaluate( Node $contextNode, int $type = 0, ?XPathResult $result = null ) : XPathResult;
+	public function evaluate( /* Node */ $contextNode, int $type = 0, /* ?XPathResult */ $result = null );
 
 }

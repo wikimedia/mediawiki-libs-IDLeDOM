@@ -33,7 +33,7 @@ trait ShadowRoot {
 	/**
 	 * @return Element
 	 */
-	public function getHost() : Element {
+	public function getHost() {
 		throw self::_unimplemented();
 	}
 

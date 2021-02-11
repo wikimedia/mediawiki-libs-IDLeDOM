@@ -11,5 +11,5 @@ interface MutationCallback {
 	 * @param MutationObserver $observer
 	 * @return void
 	 */
-	public function invoke( array $mutations, MutationObserver $observer ) : void;
+	public function invoke( array $mutations, /* MutationObserver */ $observer ) : void;
 }

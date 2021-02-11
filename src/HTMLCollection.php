@@ -13,14 +13,14 @@ interface HTMLCollection extends \ArrayAccess {
 
 	/**
 	 * @param int $index
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function item( int $index ) : ?Element;
+	public function item( int $index );
 
 	/**
 	 * @param string $name
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function namedItem( string $name ) : ?Element;
+	public function namedItem( string $name );
 
 }

@@ -7,13 +7,13 @@ namespace Wikimedia\IDLeDOM;
 
 interface NonDocumentTypeChildNode {
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getPreviousElementSibling() : ?Element;
+	public function getPreviousElementSibling();
 
 	/**
-	 * @return ?Element
+	 * @return Element|null
 	 */
-	public function getNextElementSibling() : ?Element;
+	public function getNextElementSibling();
 
 }
