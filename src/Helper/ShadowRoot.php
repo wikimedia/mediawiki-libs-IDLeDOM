@@ -7,7 +7,7 @@ namespace Wikimedia\IDLeDOM\Helper;
 
 use Wikimedia\IDLeDOM\Document;
 use Wikimedia\IDLeDOM\Element;
-use Wikimedia\IDLeDOM\EventHandler;
+use Wikimedia\IDLeDOM\EventHandlerNonNull;
 use Wikimedia\IDLeDOM\HTMLCollection;
 use Wikimedia\IDLeDOM\Node;
 use Wikimedia\IDLeDOM\NodeList;
@@ -212,13 +212,13 @@ trait ShadowRoot {
 	abstract public function getHost() : Element;
 
 	/**
-	 * @return EventHandler
+	 * @return EventHandlerNonNull|callable|null
 	 */
-	abstract public function getOnslotchange() : EventHandler;
+	abstract public function getOnslotchange();
 
 	/**
-	 * @param EventHandler $value
+	 * @param EventHandlerNonNull|callable|null $value
 	 */
-	abstract public function setOnslotchange( EventHandler $value ) : void;
+	abstract public function setOnslotchange( /* ?mixed */ $value ) : void;
 
 }

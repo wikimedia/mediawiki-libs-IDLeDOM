@@ -5,10 +5,7 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
-use Wikimedia\IDLeDOM\EventHandlerNonNull;
-
-trait AbortSignal {
-	use \Wikimedia\IDLeDOM\Stub\EventTarget;
+trait AssignedNodesOptions {
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
@@ -24,21 +21,7 @@ trait AbortSignal {
 	/**
 	 * @return bool
 	 */
-	public function getAborted() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return EventHandlerNonNull|callable|null
-	 */
-	public function getOnabort() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param EventHandlerNonNull|callable|null $val
-	 */
-	public function setOnabort( /* ?mixed */ $val ) : void {
+	public function getFlatten() : bool {
 		throw self::_unimplemented();
 	}
 

@@ -5,7 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
-use Wikimedia\IDLeDOM\DOMHighResTimeStamp;
 use Wikimedia\IDLeDOM\EventTarget;
 
 trait Event {
@@ -113,9 +112,9 @@ trait Event {
 	}
 
 	/**
-	 * @return DOMHighResTimeStamp
+	 * @return float
 	 */
-	public function getTimeStamp() : DOMHighResTimeStamp {
+	public function getTimeStamp() : float {
 		throw self::_unimplemented();
 	}
 

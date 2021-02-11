@@ -85,8 +85,8 @@ interface Event {
 	public function getIsTrusted() : bool;
 
 	/**
-	 * @return DOMHighResTimeStamp
+	 * @return float
 	 */
-	public function getTimeStamp() : DOMHighResTimeStamp;
+	public function getTimeStamp() : float;
 
 }

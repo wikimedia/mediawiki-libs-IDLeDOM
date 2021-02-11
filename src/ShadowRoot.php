@@ -17,13 +17,13 @@ interface ShadowRoot extends DocumentFragment, DocumentOrShadowRoot {
 	public function getHost() : Element;
 
 	/**
-	 * @return EventHandler
+	 * @return EventHandlerNonNull|callable|null
 	 */
-	public function getOnslotchange() : EventHandler;
+	public function getOnslotchange();
 
 	/**
-	 * @param EventHandler $val
+	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnslotchange( EventHandler $val ) : void;
+	public function setOnslotchange( /* ?mixed */ $val ) : void;
 
 }

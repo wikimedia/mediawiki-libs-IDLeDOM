@@ -73,19 +73,17 @@ class Builder {
 			return;
 		}
 		$name = $ty['idlType'];
+		$typedef = $this->gen->typedef( $name );
+		if ( $typedef !== null ) {
+			$this->use( $typedef );
+			return;
+		}
 		$def = $this->gen->def( $name );
 		if ( $def !== null ) {
 			if ( $name !== ( $typeOpts['topName'] ?? null ) &&
 				 $def['type'] !== 'enum' ) {
 				$this->used[$name] = true;
 			}
-		}
-		// Some other unusual types
-		switch ( $name ) {
-		case 'DOMHighResTimeStamp':
-		case 'EventHandler':
-		case 'HTMLSlotElement':
-			$this->used[$name] = true;
 		}
 	}
 

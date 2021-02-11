@@ -5,7 +5,7 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\EventHandler;
+use Wikimedia\IDLeDOM\EventHandlerNonNull;
 
 trait AbortSignal {
 	/**
@@ -58,13 +58,13 @@ trait AbortSignal {
 	abstract public function getAborted() : bool;
 
 	/**
-	 * @return EventHandler
+	 * @return EventHandlerNonNull|callable|null
 	 */
-	abstract public function getOnabort() : EventHandler;
+	abstract public function getOnabort();
 
 	/**
-	 * @param EventHandler $value
+	 * @param EventHandlerNonNull|callable|null $value
 	 */
-	abstract public function setOnabort( EventHandler $value ) : void;
+	abstract public function setOnabort( /* ?mixed */ $value ) : void;
 
 }

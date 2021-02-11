@@ -12,13 +12,13 @@ interface AbortSignal extends EventTarget {
 	public function getAborted() : bool;
 
 	/**
-	 * @return EventHandler
+	 * @return EventHandlerNonNull|callable|null
 	 */
-	public function getOnabort() : EventHandler;
+	public function getOnabort();
 
 	/**
-	 * @param EventHandler $val
+	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnabort( EventHandler $val ) : void;
+	public function setOnabort( /* ?mixed */ $val ) : void;
 
 }

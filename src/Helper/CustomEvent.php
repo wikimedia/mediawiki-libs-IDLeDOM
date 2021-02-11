@@ -5,7 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\DOMHighResTimeStamp;
 use Wikimedia\IDLeDOM\EventTarget;
 
 trait CustomEvent {
@@ -96,9 +95,9 @@ trait CustomEvent {
 	abstract public function getIsTrusted() : bool;
 
 	/**
-	 * @return DOMHighResTimeStamp
+	 * @return float
 	 */
-	abstract public function getTimeStamp() : DOMHighResTimeStamp;
+	abstract public function getTimeStamp() : float;
 
 	/**
 	 * @return ?mixed

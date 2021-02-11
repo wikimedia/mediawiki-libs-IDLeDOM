@@ -5,12 +5,12 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Wikimedia\IDLeDOM\AssignedNodesOptions;
 use Wikimedia\IDLeDOM\Element;
-use Wikimedia\IDLeDOM\EventHandlerNonNull;
+use Wikimedia\IDLeDOM\Node;
 
-trait ShadowRoot {
-	use \Wikimedia\IDLeDOM\Stub\DocumentFragment;
-	use \Wikimedia\IDLeDOM\Stub\DocumentOrShadowRoot;
+trait HTMLSlotElement {
+	use \Wikimedia\IDLeDOM\Stub\HTMLElement;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
@@ -24,30 +24,32 @@ trait ShadowRoot {
 	// phpcs:enable
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getMode() : int {
+	public function getName() : string {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return Element
+	 * @param string $val
 	 */
-	public function getHost() : Element {
+	public function setName( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @return EventHandlerNonNull|callable|null
+	 * @param AssignedNodesOptions|associative-array|null $options
+	 * @return list<Node>
 	 */
-	public function getOnslotchange() {
+	public function assignedNodes( /* ?mixed */ $options = null ) : array {
 		throw self::_unimplemented();
 	}
 
 	/**
-	 * @param EventHandlerNonNull|callable|null $val
+	 * @param AssignedNodesOptions|associative-array|null $options
+	 * @return list<Element>
 	 */
-	public function setOnslotchange( /* ?mixed */ $val ) : void {
+	public function assignedElements( /* ?mixed */ $options = null ) : array {
 		throw self::_unimplemented();
 	}
 

@@ -16,6 +16,8 @@ class Generator {
 	private $defs = [];
 	/** @var array */
 	private $nameMap = [];
+	/** @var array */
+	private $typedefs = [];
 
 	private const RESERVED_NAMES = [
 		// PHP keywords and compile-time constants.
@@ -115,9 +117,17 @@ class Generator {
 						return true;
 					} ) );
 			}
-			// Collect mixins
 			if ( $definition['type'] === 'includes' ) {
+				// Collect mixins
 				$this->mixins[$definition['target']][] = $definition['includes'];
+			} elseif ( $definition['type'] === 'typedef' ) {
+				// Collect typedefs
+				$name = $definition['name'];
+				Assert::invariant(
+					!array_key_exists( $name, $this->typedefs ),
+					"Duplicate definition for $name"
+				);
+				$this->typedefs[$name] = $definition['idlType'];
 			} else {
 				$name = $definition['name'];
 				Assert::invariant(
@@ -295,6 +305,15 @@ class Generator {
 		return $this->defs[ $topName ] ?? null;
 	}
 
+	/**
+	 * Look up a typedef.
+	 * @param string $topName
+	 * @return ?array
+	 */
+	public function typedef( string $topName ): ?array {
+		return $this->typedefs[ $topName ] ?? null;
+	}
+
 	private function typeIncludes( array $ty, string $which ) {
 		if ( $ty['union'] ?? false ) {
 			foreach ( $ty['idlType'] as $subtype ) {
@@ -307,6 +326,11 @@ class Generator {
 		$generic = $ty['generic'] ?? '';
 		if ( $generic !== '' ) {
 			return false;
+		}
+		if ( array_key_exists( $ty['idlType'], $this->typedefs ) ) {
+			return $this->typeIncludes(
+				$this->typedefs[$ty['idlType']], $which
+			);
 		}
 		if ( !array_key_exists( $ty['idlType'], $this->defs ) ) {
 			return false;
@@ -371,6 +395,9 @@ class Generator {
 			self::unreachable( "Unknown generic type: $generic" );
 		}
 
+		if ( array_key_exists( $ty['idlType'], $this->typedefs ) ) {
+			return $this->typeToPHP( $this->typedefs[$ty['idlType']], $opts );
+		}
 		if ( array_key_exists( $ty['idlType'], $this->defs ) ) {
 			// An object type
 			$result = $ty['idlType'];
@@ -423,18 +450,13 @@ class Generator {
 		case 'unsigned long':
 			return $n . 'int';
 		case 'float':
+		case 'double':
+		case 'unrestricted double':
 			return $n . 'float';
 		case 'DOMString':
 			return $n . 'string';
 		case 'USVString':
 			return $n . 'string'; // XXX?
-		// More ad-hoc object types
-		case 'unrestricted double':
-			return $n . 'float';
-		case 'DOMHighResTimeStamp':
-		case 'EventHandler':
-		case 'HTMLSlotElement':
-			return $n . $ty['idlType']; // XXX
 		default:
 			self::unreachable( "Unknown type " . var_export( $ty, true ) );
 		}
@@ -499,8 +521,13 @@ class Generator {
 
 	/** Main entry point: generates DOM interfaces from WebIDL */
 	public static function main() {
-		$filename = __DIR__ . "/../spec/DOM.webidl";
-		$idl = WebIDL::parse( file_get_contents( $filename ), [
+		$webidl = [];
+		$files = [ "DOM", "misc", ];
+		foreach ( $files as $f ) {
+			$filename = __DIR__ . "/../spec/$f.webidl";
+			$webidl[] = file_get_contents( $filename );
+		}
+		$idl = WebIDL::parse( implode( "\n", $webidl ), [
 			'keepComments' => true
 		] );
 		$gen = new Generator( $idl, [
