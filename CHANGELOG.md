@@ -1,3 +1,5 @@
+# IDLeDOM x.x.x (not yet released)
+
 # IDLeDOM 0.2.0 (2021-02-12)
 * Strip explicit PHP type hints for DOM interface types, in order to
   accomodate the weak covariant/contravariance checks in PHP 7.2.
