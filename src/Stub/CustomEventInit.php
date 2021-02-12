@@ -20,7 +20,7 @@ trait CustomEventInit {
 	// phpcs:enable
 
 	/**
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	public function getDetail() {
 		throw self::_unimplemented();

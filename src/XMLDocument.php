@@ -33,6 +33,8 @@ namespace Wikimedia\IDLeDOM;
  * @property string $documentURI
  * @property string $compatMode
  * @property string $characterSet
+ * @property string $charset
+ * @property string $inputEncoding
  * @property string $contentType
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement

@@ -66,6 +66,10 @@ trait XMLDocument {
 				return $this->getCompatMode();
 			case "characterSet":
 				return $this->getCharacterSet();
+			case "charset":
+				return $this->getCharset();
+			case "inputEncoding":
+				return $this->getInputEncoding();
 			case "contentType":
 				return $this->getContentType();
 			case "doctype":
@@ -233,6 +237,16 @@ trait XMLDocument {
 	 * @return string
 	 */
 	abstract public function getCharacterSet() : string;
+
+	/**
+	 * @return string
+	 */
+	abstract public function getCharset() : string;
+
+	/**
+	 * @return string
+	 */
+	abstract public function getInputEncoding() : string;
 
 	/**
 	 * @return string

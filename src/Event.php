@@ -12,10 +12,13 @@ namespace Wikimedia\IDLeDOM;
  *
  * @property string $type
  * @property EventTarget|null $target
+ * @property EventTarget|null $srcElement
  * @property EventTarget|null $currentTarget
  * @property int $eventPhase
+ * @property bool $cancelBubble
  * @property bool $bubbles
  * @property bool $cancelable
+ * @property bool $returnValue
  * @property bool $defaultPrevented
  * @property bool $composed
  * @property bool $isTrusted
@@ -33,6 +36,11 @@ interface Event {
 	 * @return EventTarget|null
 	 */
 	public function getTarget();
+
+	/**
+	 * @return EventTarget|null
+	 */
+	public function getSrcElement();
 
 	/**
 	 * @return EventTarget|null
@@ -67,6 +75,16 @@ interface Event {
 	public function stopPropagation() : void;
 
 	/**
+	 * @return bool
+	 */
+	public function getCancelBubble() : bool;
+
+	/**
+	 * @param bool $val
+	 */
+	public function setCancelBubble( bool $val ) : void;
+
+	/**
 	 * @return void
 	 */
 	public function stopImmediatePropagation() : void;
@@ -80,6 +98,16 @@ interface Event {
 	 * @return bool
 	 */
 	public function getCancelable() : bool;
+
+	/**
+	 * @return bool
+	 */
+	public function getReturnValue() : bool;
+
+	/**
+	 * @param bool $val
+	 */
+	public function setReturnValue( bool $val ) : void;
 
 	/**
 	 * @return void
@@ -105,5 +133,13 @@ interface Event {
 	 * @return float
 	 */
 	public function getTimeStamp() : float;
+
+	/**
+	 * @param string $type
+	 * @param bool $bubbles
+	 * @param bool $cancelable
+	 * @return void
+	 */
+	public function initEvent( string $type, bool $bubbles = false, bool $cancelable = false ) : void;
 
 }

@@ -175,6 +175,14 @@ trait Node {
 	}
 
 	/**
+	 * @param \Wikimedia\IDLeDOM\Node|null $otherNode
+	 * @return bool
+	 */
+	public function isSameNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param \Wikimedia\IDLeDOM\Node $other
 	 * @return int
 	 */

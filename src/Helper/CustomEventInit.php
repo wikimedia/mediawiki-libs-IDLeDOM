@@ -49,7 +49,7 @@ trait CustomEventInit {
 	abstract public function getComposed() : bool;
 
 	/**
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	abstract public function getDetail();
 
@@ -138,7 +138,7 @@ trait CustomEventInit {
 			}
 
 			/**
-			 * @return ?mixed
+			 * @return mixed|null
 			 */
 			public function getDetail() {
 				return $this->a["detail"] ?? null;

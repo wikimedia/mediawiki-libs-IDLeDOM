@@ -230,6 +230,12 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 	public function matches( string $selectors ) : bool;
 
 	/**
+	 * @param string $selectors
+	 * @return bool
+	 */
+	public function webkitMatchesSelector( string $selectors ) : bool;
+
+	/**
 	 * @param string $qualifiedName
 	 * @return HTMLCollection
 	 */
@@ -247,5 +253,19 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 	 * @return HTMLCollection
 	 */
 	public function getElementsByClassName( string $classNames );
+
+	/**
+	 * @param string $where
+	 * @param \Wikimedia\IDLeDOM\Element $element
+	 * @return \Wikimedia\IDLeDOM\Element|null
+	 */
+	public function insertAdjacentElement( string $where, /* \Wikimedia\IDLeDOM\Element */ $element );
+
+	/**
+	 * @param string $where
+	 * @param string $data
+	 * @return void
+	 */
+	public function insertAdjacentText( string $where, string $data ) : void;
 
 }

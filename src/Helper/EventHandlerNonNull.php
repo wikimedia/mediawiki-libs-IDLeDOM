@@ -11,7 +11,7 @@ trait EventHandlerNonNull {
 	/**
 	 * Make this callback interface callable.
 	 * @param mixed ...$args
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	public function __invoke( ...$args ) {
 		return $this->invoke( $args[0] );
@@ -19,7 +19,7 @@ trait EventHandlerNonNull {
 
 	/**
 	 * @param Event $event
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	abstract public function invoke( /* Event */ $event );
 
@@ -48,7 +48,7 @@ trait EventHandlerNonNull {
 
 			/**
 			 * @param Event $event
-			 * @return ?mixed
+			 * @return mixed|null
 			 */
 			public function invoke( /* Event */ $event ) {
 				$f = $this->f;

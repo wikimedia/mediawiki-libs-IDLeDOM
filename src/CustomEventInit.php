@@ -13,12 +13,12 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $bubbles
  * @property bool $cancelable
  * @property bool $composed
- * @property ?mixed $detail
+ * @property mixed|null $detail
  * @phan-forbid-undeclared-magic-properties
  */
 interface CustomEventInit extends EventInit {
 	/**
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	public function getDetail();
 

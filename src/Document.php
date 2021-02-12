@@ -33,6 +33,8 @@ namespace Wikimedia\IDLeDOM;
  * @property string $documentURI
  * @property string $compatMode
  * @property string $characterSet
+ * @property string $charset
+ * @property string $inputEncoding
  * @property string $contentType
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement
@@ -64,6 +66,16 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	 * @return string
 	 */
 	public function getCharacterSet() : string;
+
+	/**
+	 * @return string
+	 */
+	public function getCharset() : string;
+
+	/**
+	 * @return string
+	 */
+	public function getInputEncoding() : string;
 
 	/**
 	 * @return string
@@ -169,6 +181,12 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	 * @return Attr
 	 */
 	public function createAttributeNS( ?string $namespace, string $qualifiedName );
+
+	/**
+	 * @param string $interface
+	 * @return Event
+	 */
+	public function createEvent( string $interface );
 
 	/**
 	 * @return Range

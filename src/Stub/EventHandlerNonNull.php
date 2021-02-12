@@ -22,7 +22,7 @@ trait EventHandlerNonNull {
 
 	/**
 	 * @param Event $event
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	public function invoke( /* Event */ $event ) {
 		throw self::_unimplemented();

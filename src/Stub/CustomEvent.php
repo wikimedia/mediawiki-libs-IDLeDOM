@@ -20,9 +20,20 @@ trait CustomEvent {
 	// phpcs:enable
 
 	/**
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	public function getDetail() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $type
+	 * @param bool $bubbles
+	 * @param bool $cancelable
+	 * @param mixed|null $detail
+	 * @return void
+	 */
+	public function initCustomEvent( string $type, bool $bubbles = false, bool $cancelable = false, /* any */ $detail = null ) : void {
 		throw self::_unimplemented();
 	}
 

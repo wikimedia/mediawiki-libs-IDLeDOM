@@ -40,6 +40,12 @@ interface Node extends EventTarget {
 	public const CDATA_SECTION_NODE = 4;
 
 	/** @var int */
+	public const ENTITY_REFERENCE_NODE = 5;
+
+	/** @var int */
+	public const ENTITY_NODE = 6;
+
+	/** @var int */
 	public const PROCESSING_INSTRUCTION_NODE = 7;
 
 	/** @var int */
@@ -53,6 +59,9 @@ interface Node extends EventTarget {
 
 	/** @var int */
 	public const DOCUMENT_FRAGMENT_NODE = 11;
+
+	/** @var int */
+	public const NOTATION_NODE = 12;
 
 	/**
 	 * @return int
@@ -161,6 +170,12 @@ interface Node extends EventTarget {
 	 * @return bool
 	 */
 	public function isEqualNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool;
+
+	/**
+	 * @param \Wikimedia\IDLeDOM\Node|null $otherNode
+	 * @return bool
+	 */
+	public function isSameNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool;
 
 	/** @var int */
 	public const DOCUMENT_POSITION_DISCONNECTED = 0x01;

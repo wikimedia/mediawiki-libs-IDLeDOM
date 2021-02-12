@@ -280,6 +280,14 @@ trait Element {
 	}
 
 	/**
+	 * @param string $selectors
+	 * @return bool
+	 */
+	public function webkitMatchesSelector( string $selectors ) : bool {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param string $qualifiedName
 	 * @return HTMLCollection
 	 */
@@ -301,6 +309,24 @@ trait Element {
 	 * @return HTMLCollection
 	 */
 	public function getElementsByClassName( string $classNames ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $where
+	 * @param \Wikimedia\IDLeDOM\Element $element
+	 * @return \Wikimedia\IDLeDOM\Element|null
+	 */
+	public function insertAdjacentElement( string $where, /* \Wikimedia\IDLeDOM\Element */ $element ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $where
+	 * @param string $data
+	 * @return void
+	 */
+	public function insertAdjacentText( string $where, string $data ) : void {
 		throw self::_unimplemented();
 	}
 

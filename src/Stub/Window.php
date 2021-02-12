@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Wikimedia\IDLeDOM\Event;
+
 trait Window {
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
@@ -17,5 +19,12 @@ trait Window {
 	abstract protected function _unimplemented() : \Exception;
 
 	// phpcs:enable
+
+	/**
+	 * @return Event|null
+	 */
+	public function getEvent() {
+		throw self::_unimplemented();
+	}
 
 }

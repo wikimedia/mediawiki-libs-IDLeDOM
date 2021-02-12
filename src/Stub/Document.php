@@ -13,6 +13,7 @@ use Wikimedia\IDLeDOM\DocumentType;
 use Wikimedia\IDLeDOM\DOMImplementation;
 use Wikimedia\IDLeDOM\Element;
 use Wikimedia\IDLeDOM\ElementCreationOptions;
+use Wikimedia\IDLeDOM\Event;
 use Wikimedia\IDLeDOM\HTMLCollection;
 use Wikimedia\IDLeDOM\Node;
 use Wikimedia\IDLeDOM\NodeFilter;
@@ -72,6 +73,20 @@ trait Document {
 	 * @return string
 	 */
 	public function getCharacterSet() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCharset() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInputEncoding() : string {
 		throw self::_unimplemented();
 	}
 
@@ -211,6 +226,14 @@ trait Document {
 	 * @return Attr
 	 */
 	public function createAttributeNS( ?string $namespace, string $qualifiedName ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $interface
+	 * @return Event
+	 */
+	public function createEvent( string $interface ) {
 		throw self::_unimplemented();
 	}
 

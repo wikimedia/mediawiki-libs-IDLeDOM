@@ -464,7 +464,7 @@ class Generator {
 			if ( !$phpdoc ) {
 				return '/* any */';
 			}
-			return '?mixed';
+			return 'mixed|null';
 		case 'void':
 			self::unreachable( "void is now 'undefined'" );
 		case 'undefined':
@@ -565,7 +565,7 @@ class Generator {
 			'keepComments' => true
 		] );
 		$gen = new Generator( $idl, [
-			'skipLegacy' => true,
+			'skipLegacy' => false,
 		] );
 		// Write interfaces
 		$gen->write( __DIR__ . '/../src' );

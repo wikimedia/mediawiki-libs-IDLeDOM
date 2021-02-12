@@ -15,7 +15,7 @@ namespace Wikimedia\IDLeDOM;
 interface EventHandlerNonNull {
 	/**
 	 * @param Event $event
-	 * @return ?mixed
+	 * @return mixed|null
 	 */
 	public function invoke( /* Event */ $event );
 }

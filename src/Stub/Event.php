@@ -37,6 +37,13 @@ trait Event {
 	/**
 	 * @return EventTarget|null
 	 */
+	public function getSrcElement() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return EventTarget|null
+	 */
 	public function getCurrentTarget() {
 		throw self::_unimplemented();
 	}
@@ -63,6 +70,20 @@ trait Event {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getCancelBubble() : bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setCancelBubble( bool $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @return void
 	 */
 	public function stopImmediatePropagation() : void {
@@ -80,6 +101,20 @@ trait Event {
 	 * @return bool
 	 */
 	public function getCancelable() : bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getReturnValue() : bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setReturnValue( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -115,6 +150,16 @@ trait Event {
 	 * @return float
 	 */
 	public function getTimeStamp() : float {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $type
+	 * @param bool $bubbles
+	 * @param bool $cancelable
+	 * @return void
+	 */
+	public function initEvent( string $type, bool $bubbles = false, bool $cancelable = false ) : void {
 		throw self::_unimplemented();
 	}
 
