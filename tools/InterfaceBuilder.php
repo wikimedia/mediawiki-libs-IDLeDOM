@@ -200,7 +200,7 @@ class InterfaceBuilder extends Builder {
 		$iteratorName = $this->map( $topName, 'op', '_iterable' );
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'][0] );
 		$this->nl( '/**' );
-		$this->nl( " * @return \\Traversable<$docType>" );
+		$this->nl( " * @return \\Iterator An Iterator<$docType>" );
 		$this->nl( ' */' );
 		$this->nl( "public function $iteratorName();" );
 	}

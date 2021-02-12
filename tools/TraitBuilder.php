@@ -433,9 +433,10 @@ class TraitBuilder extends Builder {
 			$iteratorType = $igetter['ast']['idlType'];
 			// the getter is nullable, but the iterator is not!
 			$iteratorType['nullable'] = false;
+			$this->use( $iteratorType, $typeOpts );
 			$retTypeDoc = $this->gen->typeToPHPDoc( $iteratorType, $typeOpts );
 			$this->nl( '/**' );
-			$this->nl( " * @return \\Traversable<{$retTypeDoc}>" );
+			$this->nl( " * @return \\Iterator An Iterator<$retTypeDoc>" );
 			$this->nl( ' */' );
 			$this->nl( "public function $iteratorName() {" );
 			$this->nl( "for ( \$i = 0; \$i < \$this->{$countable['funcName']}(); \$i++ ) {" );

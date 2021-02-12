@@ -119,7 +119,7 @@ trait HTMLCollection {
 	}
 
 	/**
-	 * @return \Traversable<Element>
+	 * @return \Iterator An Iterator<Element>
 	 */
 	public function getIterator() {
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {

@@ -18,7 +18,7 @@ interface NodeList extends \ArrayAccess, \IteratorAggregate, \Countable {
 	public function getLength() : int;
 
 	/**
-	 * @return \Traversable<Node>
+	 * @return \Iterator An Iterator<Node>
 	 */
 	public function getIterator();
 

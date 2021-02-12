@@ -24,7 +24,7 @@ interface HTMLCollection extends \ArrayAccess, \IteratorAggregate, \Countable {
 	public function namedItem( string $name );
 
 	/**
-	 * @return \Traversable<Element>
+	 * @return \Iterator An Iterator<Element>
 	 */
 	public function getIterator();
 

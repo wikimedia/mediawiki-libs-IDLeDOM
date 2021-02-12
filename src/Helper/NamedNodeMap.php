@@ -119,7 +119,7 @@ trait NamedNodeMap {
 	}
 
 	/**
-	 * @return \Traversable<Attr>
+	 * @return \Iterator An Iterator<Attr>
 	 */
 	public function getIterator() {
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {

@@ -113,7 +113,7 @@ trait NodeList {
 	}
 
 	/**
-	 * @return \Traversable<Node>
+	 * @return \Iterator An Iterator<Node>
 	 */
 	public function getIterator() {
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {

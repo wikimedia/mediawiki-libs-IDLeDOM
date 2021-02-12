@@ -151,7 +151,7 @@ trait DOMTokenList {
 	}
 
 	/**
-	 * @return \Traversable<string>
+	 * @return \Iterator An Iterator<string>
 	 */
 	public function getIterator() {
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {
