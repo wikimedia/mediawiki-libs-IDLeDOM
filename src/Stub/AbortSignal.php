@@ -8,7 +8,7 @@ namespace Wikimedia\IDLeDOM\Stub;
 use Wikimedia\IDLeDOM\EventHandlerNonNull;
 
 trait AbortSignal {
-	use \Wikimedia\IDLeDOM\Stub\EventTarget;
+	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

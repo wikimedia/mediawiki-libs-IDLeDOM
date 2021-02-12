@@ -18,11 +18,13 @@ class StubBuilder extends Builder {
 		$this->e->emitMarker( 'UseStatements' );
 		$this->nl();
 		$this->nl( "trait $topName {" );
-		$mixins = $this->gen->mixins( $topName );
-		if ( count( $mixins ) ) {
-			foreach ( $mixins as $m ) {
-				$this->nl( "use \\Wikimedia\\IDLeDOM\\Stub\\$m;" );
-			}
+		$mixins = [];
+		$this->collectMixins( $topName, $mixins );
+		foreach ( $mixins as $m ) {
+			// Emit as comment for use by test framework.  But each stub
+			// should only declare its own methods, not recursively define
+			// methods of a parent
+			$this->nl( "// use \\Wikimedia\\IDLeDOM\\Stub\\$m;" );
 		}
 		$this->nl();
 		$this->nl( '// Underscore is used to avoid conflicts with DOM-reserved names' );
@@ -36,6 +38,15 @@ class StubBuilder extends Builder {
 		$this->nl();
 		$this->nl( '// phpcs:enable' );
 		$this->nl();
+	}
+
+	private function collectMixins( string $topName, array &$mixins ) {
+		foreach ( $this->gen->mixins( $topName ) as $m ) {
+			if ( !in_array( $m, $mixins, true ) ) {
+				$mixins[] = $m;
+				$this->collectMixins( $m, $mixins );
+			}
+		}
 	}
 
 	/** @inheritDoc */

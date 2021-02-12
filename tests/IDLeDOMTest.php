@@ -11,19 +11,34 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testStubs( string $stubname ) {
 		$inter = "\\Wikimedia\\IDLeDOM\\$stubname";
-		$stub = "\\Wikimedia\\IDLeDOM\\Stub\\$stubname";
-		$helper = "\\Wikimedia\\IDLeDOM\\Helper\\$stubname";
-		$hasHelper = file_exists( __DIR__ . "/../src/Helper/$stubname.php" );
+
+		$stubContents = file_get_contents(
+			__DIR__ . "/../src/Stub/$stubname.php"
+		);
+		preg_match_all(
+			'@^[\t ]*// (use ' . preg_quote( '\Wikimedia\IDLeDOM\Stub\\' ) . '[A-Za-z0-9_]+;)$@m',
+			$stubContents,
+			$matches,
+			PREG_PATTERN_ORDER
+		);
+		$stubs = array_merge(
+			[ "use \\Wikimedia\\IDLeDOM\\Stub\\$stubname;" ],
+			$matches[1]
+		);
+
+		$helper = file_exists( __DIR__ . "/../src/Helper/$stubname.php" ) ?
+				"\\Wikimedia\\IDLeDOM\\Helper\\$stubname" : null;
 
 		$expr = "new class() implements $inter {\n" .
-			  "\tuse $stub;\n" .
-			  ( $hasHelper ? "\tuse $helper;\n" : '' ) .
+			  implode( "\n", $stubs ) . "\n" .
+			  ( $helper ? "\tuse $helper;\n" : '' ) .
 			  "\tprotected function _unimplemented() {\n" .
 			  "\t\treturn new \\Exception();\n" .
 			  "\t}\n" .
 			  "};";
 		$threw = false;
 		try {
+			// @phan-suppress-next-line SecurityCheck-LikelyFalsePositive
 			eval( $expr );
 		} catch ( \Throwable $e ) {
 			$threw = true;

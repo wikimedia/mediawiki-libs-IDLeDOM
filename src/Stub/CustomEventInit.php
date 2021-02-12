@@ -6,7 +6,7 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 trait CustomEventInit {
-	use \Wikimedia\IDLeDOM\Stub\EventInit;
+	// use \Wikimedia\IDLeDOM\Stub\EventInit;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

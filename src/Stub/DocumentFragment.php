@@ -6,9 +6,10 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 trait DocumentFragment {
-	use \Wikimedia\IDLeDOM\Stub\Node;
-	use \Wikimedia\IDLeDOM\Stub\NonElementParentNode;
-	use \Wikimedia\IDLeDOM\Stub\ParentNode;
+	// use \Wikimedia\IDLeDOM\Stub\Node;
+	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
+	// use \Wikimedia\IDLeDOM\Stub\NonElementParentNode;
+	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

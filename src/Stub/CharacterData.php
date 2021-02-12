@@ -6,9 +6,10 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 trait CharacterData {
-	use \Wikimedia\IDLeDOM\Stub\Node;
-	use \Wikimedia\IDLeDOM\Stub\ChildNode;
-	use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
+	// use \Wikimedia\IDLeDOM\Stub\Node;
+	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
+	// use \Wikimedia\IDLeDOM\Stub\ChildNode;
+	// use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

@@ -9,7 +9,7 @@ use Wikimedia\IDLeDOM\DocumentFragment;
 use Wikimedia\IDLeDOM\Node;
 
 trait Range {
-	use \Wikimedia\IDLeDOM\Stub\AbstractRange;
+	// use \Wikimedia\IDLeDOM\Stub\AbstractRange;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

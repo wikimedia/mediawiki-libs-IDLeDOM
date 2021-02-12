@@ -8,7 +8,8 @@ namespace Wikimedia\IDLeDOM\Stub;
 use Wikimedia\IDLeDOM\Element;
 
 trait Attr {
-	use \Wikimedia\IDLeDOM\Stub\Node;
+	// use \Wikimedia\IDLeDOM\Stub\Node;
+	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

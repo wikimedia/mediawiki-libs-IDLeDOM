@@ -6,8 +6,9 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 trait DocumentType {
-	use \Wikimedia\IDLeDOM\Stub\Node;
-	use \Wikimedia\IDLeDOM\Stub\ChildNode;
+	// use \Wikimedia\IDLeDOM\Stub\Node;
+	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
+	// use \Wikimedia\IDLeDOM\Stub\ChildNode;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

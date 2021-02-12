@@ -6,7 +6,13 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 trait HTMLElement {
-	use \Wikimedia\IDLeDOM\Stub\Element;
+	// use \Wikimedia\IDLeDOM\Stub\Element;
+	// use \Wikimedia\IDLeDOM\Stub\Node;
+	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
+	// use \Wikimedia\IDLeDOM\Stub\ChildNode;
+	// use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
+	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
+	// use \Wikimedia\IDLeDOM\Stub\Slottable;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
