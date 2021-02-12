@@ -87,7 +87,7 @@ trait XMLDocument {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, mixed $value ) : void {
+	public function __set( string $name, $value ) : void {
 		'@phan-var \Wikimedia\IDLeDOM\XMLDocument $this';
 		// @var \Wikimedia\IDLeDOM\XMLDocument $this
 		switch ( $name ) {

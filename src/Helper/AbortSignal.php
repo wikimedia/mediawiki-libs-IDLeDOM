@@ -35,7 +35,7 @@ trait AbortSignal {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, mixed $value ) : void {
+	public function __set( string $name, $value ) : void {
 		'@phan-var \Wikimedia\IDLeDOM\AbortSignal $this';
 		// @var \Wikimedia\IDLeDOM\AbortSignal $this
 		switch ( $name ) {

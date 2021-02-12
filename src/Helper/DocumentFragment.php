@@ -67,7 +67,7 @@ trait DocumentFragment {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, mixed $value ) : void {
+	public function __set( string $name, $value ) : void {
 		'@phan-var \Wikimedia\IDLeDOM\DocumentFragment $this';
 		// @var \Wikimedia\IDLeDOM\DocumentFragment $this
 		switch ( $name ) {

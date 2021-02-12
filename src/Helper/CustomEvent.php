@@ -59,7 +59,7 @@ trait CustomEvent {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, mixed $value ) : void {
+	public function __set( string $name, $value ) : void {
 		'@phan-var \Wikimedia\IDLeDOM\CustomEvent $this';
 		// @var \Wikimedia\IDLeDOM\CustomEvent $this
 		switch ( $name ) {

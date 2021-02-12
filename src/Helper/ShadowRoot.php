@@ -73,7 +73,7 @@ trait ShadowRoot {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, mixed $value ) : void {
+	public function __set( string $name, $value ) : void {
 		'@phan-var \Wikimedia\IDLeDOM\ShadowRoot $this';
 		// @var \Wikimedia\IDLeDOM\ShadowRoot $this
 		switch ( $name ) {

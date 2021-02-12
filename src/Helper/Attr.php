@@ -73,7 +73,7 @@ trait Attr {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, mixed $value ) : void {
+	public function __set( string $name, $value ) : void {
 		'@phan-var \Wikimedia\IDLeDOM\Attr $this';
 		// @var \Wikimedia\IDLeDOM\Attr $this
 		switch ( $name ) {

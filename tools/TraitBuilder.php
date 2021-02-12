@@ -495,7 +495,7 @@ class TraitBuilder extends Builder {
 			$this->nl( ' * @param string $name' );
 			$this->nl( ' * @param mixed $value' );
 			$this->nl( ' */' );
-			$this->nl( 'public function __set( string $name, mixed $value ) : void {' );
+			$this->nl( 'public function __set( string $name, $value ) : void {' );
 			$this->emitThisHint( $topName );
 			$this->nl( 'switch ( $name ) {' );
 			foreach ( $attrs as $a ) {
