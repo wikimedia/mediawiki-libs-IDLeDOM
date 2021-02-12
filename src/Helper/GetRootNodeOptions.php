@@ -11,6 +11,8 @@ trait GetRootNodeOptions {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\GetRootNodeOptions $this';
+		// @var \Wikimedia\IDLeDOM\GetRootNodeOptions $this
 		switch ( $name ) {
 			case "composed":
 				return $this->getComposed();
@@ -26,11 +28,6 @@ trait GetRootNodeOptions {
 		);
 		return null;
 	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getComposed() : bool;
 
 	/**
 	 * @param mixed $offset

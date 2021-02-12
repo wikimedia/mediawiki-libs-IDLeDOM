@@ -11,6 +11,8 @@ trait AssignedNodesOptions {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\AssignedNodesOptions $this';
+		// @var \Wikimedia\IDLeDOM\AssignedNodesOptions $this
 		switch ( $name ) {
 			case "flatten":
 				return $this->getFlatten();
@@ -26,11 +28,6 @@ trait AssignedNodesOptions {
 		);
 		return null;
 	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getFlatten() : bool;
 
 	/**
 	 * @param mixed $offset

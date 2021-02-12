@@ -15,15 +15,10 @@ trait MutationCallback {
 	 * @return void
 	 */
 	public function __invoke( ...$args ) {
+		'@phan-var \Wikimedia\IDLeDOM\MutationCallback $this';
+		// @var \Wikimedia\IDLeDOM\MutationCallback $this
 		$this->invoke( $args[0], $args[1] );
 	}
-
-	/**
-	 * @param list<MutationRecord> $mutations
-	 * @param MutationObserver $observer
-	 * @return void
-	 */
-	abstract public function invoke( array $mutations, /* MutationObserver */ $observer ) : void;
 
 	/**
 	 * Create a MutationCallback from a callable.

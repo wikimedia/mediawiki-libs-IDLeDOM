@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\EventHandlerNonNull;
-
 trait AbortSignal {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\AbortSignal $this';
+		// @var \Wikimedia\IDLeDOM\AbortSignal $this
 		switch ( $name ) {
 			case "aborted":
 				return $this->getAborted();
@@ -36,6 +36,8 @@ trait AbortSignal {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\AbortSignal $this';
+		// @var \Wikimedia\IDLeDOM\AbortSignal $this
 		switch ( $name ) {
 			case "onabort":
 				$this->setOnabort( $value );
@@ -51,20 +53,5 @@ trait AbortSignal {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getAborted() : bool;
-
-	/**
-	 * @return EventHandlerNonNull|callable|null
-	 */
-	abstract public function getOnabort();
-
-	/**
-	 * @param EventHandlerNonNull|callable|null $value
-	 */
-	abstract public function setOnabort( /* ?mixed */ $value ) : void;
 
 }

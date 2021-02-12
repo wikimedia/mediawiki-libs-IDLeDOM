@@ -5,21 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Document;
-use Wikimedia\IDLeDOM\DOMTokenList;
-use Wikimedia\IDLeDOM\HTMLCollection;
-use Wikimedia\IDLeDOM\HTMLSlotElement;
-use Wikimedia\IDLeDOM\NamedNodeMap;
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeList;
-use Wikimedia\IDLeDOM\ShadowRoot;
-
 trait Element {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		switch ( $name ) {
 			case "nodeType":
 				return $this->getNodeType();
@@ -101,6 +94,8 @@ trait Element {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		switch ( $name ) {
 			case "nodeValue":
 				$this->setNodeValue( $value );
@@ -128,185 +123,5 @@ trait Element {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @return int
-	 */
-	abstract public function getNodeType() : int;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getNodeName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getBaseURI() : string;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getIsConnected() : bool;
-
-	/**
-	 * @return Document|null
-	 */
-	abstract public function getOwnerDocument();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getParentNode();
-
-	/**
-	 * @return \Wikimedia\IDLeDOM\Element|null
-	 */
-	abstract public function getParentElement();
-
-	/**
-	 * @return NodeList
-	 */
-	abstract public function getChildNodes();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getFirstChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getLastChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getPreviousSibling();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getNextSibling();
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getNodeValue() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setNodeValue( ?string $value ) : void;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getTextContent() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setTextContent( ?string $value ) : void;
-
-	/**
-	 * @return \Wikimedia\IDLeDOM\Element|null
-	 */
-	abstract public function getPreviousElementSibling();
-
-	/**
-	 * @return \Wikimedia\IDLeDOM\Element|null
-	 */
-	abstract public function getNextElementSibling();
-
-	/**
-	 * @return HTMLCollection
-	 */
-	abstract public function getChildren();
-
-	/**
-	 * @return \Wikimedia\IDLeDOM\Element|null
-	 */
-	abstract public function getFirstElementChild();
-
-	/**
-	 * @return \Wikimedia\IDLeDOM\Element|null
-	 */
-	abstract public function getLastElementChild();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getChildElementCount() : int;
-
-	/**
-	 * @return HTMLSlotElement|null
-	 */
-	abstract public function getAssignedSlot();
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getNamespaceURI() : ?string;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getPrefix() : ?string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getLocalName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getTagName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getId() : string;
-
-	/**
-	 * @param string $value
-	 */
-	abstract public function setId( string $value ) : void;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getClassName() : string;
-
-	/**
-	 * @param string $value
-	 */
-	abstract public function setClassName( string $value ) : void;
-
-	/**
-	 * @return DOMTokenList
-	 */
-	abstract public function getClassList();
-
-	/**
-	 * @return string
-	 */
-	abstract public function getSlot() : string;
-
-	/**
-	 * @param string $value
-	 */
-	abstract public function setSlot( string $value ) : void;
-
-	/**
-	 * @return NamedNodeMap
-	 */
-	abstract public function getAttributes();
-
-	/**
-	 * @return ShadowRoot|null
-	 */
-	abstract public function getShadowRoot();
 
 }

@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Node;
-
 trait Range {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\Range $this';
+		// @var \Wikimedia\IDLeDOM\Range $this
 		switch ( $name ) {
 			case "startContainer":
 				return $this->getStartContainer();
@@ -38,35 +38,5 @@ trait Range {
 		);
 		return null;
 	}
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getStartContainer();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getStartOffset() : int;
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getEndContainer();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getEndOffset() : int;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCollapsed() : bool;
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getCommonAncestorContainer();
 
 }

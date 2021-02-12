@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Event;
-
 trait Window {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\Window $this';
+		// @var \Wikimedia\IDLeDOM\Window $this
 		switch ( $name ) {
 			case "event":
 				return $this->getEvent();
@@ -28,10 +28,5 @@ trait Window {
 		);
 		return null;
 	}
-
-	/**
-	 * @return Event|null
-	 */
-	abstract public function getEvent();
 
 }

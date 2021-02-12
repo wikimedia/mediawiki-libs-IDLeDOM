@@ -5,17 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Document;
-use Wikimedia\IDLeDOM\Element;
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeList;
-
 trait CharacterData {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\CharacterData $this';
+		// @var \Wikimedia\IDLeDOM\CharacterData $this
 		switch ( $name ) {
 			case "nodeType":
 				return $this->getNodeType();
@@ -71,6 +68,8 @@ trait CharacterData {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\CharacterData $this';
+		// @var \Wikimedia\IDLeDOM\CharacterData $this
 		switch ( $name ) {
 			case "nodeValue":
 				$this->setNodeValue( $value );
@@ -92,110 +91,5 @@ trait CharacterData {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @return int
-	 */
-	abstract public function getNodeType() : int;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getNodeName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getBaseURI() : string;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getIsConnected() : bool;
-
-	/**
-	 * @return Document|null
-	 */
-	abstract public function getOwnerDocument();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getParentNode();
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getParentElement();
-
-	/**
-	 * @return NodeList
-	 */
-	abstract public function getChildNodes();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getFirstChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getLastChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getPreviousSibling();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getNextSibling();
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getNodeValue() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setNodeValue( ?string $value ) : void;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getTextContent() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setTextContent( ?string $value ) : void;
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getPreviousElementSibling();
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getNextElementSibling();
-
-	/**
-	 * @return string
-	 */
-	abstract public function getData() : string;
-
-	/**
-	 * @param string $value
-	 */
-	abstract public function setData( string $value ) : void;
-
-	/**
-	 * @return int
-	 */
-	abstract public function getLength() : int;
 
 }

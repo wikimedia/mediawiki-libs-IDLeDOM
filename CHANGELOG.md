@@ -5,7 +5,9 @@
   implement \Countable so they can be used with the PHP `count()` function.
 * Add an `iterable` to HTMLCollection and NamedNodeMap so they can be
   used in a PHP `foreach` statement, like the built-in \DOMNamedNodeMap.
-* Stubs are now standalone (don't stub out methods from parent interfaces).
+* Stubs are now standalone (don't stub out methods from parent interfaces),
+  and don't declare abstract methods (these were shadowing inherited method
+  from superclasses).
 
 # IDLeDOM 0.1.1 (2021-02-11)
 * Replace HTMLSlotElement/EventHandler/DOMHighRestTimeStamp stubs with

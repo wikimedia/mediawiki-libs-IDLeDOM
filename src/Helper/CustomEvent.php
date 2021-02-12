@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\EventTarget;
-
 trait CustomEvent {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\CustomEvent $this';
+		// @var \Wikimedia\IDLeDOM\CustomEvent $this
 		switch ( $name ) {
 			case "type":
 				return $this->getType();
@@ -60,6 +60,8 @@ trait CustomEvent {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\CustomEvent $this';
+		// @var \Wikimedia\IDLeDOM\CustomEvent $this
 		switch ( $name ) {
 			case "cancelBubble":
 				$this->setCancelBubble( $value );
@@ -78,85 +80,5 @@ trait CustomEvent {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @return string
-	 */
-	abstract public function getType() : string;
-
-	/**
-	 * @return EventTarget|null
-	 */
-	abstract public function getTarget();
-
-	/**
-	 * @return EventTarget|null
-	 */
-	abstract public function getSrcElement();
-
-	/**
-	 * @return EventTarget|null
-	 */
-	abstract public function getCurrentTarget();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getEventPhase() : int;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCancelBubble() : bool;
-
-	/**
-	 * @param bool $value
-	 */
-	abstract public function setCancelBubble( bool $value ) : void;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getBubbles() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCancelable() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getReturnValue() : bool;
-
-	/**
-	 * @param bool $value
-	 */
-	abstract public function setReturnValue( bool $value ) : void;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getDefaultPrevented() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getComposed() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getIsTrusted() : bool;
-
-	/**
-	 * @return float
-	 */
-	abstract public function getTimeStamp() : float;
-
-	/**
-	 * @return mixed|null
-	 */
-	abstract public function getDetail();
 
 }

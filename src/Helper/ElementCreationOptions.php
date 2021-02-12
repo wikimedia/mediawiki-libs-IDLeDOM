@@ -11,6 +11,8 @@ trait ElementCreationOptions {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\ElementCreationOptions $this';
+		// @var \Wikimedia\IDLeDOM\ElementCreationOptions $this
 		switch ( $name ) {
 			case "is":
 				return $this->getIs();
@@ -26,11 +28,6 @@ trait ElementCreationOptions {
 		);
 		return null;
 	}
-
-	/**
-	 * @return string
-	 */
-	abstract public function getIs() : string;
 
 	/**
 	 * @param mixed $offset

@@ -11,6 +11,8 @@ trait ShadowRootInit {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\ShadowRootInit $this';
+		// @var \Wikimedia\IDLeDOM\ShadowRootInit $this
 		switch ( $name ) {
 			case "mode":
 				return $this->getMode();
@@ -28,16 +30,6 @@ trait ShadowRootInit {
 		);
 		return null;
 	}
-
-	/**
-	 * @return int
-	 */
-	abstract public function getMode() : int;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getDelegatesFocus() : bool;
 
 	/**
 	 * @param mixed $offset

@@ -11,6 +11,8 @@ trait CustomEventInit {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\CustomEventInit $this';
+		// @var \Wikimedia\IDLeDOM\CustomEventInit $this
 		switch ( $name ) {
 			case "bubbles":
 				return $this->getBubbles();
@@ -32,26 +34,6 @@ trait CustomEventInit {
 		);
 		return null;
 	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getBubbles() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCancelable() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getComposed() : bool;
-
-	/**
-	 * @return mixed|null
-	 */
-	abstract public function getDetail();
 
 	/**
 	 * @param mixed $offset

@@ -62,16 +62,9 @@ class TraitBuilder extends Builder {
 		$this->nl( " * @return {$r['retTypeDoc']}" );
 		$this->nl( ' */' );
 		$this->nl( 'public function __invoke( ...$args ) {' );
+		$this->emitThisHint( $topName );
 		$this->nl( "{$r['return']}\$this->{$r['funcName']}({$r['invokeArgs']});" );
 		$this->nl( '}' );
-		$this->nl();
-		$this->nl( '/**' );
-		foreach ( $r['paramDocs'] as $a ) {
-			$this->nl( " * @param $a" );
-		}
-		$this->nl( " * @return {$r['retTypeDoc']}" );
-		$this->nl( ' */' );
-		$this->nl( "abstract public function {$r['funcName']}({$r['phpArgs']}){$r['retType']};" );
 		$this->nl();
 
 		$this->nl( '/**' );
@@ -265,6 +258,7 @@ class TraitBuilder extends Builder {
 			$this->nl( 'return $this->a[' . json_encode( $a['name'] ) . ']' . $a['default'] . ';' );
 			$this->nl( '}' );
 			$this->nl();
+			$this->use( $a['idlType'] );
 		}
 		$this->nl( '};' );
 		$this->nl( '}' );
@@ -300,22 +294,13 @@ class TraitBuilder extends Builder {
 		foreach ( $specials as $s => $r ) {
 			// Record types used
 			$m = $r['ast'];
-			$this->use( $m['idlType'], $typeOpts );
+			// $this->use( $m['idlType'], $typeOpts );
 			foreach ( $m['arguments'] ?? [] as $a ) {
-				$this->use( $a['idlType'], $typeOpts );
+			// $this->use( $a['idlType'], $typeOpts );
 			}
 			if ( $m['type'] !== 'operation' ) {
 				continue;
 			}
-			// Emit abstract declaration
-			$this->nl( '/**' );
-			foreach ( $r['paramDocs'] as $a ) {
-				$this->nl( " * @param $a" );
-			}
-			$this->nl( " * @return {$r['retTypeDoc']}" );
-			$this->nl( ' */' );
-			$this->nl( "abstract public function {$r['funcName']}({$r['phpArgs']}){$r['retType']};" );
-			$this->nl();
 		}
 		// Handle stringifier first
 		$stringifier = $specials['stringifier'] ?? null;
@@ -324,6 +309,7 @@ class TraitBuilder extends Builder {
 			$this->nl( ' * @return string' );
 			$this->nl( ' */' );
 			$this->nl( 'public function __toString() : string {' );
+			$this->emitThisHint( $topName );
 			$this->nl( "return \$this->{$stringifier['funcName']}();" );
 			$this->nl( '}' );
 			$this->nl();
@@ -341,6 +327,7 @@ class TraitBuilder extends Builder {
 			$this->nl( ' * @return int' );
 			$this->nl( ' */' );
 			$this->nl( 'public function count() : int {' );
+			$this->emitThisHint( $topName );
 			$this->nl( "return \$this->{$countable['funcName']}();" );
 			$this->nl( '}' );
 			$this->nl();
@@ -366,6 +353,7 @@ class TraitBuilder extends Builder {
 		$this->nl( ' * @return mixed' );
 		$this->nl( ' */' );
 		$this->nl( 'public function offsetGet( $offset ) {' );
+		$this->emitThisHint( $topName );
 		$this->nl( 'if ( is_numeric( $offset ) ) {' );
 		$igetter = $specials['indexed getter'] ?? null;
 		if ( $igetter ) {
@@ -391,6 +379,7 @@ class TraitBuilder extends Builder {
 		$this->nl( ' * @param mixed $value' );
 		$this->nl( ' */' );
 		$this->nl( 'public function offsetSet( $offset, $value ) : void {' );
+		$this->emitThisHint( $topName );
 		$this->nl( 'if ( is_numeric( $offset ) ) {' );
 		$setter = $specials['indexed setter'] ?? null;
 		if ( $setter ) {
@@ -414,6 +403,7 @@ class TraitBuilder extends Builder {
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' */' );
 		$this->nl( 'public function offsetUnset( $offset ) : void {' );
+		$this->emitThisHint( $topName );
 		$this->nl( 'if ( is_numeric( $offset ) ) {' );
 		$deleter = $specials['indexed deleter'] ?? null;
 		if ( $deleter ) {
@@ -440,12 +430,16 @@ class TraitBuilder extends Builder {
 			$iteratorType = $igetter['ast']['idlType'];
 			// the getter is nullable, but the iterator is not!
 			$iteratorType['nullable'] = false;
-			$this->use( $iteratorType, $typeOpts );
+			// phan can't handle inferring the generic type here, so it's
+			// just in a comment.  If this graduates to the 'real' return
+			// type, then you'll need this 'use' statement:
+			// $this->use( $iteratorType, $typeOpts );
 			$retTypeDoc = $this->gen->typeToPHPDoc( $iteratorType, $typeOpts );
 			$this->nl( '/**' );
 			$this->nl( " * @return \\Iterator An Iterator<$retTypeDoc>" );
 			$this->nl( ' */' );
 			$this->nl( "public function $iteratorName() {" );
+			$this->emitThisHint( $topName );
 			$this->nl( "for ( \$i = 0; \$i < \$this->{$countable['funcName']}(); \$i++ ) {" );
 			$this->nl( "yield \$this->{$igetter['funcName']}( \$i );" );
 			$this->nl( "}\n}" );
@@ -479,6 +473,7 @@ class TraitBuilder extends Builder {
 		$this->nl( ' * @return mixed' );
 		$this->nl( ' */' );
 		$this->nl( 'public function __get( string $name ) {' );
+		$this->emitThisHint( $topName );
 		$this->nl( 'switch ( $name ) {' );
 		foreach ( $attrs as $a ) {
 			$name = $a['name'];
@@ -501,6 +496,7 @@ class TraitBuilder extends Builder {
 			$this->nl( ' * @param mixed $value' );
 			$this->nl( ' */' );
 			$this->nl( 'public function __set( string $name, mixed $value ) : void {' );
+			$this->emitThisHint( $topName );
 			$this->nl( 'switch ( $name ) {' );
 			foreach ( $attrs as $a ) {
 				if ( $a['readonly'] ) {
@@ -517,24 +513,6 @@ class TraitBuilder extends Builder {
 			$this->nl( '}' );
 			$this->triggerError( '__set', 'name' );
 			$this->nl( '}' );
-			$this->nl();
-		}
-
-		/** Create abstract methods for getters and setters */
-		foreach ( $attrs as $a ) {
-			$this->nl( '/**' );
-			$this->nl( " * @return {$a['docType']}" );
-			$this->nl( ' */' );
-			$this->nl( "abstract public function {$a['getter']}(){$a['retType']};" );
-			$this->nl();
-			$this->use( $a['idlType'], $typeOpts );
-			if ( $a['readonly'] ) {
-				continue;
-			}
-			$this->nl( '/**' );
-			$this->nl( " * @param {$a['docType']} \$value" );
-			$this->nl( ' */' );
-			$this->nl( "abstract public function {$a['setter']}( {$a['phpType']} \$value ) : void;" );
 			$this->nl();
 		}
 	}

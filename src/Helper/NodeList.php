@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Node;
-
 trait NodeList {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
+		// @var \Wikimedia\IDLeDOM\NodeList $this
 		switch ( $name ) {
 			case "length":
 				return $this->getLength();
@@ -32,18 +32,9 @@ trait NodeList {
 	/**
 	 * @return int
 	 */
-	abstract public function getLength() : int;
-
-	/**
-	 * @param int $index
-	 * @return Node|null
-	 */
-	abstract public function item( int $index );
-
-	/**
-	 * @return int
-	 */
 	public function count() : int {
+		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
+		// @var \Wikimedia\IDLeDOM\NodeList $this
 		return $this->getLength();
 	}
 
@@ -60,6 +51,8 @@ trait NodeList {
 	 * @return mixed
 	 */
 	public function offsetGet( $offset ) {
+		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
+		// @var \Wikimedia\IDLeDOM\NodeList $this
 		if ( is_numeric( $offset ) ) {
 			return $this->item( $offset );
 		} elseif ( is_string( $offset ) ) {
@@ -80,6 +73,8 @@ trait NodeList {
 	 * @param mixed $value
 	 */
 	public function offsetSet( $offset, $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
+		// @var \Wikimedia\IDLeDOM\NodeList $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -98,6 +93,8 @@ trait NodeList {
 	 * @param mixed $offset
 	 */
 	public function offsetUnset( $offset ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
+		// @var \Wikimedia\IDLeDOM\NodeList $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -116,6 +113,8 @@ trait NodeList {
 	 * @return \Iterator An Iterator<Node>
 	 */
 	public function getIterator() {
+		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
+		// @var \Wikimedia\IDLeDOM\NodeList $this
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {
 			yield $this->item( $i );
 		}

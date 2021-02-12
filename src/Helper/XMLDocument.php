@@ -5,20 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Document;
-use Wikimedia\IDLeDOM\DocumentType;
-use Wikimedia\IDLeDOM\DOMImplementation;
-use Wikimedia\IDLeDOM\Element;
-use Wikimedia\IDLeDOM\HTMLCollection;
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeList;
-
 trait XMLDocument {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\XMLDocument $this';
+		// @var \Wikimedia\IDLeDOM\XMLDocument $this
 		switch ( $name ) {
 			case "nodeType":
 				return $this->getNodeType();
@@ -94,6 +88,8 @@ trait XMLDocument {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\XMLDocument $this';
+		// @var \Wikimedia\IDLeDOM\XMLDocument $this
 		switch ( $name ) {
 			case "nodeValue":
 				$this->setNodeValue( $value );
@@ -112,155 +108,5 @@ trait XMLDocument {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @return int
-	 */
-	abstract public function getNodeType() : int;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getNodeName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getBaseURI() : string;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getIsConnected() : bool;
-
-	/**
-	 * @return Document|null
-	 */
-	abstract public function getOwnerDocument();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getParentNode();
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getParentElement();
-
-	/**
-	 * @return NodeList
-	 */
-	abstract public function getChildNodes();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getFirstChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getLastChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getPreviousSibling();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getNextSibling();
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getNodeValue() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setNodeValue( ?string $value ) : void;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getTextContent() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setTextContent( ?string $value ) : void;
-
-	/**
-	 * @return HTMLCollection
-	 */
-	abstract public function getChildren();
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getFirstElementChild();
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getLastElementChild();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getChildElementCount() : int;
-
-	/**
-	 * @return DOMImplementation
-	 */
-	abstract public function getImplementation();
-
-	/**
-	 * @return string
-	 */
-	abstract public function getURL() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getDocumentURI() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getCompatMode() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getCharacterSet() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getCharset() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getInputEncoding() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getContentType() : string;
-
-	/**
-	 * @return DocumentType|null
-	 */
-	abstract public function getDoctype();
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getDocumentElement();
 
 }

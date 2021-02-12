@@ -13,6 +13,8 @@ trait AddEventListenerOptions {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\AddEventListenerOptions $this';
+		// @var \Wikimedia\IDLeDOM\AddEventListenerOptions $this
 		switch ( $name ) {
 			case "capture":
 				return $this->getCapture();
@@ -34,26 +36,6 @@ trait AddEventListenerOptions {
 		);
 		return null;
 	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCapture() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getPassive() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getOnce() : bool;
-
-	/**
-	 * @return AbortSignal
-	 */
-	abstract public function getSignal();
 
 	/**
 	 * @param mixed $offset

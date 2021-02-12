@@ -5,15 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeFilter;
-
 trait TreeWalker {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\TreeWalker $this';
+		// @var \Wikimedia\IDLeDOM\TreeWalker $this
 		switch ( $name ) {
 			case "root":
 				return $this->getRoot();
@@ -41,6 +40,8 @@ trait TreeWalker {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\TreeWalker $this';
+		// @var \Wikimedia\IDLeDOM\TreeWalker $this
 		switch ( $name ) {
 			case "currentNode":
 				$this->setCurrentNode( $value );
@@ -56,30 +57,5 @@ trait TreeWalker {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getRoot();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getWhatToShow() : int;
-
-	/**
-	 * @return NodeFilter|callable|null
-	 */
-	abstract public function getFilter();
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getCurrentNode();
-
-	/**
-	 * @param Node $value
-	 */
-	abstract public function setCurrentNode( /* Node */ $value ) : void;
 
 }

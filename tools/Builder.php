@@ -102,6 +102,19 @@ class Builder {
 	}
 
 	/**
+	 * Tell 'phan' that traits are supposed to be used inside an interface
+	 * of the proper type.  This avoids the need to create abstract
+	 * methods in the trait, which have an unfortunate side-effect of
+	 * overriding inherited methods from the parent class.
+	 *
+	 * @param string $topName
+	 */
+	protected function emitThisHint( string $topName ) {
+		$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\$topName \$this';" );
+		$this->nl( "// @var \\Wikimedia\IDLeDOM\\$topName \$this" );
+	}
+
+	/**
 	 * @param string $topName The name of the definition
 	 * @param string $name The name of the member
 	 * @param array $m The WebIDL AST for the member

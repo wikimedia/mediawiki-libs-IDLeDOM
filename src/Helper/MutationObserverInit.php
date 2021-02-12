@@ -11,6 +11,8 @@ trait MutationObserverInit {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\MutationObserverInit $this';
+		// @var \Wikimedia\IDLeDOM\MutationObserverInit $this
 		switch ( $name ) {
 			case "childList":
 				return $this->getChildList();
@@ -38,41 +40,6 @@ trait MutationObserverInit {
 		);
 		return null;
 	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getChildList() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getAttributes() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCharacterData() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getSubtree() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getAttributeOldValue() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCharacterDataOldValue() : bool;
-
-	/**
-	 * @return list<string>
-	 */
-	abstract public function getAttributeFilter() : array;
 
 	/**
 	 * @param mixed $offset

@@ -14,14 +14,10 @@ trait EventListener {
 	 * @return void
 	 */
 	public function __invoke( ...$args ) {
+		'@phan-var \Wikimedia\IDLeDOM\EventListener $this';
+		// @var \Wikimedia\IDLeDOM\EventListener $this
 		$this->handleEvent( $args[0] );
 	}
-
-	/**
-	 * @param Event $event
-	 * @return void
-	 */
-	abstract public function handleEvent( /* Event */ $event ) : void;
 
 	/**
 	 * Create a EventListener from a callable.

@@ -13,6 +13,8 @@ trait StaticRangeInit {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\StaticRangeInit $this';
+		// @var \Wikimedia\IDLeDOM\StaticRangeInit $this
 		switch ( $name ) {
 			case "startContainer":
 				return $this->getStartContainer();
@@ -34,26 +36,6 @@ trait StaticRangeInit {
 		);
 		return null;
 	}
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getStartContainer();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getStartOffset() : int;
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getEndContainer();
-
-	/**
-	 * @return int
-	 */
-	abstract public function getEndOffset() : int;
 
 	/**
 	 * @param mixed $offset

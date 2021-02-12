@@ -5,15 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeFilter;
-
 trait NodeIterator {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\NodeIterator $this';
+		// @var \Wikimedia\IDLeDOM\NodeIterator $this
 		switch ( $name ) {
 			case "root":
 				return $this->getRoot();
@@ -37,30 +36,5 @@ trait NodeIterator {
 		);
 		return null;
 	}
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getRoot();
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getReferenceNode();
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getPointerBeforeReferenceNode() : bool;
-
-	/**
-	 * @return int
-	 */
-	abstract public function getWhatToShow() : int;
-
-	/**
-	 * @return NodeFilter|callable|null
-	 */
-	abstract public function getFilter();
 
 }

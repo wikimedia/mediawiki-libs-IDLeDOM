@@ -5,17 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Document;
-use Wikimedia\IDLeDOM\Element;
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeList;
-
 trait Attr {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\Attr $this';
+		// @var \Wikimedia\IDLeDOM\Attr $this
 		switch ( $name ) {
 			case "nodeType":
 				return $this->getNodeType();
@@ -77,6 +74,8 @@ trait Attr {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Attr $this';
+		// @var \Wikimedia\IDLeDOM\Attr $this
 		switch ( $name ) {
 			case "nodeValue":
 				$this->setNodeValue( $value );
@@ -98,125 +97,5 @@ trait Attr {
 			E_USER_NOTICE
 		);
 	}
-
-	/**
-	 * @return int
-	 */
-	abstract public function getNodeType() : int;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getNodeName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getBaseURI() : string;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getIsConnected() : bool;
-
-	/**
-	 * @return Document|null
-	 */
-	abstract public function getOwnerDocument();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getParentNode();
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getParentElement();
-
-	/**
-	 * @return NodeList
-	 */
-	abstract public function getChildNodes();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getFirstChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getLastChild();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getPreviousSibling();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getNextSibling();
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getNodeValue() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setNodeValue( ?string $value ) : void;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getTextContent() : ?string;
-
-	/**
-	 * @param ?string $value
-	 */
-	abstract public function setTextContent( ?string $value ) : void;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getNamespaceURI() : ?string;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getPrefix() : ?string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getLocalName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getName() : string;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getValue() : string;
-
-	/**
-	 * @param string $value
-	 */
-	abstract public function setValue( string $value ) : void;
-
-	/**
-	 * @return Element|null
-	 */
-	abstract public function getOwnerElement();
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getSpecified() : bool;
 
 }

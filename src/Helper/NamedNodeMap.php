@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Attr;
-
 trait NamedNodeMap {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';
+		// @var \Wikimedia\IDLeDOM\NamedNodeMap $this
 		switch ( $name ) {
 			case "length":
 				return $this->getLength();
@@ -32,24 +32,9 @@ trait NamedNodeMap {
 	/**
 	 * @return int
 	 */
-	abstract public function getLength() : int;
-
-	/**
-	 * @param int $index
-	 * @return Attr|null
-	 */
-	abstract public function item( int $index );
-
-	/**
-	 * @param string $qualifiedName
-	 * @return Attr|null
-	 */
-	abstract public function getNamedItem( string $qualifiedName );
-
-	/**
-	 * @return int
-	 */
 	public function count() : int {
+		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';
+		// @var \Wikimedia\IDLeDOM\NamedNodeMap $this
 		return $this->getLength();
 	}
 
@@ -66,6 +51,8 @@ trait NamedNodeMap {
 	 * @return mixed
 	 */
 	public function offsetGet( $offset ) {
+		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';
+		// @var \Wikimedia\IDLeDOM\NamedNodeMap $this
 		if ( is_numeric( $offset ) ) {
 			return $this->item( $offset );
 		} elseif ( is_string( $offset ) ) {
@@ -86,6 +73,8 @@ trait NamedNodeMap {
 	 * @param mixed $value
 	 */
 	public function offsetSet( $offset, $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';
+		// @var \Wikimedia\IDLeDOM\NamedNodeMap $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -104,6 +93,8 @@ trait NamedNodeMap {
 	 * @param mixed $offset
 	 */
 	public function offsetUnset( $offset ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';
+		// @var \Wikimedia\IDLeDOM\NamedNodeMap $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -122,6 +113,8 @@ trait NamedNodeMap {
 	 * @return \Iterator An Iterator<Attr>
 	 */
 	public function getIterator() {
+		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';
+		// @var \Wikimedia\IDLeDOM\NamedNodeMap $this
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {
 			yield $this->item( $i );
 		}

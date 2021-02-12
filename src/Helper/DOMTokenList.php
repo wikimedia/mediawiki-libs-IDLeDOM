@@ -11,6 +11,8 @@ trait DOMTokenList {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		switch ( $name ) {
 			case "length":
 				return $this->getLength();
@@ -34,6 +36,8 @@ trait DOMTokenList {
 	 * @param mixed $value
 	 */
 	public function __set( string $name, mixed $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		switch ( $name ) {
 			case "value":
 				$this->setValue( $value );
@@ -51,30 +55,11 @@ trait DOMTokenList {
 	}
 
 	/**
-	 * @return int
-	 */
-	abstract public function getLength() : int;
-
-	/**
-	 * @return string
-	 */
-	abstract public function getValue() : string;
-
-	/**
-	 * @param string $value
-	 */
-	abstract public function setValue( string $value ) : void;
-
-	/**
-	 * @param int $index
-	 * @return ?string
-	 */
-	abstract public function item( int $index ) : ?string;
-
-	/**
 	 * @return string
 	 */
 	public function __toString() : string {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		return $this->getValue();
 	}
 
@@ -82,6 +67,8 @@ trait DOMTokenList {
 	 * @return int
 	 */
 	public function count() : int {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		return $this->getLength();
 	}
 
@@ -98,6 +85,8 @@ trait DOMTokenList {
 	 * @return mixed
 	 */
 	public function offsetGet( $offset ) {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		if ( is_numeric( $offset ) ) {
 			return $this->item( $offset );
 		} elseif ( is_string( $offset ) ) {
@@ -118,6 +107,8 @@ trait DOMTokenList {
 	 * @param mixed $value
 	 */
 	public function offsetSet( $offset, $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -136,6 +127,8 @@ trait DOMTokenList {
 	 * @param mixed $offset
 	 */
 	public function offsetUnset( $offset ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -154,6 +147,8 @@ trait DOMTokenList {
 	 * @return \Iterator An Iterator<string>
 	 */
 	public function getIterator() {
+		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';
+		// @var \Wikimedia\IDLeDOM\DOMTokenList $this
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {
 			yield $this->item( $i );
 		}

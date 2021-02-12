@@ -11,6 +11,8 @@ trait EventInit {
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\EventInit $this';
+		// @var \Wikimedia\IDLeDOM\EventInit $this
 		switch ( $name ) {
 			case "bubbles":
 				return $this->getBubbles();
@@ -30,21 +32,6 @@ trait EventInit {
 		);
 		return null;
 	}
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getBubbles() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getCancelable() : bool;
-
-	/**
-	 * @return bool
-	 */
-	abstract public function getComposed() : bool;
 
 	/**
 	 * @param mixed $offset

@@ -5,15 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Node;
-use Wikimedia\IDLeDOM\NodeList;
-
 trait MutationRecord {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\MutationRecord $this';
+		// @var \Wikimedia\IDLeDOM\MutationRecord $this
 		switch ( $name ) {
 			case "type":
 				return $this->getType();
@@ -45,50 +44,5 @@ trait MutationRecord {
 		);
 		return null;
 	}
-
-	/**
-	 * @return string
-	 */
-	abstract public function getType() : string;
-
-	/**
-	 * @return Node
-	 */
-	abstract public function getTarget();
-
-	/**
-	 * @return NodeList
-	 */
-	abstract public function getAddedNodes();
-
-	/**
-	 * @return NodeList
-	 */
-	abstract public function getRemovedNodes();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getPreviousSibling();
-
-	/**
-	 * @return Node|null
-	 */
-	abstract public function getNextSibling();
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getAttributeName() : ?string;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getAttributeNamespace() : ?string;
-
-	/**
-	 * @return ?string
-	 */
-	abstract public function getOldValue() : ?string;
 
 }

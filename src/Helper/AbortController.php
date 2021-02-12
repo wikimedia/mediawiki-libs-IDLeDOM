@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\AbortSignal;
-
 trait AbortController {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\AbortController $this';
+		// @var \Wikimedia\IDLeDOM\AbortController $this
 		switch ( $name ) {
 			case "signal":
 				return $this->getSignal();
@@ -28,10 +28,5 @@ trait AbortController {
 		);
 		return null;
 	}
-
-	/**
-	 * @return AbortSignal
-	 */
-	abstract public function getSignal();
 
 }

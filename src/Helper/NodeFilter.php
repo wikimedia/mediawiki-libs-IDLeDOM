@@ -14,14 +14,10 @@ trait NodeFilter {
 	 * @return int
 	 */
 	public function __invoke( ...$args ) {
+		'@phan-var \Wikimedia\IDLeDOM\NodeFilter $this';
+		// @var \Wikimedia\IDLeDOM\NodeFilter $this
 		return $this->acceptNode( $args[0] );
 	}
-
-	/**
-	 * @param Node $node
-	 * @return int
-	 */
-	abstract public function acceptNode( /* Node */ $node ) : int;
 
 	/**
 	 * Create a NodeFilter from a callable.

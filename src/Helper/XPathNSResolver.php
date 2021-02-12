@@ -12,14 +12,10 @@ trait XPathNSResolver {
 	 * @return ?string
 	 */
 	public function __invoke( ...$args ) {
+		'@phan-var \Wikimedia\IDLeDOM\XPathNSResolver $this';
+		// @var \Wikimedia\IDLeDOM\XPathNSResolver $this
 		return $this->lookupNamespaceURI( $args[0] );
 	}
-
-	/**
-	 * @param ?string $prefix
-	 * @return ?string
-	 */
-	abstract public function lookupNamespaceURI( ?string $prefix ) : ?string;
 
 	/**
 	 * Create a XPathNSResolver from a callable.

@@ -14,14 +14,10 @@ trait EventHandlerNonNull {
 	 * @return mixed|null
 	 */
 	public function __invoke( ...$args ) {
+		'@phan-var \Wikimedia\IDLeDOM\EventHandlerNonNull $this';
+		// @var \Wikimedia\IDLeDOM\EventHandlerNonNull $this
 		return $this->invoke( $args[0] );
 	}
-
-	/**
-	 * @param Event $event
-	 * @return mixed|null
-	 */
-	abstract public function invoke( /* Event */ $event );
 
 	/**
 	 * Create a EventHandlerNonNull from a callable.

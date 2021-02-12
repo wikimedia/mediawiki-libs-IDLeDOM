@@ -5,14 +5,14 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLCollection {
 	/**
 	 * @param string $name
 	 * @return mixed
 	 */
 	public function __get( string $name ) {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
+		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		switch ( $name ) {
 			case "length":
 				return $this->getLength();
@@ -32,24 +32,9 @@ trait HTMLCollection {
 	/**
 	 * @return int
 	 */
-	abstract public function getLength() : int;
-
-	/**
-	 * @param int $index
-	 * @return Element|null
-	 */
-	abstract public function item( int $index );
-
-	/**
-	 * @param string $name
-	 * @return Element|null
-	 */
-	abstract public function namedItem( string $name );
-
-	/**
-	 * @return int
-	 */
 	public function count() : int {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
+		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		return $this->getLength();
 	}
 
@@ -66,6 +51,8 @@ trait HTMLCollection {
 	 * @return mixed
 	 */
 	public function offsetGet( $offset ) {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
+		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		if ( is_numeric( $offset ) ) {
 			return $this->item( $offset );
 		} elseif ( is_string( $offset ) ) {
@@ -86,6 +73,8 @@ trait HTMLCollection {
 	 * @param mixed $value
 	 */
 	public function offsetSet( $offset, $value ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
+		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -104,6 +93,8 @@ trait HTMLCollection {
 	 * @param mixed $offset
 	 */
 	public function offsetUnset( $offset ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
+		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
@@ -122,6 +113,8 @@ trait HTMLCollection {
 	 * @return \Iterator An Iterator<Element>
 	 */
 	public function getIterator() {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
+		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		for ( $i = 0; $i < $this->getLength(); $i++ ) {
 			yield $this->item( $i );
 		}
