@@ -5,6 +5,15 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * DOMTokenList
+ *
+ * @see https://dom.spec.whatwg.org/#interface-domtokenlist
+ *
+ * @property int $length
+ * @property string $value
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface DOMTokenList extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @return int

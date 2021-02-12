@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * XPathExpression
+ *
+ * @see https://dom.spec.whatwg.org/#interface-xpathexpression
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface XPathExpression {
 	/**
 	 * @param Node $contextNode

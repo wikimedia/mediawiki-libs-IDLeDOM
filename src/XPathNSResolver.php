@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * XPathNSResolver
+ *
+ * @see https://dom.spec.whatwg.org/#callbackdef-xpathnsresolver
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface XPathNSResolver {
 	/**
 	 * @param ?string $prefix

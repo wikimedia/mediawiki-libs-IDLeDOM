@@ -5,6 +5,14 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * HTMLCollection
+ *
+ * @see https://dom.spec.whatwg.org/#interface-htmlcollection
+ *
+ * @property int $length
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface HTMLCollection extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @return int

@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * MutationCallback
+ *
+ * @see https://dom.spec.whatwg.org/#callbackdef-mutationcallback
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface MutationCallback {
 	/**
 	 * @param list<MutationRecord> $mutations

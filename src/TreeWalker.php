@@ -5,6 +5,17 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * TreeWalker
+ *
+ * @see https://dom.spec.whatwg.org/#interface-treewalker
+ *
+ * @property Node $root
+ * @property int $whatToShow
+ * @property NodeFilter|callable|null $filter
+ * @property Node $currentNode
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface TreeWalker {
 	/**
 	 * @return Node

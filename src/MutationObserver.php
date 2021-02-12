@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * MutationObserver
+ *
+ * @see https://dom.spec.whatwg.org/#interface-mutationobserver
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface MutationObserver {
 
 	/**

@@ -5,6 +5,14 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * AbortController
+ *
+ * @see https://dom.spec.whatwg.org/#interface-abortcontroller
+ *
+ * @property AbortSignal $signal
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface AbortController {
 
 	/**

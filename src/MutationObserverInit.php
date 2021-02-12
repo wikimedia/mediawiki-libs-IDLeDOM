@@ -5,6 +5,20 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * MutationObserverInit
+ *
+ * @see https://dom.spec.whatwg.org/#dictdef-mutationobserverinit
+ *
+ * @property bool $childList
+ * @property bool $attributes
+ * @property bool $characterData
+ * @property bool $subtree
+ * @property bool $attributeOldValue
+ * @property bool $characterDataOldValue
+ * @property list<string> $attributeFilter
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface MutationObserverInit extends \ArrayAccess {
 	/**
 	 * @return bool

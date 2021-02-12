@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * EventTarget
+ *
+ * @see https://dom.spec.whatwg.org/#interface-eventtarget
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface EventTarget {
 
 	/**

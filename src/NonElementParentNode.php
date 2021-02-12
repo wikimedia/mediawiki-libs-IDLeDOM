@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * NonElementParentNode
+ *
+ * @see https://dom.spec.whatwg.org/#interface-nonelementparentnode
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface NonElementParentNode {
 	/**
 	 * @param string $elementId

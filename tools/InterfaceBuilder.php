@@ -279,6 +279,32 @@ class InterfaceBuilder extends Builder {
 	protected function firstLine( string $type, string $topName, array $def ): void {
 		$this->e->phpPrologue( 'Wikimedia\IDLeDOM' );
 
+		$anchormap = [
+			'enum' => 'enumdef',
+			'dictionary' => 'dictdef',
+			'interface mixin' => 'interface',
+			'callback' => 'callbackdef',
+			'callback interface' => 'callbackdef',
+		];
+		$anchortype = $def['type'];
+		$anchortype = $anchormap[ $anchortype ] ?? $anchortype;
+		$anchor = $anchortype . '-' . strtolower( $topName );
+		$this->nl( '/**' );
+		$this->nl( " * $topName" );
+		$this->nl( ' *' );
+		$this->nl( " * @see https://dom.spec.whatwg.org/#$anchor" );
+		$this->nl( ' *' );
+		// Magic properties
+		$attrs = [];
+		TraitBuilder::collectAttributes( $this->gen, $topName, [], $attrs );
+		if ( count( $attrs ) > 0 ) {
+			foreach ( $attrs as $a ) {
+				$this->nl( " * @property {$a['docType']} \${$a['name']}" );
+			}
+		}
+		$this->nl( ' * @phan-forbid-undeclared-magic-properties' );
+		$this->nl( ' */' );
+
 		$firstLine = "$type $topName";
 		$mixins = $this->gen->mixins( $topName );
 		$extendArray = false;

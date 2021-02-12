@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * NodeFilter
+ *
+ * @see https://dom.spec.whatwg.org/#callbackdef-nodefilter
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface NodeFilter {
 	/** @var int */
 	public const FILTER_ACCEPT = 1;

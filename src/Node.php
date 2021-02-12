@@ -5,6 +5,27 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * Node
+ *
+ * @see https://dom.spec.whatwg.org/#interface-node
+ *
+ * @property int $nodeType
+ * @property string $nodeName
+ * @property string $baseURI
+ * @property bool $isConnected
+ * @property Document|null $ownerDocument
+ * @property Node|null $parentNode
+ * @property Element|null $parentElement
+ * @property NodeList $childNodes
+ * @property Node|null $firstChild
+ * @property Node|null $lastChild
+ * @property Node|null $previousSibling
+ * @property Node|null $nextSibling
+ * @property ?string $nodeValue
+ * @property ?string $textContent
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface Node extends EventTarget {
 	/** @var int */
 	public const ELEMENT_NODE = 1;

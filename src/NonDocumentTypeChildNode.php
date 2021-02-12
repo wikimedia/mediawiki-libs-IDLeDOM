@@ -5,6 +5,15 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * NonDocumentTypeChildNode
+ *
+ * @see https://dom.spec.whatwg.org/#interface-nondocumenttypechildnode
+ *
+ * @property Element|null $previousElementSibling
+ * @property Element|null $nextElementSibling
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface NonDocumentTypeChildNode {
 	/**
 	 * @return Element|null

@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * EventListener
+ *
+ * @see https://dom.spec.whatwg.org/#callbackdef-eventlistener
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface EventListener {
 	/**
 	 * @param Event $event

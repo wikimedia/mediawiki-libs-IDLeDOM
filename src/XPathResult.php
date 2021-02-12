@@ -5,6 +5,20 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * XPathResult
+ *
+ * @see https://dom.spec.whatwg.org/#interface-xpathresult
+ *
+ * @property int $resultType
+ * @property float $numberValue
+ * @property string $stringValue
+ * @property bool $booleanValue
+ * @property Node|null $singleNodeValue
+ * @property bool $invalidIteratorState
+ * @property int $snapshotLength
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface XPathResult {
 	/** @var int */
 	public const ANY_TYPE = 0;

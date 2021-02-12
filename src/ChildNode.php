@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * ChildNode
+ *
+ * @see https://dom.spec.whatwg.org/#interface-childnode
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface ChildNode {
 	/**
 	 * @param Node|string ...$nodes

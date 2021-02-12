@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * XPathEvaluatorBase
+ *
+ * @see https://dom.spec.whatwg.org/#interface-xpathevaluatorbase
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface XPathEvaluatorBase {
 	/**
 	 * @param string $expression

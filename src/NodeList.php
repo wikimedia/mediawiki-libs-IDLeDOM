@@ -5,6 +5,14 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * NodeList
+ *
+ * @see https://dom.spec.whatwg.org/#interface-nodelist
+ *
+ * @property int $length
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface NodeList extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @param int $index

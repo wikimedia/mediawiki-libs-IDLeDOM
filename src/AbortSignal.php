@@ -5,6 +5,15 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * AbortSignal
+ *
+ * @see https://dom.spec.whatwg.org/#interface-abortsignal
+ *
+ * @property bool $aborted
+ * @property EventHandlerNonNull|callable|null $onabort
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface AbortSignal extends EventTarget {
 	/**
 	 * @return bool

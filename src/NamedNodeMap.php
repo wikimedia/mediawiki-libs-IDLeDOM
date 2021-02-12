@@ -5,6 +5,14 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * NamedNodeMap
+ *
+ * @see https://dom.spec.whatwg.org/#interface-namednodemap
+ *
+ * @property int $length
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface NamedNodeMap extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @return int

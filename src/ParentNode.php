@@ -5,6 +5,17 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * ParentNode
+ *
+ * @see https://dom.spec.whatwg.org/#interface-parentnode
+ *
+ * @property HTMLCollection $children
+ * @property Element|null $firstElementChild
+ * @property Element|null $lastElementChild
+ * @property int $childElementCount
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface ParentNode {
 	/**
 	 * @return HTMLCollection

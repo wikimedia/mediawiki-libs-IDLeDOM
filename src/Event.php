@@ -5,6 +5,23 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * Event
+ *
+ * @see https://dom.spec.whatwg.org/#interface-event
+ *
+ * @property string $type
+ * @property EventTarget|null $target
+ * @property EventTarget|null $currentTarget
+ * @property int $eventPhase
+ * @property bool $bubbles
+ * @property bool $cancelable
+ * @property bool $defaultPrevented
+ * @property bool $composed
+ * @property bool $isTrusted
+ * @property float $timeStamp
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface Event {
 
 	/**

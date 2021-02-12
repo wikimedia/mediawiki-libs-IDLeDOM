@@ -5,6 +5,18 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * NodeIterator
+ *
+ * @see https://dom.spec.whatwg.org/#interface-nodeiterator
+ *
+ * @property Node $root
+ * @property Node $referenceNode
+ * @property bool $pointerBeforeReferenceNode
+ * @property int $whatToShow
+ * @property NodeFilter|callable|null $filter
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface NodeIterator {
 	/**
 	 * @return Node

@@ -5,6 +5,13 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * DOMImplementation
+ *
+ * @see https://dom.spec.whatwg.org/#interface-domimplementation
+ *
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface DOMImplementation {
 	/**
 	 * @param string $qualifiedName

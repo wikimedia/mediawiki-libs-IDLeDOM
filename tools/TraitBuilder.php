@@ -136,18 +136,25 @@ class TraitBuilder extends Builder {
 		$this->nl( '}' );
 	}
 
-	private function collectAttributes( string $topName, array $typeOpts, array &$attrs ) {
-		foreach ( $this->gen->mixins( $topName ) as $m ) {
-			$this->collectAttributes( $m, $typeOpts, $attrs );
+	/**
+	 * Process members and extract attribute information.
+	 * @param Generator $gen
+	 * @param string $topName
+	 * @param array $typeOpts
+	 * @param array &$attrs
+	 */
+	public static function collectAttributes( Generator $gen, string $topName, array $typeOpts, array &$attrs ) : void {
+		foreach ( $gen->mixins( $topName ) as $m ) {
+			self::collectAttributes( $gen, $m, $typeOpts, $attrs );
 		}
-		$def = $this->gen->def( $topName );
+		$def = $gen->def( $topName );
 		'@phan-var array $def'; // @var array $def
-		foreach ( $def['members'] as $m ) {
+		foreach ( $def['members'] ?? [] as $m ) {
 			if ( $m['type'] === 'attribute' || $m['type'] === 'field' ) {
 				$readonly = ( $m['readonly'] ?? false ) || ( $m['type'] === 'field' );
 				$default = '';
 				if ( ( $m['required'] ?? false ) === false && ( $m['default'] ?? null ) !== null ) {
-					$val = $this->gen->valueToPHP( $m['default'] );
+					$val = $gen->valueToPHP( $m['default'] );
 					$default = " ?? $val";
 				}
 				$attrs[] = [
@@ -156,12 +163,12 @@ class TraitBuilder extends Builder {
 					'name' => $m['name'],
 					'idlType' => $m['idlType'],
 					'readonly' => $readonly,
-					'docType' => $this->gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
-					'phpType' => $this->gen->typeToPHP( $m['idlType'], $typeOpts ),
-					'retType' => $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
-					'getter' => $this->map( $topName, 'get', $m['name'] ),
+					'docType' => $gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
+					'phpType' => $gen->typeToPHP( $m['idlType'], $typeOpts ),
+					'retType' => $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
+					'getter' => $gen->map( $topName, 'get', $m['name'] ),
 					'setter' => $readonly ? null :
-						$this->map( $topName, 'set', $m['name'] ),
+						$gen->map( $topName, 'set', $m['name'] ),
 					'default' => $default,
 				];
 			}
@@ -174,7 +181,7 @@ class TraitBuilder extends Builder {
 		$parentName = $this->parentName( $topName );
 		/* Only create helpers for interface which contain attributes */
 		$attrs = [];
-		$this->collectAttributes( $topName, $typeOpts, $attrs );
+		self::collectAttributes( $this->gen, $topName, $typeOpts, $attrs );
 		if ( count( $attrs ) === 0 ) {
 			parent::emitDictionary( $topName, $def );
 			return;
@@ -271,7 +278,7 @@ class TraitBuilder extends Builder {
 		$typeOpts = [ 'topName' => $topName ];
 		/* Only create helpers for interface which contain attributes */
 		$attrs = [];
-		$this->collectAttributes( $topName, $typeOpts, $attrs );
+		self::collectAttributes( $this->gen, $topName, $typeOpts, $attrs );
 		if ( count( $attrs ) === 0 ) {
 			parent::emitInterface( $topName, $def );
 			return;

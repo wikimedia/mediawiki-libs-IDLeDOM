@@ -5,6 +5,18 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * StaticRange
+ *
+ * @see https://dom.spec.whatwg.org/#interface-staticrange
+ *
+ * @property Node $startContainer
+ * @property int $startOffset
+ * @property Node $endContainer
+ * @property int $endOffset
+ * @property bool $collapsed
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface StaticRange extends AbstractRange {
 
 }

@@ -5,6 +5,16 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * EventInit
+ *
+ * @see https://dom.spec.whatwg.org/#dictdef-eventinit
+ *
+ * @property bool $bubbles
+ * @property bool $cancelable
+ * @property bool $composed
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface EventInit extends \ArrayAccess {
 	/**
 	 * @return bool

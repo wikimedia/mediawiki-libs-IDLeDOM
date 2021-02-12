@@ -5,6 +5,19 @@
 
 namespace Wikimedia\IDLeDOM;
 
+/**
+ * Range
+ *
+ * @see https://dom.spec.whatwg.org/#interface-range
+ *
+ * @property Node $startContainer
+ * @property int $startOffset
+ * @property Node $endContainer
+ * @property int $endOffset
+ * @property bool $collapsed
+ * @property Node $commonAncestorContainer
+ * @phan-forbid-undeclared-magic-properties
+ */
 interface Range extends AbstractRange {
 
 	/**
