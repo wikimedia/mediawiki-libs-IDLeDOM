@@ -1,4 +1,7 @@
 # IDLeDOM x.x.x (not yet released)
+* Use interface (instead of class) for enumerations.  This allows
+  DOM implementations to easily define a class implementing the interface
+  to bring the constants into the implementation's namespace.
 
 # IDLeDOM 0.2.0 (2021-02-12)
 * Strip explicit PHP type hints for DOM interface types, in order to

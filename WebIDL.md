@@ -228,6 +228,13 @@ type])(https://www.php.net/manual/en/language.types.object.php).
 
 The IDL [`symbol`] type is not supported.
 
+### Enumerations
+
+IDL [enumeration](https://heycam.github.io/webidl/#idl-enums) types
+correspond to the PHP `int` type.  (There is a PHP interface created
+to hold the enumeration values as class constants, but enumeration
+values are `int`s, not objects implementing this interface.)
+
 ## Objects implementing interfaces
 
 A PHP object that implements an IDL [interface] must be of a PHP class

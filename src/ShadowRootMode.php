@@ -12,7 +12,7 @@ namespace Wikimedia\IDLeDOM;
  *
  * @phan-forbid-undeclared-magic-properties
  */
-class ShadowRootMode {
+interface ShadowRootMode {
 	public const open = 0;
 	public const closed = 1;
 }

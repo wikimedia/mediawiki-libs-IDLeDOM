@@ -258,7 +258,7 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitEnum( string $topName, array $def ): void {
-		$this->firstLine( 'class', $topName, $def );
+		$this->firstLine( 'interface', $topName, $def );
 		// Treat enumerations like interfaces with const members
 		$val = 0;
 		foreach ( $def['values'] as $m ) {
