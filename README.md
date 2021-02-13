@@ -41,6 +41,11 @@ $doc = $domImpl->createHTMLDocument( 'My HTML Document );
 $doc->getBody()->setInnerHTML( '<p>Whee!!</p> );
 // This is equivalent, but slightly slower:
 $doc->body->innerHTML = '<p>Whee!!</p>';
+
+// Use the interface type in type hints for max compatibility
+$f = function( \Wikimedia\IDLeDOM\Document $doc ): string {
+	return $doc->getTitle(); // or $doc->title
+};
 ```
 
 Writing a new DOM implementation

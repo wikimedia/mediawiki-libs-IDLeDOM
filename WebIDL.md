@@ -1,54 +1,127 @@
 # PHP WebIDL Binding
 
-This document describes the PHP WebIDL binding used by Dodo.
+This document describes the PHP WebIDL binding used by IDLeDOM.
 
 Since there does not seem to be an official WebIDL binding for PHP,
-this documents the implementation choices the Dodo library has made to
+this documents the implementation choices that IDLeDOM has made to
 map WebIDL names and types to PHP.  Where possible correspondence has
-been maintained with the PHP `DOMDocument` classes, although the PHP
-`DOMDocument` classes appear to be an adhoc binding of the `libxml` C
+been maintained with the PHP `DOMDocument`/etc classes, although the PHP
+`dom` extension classes appear to be an adhoc binding of the `libxml` C
 library not a rigorous WebIDL mapping.
 
 ## Namespace
 
-All WebIDL classes and interfaces are defined in the namespace
-`\Wikimedia\Dodo\`.  For example, the WebIDL interface 'Document'
-corresponds to the PHP class `\Wikimedia\Dodo\Document`.
+All WebIDL interfaces are defined in the namespace
+`\Wikimedia\IDLeDOM\`.  For example, the WebIDL interface 'Document'
+corresponds to the PHP interface `\Wikimedia\IDLeDOM\Document`.
+A particular implementation of the DOM will implement these interfaces
+in a different namespace; for example the implementation of `Document`
+might be in a class `\Wikimedia\Dodo\Document` which implements
+`\Wikimedia\IDLeDOM\Document`.
+
+It is expected that users will obtain a `DOMImplementation` object
+by some mechanism, and use that to create all concrete DOM objects.
+Code which attempts to maintain implementation-independence will
+avoid direct references to the particular implementation class,
+and instead refer to the IDLeDOM interface.
 
 It is expected that users can use type aliasing (ie, PHP
 [`class_alias`](https://www.php.net/manual/en/function.class-alias.php)
-to bind a particular compatible DOM implementation.  For code which
-attempts to maintain implementation-independence, we recommend the use
-of the namespace `\WebIDL` (ie, `\WebIDL\Document`) as the top-level
-name used in client code.
+to bind a compatible DOM implementations -- that is, implementations
+which adhere to this binding specification but don't inherit from
+the IDLeDOM interfaces.
 
-TODO: provide a `class_alias` file binding Dodo to `WebIDL` in the
-recommended way?
+TODO: It is hoped that `class_alias` can also be used to be used to
+provide a migration path for code currently using `\DOMDocument`, or
+to allow code to support either the build-in `\DOMDocument` classes
+or an `IDLeDOM`-compatible implementation.
 
 ## Names
 
 Since PHP has a number of reserved words in the language, identifiers
 of PHP constructs corresponding to IDL definitions need to be escaped
-to avoid conflicts. A name is PHP escaped as follows:
+to avoid conflicts.  There are also reserved method names used
+for PHP interfaces like `ArrayAccess` and `Countable` which could
+conflict with IDL definitions.  Finally, IDL properties are turned
+into getter and setter methods which share a namespace with IDL
+operations; this could also produce a conflict.
 
-> If the name is a PHP reserved word, then the PHP escaped name is the
-> name prefixed with a U+005F LOW LINE ("_") character, unless the IDL
-> name already begins with `_`, in which case the prefix `idl_` is
-> used.  Otherwise, the name is not a PHP reserved word, and the PHP
-> escaped name is simply the name.
+Conflicts are resolved as follows:
+
+> If the IDL name conflicts with a PHP reserved word or other
+> previously-assigned name, then the PHP escaped name is the prefix
+> `idl_`, followed by the smallest number of underscore (`_`) characters
+> needed to avoid a conflict, followed by the IDL name.  Otherwise
+> there is no conflict, and the PHP escaped name is simple the name.
 
 The PHP reserved words include any identifier starting with two
 underscores (`__`), which are [reserved in PHP as
-magical](https://www.php.net/manual/en/language.oop5.magic.php).  All
-[PHP keywords and compile-time
-constants](https://www.php.net/manual/en/reserved.keywords.php),
-[predefined
+magical](https://www.php.net/manual/en/language.oop5.magic.php).  The
+keyword `class`, all [predefined
 constants](https://www.php.net/manual/en/reserved.constants.php), and
 [other reserved
 words](https://www.php.net/manual/en/reserved.other-reserved-words.php)
-are also reserved.
+are also reserved.  (As of PHP 7.0.0, the [PHP keywords and
+compile-time
+constants](https://www.php.net/manual/en/reserved.keywords.php) are
+allowed as property, constant, and method names except for `class`.)
 
-Any special cases of particular note will be documented here.
+In IDL [`dictionary`] types, the following names are also reserved
+(these are used to implement [`ArrayAccess`]): `offsetExists`,
+`offsetGet`, `offsetSet`, and `offsetUnset`.
+
+In IDL [`callback`] types, the name `invoke` is reserved.  (This is
+not reserved in [`callback interface`] types.)
+
+In IDL [`callback`], [`callback interface`], and [`dictionary`] types,
+the name `cast` is reserved.
+
+In IDL [`interface`] types, the names `getIterator` and `count` are
+reserved (these are used to implement [`iterable`] members and
+[`Countable`]).
+
+### Resolution order
+
+When determining the PHP escaped name corresponding to an IDL name,
+conflicts are resolved in the following order:
+
+1. All reserved names, as described above based on IDL type, are
+marked unavailable.
+2. Names in a [directly
+inherited](https://heycam.github.io/webidl/#dfn-inherit) interface or
+dictionary are resolved, recursively, and marked unavailable.
+3. Names in mixins are resolved recursively, in alphabetic order by mixin
+name, and marked unavailable.
+4. Enumeration values are resolved and marked unavailable.
+5. Constant members are resolved and marked unavailable.
+6. Attribute getter and setter names, and dictionary field getter and
+setter names, are resolved and marked unavailable.
+7. Operation names are resolved and marked unavailable.
+
+Concretely, given the following WebIDL fragment:
+```
+interface Foo {
+  undefined setBar();
+}
+interface Bar extends Foo {
+  const setBar = 0;
+  attribute boolean bar;
+  // conflicts with inherited members shouldn't occur,
+  // but suppose this managed to squeak through and
+  // wasn't intended as an override:
+  undefined setBar();
+}
+```
+Then the following names would be assigned and reserved:
+* `setBar` -- the operation on `Foo`
+* `idl_setBar` -- the constant on `Bar`
+* `getBar` -- the getter on attribute `bar` of `Bar`
+* `idl__setBar` -- the setter on attribute `bar` of `Bar`
+* `idl___setBar` -- the operation on `Bar`
+
+Note in particular the assymmetry in the names of the getter and setter
+on attribute `bar`.  This is unfortunate, but fortunately conflicts such
+as these are extremely rare.
 
 ## Types
 
@@ -56,25 +129,25 @@ This sub-section describes how types in the IDL map to types in PHP.
 
 ### any
 
-The `any` IDL type corresponds to a PHP `mixed` value.  No boxing of
+The [`any`] IDL type corresponds to a PHP `?mixed` value.  No boxing of
 types is required in PHP.
 
-### void
+### undefined
 
-The only place that the `void` type may appear in IDL is as the return
-type of an operation. Methods on PHP objects that implement an
-operation whose IDL specifies a `void` return type must be declared to
-have a return type of `void`.
+Methods on PHP objects that implement an operation whose IDL specifies
+a [`undefined`] return type must be declared to have a return type of
+`void`.  Other uses of [`undefined`] will be mapped to `null` in PHP.
 
 ### boolean
 
-The IDL `boolean` type maps exactly to the PHP
+The IDL [`boolean`](https://heycam.github.io/webidl/#idl-boolean) type
+maps exactly to the PHP
 [`bool`](https://www.php.net/manual/en/language.types.boolean.php)
 type.
 
 ### integer types
 
-The IDL `octet`, `short`, `unsigned short`, `long` and `unsigned long`
+The IDL `byte`, `octet`, `short`, `unsigned short`, `long` and `unsigned long`
 types correspond to the PHP
 [`int`](https://www.php.net/manual/en/language.types.integer.php)
 type.
@@ -84,7 +157,7 @@ of [0, 4294967295], the PHP `int` type is signed, and on 32-bit
 platforms may have a range of [−2147483648, 2147483647].  To encode an
 IDL `unsigned long` type in a PHP int, the following steps are
 followed *on all platforms regardless of the value of `PHP_INT_MAX` on
-that platform`:
+that platform*:
 
 1. Let `x` be the IDL `unsigned long` value to encode.
 2. If `x` < 2147483648, return a PHP `int` whose value is `x`.
@@ -102,32 +175,27 @@ steps must be followed:
 Note that in PHP this is the same as performing a bit-wise AND of the
 `int` value with the long constant `0xffffffff`.
 
-### long long and unsigned long long
+### `long long`, `unsigned long long`, and `bigint`
 
-The IDL `long long` and `unsigned long long` types map to a PHP
+The IDL `long long`, `unsigned long long`, and `bigint` types map to a PHP
 arbitrary-length integer using either the
 [GMP](https://www.php.net/manual/en/book.gmp.php) or
 [BCMath](https://www.php.net/manual/en/book.bc.php).  Precise details
 will be determined when there is need.
 
-### float
+### floating point types
 
-The IDL `float` type maps exactly to the PHP `float` type.
+The IDL `float`, `unrestricted float`, `double`, and `unrestricted
+double` types map to the PHP `float` type.
 
 ### sequence<T>
 
-The IDL `sequence<T>` type corresponds to an object implementing the
-PHP `ArrayAccess` interface, which may (or may not) be an actual PHP
-`array` object but will respond to accesses like one.  The type
-declaration for return values should be `array|ArrayAccess`.  For
-parameters, the type can be declared as either `array|ArrayAccess` or
-(where appropriate) as simply `array`, since PHP can transparently
-cast an `ArrayAccess` to an `array`.
-
-TODO: Figure out if there's a better way to allow flexibility for live
-arrays.  There's apparently [no more elegant
-way](https://stackoverflow.com/questions/14806696/php-type-hinting-to-allow-array-or-arrayaccess)
-to declare a type as either `array` or `ArrayAccess`.
+The IDL `sequence<T>` type corresponds to a PHP array, with elements
+having the appropriate mapped type for `T`.  In PHP type hints, the
+type will be `array`, and in `phan` type hints, the type will be
+[`list<T>`](https://github.com/phan/phan/wiki/About-Union-Types),
+which denotes a list of objects with consecutive integer keys starting
+from 0.
 
 A PHP object implementing an interface with an operation declared to
 return a `sequence<T>` value must not return `null` from the
@@ -142,27 +210,33 @@ short>` are represented by PHP `string`s in ASCII and UTF-16
 encodings, respectively.  As with other `sequence` types, `null` is
 not a valid value of these IDL types.
 
-### Object
+TODO: No DOM interface yet uses these types.
 
-The IDL `Object` type maps to the PHP [`object`
+### DOMString, ByteString, USVString
+
+PHP uses `string` for all string types.
+
+TODO: describe encoding conversions, if any.  DOMString is used for almost
+all DOM interfaces, except for URL which uses USVString.
+
+### object
+
+The IDL [`object`] type maps to the PHP [`object`
 type])(https://www.php.net/manual/en/language.types.object.php).
 
-### Object implementing an interface
+### symbol
 
-An IDL interface type maps exactly to the corresponding PHP interface type.
+The IDL [`symbol`] type is not supported.
 
-### Modules
+## Objects implementing interfaces
 
-Every IDL
-[`module`](https://www.w3.org/TR/2007/WD-DOM-Bindings-20071017/#dfn-module)
-corresponds to a PHP namespace.
-
-XXX: Are modules still part of the IDL space?
+A PHP object that implements an IDL [interface] must be of a PHP class
+that implements the PHP interface that corresponds to the IDL
+interface.
 
 ## Interfaces
 
-Every IDL interface corresponds to a PHP interface in the appropriate
-namespace, as defined above.
+Every IDL interface corresponds to a PHP interface, with the following members:
 
 ### Constants
 
@@ -174,7 +248,7 @@ PHP class constant:
 * The type is the PHP type that corresponds to the type of the constant,
   as defined in the [type section above].
 * The name is the [PHP escaped] [identifier] of the constant.
-* The value is the PHP values that is equivalent to the constant's IDL
+* The value is the PHP value that is equivalent to the constant's IDL
   value, as defined in the [type section above].
 
 ### Operations
@@ -189,24 +263,65 @@ properties:
   type](https://heycam.github.io/webidl/#dfn-return-type), according
   to the [type section above].
 * The name of the method is the [PHP Escaped] [identifier] of the
-  operation.  The [Overloads] extended attribute is ignored, as PHP
-  does not have method overloading in the sense meant by the IDL spec.
+  operation.
 * The method has an argument for each argument on the operation, with
   PHP types corresponding to the type of each IDL argument type as
   defined in the [type section above].  PHP [variable-length argument
   lists](https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list)
   will be used where the IDL method argument uses the Variadic
   extended attribute.
+* Type hints shall be used for arguments and return values, except for
+  types corresponding to DOM interfaces.  This provides
+  flexibility in the face of PHP 7's weak covariance/contravariance
+  support and avoids expensive runtime type checks against interface types.
 
 In addition, the method should have a throws clause specifying all of
 the PHP exception classes that correspond to the [IDL exceptions] that
 are listed in the Raises clause of the operation, and no others.
 
-XXX: PHP distinguishes between class constants (`Foo::x`), properties
-(`Foo::$x`), and methods (`Foo::x()`) defined in the same class, so no
-further name disambiguation seems to be necessary in case of IDL
-conflicts.  If there is further name mangling required to resolve
-conflicts, that would be described here.
+XXX: The `Raises` clause appears to have been removed from the WebIDL
+spec.
+
+Interfaces with an [`iterable`] member defined shall extend
+`IteratorAggregate` and define a `getIterator` method which implements
+the `iterable` member (if unnamed) or dispatches to the `iterable`
+member (if named).
+
+XXX: IDL interfaces with a [pair
+iterator](https://heycam.github.io/webidl/#dfn-pair-iterator) are not
+yet supported.
+
+Interfaces with a [`stringifier`] member defined will implement the
+PHP magic method `__toString`, which implements the [stringification
+behavior](https://heycam.github.io/webidl/#dfn-stringification-behavior)
+of the interface (if unnamed) or dispatches to the `stringifier`
+member (if named).
+
+Interfaces with either a `named property getter`, `indexed property
+getter`, `named property setter`, `indexed property getter`, or `named
+property deleter` shall extend [`ArrayAccess`].  The `ArrayAccess`
+methods will dispatch to the `named property getter`/`named property
+setter`/`named property deleter` if the given offset `is_string`, and
+will dispatch to the `indexed property getter`/`indexed property
+setter` if the offset `is_numeric`.  Otherwise behavior is undefined,
+but implementations should throw an exception.
+
+IDL interfaces often contain a `readonly attribute unsigned long
+length` member.  In combination with an `indexed property getter`, the
+presence of a `length` property is sufficient to make the interface an
+"array-like" in JavaScript, usable in a number of array contexts
+including for-each loops.  These members have been tagged in our
+WebIDL with the (nonstandard) `[PHPCountable]` extended attribute.
+Interfaces containing a `[PHPCountable]` member extend the PHP
+[`Countable`] interface, and dispatch the PHP `count()` method to
+the getter for the `[PHPCountable]` member.
+
+Interfaces which have a `indexed property getter` and a
+`[PHPCountable]` member should be iterable, as they would be in
+JavaScript as an "array-like".  This has been done by adding a
+(nonstandard) unnamed [`iterable`] member to the interface; these
+additional members have been tagged in our WebIDL with the
+(nonstandard) `[PHPExtension]` extended attribute.
 
 ### Attributes
 
@@ -218,23 +333,15 @@ following properties:
 * The return type of the method is the PHP type that corresponds to
   the attribute type, according to the rules in the [type section
   above].
-* The tentative name of the method is `get`, followed by the first
+* Type hints on the return value will be used, except for types
+  corresponding to DOM interfaces (as described in the "operations"
+  section above).
+* The "IDL name" of the method is `get`, followed by the first
   character of the [identifier] of the attribute uppercased (as if
-  passed to the
-  (`strtoupper`)[https://www.php.net/manual/en/function.strtoupper]
-  function), followed by the remaining characters from the identifier
-  of the attribute, and then [PHP Escaped].  If the resulting
-  tentative name is not the same as a constant or method declared on
-  the PHP interface, it shall be the name of the method.  Otherwise,
-  it will be prefixed by `idl_` and the smallest number of U+005F LOW
-  LINE ("_") characters required to make the name not equal to the
-  name of a constant or method declared on the PHP interface.
+  the identifier were passed to the
+  (`ucfirst`)[https://www.php.net/manual/en/function.ucfirst]
+  function).  This name is then [PHP Escaped] to resolve conflicts.
 * The method has no arguments.
-
-In addition, the method should have a `throws` clause specifying all
-of the PHP exception classes that correspond to the [IDL exceptions]
-that are listed in the `GetRaises` clause of the attribute, and no
-others.
 
 For each [attribute] defined on the IDL [interface] that is not [read
 only], there must be a corresponding *setter method* declared on the
@@ -242,25 +349,17 @@ PHP interface with the following properties:
 
 * The method has `public` visibility.
 * The return type of the method is `void`.
-* The tentative name of the method is `set`, followed by the first
+* The "IDL name" of the method is `set`, followed by the first
   character of the [identifier] of the attribute uppercased (as if
-  passed to the
-  (`strtoupper`)[https://www.php.net/manual/en/function.strtoupper]
-  function), followed by the remaining characters from the identifier
-  of the attribute, and then [PHP Escaped].  If the resulting
-  tentative name is not the same as a constant or method declared on
-  the PHP interface, it shall be the name of the method.  Otherwise,
-  it will be prefixed by `idl_` and the smallest number of U+005F LOW
-  LINE ("_") characters required to make the name not equal to the
-  name of a constant or method declared on the PHP interface.
+  the identifier were passed to the
+  (`ucfirst`)[https://www.php.net/manual/en/function.ucfirst]
+  function).  This name is then [PHP Escaped] to resolve conflicts.
 * The method has a single argument whose type is the PHP type that
   corresponds to the attribute type, according to the rules in the
   [type section above].
-
-In addition, the method should have a `throws` clause specifying all
-of the PHP exception classes that correspond to the [IDL exceptions]
-that are listed in the `SetRaises` clause of the attribute, and no
-others.
+* Type hints on the argument will be used, except for types
+  corresponding to DOM interfaces (as described in the "operations"
+  section above).
 
 For each [attribute] defined on the IDL [interface] that is [read
 only] and is declared with the [`PutForwards`] [extended attribute],
@@ -269,28 +368,19 @@ interface with the following properties:
 
 * The method has `public` visibility.
 * The return type of the method is `void`.
-* The tentative name of the method is `set`, followed by the first
+* The "IDL name" of the method is `set`, followed by the first
   character of the [identifier] of the attribute uppercased (as if
-  passed to the
-  (`strtoupper`)[https://www.php.net/manual/en/function.strtoupper]
-  function), followed by the remaining characters from the identifier
-  of the attribute, and then [PHP Escaped].  If the resulting
-  tentative name is not the same as a constant or method declared on
-  the PHP interface, it shall be the name of the method.  Otherwise,
-  it will be prefixed by `idl_` and the smallest number of U+005F LOW
-  LINE ("_") characters required to make the name not equal to the
-  name of a constant or method declared on the PHP interface.
+  the identifier were passed to the
+  (`ucfirst`)[https://www.php.net/manual/en/function.ucfirst]
+  function).  This name is then [PHP Escaped] to resolve conflicts.
 * The method has a single argument whose type is the PHP type that
   corresponds to the type of the attribute identified by the
   [`PutForwards`] extended attribute on the interface type that this
   attribute is declared to be of, according to the rules in the [type
   section above].
-
-In addition, the method should have a `throws` clause specifying all
-of the PHP exception classes that correspond to the [IDL exceptions]
-that are listed in the `SetRaises` clause of the attribute identified
-by the [`PutForwards`] extended attribute on the interface type that
-this attribute is declared to be of, and no others.
+* Type hints on the argument will be used, except for types
+  corresponding to DOM interfaces (as described in the "operations"
+  section above).
 
 #### Attribute compatibility
 
@@ -298,8 +388,8 @@ In every interface with attributes, the PHP [magic
 methods](https://www.php.net/manual/en/language.oop5.magic.php)
 `__get()`, `__set()`, `__isset()`, and `__unset()` should be defined
 with the following behavior:
-* The `__get($name)` method should invoke and return the value of the
-PHP getter method for `$name`.
+* The `__get($name)` method should invoke the
+PHP getter method for `$name` and return the result.
 * The `__set($name, $value)` method should invoke the PHP setter method
 for `$name` if the attribute, unless the attribute is declared [read only],
 in which case an appropriate exception should be thrown.
@@ -317,20 +407,125 @@ XXX: should we be specific here and choose one behavior?
 *The use of these compatibility methods is not recommended in
 performance-critical code*.  They are provided to provide
 compatibliity with existing code written to use the built-in
-`\DOMDocument` interface and for convience, but the invocation of
-'magic methods' has a steep performance cost in PHP.
+`\DOMDocument` interface and for the convenience of using property
+syntax, but the invocation of 'magic methods' has a steep performance
+cost in PHP.
 
 XXX: ensure that there is no cost associated with simply *defining* the
 magic methods, even if they are not used.
 
-XXX: We will probably define a standard PHP trait to implement this
-functionality.
+## Dictionaries
 
-## Objects implementing interfaces
+IDL ['dictionary'] objects are PHP interfaces which extend one other
+interface: dictionaries which directly inherit from another dictionary
+will extend the PHP interface corresponding to that inherited
+dictionary, and dictionaries with no inherited dictionaries shall
+extend the PHP [`ArrayAccess`] interface.
 
-A PHP object that implements an IDL [interface] must be of a PHP class
-that implements the PHP interface that corresponds to the IDL
-interface.
+Dictionary interfaces have getter methods for every field of the
+dictionary:
+* The method has `public` visibility.
+* The return type of the method is the PHP type that corresponds to
+  the field type, according to the rules in the [type section
+  above].
+* Type hints on the return value will be used, except for types
+  corresponding to DOM interfaces (as described in the "operations"
+  section above).
+* The "IDL name" of the method is `get`, followed by the first
+  character of the [identifier] of the field name uppercased (as if
+  the identifier were passed to the
+  (`ucfirst`)[https://www.php.net/manual/en/function.ucfirst]
+  function).  This name is then [PHP Escaped] to resolve conflicts.
+* The method has no arguments.
+
+In every interface corresponding to a dictionary, the PHP [magic
+methods](https://www.php.net/manual/en/language.oop5.magic.php)
+`__get()` and `__isset()` (and optionally `__set() and `__unset()`)
+should be defined with the following behavior:
+* The `__get($name)` method should invoke the
+  PHP getter method for the field `$name` and return the result.
+* The `__set($name, $value)` method should throw an appropriate exception
+  if it is defined.
+* The `__isset($name)` method should invoke `__get($name)` and return `false`
+  if the value returned is `null`, or `true` otherwise.
+* The `__unset($name)` method should throw an appropriate exception
+  if it is defined.
+
+The [`ArrayAccess`] methods of a dictionary should have the following behavior:
+* The `offsetExists` method should return true iff the dictionary has a
+  field with the given IDL name (no PHP escaping is done on the name).
+* The `offsetGet` method should invoke the PHP getter method for the
+  named field and return the result.
+* The `offsetSet` method should throw an appropriate exception.
+* The `offsetUnset` method should throw an appropriate exception.
+
+In addition, classes implementing the interface should define a static
+method named `cast` with a single argument:
+* The `cast` method should return an object implementing the interface
+  corresponding to the dictionary.
+* The argument of the `cast` method should be either an associative array
+  or an object implementing the interface corresponding to the dictionary.
+* If invoked with an argument implementing the interface corresponding to
+  the dictionary, the argument should be directly returned.
+* If invoked with an associative array, an object implementing the interface
+  corresponding to the dictionary should be returned, where the getter for
+  each field returns the array value associated with the key equal to the
+  field's IDL name (not PHP escaped) if there is one, otherwise the getter
+  should return the field's default value.
+
+## Callbacks and Callback Interfaces
+
+IDL [`callback`] objects shall be treated as if they were
+[`callback interface`]s with a single regular operation member named
+`invoke`.
+
+A [`callback interface`] corresponds to a PHP interface with constant and
+operation members as defined above for [`interface`] types.
+
+In addition, the PHP interface corresponding to a [`callback
+interface`] must define the PHP magic method `__invoke`.  This magic
+method should invoke the single regular operation of the `callback
+interface` with the same arguments it is given, and return the result.
+(This makes the `callback interface` into a PHP
+[callable].)
+
+In addition, classes implementing the interface should define a static
+method named `cast` with a single argument:
+* The `cast` method should return an object implementing the interface
+  corresponding to the `callback interface`.
+* The argument of the `cast` method should be either a PHP [callable]
+  or an object implementing the PHP interface corresponding to the
+  `callback interface`.
+* If invoked with an argument implementing the interface corresponding to
+  the `callback interface`, the argument should be directly returned.
+* If invoked with a PHP [callable], an object implementing the interface
+  corresponding to the `callback interface` should be returned, where
+  invoking the single regular operation of the `callback interface` will
+  invoke the [callable] with the same arguments, and return the result.
+
+## Enumerations
+
+IDL [enumerations](https://heycam.github.io/webidl/#idl-enums) correspond
+to a PHP interface with an integer constant for every enumeration value.
+
+For each enumeration value:
+* The constant shall have `public` visibility.
+* The type shall be the PHP `int` type.
+* The name shall be the [PHP escaped] [identifier] of the enumeration value.
+* The value should be zero-based and sequential, in the same order as the
+  enumeration values appear in the WebIDL declaration.
+
+For example, the following WebIDL:
+```
+enum ShadowRootMode { "open", "closed" };
+```
+corresponds to the PHP interface:
+```
+interface ShadowRootMode {
+	public const open = 0;
+	public const closed = 1;
+}
+```
 
 ## Exceptions
 
@@ -383,6 +578,19 @@ the binding as described above, and the names resulting from the
 other.
 
 [PHP Escaped]: #Names
+[`dictionary`]: https://heycam.github.io/webidl/#idl-dictionaries
+[`callback`]: https://heycam.github.io/webidl/#idl-callback-functions
+[`callback interface`]: https://heycam.github.io/webidl/#idl-callback-interfaces
+[`interface`]: https://heycam.github.io/webidl/#idl-interfaces
+[`iterable`]: https://heycam.github.io/webidl/#idl-iterable
+[`stringifier`]: https://heycam.github.io/webidl/#idl-stringifiers
+[`ArrayAccess`]: https://www.php.net/manual/en/class.arrayaccess.php
+[`Countable`]: https://www.php.net/manual/en/class.countable.php
+[`IteratorAggregate`]: https://www.php.net/manual/en/class.iteratoraggregate.php
+[`any`]: https://heycam.github.io/webidl/#idl-any
+[`undefined`]: https://heycam.github.io/webidl/#idl-undefined
+[`object`]: https://heycam.github.io/webidl/#idl-object
+[`symbol`]: https://heycam.github.io/webidl/#idl-symbol
 [type section above]: #Types
 [operation]: https://www.w3.org/TR/WebIDL-1/#idl-operations
 [identifier]: https://www.w3.org/TR/WebIDL-1/#idl-names
@@ -395,3 +603,4 @@ other.
 [`PutForwards`]: https://www.w3.org/TR/WebIDL-1/#PutForwards
 [constant]: https://www.w3.org/TR/WebIDL-1/#dfn-constant
 [exception member]: https://www.w3.org/TR/WebIDL-1/#exception-member
+[callable]: https://www.php.net/manual/en/language.types.callable.php
