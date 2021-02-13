@@ -16,6 +16,13 @@ methods](https://www.php.net/manual/en/language.oop5.magic.php) are
 used to allow property-style access.  The best performance will be
 obtained by using the explicit getters and setters, however.
 
+IDLeDOM is *not* a DOM implementation, it is only a set of interfaces.
+An actual DOM implementation, like
+[`mediawiki/dodo`](https://packagist.org/packages/wikimedia/dodo) will
+implement the interfaces defined by IDLeDOM.  Client code can be
+written to work with any DOM implementation which follows the IDLeDOM
+PHP binding for WebIDL.
+
 Additional documentation about the library can be found on
 [MediaWiki.org](https://www.mediawiki.org/wiki/IDLeDOM).
 
