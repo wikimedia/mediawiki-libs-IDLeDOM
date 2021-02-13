@@ -32,7 +32,7 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 		$expr = "new class() implements $inter {\n" .
 			  implode( "\n", $stubs ) . "\n" .
 			  ( $helper ? "\tuse $helper;\n" : '' ) .
-			  "\tprotected function _unimplemented() {\n" .
+			  "\tprotected function _unimplemented() : \\Exception {\n" .
 			  "\t\treturn new \\Exception();\n" .
 			  "\t}\n" .
 			  "};";
