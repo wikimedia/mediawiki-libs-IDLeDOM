@@ -29,4 +29,20 @@ trait Window {
 		return null;
 	}
 
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\Window $this';
+		// @var \Wikimedia\IDLeDOM\Window $this
+		switch ( $name ) {
+			case "event":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
 }

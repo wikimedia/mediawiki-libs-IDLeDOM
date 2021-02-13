@@ -32,6 +32,24 @@ trait ShadowRootInit {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\ShadowRootInit $this';
+		// @var \Wikimedia\IDLeDOM\ShadowRootInit $this
+		switch ( $name ) {
+			case "mode":
+				return true;
+			case "delegatesFocus":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

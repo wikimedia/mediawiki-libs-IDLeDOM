@@ -30,6 +30,22 @@ trait GetRootNodeOptions {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\GetRootNodeOptions $this';
+		// @var \Wikimedia\IDLeDOM\GetRootNodeOptions $this
+		switch ( $name ) {
+			case "composed":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

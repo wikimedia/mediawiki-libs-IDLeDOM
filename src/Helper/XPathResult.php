@@ -41,4 +41,32 @@ trait XPathResult {
 		return null;
 	}
 
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\XPathResult $this';
+		// @var \Wikimedia\IDLeDOM\XPathResult $this
+		switch ( $name ) {
+			case "resultType":
+				return true;
+			case "numberValue":
+				return true;
+			case "stringValue":
+				return true;
+			case "booleanValue":
+				return true;
+			case "singleNodeValue":
+				return $this->getSingleNodeValue() !== null;
+			case "invalidIteratorState":
+				return true;
+			case "snapshotLength":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
 }

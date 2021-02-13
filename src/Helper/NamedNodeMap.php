@@ -30,6 +30,22 @@ trait NamedNodeMap {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';
+		// @var \Wikimedia\IDLeDOM\NamedNodeMap $this
+		switch ( $name ) {
+			case "length":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @return int
 	 */
 	public function count() : int {

@@ -36,6 +36,28 @@ trait CustomEventInit {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\CustomEventInit $this';
+		// @var \Wikimedia\IDLeDOM\CustomEventInit $this
+		switch ( $name ) {
+			case "bubbles":
+				return true;
+			case "cancelable":
+				return true;
+			case "composed":
+				return true;
+			case "detail":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

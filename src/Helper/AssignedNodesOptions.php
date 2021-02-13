@@ -30,6 +30,22 @@ trait AssignedNodesOptions {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\AssignedNodesOptions $this';
+		// @var \Wikimedia\IDLeDOM\AssignedNodesOptions $this
+		switch ( $name ) {
+			case "flatten":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

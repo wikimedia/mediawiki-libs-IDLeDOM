@@ -38,6 +38,28 @@ trait AddEventListenerOptions {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\AddEventListenerOptions $this';
+		// @var \Wikimedia\IDLeDOM\AddEventListenerOptions $this
+		switch ( $name ) {
+			case "capture":
+				return true;
+			case "passive":
+				return true;
+			case "once":
+				return true;
+			case "signal":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

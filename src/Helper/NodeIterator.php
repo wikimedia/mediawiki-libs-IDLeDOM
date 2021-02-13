@@ -37,4 +37,28 @@ trait NodeIterator {
 		return null;
 	}
 
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\NodeIterator $this';
+		// @var \Wikimedia\IDLeDOM\NodeIterator $this
+		switch ( $name ) {
+			case "root":
+				return true;
+			case "referenceNode":
+				return true;
+			case "pointerBeforeReferenceNode":
+				return true;
+			case "whatToShow":
+				return true;
+			case "filter":
+				return $this->getFilter() !== null;
+			default:
+				break;
+		}
+		return false;
+	}
+
 }

@@ -489,6 +489,31 @@ class TraitBuilder extends Builder {
 		$this->nl( '}' );
 		$this->nl();
 
+		/* Create magic method __isset dispatcher */
+		$this->nl( '/**' );
+		$this->nl( ' * @param string $name' );
+		$this->nl( ' * @return bool' );
+		$this->nl( ' */' );
+		$this->nl( 'public function __isset( string $name ) : bool {' );
+		$this->emitThisHint( $topName );
+		$this->nl( 'switch ( $name ) {' );
+		foreach ( $attrs as $a ) {
+			$name = $a['name'];
+			$getter = $a['getter'];
+			$this->nl( 'case ' . json_encode( $name ) . ':' );
+			if ( $a['idlType']['nullable'] ?? false ) {
+				$this->nl( "\treturn \$this->$getter() !== null;" );
+			} else {
+				$this->nl( "\treturn true;" );
+			}
+		}
+		$this->nl( 'default:' );
+		$this->nl( "\tbreak;" );
+		$this->nl( '}' );
+		$this->nl( 'return false;' );
+		$this->nl( '}' );
+		$this->nl();
+
 		/* Create magic method __set dispatcher */
 		if ( $needsSetter ) {
 			$this->nl( '/**' );
@@ -512,6 +537,34 @@ class TraitBuilder extends Builder {
 			$this->nl( "\tbreak;" );
 			$this->nl( '}' );
 			$this->triggerError( '__set', 'name' );
+			$this->nl( '}' );
+			$this->nl();
+
+			/* Create magic method __unset dispatcher */
+			$this->nl( '/**' );
+			$this->nl( ' * @param string $name' );
+			$this->nl( ' */' );
+			$this->nl( 'public function __unset( string $name ) : void {' );
+			$this->emitThisHint( $topName );
+			$this->nl( 'switch ( $name ) {' );
+			foreach ( $attrs as $a ) {
+				$name = $a['name'];
+				$setter = $a['setter'];
+				$this->nl( 'case ' . json_encode( $name ) . ':' );
+				if (
+					( $a['idlType']['nullable'] ?? false ) &&
+					!( $a['readonly'] ?? false )
+				) {
+					$this->nl( "\t\$this->$setter( null );" );
+					$this->nl( "\treturn;" );
+				} else {
+					$this->nl( "\tbreak;" );
+				}
+			}
+			$this->nl( 'default:' );
+			$this->nl( "\treturn;" );
+			$this->nl( '}' );
+			$this->triggerError( '__unset', 'name' );
 			$this->nl( '}' );
 			$this->nl();
 		}

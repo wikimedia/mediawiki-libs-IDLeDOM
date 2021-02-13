@@ -30,6 +30,22 @@ trait NodeList {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
+		// @var \Wikimedia\IDLeDOM\NodeList $this
+		switch ( $name ) {
+			case "length":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @return int
 	 */
 	public function count() : int {

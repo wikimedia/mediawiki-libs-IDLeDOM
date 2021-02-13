@@ -55,6 +55,46 @@ trait Event {
 
 	/**
 	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\Event $this';
+		// @var \Wikimedia\IDLeDOM\Event $this
+		switch ( $name ) {
+			case "type":
+				return true;
+			case "target":
+				return $this->getTarget() !== null;
+			case "srcElement":
+				return $this->getSrcElement() !== null;
+			case "currentTarget":
+				return $this->getCurrentTarget() !== null;
+			case "eventPhase":
+				return true;
+			case "cancelBubble":
+				return true;
+			case "bubbles":
+				return true;
+			case "cancelable":
+				return true;
+			case "returnValue":
+				return true;
+			case "defaultPrevented":
+				return true;
+			case "composed":
+				return true;
+			case "isTrusted":
+				return true;
+			case "timeStamp":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
+	 * @param string $name
 	 * @param mixed $value
 	 */
 	public function __set( string $name, $value ) : void {
@@ -73,6 +113,51 @@ trait Event {
 		$trace = debug_backtrace();
 		trigger_error(
 			'Undefined property via __set(): ' . $name .
+			' in ' . $trace[0]['file'] .
+			' on line ' . $trace[0]['line'],
+			E_USER_NOTICE
+		);
+	}
+
+	/**
+	 * @param string $name
+	 */
+	public function __unset( string $name ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Event $this';
+		// @var \Wikimedia\IDLeDOM\Event $this
+		switch ( $name ) {
+			case "type":
+				break;
+			case "target":
+				break;
+			case "srcElement":
+				break;
+			case "currentTarget":
+				break;
+			case "eventPhase":
+				break;
+			case "cancelBubble":
+				break;
+			case "bubbles":
+				break;
+			case "cancelable":
+				break;
+			case "returnValue":
+				break;
+			case "defaultPrevented":
+				break;
+			case "composed":
+				break;
+			case "isTrusted":
+				break;
+			case "timeStamp":
+				break;
+			default:
+				return;
+		}
+		$trace = debug_backtrace();
+		trigger_error(
+			'Undefined property via __unset(): ' . $name .
 			' in ' . $trace[0]['file'] .
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE

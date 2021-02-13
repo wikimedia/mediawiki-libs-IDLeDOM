@@ -30,6 +30,22 @@ trait ElementCreationOptions {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\ElementCreationOptions $this';
+		// @var \Wikimedia\IDLeDOM\ElementCreationOptions $this
+		switch ( $name ) {
+			case "is":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

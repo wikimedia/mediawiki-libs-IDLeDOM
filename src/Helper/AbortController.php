@@ -29,4 +29,20 @@ trait AbortController {
 		return null;
 	}
 
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\AbortController $this';
+		// @var \Wikimedia\IDLeDOM\AbortController $this
+		switch ( $name ) {
+			case "signal":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
 }

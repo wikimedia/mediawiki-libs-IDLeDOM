@@ -30,6 +30,22 @@ trait HTMLCollection {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
+		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
+		switch ( $name ) {
+			case "length":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @return int
 	 */
 	public function count() : int {

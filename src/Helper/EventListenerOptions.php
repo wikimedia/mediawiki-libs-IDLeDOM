@@ -30,6 +30,22 @@ trait EventListenerOptions {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\EventListenerOptions $this';
+		// @var \Wikimedia\IDLeDOM\EventListenerOptions $this
+		switch ( $name ) {
+			case "capture":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

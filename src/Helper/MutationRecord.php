@@ -45,4 +45,36 @@ trait MutationRecord {
 		return null;
 	}
 
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\MutationRecord $this';
+		// @var \Wikimedia\IDLeDOM\MutationRecord $this
+		switch ( $name ) {
+			case "type":
+				return true;
+			case "target":
+				return true;
+			case "addedNodes":
+				return true;
+			case "removedNodes":
+				return true;
+			case "previousSibling":
+				return $this->getPreviousSibling() !== null;
+			case "nextSibling":
+				return $this->getNextSibling() !== null;
+			case "attributeName":
+				return $this->getAttributeName() !== null;
+			case "attributeNamespace":
+				return $this->getAttributeNamespace() !== null;
+			case "oldValue":
+				return $this->getOldValue() !== null;
+			default:
+				break;
+		}
+		return false;
+	}
+
 }

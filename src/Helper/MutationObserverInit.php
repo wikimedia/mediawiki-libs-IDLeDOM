@@ -42,6 +42,34 @@ trait MutationObserverInit {
 	}
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\MutationObserverInit $this';
+		// @var \Wikimedia\IDLeDOM\MutationObserverInit $this
+		switch ( $name ) {
+			case "childList":
+				return true;
+			case "attributes":
+				return true;
+			case "characterData":
+				return true;
+			case "subtree":
+				return true;
+			case "attributeOldValue":
+				return true;
+			case "characterDataOldValue":
+				return true;
+			case "attributeFilter":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */

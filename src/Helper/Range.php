@@ -39,4 +39,30 @@ trait Range {
 		return null;
 	}
 
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function __isset( string $name ) : bool {
+		'@phan-var \Wikimedia\IDLeDOM\Range $this';
+		// @var \Wikimedia\IDLeDOM\Range $this
+		switch ( $name ) {
+			case "startContainer":
+				return true;
+			case "startOffset":
+				return true;
+			case "endContainer":
+				return true;
+			case "endOffset":
+				return true;
+			case "collapsed":
+				return true;
+			case "commonAncestorContainer":
+				return true;
+			default:
+				break;
+		}
+		return false;
+	}
+
 }
