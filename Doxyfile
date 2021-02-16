@@ -25,4 +25,4 @@ TEMPLATE_RELATIONS     = YES
 CALL_GRAPH             = NO
 CALLER_GRAPH           = NO
 DOT_MULTI_TARGETS      = YES
-GENERATE_TAGFILE       = doc/idledom.tag
+GENERATE_TAGFILE       = doc/html/doxygen.tag
