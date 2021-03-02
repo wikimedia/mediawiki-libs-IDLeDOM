@@ -1,5 +1,7 @@
 [![Latest Stable Version]](https://packagist.org/packages/wikimedia/idle-dom) [![License]](https://packagist.org/packages/wikimedia/idle-dom)
 
+[![Run on Repl.it](https://repl.it/badge/github/wikimedia/mediawiki-libs-idledom)](https://repl.it/github/wikimedia/mediawiki-libs-idledom)
+
 IDLeDOM
 =====================
 
