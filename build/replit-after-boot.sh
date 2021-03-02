@@ -13,7 +13,7 @@ cd $ROOTDIR
 chmod a+rx $ROOTDIR/build/helper
 
 # Show configuration progress with a temporary directory we set up.
-mkdir .INSTALLING_1_of_4
+mkdir -p .INSTALLING_1_of_4
 
 cd /home/runner
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -23,15 +23,15 @@ php composer-setup.php --install-dir=/home/runner/bin --filename=composer
 php -r "unlink('composer-setup.php');"
 cd $ROOTDIR
 
-mkdir .INSTALLING_2_of_4
+mkdir -p .INSTALLING_2_of_4
 
 install-pkg php-mbstring
 
-mkdir .INSTALLING_3_of_4
+mkdir -p .INSTALLING_3_of_4
 
 install-pkg php-curl
 
-mkdir .INSTALLING_4_of_4
+mkdir -p .INSTALLING_4_of_4
 
 export PHPRC=$ROOTDIR/build/replit.ini
 export PATH=$PATH:/home/runner/bin:$ROOTDIR/vendor/bin
