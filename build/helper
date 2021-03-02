@@ -2,6 +2,7 @@
 
 # This sets the PHPRC and PATH appropriately then chains to the next
 # command.
-export PHPRC=/home/runner/idle-dom/build/replit.ini
-export PATH=$PATH:/home/runner/bin:/home/runner/idle-dom/vendor/bin
+ROOTDIR=$(realpath $(dirname "$0")/..)
+export PHPRC=$ROOTDIR/build/replit.ini
+export PATH=$PATH:/home/runner/bin:$ROOTDIR/vendor/bin
 exec "$@"
