@@ -5,6 +5,7 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
 use Wikimedia\IDLeDOM\MutationObserverInit;
 use Wikimedia\IDLeDOM\MutationRecord;
 use Wikimedia\IDLeDOM\Node;
@@ -16,9 +17,9 @@ trait MutationObserver {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 

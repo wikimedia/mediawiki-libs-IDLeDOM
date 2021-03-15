@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
+
 trait StaticRange {
 	// use \Wikimedia\IDLeDOM\Stub\AbstractRange;
 
@@ -13,9 +15,9 @@ trait StaticRange {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 

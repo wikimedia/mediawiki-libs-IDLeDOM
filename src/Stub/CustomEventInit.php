@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
+
 trait CustomEventInit {
 	// use \Wikimedia\IDLeDOM\Stub\EventInit;
 
@@ -13,9 +15,9 @@ trait CustomEventInit {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 

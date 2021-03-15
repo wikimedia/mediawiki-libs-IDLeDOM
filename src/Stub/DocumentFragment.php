@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
+
 trait DocumentFragment {
 	// use \Wikimedia\IDLeDOM\Stub\Node;
 	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
@@ -16,9 +18,9 @@ trait DocumentFragment {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 

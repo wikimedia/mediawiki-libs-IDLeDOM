@@ -45,14 +45,14 @@ class Emitter {
 	public function replaceMarker( string $marker, string ...$replacement ): void {
 		$needle = "%MARKER%$marker%";
 		$this->out = preg_replace_callback(
-			'/(^|\n)([\t]*)' . preg_quote( $needle, '/' ) . '\n/',
+			'/(\n\n?)([\t]*)' . preg_quote( $needle, '/' ) . '\n/',
 			function ( $matches ) use ( $replacement ) {
 				$repl = [];
 				foreach ( $replacement as $s ) {
 					$repl[] = $matches[2] . $s;
 				}
 				if ( count( $repl ) === 0 ) {
-					return '';
+					return "\n";
 				}
 				return $matches[1] . implode( "\n", $repl ) . "\n";
 			},

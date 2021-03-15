@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
+
 trait ProcessingInstruction {
 	// use \Wikimedia\IDLeDOM\Stub\CharacterData;
 	// use \Wikimedia\IDLeDOM\Stub\Node;
@@ -17,9 +19,9 @@ trait ProcessingInstruction {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 

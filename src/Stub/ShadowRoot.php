@@ -5,6 +5,7 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
 use Wikimedia\IDLeDOM\Element;
 use Wikimedia\IDLeDOM\EventHandlerNonNull;
 
@@ -21,9 +22,9 @@ trait ShadowRoot {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 

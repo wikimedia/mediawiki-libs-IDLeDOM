@@ -5,6 +5,7 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
 use Wikimedia\IDLeDOM\HTMLSlotElement;
 
 trait Slottable {
@@ -14,9 +15,9 @@ trait Slottable {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 

@@ -15,6 +15,7 @@ class StubBuilder extends Builder {
 	protected function firstLine( string $topName ): void {
 		$this->e->phpPrologue( 'Wikimedia\IDLeDOM\Stub' );
 
+		$this->nl( 'use Exception;' );
 		$this->e->emitMarker( 'UseStatements' );
 		$this->nl();
 		$this->nl( "trait $topName {" );
@@ -32,9 +33,9 @@ class StubBuilder extends Builder {
 		$this->nl( '// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName' );
 		$this->nl();
 		$this->nl( '/**' );
-		$this->nl( ' * @return \Exception' );
+		$this->nl( ' * @return Exception' );
 		$this->nl( ' */' );
-		$this->nl( 'abstract protected function _unimplemented() : \Exception;' );
+		$this->nl( 'abstract protected function _unimplemented() : Exception;' );
 		$this->nl();
 		$this->nl( '// phpcs:enable' );
 		$this->nl();

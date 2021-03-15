@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Stub;
 
+use Exception;
+
 trait HTMLElement {
 	// use \Wikimedia\IDLeDOM\Stub\Element;
 	// use \Wikimedia\IDLeDOM\Stub\Node;
@@ -19,9 +21,9 @@ trait HTMLElement {
 	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 	/**
-	 * @return \Exception
+	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : \Exception;
+	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
 
