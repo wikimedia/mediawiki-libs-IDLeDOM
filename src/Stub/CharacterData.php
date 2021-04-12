@@ -32,9 +32,9 @@ trait CharacterData {
 	}
 
 	/**
-	 * @param string $val
+	 * @param ?string $val
 	 */
-	public function setData( string $val ) : void {
+	public function setData( ?string $val ) : void {
 		throw self::_unimplemented();
 	}
 

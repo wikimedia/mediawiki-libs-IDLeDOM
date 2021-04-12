@@ -4,6 +4,8 @@
   to bring the constants into the implementation's namespace.
 * The helper traits now define __isset() and __unset() for appropriate
   interfaces and dictionaries.
+* Support the [[LegacyNullToEmptyString]] extended attribute, by broadening
+  type to allow `null` where appropriate.
 
 # IDLeDOM 0.2.0 (2021-02-12)
 * Strip explicit PHP type hints for DOM interface types, in order to

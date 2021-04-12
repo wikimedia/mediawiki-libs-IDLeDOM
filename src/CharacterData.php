@@ -37,9 +37,9 @@ interface CharacterData extends Node, ChildNode, NonDocumentTypeChildNode {
 	public function getData() : string;
 
 	/**
-	 * @param string $val
+	 * @param ?string $val
 	 */
-	public function setData( string $val ) : void;
+	public function setData( ?string $val ) : void;
 
 	/**
 	 * @return int

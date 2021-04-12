@@ -162,8 +162,8 @@ interface HTMLElement extends Element {
 	public function getInnerText() : string;
 
 	/**
-	 * @param string $val
+	 * @param ?string $val
 	 */
-	public function setInnerText( string $val ) : void;
+	public function setInnerText( ?string $val ) : void;
 
 }

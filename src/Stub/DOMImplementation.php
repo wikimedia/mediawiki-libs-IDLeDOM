@@ -35,11 +35,11 @@ trait DOMImplementation {
 
 	/**
 	 * @param ?string $namespace
-	 * @param string $qualifiedName
+	 * @param ?string $qualifiedName
 	 * @param DocumentType|null $doctype
 	 * @return XMLDocument
 	 */
-	public function createDocument( ?string $namespace, string $qualifiedName, /* ?DocumentType */ $doctype = null ) {
+	public function createDocument( ?string $namespace, ?string $qualifiedName = '', /* ?DocumentType */ $doctype = null ) {
 		throw self::_unimplemented();
 	}
 

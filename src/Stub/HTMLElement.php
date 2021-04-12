@@ -175,9 +175,9 @@ trait HTMLElement {
 	}
 
 	/**
-	 * @param string $val
+	 * @param ?string $val
 	 */
-	public function setInnerText( string $val ) : void {
+	public function setInnerText( ?string $val ) : void {
 		throw self::_unimplemented();
 	}
 

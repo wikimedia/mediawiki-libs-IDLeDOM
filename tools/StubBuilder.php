@@ -56,7 +56,7 @@ class StubBuilder extends Builder {
 		// Getter
 		$getter = $this->map( $topName, 'get', $name );
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'], $typeOpts );
-		$phpType = $this->gen->typeToPHP( $m['idlType'], $typeOpts );
+		$phpType = $this->gen->typeToPHP( $m['idlType'], [ 'setter' => true ] + $typeOpts );
 		$retType = $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts );
 		$this->use( $m['idlType'], $typeOpts );
 
@@ -71,6 +71,7 @@ class StubBuilder extends Builder {
 		}
 		$this->nl();
 		// Setter
+		$docType = $this->gen->typeToPHPDoc( $m['idlType'], [ 'setter' => true ] + $typeOpts );
 		$setter = $this->map( $topName, 'set', $name );
 		$this->nl( '/**' );
 		$this->nl( " * @param $docType \$val" );

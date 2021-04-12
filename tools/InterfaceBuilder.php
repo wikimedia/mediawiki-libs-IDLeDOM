@@ -21,7 +21,7 @@ class InterfaceBuilder extends Builder {
 		// Getter
 		$getter = $this->map( $topName, 'get', $name );
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'] );
-		$phpType = $this->gen->typeToPHP( $m['idlType'] );
+		$phpType = $this->gen->typeToPHP( $m['idlType'], [ 'setter' => true ] );
 		$retType = $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
 		$this->nl( '/**' );
 		$this->nl( " * @return $docType" );
@@ -32,6 +32,7 @@ class InterfaceBuilder extends Builder {
 		}
 		$this->nl();
 		// Setter
+		$docType = $this->gen->typeToPHPDoc( $m['idlType'], [ 'setter' => true ] );
 		$setter = $this->map( $topName, 'set', $name );
 		$this->nl( '/**' );
 		$this->nl( " * @param $docType \$val" );
@@ -116,7 +117,15 @@ class InterfaceBuilder extends Builder {
 			$ty = $a['idlType'];
 			$declareDefault = '';
 			$invokeDefault = '';
-			if ( $a['optional'] ?? false ) {
+			$legacyNullToEmptyString =
+				Generator::extAttrsContain( $a, 'LegacyNullToEmptyString' );
+			if ( $legacyNullToEmptyString ) {
+				// Broaden the type to allow null and make the default the
+				// empty string.
+				$ty['nullable'] = true;
+				$declareDefault = " = ''";
+				$invokeDefault = " ?? ''";
+			} elseif ( $a['optional'] ?? false ) {
 				// If a value is optional but has no default, then broaden the
 				// type to allow null and make the default null.
 				// Similarly for dictionary types, use null as the default.

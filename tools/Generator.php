@@ -389,6 +389,13 @@ class Generator {
 				return " : $result";
 			}
 		}
+		if (
+			( $opts['setter'] ?? false ) &&
+			self::extAttrsContain( $ty, 'LegacyNullToEmptyString' )
+		) {
+			$ty['nullable'] = true;
+		}
+
 		$n = ( $ty['nullable'] ?? false ) ? '?' : '';
 		if ( $ty['union'] ?? false ) {
 			if ( !$phpdoc ) {
