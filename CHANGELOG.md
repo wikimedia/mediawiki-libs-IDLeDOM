@@ -1,4 +1,4 @@
-# IDLeDOM x.x.x (not yet released)
+# IDLeDOM 0.3.0 (2021-04-12)
 * Use interface (instead of class) for enumerations.  This allows
   DOM implementations to easily define a class implementing the interface
   to bring the constants into the implementation's namespace.
