@@ -6,6 +6,7 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 use Exception;
+use Wikimedia\IDLeDOM\Element;
 
 trait HTMLElement {
 	// use \Wikimedia\IDLeDOM\Stub\Element;
@@ -15,6 +16,7 @@ trait HTMLElement {
 	// use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
 	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\Slottable;
+	// use \Wikimedia\IDLeDOM\Stub\HTMLOrSVGElement;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
@@ -178,6 +180,41 @@ trait HTMLElement {
 	 * @param ?string $val
 	 */
 	public function setInnerText( ?string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return Element|null
+	 */
+	public function getOffsetParent() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getOffsetTop() : int {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getOffsetLeft() : int {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getOffsetWidth() : int {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getOffsetHeight() : int {
 		throw self::_unimplemented();
 	}
 

@@ -130,11 +130,21 @@ class Generator {
 				$this->typedefs[$name] = $definition['idlType'];
 			} else {
 				$name = $definition['name'];
-				Assert::invariant(
-					!array_key_exists( $name, $this->defs ),
-					"Duplicate definition for $name"
-				);
-				$this->defs[$name] = $definition;
+				if ( $definition['partial'] ?? false ) {
+					Assert::invariant(
+						array_key_exists( $name, $this->defs ),
+						"Partial definition is missing main definition of $name"
+					);
+					foreach ( $definition["members"] ?? [] as $m ) {
+						$this->defs[$name]["members"][] = $m;
+					}
+				} else {
+					Assert::invariant(
+						!array_key_exists( $name, $this->defs ),
+						"Duplicate definition for $name"
+					);
+					$this->defs[$name] = $definition;
+				}
 			}
 		}
 		unset( $definition );
@@ -196,6 +206,8 @@ class Generator {
 		};
 		// If there are mixins, resolve names in the mixins first
 		foreach ( $this->mixins[$topName] ?? [] as $m ) {
+			Assert::invariant( array_key_exists( $m, $this->defs ),
+							  "Missing definition of $m in $topName" );
 			foreach ( $this->resolveNames( $this->defs[$m], $done ) as $mname ) {
 				$r = $findName( $mname );
 				Assert::invariant( $r == $mname, "Mixins shouldn't conflict" );
@@ -563,7 +575,7 @@ class Generator {
 	/** Main entry point: generates DOM interfaces from WebIDL */
 	public static function main() {
 		$webidl = [];
-		$files = [ "DOM", "misc", ];
+		$files = [ "DOM", "misc", "HTML", ];
 		foreach ( $files as $f ) {
 			$filename = __DIR__ . "/../spec/$f.webidl";
 			$webidl[] = file_get_contents( $filename );

@@ -426,7 +426,7 @@ class TraitBuilder extends Builder {
 		// If there's an indexed getter and a countable, then we can
 		// provide a default implementation of the iterator
 		if ( $igetter && $countable ) {
-			$iteratorName = $this->map( $topName, 'op', '_iterable' );
+			$iteratorName = $this->map( $igetter['topName'], 'op', '_iterable' );
 			$iteratorType = $igetter['ast']['idlType'];
 			// the getter is nullable, but the iterator is not!
 			$iteratorType['nullable'] = false;

@@ -164,7 +164,7 @@ class Builder {
 			str_replace( ' ', '', ucwords( $m['type'] ) );
 		$name = $m['type'] === 'constructor' ? '__construct' :
 			  ( $m['type'] === 'iterable' ? 'getIterator' :
-			   $m['name'] );
+				( $m['name'] ?? '' ) );
 		$this->$methodName( $topName, $name, $m );
 		$this->nl();
 	}

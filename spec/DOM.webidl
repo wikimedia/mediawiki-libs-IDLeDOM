@@ -39,10 +39,6 @@ dictionary EventInit {
   boolean composed = false;
 };
 
-partial interface Window {
-  [Replaceable] readonly attribute (Event or undefined) event; // legacy
-};
-
 [Exposed=(Window,Worker)]
 interface CustomEvent : Event {
   constructor(DOMString type, optional CustomEventInit eventInitDict = {});

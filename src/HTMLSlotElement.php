@@ -41,6 +41,9 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property DOMStringMap $dataset
+ * @property string $nonce
+ * @property int $tabIndex
  * @property string $title
  * @property string $lang
  * @property bool $translate
@@ -52,11 +55,15 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $spellcheck
  * @property string $autocapitalize
  * @property string $innerText
+ * @property Element|null $offsetParent
+ * @property int $offsetTop
+ * @property int $offsetLeft
+ * @property int $offsetWidth
+ * @property int $offsetHeight
  * @property string $name
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLSlotElement extends HTMLElement {
-
 	/**
 	 * @return string
 	 */

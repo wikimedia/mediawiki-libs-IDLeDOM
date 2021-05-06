@@ -49,6 +49,14 @@ class InterfaceBuilder extends Builder {
 	 */
 	public static function specialOperationHelper( Generator $gen, string $topName, array $def ) {
 		$specials = [];
+		if ( $def['inheritance'] ?? null ) {
+			$parentName = $def['inheritance'];
+			$parentDef = $gen->def( $parentName );
+			Assert::invariant( $parentDef !== null, "Can't find $parentName" );
+			$specials = self::specialOperationHelper(
+				$gen, $parentName, $parentDef
+			);
+		}
 		foreach ( $def['members'] as $m ) {
 			$special = $m['special'] ?? '';
 			if ( Generator::extAttrsContain( $m, 'PHPCountable' ) ) {
@@ -60,6 +68,10 @@ class InterfaceBuilder extends Builder {
 			if ( ( $m['name'] ?? '' ) === '' ) {
 				continue; // skip unnamed specials (for now)
 			}
+			$extra = [
+				'topName' => $topName, // may be inherited
+				'ast' => $m,
+			];
 			if ( $m['type'] === 'attribute' ) {
 				Assert::invariant(
 					$special === 'stringifier' || $special === "countable",
@@ -81,13 +93,13 @@ class InterfaceBuilder extends Builder {
 					'return' => 'return ',
 					'special' => $special,
 				];
-				$specials[$info['special']] = [ 'ast' => $m ] + $info;
+				$specials[$info['special']] = $extra + $info;
 			}
 			if ( $m['type'] === 'operation' ) {
 				$info = self::memberOperationHelper(
 					$gen, $topName, $m['name'], $m
 				);
-				$specials[$info['special']] = [ 'ast' => $m ] + $info;
+				$specials[$info['special']] = $extra + $info;
 			}
 		}
 		return $specials;
@@ -332,7 +344,9 @@ class InterfaceBuilder extends Builder {
 		foreach ( $def['members'] ?? [] as $m ) {
 			if (
 				$m['type'] === 'operation' &&
-				( $m['special'] ?? '' ) === 'getter'
+				( $m['special'] ?? '' ) === 'getter' &&
+				// For the moment, we skip unnamed getters
+				( $m['name'] ?? '' ) !== ''
 			) {
 				$extendArray = true;
 			}

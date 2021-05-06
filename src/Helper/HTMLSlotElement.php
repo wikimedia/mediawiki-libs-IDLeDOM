@@ -76,6 +76,12 @@ trait HTMLSlotElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "dataset":
+				return $this->getDataset();
+			case "nonce":
+				return $this->getNonce();
+			case "tabIndex":
+				return $this->getTabIndex();
 			case "title":
 				return $this->getTitle();
 			case "lang":
@@ -98,6 +104,16 @@ trait HTMLSlotElement {
 				return $this->getAutocapitalize();
 			case "innerText":
 				return $this->getInnerText();
+			case "offsetParent":
+				return $this->getOffsetParent();
+			case "offsetTop":
+				return $this->getOffsetTop();
+			case "offsetLeft":
+				return $this->getOffsetLeft();
+			case "offsetWidth":
+				return $this->getOffsetWidth();
+			case "offsetHeight":
+				return $this->getOffsetHeight();
 			case "name":
 				return $this->getName();
 			default:
@@ -183,6 +199,12 @@ trait HTMLSlotElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "dataset":
+				return true;
+			case "nonce":
+				return true;
+			case "tabIndex":
+				return true;
 			case "title":
 				return true;
 			case "lang":
@@ -204,6 +226,16 @@ trait HTMLSlotElement {
 			case "autocapitalize":
 				return true;
 			case "innerText":
+				return true;
+			case "offsetParent":
+				return $this->getOffsetParent() !== null;
+			case "offsetTop":
+				return true;
+			case "offsetLeft":
+				return true;
+			case "offsetWidth":
+				return true;
+			case "offsetHeight":
 				return true;
 			case "name":
 				return true;
@@ -235,6 +267,12 @@ trait HTMLSlotElement {
 				return;
 			case "slot":
 				$this->setSlot( $value );
+				return;
+			case "nonce":
+				$this->setNonce( $value );
+				return;
+			case "tabIndex":
+				$this->setTabIndex( $value );
 				return;
 			case "title":
 				$this->setTitle( $value );
@@ -352,6 +390,12 @@ trait HTMLSlotElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "dataset":
+				break;
+			case "nonce":
+				break;
+			case "tabIndex":
+				break;
 			case "title":
 				break;
 			case "lang":
@@ -373,6 +417,16 @@ trait HTMLSlotElement {
 			case "autocapitalize":
 				break;
 			case "innerText":
+				break;
+			case "offsetParent":
+				break;
+			case "offsetTop":
+				break;
+			case "offsetLeft":
+				break;
+			case "offsetWidth":
+				break;
+			case "offsetHeight":
 				break;
 			case "name":
 				break;

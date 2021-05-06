@@ -19,6 +19,7 @@ trait HTMLSlotElement {
 	// use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
 	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\Slottable;
+	// use \Wikimedia\IDLeDOM\Stub\HTMLOrSVGElement;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
