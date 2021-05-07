@@ -25,7 +25,7 @@ trait NodeFilter {
 	 * @param callable|\Wikimedia\IDLeDOM\NodeFilter $f
 	 * @return \Wikimedia\IDLeDOM\NodeFilter
 	 */
-	public static function cast( $f ): \Wikimedia\IDLeDOM\NodeFilter {
+	public static function cast( $f ) {
 		if ( $f instanceof \Wikimedia\IDLeDOM\NodeFilter ) {
 			return $f;
 		}

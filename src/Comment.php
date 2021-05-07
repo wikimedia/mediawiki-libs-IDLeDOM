@@ -31,5 +31,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Comment extends CharacterData {
+	// Direct parent: CharacterData
 
 }

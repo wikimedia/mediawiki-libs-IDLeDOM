@@ -75,6 +75,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLButtonElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return bool
 	 */

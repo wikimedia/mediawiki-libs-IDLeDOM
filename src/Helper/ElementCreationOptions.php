@@ -88,7 +88,7 @@ trait ElementCreationOptions {
 	 * @param array|\Wikimedia\IDLeDOM\ElementCreationOptions $a
 	 * @return \Wikimedia\IDLeDOM\ElementCreationOptions
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\ElementCreationOptions {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\ElementCreationOptions ) {
 			return $a;
 		}

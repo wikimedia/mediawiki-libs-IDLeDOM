@@ -34,6 +34,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface ShadowRoot extends DocumentFragment, DocumentOrShadowRoot {
+	// Direct parent: DocumentFragment
+
 	/**
 	 * @return int
 	 */

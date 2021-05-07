@@ -370,5 +370,11 @@ class InterfaceBuilder extends Builder {
 			$firstLine .= " extends " . implode( ', ', $mixins );
 		}
 		$this->nl( "$firstLine {" );
+		// This is a hint to the test program (and end user?) about
+		// the single inheritance chain.
+		if ( $def['inheritance'] ?? false ) {
+			$this->nl( "// Direct parent: " . $def['inheritance'] );
+			$this->nl();
+		}
 	}
 }

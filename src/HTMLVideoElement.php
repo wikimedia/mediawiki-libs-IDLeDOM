@@ -94,6 +94,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLVideoElement extends HTMLMediaElement {
+	// Direct parent: HTMLMediaElement
+
 	/**
 	 * @return int
 	 */

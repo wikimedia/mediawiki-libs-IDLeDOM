@@ -26,7 +26,7 @@ trait MutationCallback {
 	 * @param callable|\Wikimedia\IDLeDOM\MutationCallback $f
 	 * @return \Wikimedia\IDLeDOM\MutationCallback
 	 */
-	public static function cast( $f ): \Wikimedia\IDLeDOM\MutationCallback {
+	public static function cast( $f ) {
 		if ( $f instanceof \Wikimedia\IDLeDOM\MutationCallback ) {
 			return $f;
 		}

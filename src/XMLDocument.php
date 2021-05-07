@@ -41,4 +41,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface XMLDocument extends Document {
+	// Direct parent: Document
+
 }

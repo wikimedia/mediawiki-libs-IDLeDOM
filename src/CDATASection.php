@@ -33,4 +33,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface CDATASection extends Text {
+	// Direct parent: Text
+
 }

@@ -8,7 +8,6 @@ namespace Wikimedia\IDLeDOM\Stub;
 use Exception;
 
 trait HTMLFormControlsCollection {
-	// use \Wikimedia\IDLeDOM\Stub\HTMLCollection;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

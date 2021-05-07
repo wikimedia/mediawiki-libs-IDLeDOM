@@ -18,6 +18,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface VideoTrackList extends EventTarget, \ArrayAccess {
+	// Direct parent: EventTarget
+
 	/**
 	 * @return int
 	 */

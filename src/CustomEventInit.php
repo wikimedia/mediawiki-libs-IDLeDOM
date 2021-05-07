@@ -17,6 +17,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface CustomEventInit extends EventInit {
+	// Direct parent: EventInit
+
 	/**
 	 * @return mixed|null
 	 */

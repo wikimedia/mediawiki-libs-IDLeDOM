@@ -23,7 +23,7 @@ trait XPathNSResolver {
 	 * @param callable|\Wikimedia\IDLeDOM\XPathNSResolver $f
 	 * @return \Wikimedia\IDLeDOM\XPathNSResolver
 	 */
-	public static function cast( $f ): \Wikimedia\IDLeDOM\XPathNSResolver {
+	public static function cast( $f ) {
 		if ( $f instanceof \Wikimedia\IDLeDOM\XPathNSResolver ) {
 			return $f;
 		}

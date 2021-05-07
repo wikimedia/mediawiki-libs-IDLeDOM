@@ -41,6 +41,7 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, ParentNode, XPathEvaluatorBase {
+	// Direct parent: Node
 
 	/**
 	 * @return DOMImplementation

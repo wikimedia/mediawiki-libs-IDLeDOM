@@ -44,6 +44,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode, Slottable {
+	// Direct parent: Node
+
 	/**
 	 * @return ?string
 	 */

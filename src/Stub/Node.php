@@ -12,7 +12,6 @@ use Wikimedia\IDLeDOM\GetRootNodeOptions;
 use Wikimedia\IDLeDOM\NodeList;
 
 trait Node {
-	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

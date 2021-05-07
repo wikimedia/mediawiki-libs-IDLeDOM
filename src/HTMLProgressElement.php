@@ -67,6 +67,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLProgressElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return float
 	 */

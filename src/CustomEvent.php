@@ -27,6 +27,7 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface CustomEvent extends Event {
+	// Direct parent: Event
 
 	/**
 	 * @return mixed|null

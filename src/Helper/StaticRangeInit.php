@@ -105,7 +105,7 @@ trait StaticRangeInit {
 	 * @param array|\Wikimedia\IDLeDOM\StaticRangeInit $a
 	 * @return \Wikimedia\IDLeDOM\StaticRangeInit
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\StaticRangeInit {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\StaticRangeInit ) {
 			return $a;
 		}

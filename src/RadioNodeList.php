@@ -15,6 +15,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface RadioNodeList extends NodeList {
+	// Direct parent: NodeList
+
 	/**
 	 * @return string
 	 */

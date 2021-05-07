@@ -88,7 +88,7 @@ trait GetRootNodeOptions {
 	 * @param array|\Wikimedia\IDLeDOM\GetRootNodeOptions $a
 	 * @return \Wikimedia\IDLeDOM\GetRootNodeOptions
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\GetRootNodeOptions {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\GetRootNodeOptions ) {
 			return $a;
 		}

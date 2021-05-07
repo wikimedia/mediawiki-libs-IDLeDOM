@@ -98,7 +98,7 @@ trait EventInit {
 	 * @param array|\Wikimedia\IDLeDOM\EventInit $a
 	 * @return \Wikimedia\IDLeDOM\EventInit
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\EventInit {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\EventInit ) {
 			return $a;
 		}

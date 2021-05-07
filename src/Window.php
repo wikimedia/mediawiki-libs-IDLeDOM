@@ -23,6 +23,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Window extends EventTarget {
+	// Direct parent: EventTarget
+
 	/**
 	 * @return Document
 	 */

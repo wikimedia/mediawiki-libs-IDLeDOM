@@ -73,6 +73,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLOutputElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return DOMTokenList
 	 */

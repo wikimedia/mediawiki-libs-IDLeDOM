@@ -14,8 +14,6 @@ use Wikimedia\IDLeDOM\ShadowRoot;
 use Wikimedia\IDLeDOM\ShadowRootInit;
 
 trait Element {
-	// use \Wikimedia\IDLeDOM\Stub\Node;
-	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 	// use \Wikimedia\IDLeDOM\Stub\ChildNode;
 	// use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
 	// use \Wikimedia\IDLeDOM\Stub\ParentNode;

@@ -69,6 +69,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLTableColElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return int
 	 */

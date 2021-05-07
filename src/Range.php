@@ -19,6 +19,7 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Range extends AbstractRange {
+	// Direct parent: AbstractRange
 
 	/**
 	 * @return Node

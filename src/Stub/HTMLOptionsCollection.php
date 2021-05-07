@@ -11,7 +11,6 @@ use Wikimedia\IDLeDOM\HTMLOptGroupElement;
 use Wikimedia\IDLeDOM\HTMLOptionElement;
 
 trait HTMLOptionsCollection {
-	// use \Wikimedia\IDLeDOM\Stub\HTMLCollection;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

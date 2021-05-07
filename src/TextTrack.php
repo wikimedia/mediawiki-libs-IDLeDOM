@@ -21,6 +21,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface TextTrack extends EventTarget {
+	// Direct parent: EventTarget
+
 	/**
 	 * @return int
 	 */

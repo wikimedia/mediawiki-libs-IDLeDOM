@@ -34,6 +34,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Attr extends Node {
+	// Direct parent: Node
+
 	/**
 	 * @return ?string
 	 */

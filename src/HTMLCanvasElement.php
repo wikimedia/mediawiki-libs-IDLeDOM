@@ -65,6 +65,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLCanvasElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return int
 	 */

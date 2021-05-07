@@ -93,7 +93,7 @@ trait ShadowRootInit {
 	 * @param array|\Wikimedia\IDLeDOM\ShadowRootInit $a
 	 * @return \Wikimedia\IDLeDOM\ShadowRootInit
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\ShadowRootInit {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\ShadowRootInit ) {
 			return $a;
 		}

@@ -63,6 +63,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLElement extends Element, HTMLOrSVGElement {
+	// Direct parent: Element
+
 	/**
 	 * @return string
 	 */

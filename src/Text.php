@@ -33,6 +33,7 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Text extends CharacterData, Slottable {
+	// Direct parent: CharacterData
 
 	/**
 	 * @param int $offset

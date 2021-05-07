@@ -20,6 +20,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface TextTrackCue extends EventTarget {
+	// Direct parent: EventTarget
+
 	/**
 	 * @return TextTrack|null
 	 */

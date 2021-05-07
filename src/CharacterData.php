@@ -31,6 +31,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface CharacterData extends Node, ChildNode, NonDocumentTypeChildNode {
+	// Direct parent: Node
+
 	/**
 	 * @return string
 	 */

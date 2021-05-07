@@ -105,7 +105,7 @@ trait AddEventListenerOptions {
 	 * @param array|\Wikimedia\IDLeDOM\AddEventListenerOptions $a
 	 * @return \Wikimedia\IDLeDOM\AddEventListenerOptions
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\AddEventListenerOptions {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\AddEventListenerOptions ) {
 			return $a;
 		}

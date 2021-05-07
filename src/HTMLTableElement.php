@@ -77,6 +77,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLTableElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return HTMLTableCaptionElement|null
 	 */

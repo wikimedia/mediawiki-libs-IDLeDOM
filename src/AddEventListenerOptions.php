@@ -17,6 +17,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface AddEventListenerOptions extends EventListenerOptions {
+	// Direct parent: EventListenerOptions
+
 	/**
 	 * @return bool
 	 */

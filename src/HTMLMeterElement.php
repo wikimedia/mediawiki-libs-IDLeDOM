@@ -70,6 +70,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLMeterElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return float
 	 */

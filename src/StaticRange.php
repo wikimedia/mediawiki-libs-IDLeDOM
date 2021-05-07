@@ -18,5 +18,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface StaticRange extends AbstractRange {
+	// Direct parent: AbstractRange
 
 }

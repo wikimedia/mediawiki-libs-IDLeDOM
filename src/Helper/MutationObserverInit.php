@@ -118,7 +118,7 @@ trait MutationObserverInit {
 	 * @param array|\Wikimedia\IDLeDOM\MutationObserverInit $a
 	 * @return \Wikimedia\IDLeDOM\MutationObserverInit
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\MutationObserverInit {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\MutationObserverInit ) {
 			return $a;
 		}

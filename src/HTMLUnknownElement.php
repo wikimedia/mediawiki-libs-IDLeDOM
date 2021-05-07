@@ -63,4 +63,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLUnknownElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 }

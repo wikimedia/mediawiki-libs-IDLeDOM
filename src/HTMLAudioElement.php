@@ -88,4 +88,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLAudioElement extends HTMLMediaElement {
+	// Direct parent: HTMLMediaElement
+
 }

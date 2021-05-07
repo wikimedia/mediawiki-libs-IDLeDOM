@@ -80,6 +80,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return bool
 	 */

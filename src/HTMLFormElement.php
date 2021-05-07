@@ -72,6 +72,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLFormElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return string
 	 */

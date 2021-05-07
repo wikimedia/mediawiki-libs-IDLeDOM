@@ -103,7 +103,7 @@ trait CustomEventInit {
 	 * @param array|\Wikimedia\IDLeDOM\CustomEventInit $a
 	 * @return \Wikimedia\IDLeDOM\CustomEventInit
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\CustomEventInit {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\CustomEventInit ) {
 			return $a;
 		}

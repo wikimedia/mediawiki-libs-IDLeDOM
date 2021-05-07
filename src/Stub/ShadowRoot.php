@@ -10,11 +10,6 @@ use Wikimedia\IDLeDOM\Element;
 use Wikimedia\IDLeDOM\EventHandlerNonNull;
 
 trait ShadowRoot {
-	// use \Wikimedia\IDLeDOM\Stub\DocumentFragment;
-	// use \Wikimedia\IDLeDOM\Stub\Node;
-	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
-	// use \Wikimedia\IDLeDOM\Stub\NonElementParentNode;
-	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\DocumentOrShadowRoot;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names

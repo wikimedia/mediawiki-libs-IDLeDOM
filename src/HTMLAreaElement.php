@@ -81,6 +81,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLAreaElement extends HTMLElement, HTMLHyperlinkElementUtils {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return string
 	 */

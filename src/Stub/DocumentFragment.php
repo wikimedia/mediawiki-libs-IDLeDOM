@@ -8,8 +8,6 @@ namespace Wikimedia\IDLeDOM\Stub;
 use Exception;
 
 trait DocumentFragment {
-	// use \Wikimedia\IDLeDOM\Stub\Node;
-	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 	// use \Wikimedia\IDLeDOM\Stub\NonElementParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
 

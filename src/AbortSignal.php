@@ -15,6 +15,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface AbortSignal extends EventTarget {
+	// Direct parent: EventTarget
+
 	/**
 	 * @return bool
 	 */

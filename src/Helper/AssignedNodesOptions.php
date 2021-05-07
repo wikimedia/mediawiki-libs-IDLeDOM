@@ -88,7 +88,7 @@ trait AssignedNodesOptions {
 	 * @param array|\Wikimedia\IDLeDOM\AssignedNodesOptions $a
 	 * @return \Wikimedia\IDLeDOM\AssignedNodesOptions
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\AssignedNodesOptions {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\AssignedNodesOptions ) {
 			return $a;
 		}

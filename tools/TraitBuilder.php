@@ -74,7 +74,7 @@ class TraitBuilder extends Builder {
 		$this->nl( " * @return \\Wikimedia\\IDLeDOM\\$topName" );
 		$this->nl( ' */' );
 		$cast = $this->map( $parentName, 'op', '_cast' );
-		$this->nl( "public static function $cast( \$f ): \\Wikimedia\\IDLeDOM\\$topName {" );
+		$this->nl( "public static function $cast( \$f ) {" );
 		$this->nl( "if ( \$f instanceof \\Wikimedia\\IDLeDOM\\$topName ) {" );
 		$this->nl( 'return $f;' );
 		$this->nl( '}' );
@@ -135,16 +135,24 @@ class TraitBuilder extends Builder {
 	 * @param string $topName
 	 * @param array $typeOpts
 	 * @param array &$attrs
+	 * @param bool $singleInheritance Whether the class $topName is on the
+	 *   single-inheritance chain or not.
 	 */
-	public static function collectAttributes( Generator $gen, string $topName, array $typeOpts, array &$attrs ) : void {
-		foreach ( $gen->mixins( $topName ) as $m ) {
-			self::collectAttributes( $gen, $m, $typeOpts, $attrs );
-		}
+	public static function collectAttributes(
+		Generator $gen, string $topName, array $typeOpts, array &$attrs,
+		bool $singleInheritance = false
+	) : void {
 		$def = $gen->def( $topName );
+		$parent = $def['inheritance'] ?? null;
+		foreach ( $gen->mixins( $topName ) as $m ) {
+			$si = $singleInheritance || ( $m === $parent );
+			self::collectAttributes( $gen, $m, $typeOpts, $attrs, $si );
+		}
 		'@phan-var array $def'; // @var array $def
 		foreach ( $def['members'] ?? [] as $m ) {
 			if ( $m['type'] === 'attribute' || $m['type'] === 'field' ) {
 				$info = self::attributeInfo( $gen, $topName, $typeOpts, $m );
+				$info['singleInheritance'] = $singleInheritance;
 				$attrs[] = $info;
 			}
 		}
@@ -252,7 +260,7 @@ class TraitBuilder extends Builder {
 		$this->nl( " * @return \\Wikimedia\\IDLeDOM\\$topName" );
 		$this->nl( ' */' );
 		$cast = $this->map( $parentName, 'op', '_cast' );
-		$this->nl( "public static function $cast( \$a ): \\Wikimedia\\IDLeDOM\\$topName {" );
+		$this->nl( "public static function $cast( \$a ) {" );
 		$this->nl( "if ( \$a instanceof \\Wikimedia\\IDLeDOM\\$topName ) {" );
 		$this->nl( 'return $a;' );
 		$this->nl( '}' );
@@ -287,6 +295,11 @@ class TraitBuilder extends Builder {
 	}
 
 	/** @inheritDoc */
+	protected function emitInterfaceMixin( string $topName, array $def ): void {
+		$this->emitInterface( $topName, $def );
+	}
+
+	/** @inheritDoc */
 	protected function emitInterface( string $topName, array $def ):void {
 		$this->skip = true; // skip unless we actually emit something.
 		$typeOpts = [ 'topName' => $topName ];
@@ -295,9 +308,9 @@ class TraitBuilder extends Builder {
 		self::collectAttributes( $this->gen, $topName, $typeOpts, $attrs );
 
 		$this->firstLine( $topName );
-		if ( count( $attrs ) > 0 ) {
+		if ( count( $attrs ) > 0 && $def['type'] !== 'interface mixin' ) {
 			/* Only create getter/setter helpers for interfaces which
-			 * contain attributes */
+			 * contain attributes and are not mixins */
 			$this->emitGetterSetter( $topName, $attrs, $typeOpts );
 			$this->skip = false;
 		}

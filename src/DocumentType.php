@@ -30,6 +30,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface DocumentType extends Node, ChildNode {
+	// Direct parent: Node
+
 	/**
 	 * @return string
 	 */

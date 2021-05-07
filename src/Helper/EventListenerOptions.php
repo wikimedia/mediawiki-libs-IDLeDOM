@@ -88,7 +88,7 @@ trait EventListenerOptions {
 	 * @param array|\Wikimedia\IDLeDOM\EventListenerOptions $a
 	 * @return \Wikimedia\IDLeDOM\EventListenerOptions
 	 */
-	public static function cast( $a ): \Wikimedia\IDLeDOM\EventListenerOptions {
+	public static function cast( $a ) {
 		if ( $a instanceof \Wikimedia\IDLeDOM\EventListenerOptions ) {
 			return $a;
 		}

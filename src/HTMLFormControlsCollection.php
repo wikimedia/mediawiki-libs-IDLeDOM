@@ -14,4 +14,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLFormControlsCollection extends HTMLCollection {
+	// Direct parent: HTMLCollection
+
 }

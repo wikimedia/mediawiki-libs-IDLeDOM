@@ -65,6 +65,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLLegendElement extends HTMLElement {
+	// Direct parent: HTMLElement
+
 	/**
 	 * @return HTMLFormElement|null
 	 */

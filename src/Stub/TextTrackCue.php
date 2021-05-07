@@ -10,7 +10,6 @@ use Wikimedia\IDLeDOM\EventHandlerNonNull;
 use Wikimedia\IDLeDOM\TextTrack;
 
 trait TextTrackCue {
-	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

@@ -17,6 +17,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface AudioTrackList extends EventTarget, \ArrayAccess {
+	// Direct parent: EventTarget
+
 	/**
 	 * @return int
 	 */

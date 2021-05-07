@@ -19,13 +19,15 @@ class StubBuilder extends Builder {
 		$this->e->emitMarker( 'UseStatements' );
 		$this->nl();
 		$this->nl( "trait $topName {" );
-		$mixins = [];
-		$this->collectMixins( $topName, $mixins );
-		foreach ( $mixins as $m ) {
+
+		$parent = $this->gen->def( $topName )['inheritance'] ?? null;
+		foreach ( $this->gen->mixins( $topName ) as $m ) {
 			// Emit as comment for use by test framework.  But each stub
 			// should only declare its own methods, not recursively define
 			// methods of a parent
-			$this->nl( "// use \\Wikimedia\\IDLeDOM\\Stub\\$m;" );
+			if ( $m !== $parent ) {
+				$this->nl( "// use \\Wikimedia\\IDLeDOM\\Stub\\$m;" );
+			}
 		}
 		$this->nl();
 		$this->nl( '// Underscore is used to avoid conflicts with DOM-reserved names' );

@@ -25,8 +25,6 @@ use Wikimedia\IDLeDOM\Text;
 use Wikimedia\IDLeDOM\TreeWalker;
 
 trait Document {
-	// use \Wikimedia\IDLeDOM\Stub\Node;
-	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 	// use \Wikimedia\IDLeDOM\Stub\DocumentOrShadowRoot;
 	// use \Wikimedia\IDLeDOM\Stub\NonElementParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\ParentNode;

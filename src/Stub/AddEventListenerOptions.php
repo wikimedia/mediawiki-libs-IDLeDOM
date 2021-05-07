@@ -9,7 +9,6 @@ use Exception;
 use Wikimedia\IDLeDOM\AbortSignal;
 
 trait AddEventListenerOptions {
-	// use \Wikimedia\IDLeDOM\Stub\EventListenerOptions;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

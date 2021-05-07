@@ -25,7 +25,7 @@ trait EventListener {
 	 * @param callable|\Wikimedia\IDLeDOM\EventListener $f
 	 * @return \Wikimedia\IDLeDOM\EventListener
 	 */
-	public static function cast( $f ): \Wikimedia\IDLeDOM\EventListener {
+	public static function cast( $f ) {
 		if ( $f instanceof \Wikimedia\IDLeDOM\EventListener ) {
 			return $f;
 		}

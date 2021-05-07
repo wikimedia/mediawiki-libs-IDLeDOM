@@ -27,6 +27,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface Node extends EventTarget {
+	// Direct parent: EventTarget
+
 	/** @var int */
 	public const ELEMENT_NODE = 1;
 

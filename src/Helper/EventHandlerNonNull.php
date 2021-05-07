@@ -25,7 +25,7 @@ trait EventHandlerNonNull {
 	 * @param callable|\Wikimedia\IDLeDOM\EventHandlerNonNull $f
 	 * @return \Wikimedia\IDLeDOM\EventHandlerNonNull
 	 */
-	public static function cast( $f ): \Wikimedia\IDLeDOM\EventHandlerNonNull {
+	public static function cast( $f ) {
 		if ( $f instanceof \Wikimedia\IDLeDOM\EventHandlerNonNull ) {
 			return $f;
 		}

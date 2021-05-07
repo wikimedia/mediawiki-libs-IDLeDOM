@@ -31,5 +31,6 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface DocumentFragment extends Node, NonElementParentNode, ParentNode {
+	// Direct parent: Node
 
 }

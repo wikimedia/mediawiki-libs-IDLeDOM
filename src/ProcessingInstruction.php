@@ -32,6 +32,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface ProcessingInstruction extends CharacterData {
+	// Direct parent: CharacterData
+
 	/**
 	 * @return string
 	 */

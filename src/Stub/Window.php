@@ -12,7 +12,6 @@ use Wikimedia\IDLeDOM\Event;
 use Wikimedia\IDLeDOM\Navigator;
 
 trait Window {
-	// use \Wikimedia\IDLeDOM\Stub\EventTarget;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

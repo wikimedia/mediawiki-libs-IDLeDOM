@@ -15,6 +15,8 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLOptionsCollection extends HTMLCollection {
+	// Direct parent: HTMLCollection
+
 	/**
 	 * @param int $index
 	 * @param HTMLOptionElement|null $option
