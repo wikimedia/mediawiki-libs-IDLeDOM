@@ -320,7 +320,7 @@ class InterfaceBuilder extends Builder {
 		TraitBuilder::collectAttributes( $this->gen, $topName, [], $attrs );
 		if ( count( $attrs ) > 0 ) {
 			foreach ( $attrs as $a ) {
-				$this->nl( " * @property {$a['docType']} \${$a['name']}" );
+				$this->nl( " * @property {$a['getterTypeDoc']} \${$a['name']}" );
 			}
 		}
 		$this->nl( ' * @phan-forbid-undeclared-magic-properties' );

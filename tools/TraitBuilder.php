@@ -144,28 +144,47 @@ class TraitBuilder extends Builder {
 		'@phan-var array $def'; // @var array $def
 		foreach ( $def['members'] ?? [] as $m ) {
 			if ( $m['type'] === 'attribute' || $m['type'] === 'field' ) {
-				$readonly = ( $m['readonly'] ?? false ) || ( $m['type'] === 'field' );
-				$default = '';
-				if ( ( $m['required'] ?? false ) === false && ( $m['default'] ?? null ) !== null ) {
-					$val = $gen->valueToPHP( $m['default'] );
-					$default = " ?? $val";
-				}
-				$attrs[] = [
-					'topName' => $topName,
-					'type' => $m['type'],
-					'name' => $m['name'],
-					'idlType' => $m['idlType'],
-					'readonly' => $readonly,
-					'docType' => $gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
-					'phpType' => $gen->typeToPHP( $m['idlType'], $typeOpts ),
-					'retType' => $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
-					'getter' => $gen->map( $topName, 'get', $m['name'] ),
-					'setter' => $readonly ? null :
-						$gen->map( $topName, 'set', $m['name'] ),
-					'default' => $default,
-				];
+				$info = self::attributeInfo( $gen, $topName, $typeOpts, $m );
+				$attrs[] = $info;
 			}
 		}
+	}
+
+	/**
+	 * Extract attribute information from a member array.
+	 * @param Generator $gen
+	 * @param string $topName
+	 * @param array $typeOpts
+	 * @param array $m Member information
+	 * @return array
+	 */
+	public static function attributeInfo( Generator $gen, string $topName, array $typeOpts, array $m ): array {
+		Assert::invariant(
+			$m['type'] === 'attribute' || $m['type'] === 'field',
+			"Member is not an attribute"
+		);
+		$readonly = ( $m['readonly'] ?? false ) || ( $m['type'] === 'field' );
+		$default = '';
+		if ( ( $m['required'] ?? false ) === false && ( $m['default'] ?? null ) !== null ) {
+			$val = $gen->valueToPHP( $m['default'] );
+			$default = " ?? $val";
+		}
+		$info = [
+			'topName' => $topName,
+			'type' => $m['type'],
+			'name' => $m['name'],
+			'idlType' => $m['idlType'],
+			'readonly' => $readonly,
+			'getterType' => $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
+			'getterTypeDoc' => $gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
+			'setterType' => $gen->typeToPHP( $m['idlType'], [ 'setter' => true ] + $typeOpts ),
+			'setterTypeDoc' => $gen->typeToPHPDoc( $m['idlType'], [ 'setter' => true ] + $typeOpts ),
+			'getter' => $gen->map( $topName, 'get', $m['name'] ),
+			'setter' => $readonly ? null :
+				$gen->map( $topName, 'set', $m['name'] ),
+			'default' => $default,
+		];
+		return $info;
 	}
 
 	/** @inheritDoc */
@@ -252,9 +271,9 @@ class TraitBuilder extends Builder {
 		$this->nl();
 		foreach ( $attrs as $a ) {
 			$this->nl( '/**' );
-			$this->nl( " * @return {$a['docType']}" );
+			$this->nl( " * @return {$a['getterTypeDoc']}" );
 			$this->nl( ' */' );
-			$this->nl( "public function {$a['getter']}(){$a['retType']} {" );
+			$this->nl( "public function {$a['getter']}(){$a['getterType']} {" );
 			$this->nl( 'return $this->a[' . json_encode( $a['name'] ) . ']' . $a['default'] . ';' );
 			$this->nl( '}' );
 			$this->nl();

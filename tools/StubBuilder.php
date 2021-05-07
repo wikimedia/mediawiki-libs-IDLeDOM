@@ -53,30 +53,25 @@ class StubBuilder extends Builder {
 	/** @inheritDoc */
 	protected function emitMemberAttribute( string $topName, string $name, array $m ) {
 		$typeOpts = [ 'topName' => $topName ];
-		// Getter
-		$getter = $this->map( $topName, 'get', $name );
-		$docType = $this->gen->typeToPHPDoc( $m['idlType'], $typeOpts );
-		$phpType = $this->gen->typeToPHP( $m['idlType'], [ 'setter' => true ] + $typeOpts );
-		$retType = $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts );
+		$info = TraitBuilder::attributeInfo( $this->gen, $topName, $typeOpts, $m );
 		$this->use( $m['idlType'], $typeOpts );
 
+		// Getter
 		$this->nl( '/**' );
-		$this->nl( " * @return $docType" );
+		$this->nl( " * @return {$info['getterTypeDoc']}" );
 		$this->nl( ' */' );
-		$this->nl( "public function $getter()$retType {" );
+		$this->nl( "public function {$info['getter']}(){$info['getterType']} {" );
 		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
-		if ( $m['readonly'] ?? false ) {
+		if ( $info['setter'] === null ) {
 			return;
 		}
 		$this->nl();
 		// Setter
-		$docType = $this->gen->typeToPHPDoc( $m['idlType'], [ 'setter' => true ] + $typeOpts );
-		$setter = $this->map( $topName, 'set', $name );
 		$this->nl( '/**' );
-		$this->nl( " * @param $docType \$val" );
+		$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
 		$this->nl( ' */' );
-		$this->nl( "public function $setter( $phpType \$val ) : void {" );
+		$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
 		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
 	}
