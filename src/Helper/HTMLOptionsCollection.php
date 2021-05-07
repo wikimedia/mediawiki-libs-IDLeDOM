@@ -142,7 +142,7 @@ trait HTMLOptionsCollection {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptionsCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOptionsCollection $this
 		if ( is_numeric( $offset ) ) {
-			/* Fall through */
+			$this->setItem( $offset, $value );
 		} elseif ( is_string( $offset ) ) {
 			/* Fall through */
 		}

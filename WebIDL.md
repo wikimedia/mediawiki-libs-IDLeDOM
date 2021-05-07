@@ -82,6 +82,11 @@ In WebIDL [`interface`] types, the names `getIterator` and `count` are
 reserved. (These are used to implement [`IteratorAggregate`] and
 [`Countable`].)
 
+If the WebIDL defines an "unnamed" indexed getter, named getter,
+indexed setter, named setter, indexed deleter or named deleter,
+the names `item`, `namedItem`, `setItem`, `setNamedItem`, `removeItem`,
+or `removeNamedItem` (respectively) are reserved.
+
 ### Resolution order
 
 When determining the PHP escaped name corresponding to an WebIDL name,

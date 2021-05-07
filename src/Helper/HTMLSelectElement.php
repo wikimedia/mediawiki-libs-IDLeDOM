@@ -600,7 +600,7 @@ trait HTMLSelectElement {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLSelectElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLSelectElement $this
 		if ( is_numeric( $offset ) ) {
-			/* Fall through */
+			$this->setItem( $offset, $value );
 		} elseif ( is_string( $offset ) ) {
 			/* Fall through */
 		}

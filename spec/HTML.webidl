@@ -754,7 +754,7 @@ interface TextTrackCue : EventTarget {
 interface TextTrackCueList {
   readonly attribute unsigned long length;
   getter TextTrackCue (unsigned long index);
-  TextTrackCue? getCueById(DOMString id);
+  [PHPExtension] getter TextTrackCue? getCueById(DOMString id);
 };
 
 

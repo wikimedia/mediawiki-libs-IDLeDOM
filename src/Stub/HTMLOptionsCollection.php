@@ -25,6 +25,15 @@ trait HTMLOptionsCollection {
 	// phpcs:enable
 
 	/**
+	 * @param int $index
+	 * @param HTMLOptionElement|null $option
+	 * @return void
+	 */
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param HTMLOptionElement|HTMLOptGroupElement $element
 	 * @param HTMLElement|int|null $before
 	 * @return void

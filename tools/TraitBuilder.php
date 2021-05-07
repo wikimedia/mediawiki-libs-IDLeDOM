@@ -269,20 +269,22 @@ class TraitBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitInterface( string $topName, array $def ):void {
+		$this->skip = true; // skip unless we actually emit something.
 		$typeOpts = [ 'topName' => $topName ];
-		/* Only create helpers for interface which contain attributes */
+
 		$attrs = [];
 		self::collectAttributes( $this->gen, $topName, $typeOpts, $attrs );
-		if ( count( $attrs ) === 0 ) {
-			parent::emitInterface( $topName, $def );
-			return;
-		}
 
 		$this->firstLine( $topName );
-		$this->emitGetterSetter( $topName, $attrs, $typeOpts );
+		if ( count( $attrs ) > 0 ) {
+			/* Only create getter/setter helpers for interfaces which
+			 * contain attributes */
+			$this->emitGetterSetter( $topName, $attrs, $typeOpts );
+			$this->skip = false;
+		}
 
-		// If there's a getter or setter, then we need to implement
-		// \ArrayAccess as well.
+		// We may need to implement \ArrayAccess, countable, or the
+		// stringifier as well.
 		$specials = InterfaceBuilder::specialOperationHelper(
 			$this->gen, $topName, $def
 		);
@@ -290,6 +292,7 @@ class TraitBuilder extends Builder {
 			$this->nl( '}' );
 			return;
 		}
+		$this->skip = false;
 		// declarations of all the specials
 		foreach ( $specials as $s => $r ) {
 			// Record types used

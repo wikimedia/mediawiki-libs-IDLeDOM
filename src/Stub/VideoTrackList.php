@@ -31,6 +31,14 @@ trait VideoTrackList {
 	}
 
 	/**
+	 * @param int $index
+	 * @return VideoTrack
+	 */
+	public function item( int $index ) {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param string $id
 	 * @return VideoTrack|null
 	 */

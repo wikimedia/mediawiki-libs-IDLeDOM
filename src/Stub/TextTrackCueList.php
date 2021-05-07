@@ -29,6 +29,14 @@ trait TextTrackCueList {
 	}
 
 	/**
+	 * @param int $index
+	 * @return TextTrackCue
+	 */
+	public function item( int $index ) {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param string $id
 	 * @return TextTrackCue|null
 	 */

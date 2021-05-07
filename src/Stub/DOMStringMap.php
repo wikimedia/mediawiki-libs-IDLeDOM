@@ -20,4 +20,29 @@ trait DOMStringMap {
 
 	// phpcs:enable
 
+	/**
+	 * @param string $name
+	 * @return string
+	 */
+	public function namedItem( string $name ) : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $name
+	 * @param string $value
+	 * @return void
+	 */
+	public function setNamedItem( string $name, string $value ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $name
+	 * @return void
+	 */
+	public function removeNamedItem( string $name ) : void {
+		throw self::_unimplemented();
+	}
+
 }

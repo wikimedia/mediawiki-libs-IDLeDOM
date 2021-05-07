@@ -13,11 +13,17 @@ namespace Wikimedia\IDLeDOM;
  * @property int $length
  * @phan-forbid-undeclared-magic-properties
  */
-interface TextTrackCueList {
+interface TextTrackCueList extends \ArrayAccess {
 	/**
 	 * @return int
 	 */
 	public function getLength() : int;
+
+	/**
+	 * @param int $index
+	 * @return TextTrackCue
+	 */
+	public function item( int $index );
 
 	/**
 	 * @param string $id

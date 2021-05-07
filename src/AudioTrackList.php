@@ -16,11 +16,17 @@ namespace Wikimedia\IDLeDOM;
  * @property EventHandlerNonNull|callable|null $onremovetrack
  * @phan-forbid-undeclared-magic-properties
  */
-interface AudioTrackList extends EventTarget {
+interface AudioTrackList extends EventTarget, \ArrayAccess {
 	/**
 	 * @return int
 	 */
 	public function getLength() : int;
+
+	/**
+	 * @param int $index
+	 * @return AudioTrack
+	 */
+	public function item( int $index );
 
 	/**
 	 * @param string $id

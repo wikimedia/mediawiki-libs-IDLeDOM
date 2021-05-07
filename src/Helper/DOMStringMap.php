@@ -5,46 +5,7 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-trait TextTrackCueList {
-	/**
-	 * @param string $name
-	 * @return mixed
-	 */
-	public function __get( string $name ) {
-		'@phan-var \Wikimedia\IDLeDOM\TextTrackCueList $this';
-		// @var \Wikimedia\IDLeDOM\TextTrackCueList $this
-		switch ( $name ) {
-			case "length":
-				return $this->getLength();
-			default:
-				break;
-		}
-		$trace = debug_backtrace();
-		trigger_error(
-			'Undefined property via __get(): ' . $name .
-			' in ' . $trace[0]['file'] .
-			' on line ' . $trace[0]['line'],
-			E_USER_NOTICE
-		);
-		return null;
-	}
-
-	/**
-	 * @param string $name
-	 * @return bool
-	 */
-	public function __isset( string $name ) : bool {
-		'@phan-var \Wikimedia\IDLeDOM\TextTrackCueList $this';
-		// @var \Wikimedia\IDLeDOM\TextTrackCueList $this
-		switch ( $name ) {
-			case "length":
-				return true;
-			default:
-				break;
-		}
-		return false;
-	}
-
+trait DOMStringMap {
 	/**
 	 * @param mixed $offset
 	 * @return bool
@@ -58,12 +19,12 @@ trait TextTrackCueList {
 	 * @return mixed
 	 */
 	public function offsetGet( $offset ) {
-		'@phan-var \Wikimedia\IDLeDOM\TextTrackCueList $this';
-		// @var \Wikimedia\IDLeDOM\TextTrackCueList $this
+		'@phan-var \Wikimedia\IDLeDOM\DOMStringMap $this';
+		// @var \Wikimedia\IDLeDOM\DOMStringMap $this
 		if ( is_numeric( $offset ) ) {
-			return $this->item( $offset );
+			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
-			return $this->getCueById( $offset );
+			return $this->namedItem( $offset );
 		}
 		$trace = debug_backtrace();
 		trigger_error(
@@ -80,12 +41,12 @@ trait TextTrackCueList {
 	 * @param mixed $value
 	 */
 	public function offsetSet( $offset, $value ) : void {
-		'@phan-var \Wikimedia\IDLeDOM\TextTrackCueList $this';
-		// @var \Wikimedia\IDLeDOM\TextTrackCueList $this
+		'@phan-var \Wikimedia\IDLeDOM\DOMStringMap $this';
+		// @var \Wikimedia\IDLeDOM\DOMStringMap $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
-			/* Fall through */
+			$this->setNamedItem( $offset, $value );
 		}
 		$trace = debug_backtrace();
 		trigger_error(
@@ -100,12 +61,12 @@ trait TextTrackCueList {
 	 * @param mixed $offset
 	 */
 	public function offsetUnset( $offset ) : void {
-		'@phan-var \Wikimedia\IDLeDOM\TextTrackCueList $this';
-		// @var \Wikimedia\IDLeDOM\TextTrackCueList $this
+		'@phan-var \Wikimedia\IDLeDOM\DOMStringMap $this';
+		// @var \Wikimedia\IDLeDOM\DOMStringMap $this
 		if ( is_numeric( $offset ) ) {
 			/* Fall through */
 		} elseif ( is_string( $offset ) ) {
-			/* Fall through */
+			$this->removeNamedItem( $offset );
 		}
 		$trace = debug_backtrace();
 		trigger_error(

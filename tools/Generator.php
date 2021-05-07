@@ -164,12 +164,12 @@ class Generator {
 		}
 		// Resolve name conflicts
 		$done = [];
-		foreach ( $this->defs as $name => $def ) {
+		foreach ( $this->defs as $name => &$def ) {
 			$this->resolveNames( $def, $done );
 		}
 	}
 
-	private function resolveNames( array $def, array &$done ): array {
+	private function resolveNames( array &$def, array &$done ): array {
 		$topName = $def['name'];
 		$allNames = [];
 		// Ensure each definition is only resolved once
@@ -244,15 +244,44 @@ class Generator {
 			array_key_exists( 'members', $def ),
 			"$topName doesn't have members!"
 		);
-		// Reserve `getIterator` for iterables and `count` for [PHPCountable]
-		foreach ( $def['members'] as $m ) {
+
+		foreach ( $def['members'] as &$m ) {
+			// Reserve `getIterator` for iterables
 			if ( $m['type'] === 'iterable' ) {
 				$this->nameMap["$topName:op:_iterable"] = $findName( 'getIterator', true );
 			}
+			// Reserve `count` for [PHPCountable]
 			if ( self::extAttrsContain( $m, 'PHPCountable' ) ) {
 				$this->nameMap["$topName:op:_count"] = $findName( 'count', true );
 			}
+			// Reserve names for 'unnamed' getter/setter/deleters
+			if (
+				$m['type'] === 'operation' &&
+				( $m['name'] ?? '' ) === '' &&
+				( $m['special'] ?? '' ) !== '' ) {
+				if ( $m['special'] === 'stringifier' ) {
+					// XXX unnamed stringifier
+					continue;
+				}
+				if ( count( $m['arguments'] ?? [] ) === 0 ) {
+					continue;
+				}
+				$which = ( (
+					$m['arguments'][0]['idlType']['idlType'] === "unsigned long"
+				) ? "indexed " : "named " ) . ( $m['special'] ?? '' );
+				$names = [
+					"indexed getter" => "item",
+					"named getter" => "namedItem",
+					"indexed setter" => "setItem",
+					"named setter" => "setNamedItem",
+					"indexed deleter" => "removeItem",
+					"named deleter" => "removeNamedItem",
+				];
+				$m['name'] = $names[$which] ?? '';
+			}
 		}
+		unset( $m );
+
 		// First resolve constants
 		foreach ( $def['members'] as $m ) {
 			if ( $m['type'] === 'const' ) {

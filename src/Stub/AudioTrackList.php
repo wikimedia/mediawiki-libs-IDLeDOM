@@ -31,6 +31,14 @@ trait AudioTrackList {
 	}
 
 	/**
+	 * @param int $index
+	 * @return AudioTrack
+	 */
+	public function item( int $index ) {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param string $id
 	 * @return AudioTrack|null
 	 */

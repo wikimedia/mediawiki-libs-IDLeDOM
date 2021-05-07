@@ -15,6 +15,12 @@ namespace Wikimedia\IDLeDOM;
  * @phan-forbid-undeclared-magic-properties
  */
 interface HTMLOptionsCollection extends HTMLCollection {
+	/**
+	 * @param int $index
+	 * @param HTMLOptionElement|null $option
+	 * @return void
+	 */
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void;
 
 	/**
 	 * @param HTMLOptionElement|HTMLOptGroupElement $element

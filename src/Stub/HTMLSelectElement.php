@@ -183,6 +183,15 @@ trait HTMLSelectElement {
 	}
 
 	/**
+	 * @param int $index
+	 * @param HTMLOptionElement|null $option
+	 * @return void
+	 */
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @return HTMLCollection
 	 */
 	public function getSelectedOptions() {

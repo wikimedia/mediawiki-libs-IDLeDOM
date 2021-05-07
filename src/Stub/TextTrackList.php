@@ -31,6 +31,14 @@ trait TextTrackList {
 	}
 
 	/**
+	 * @param int $index
+	 * @return TextTrack
+	 */
+	public function item( int $index ) {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param string $id
 	 * @return TextTrack|null
 	 */

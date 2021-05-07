@@ -185,6 +185,13 @@ interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	public function add( /* mixed */ $element, /* ?mixed */ $before = null ) : void;
 
 	/**
+	 * @param int $index
+	 * @param HTMLOptionElement|null $option
+	 * @return void
+	 */
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void;
+
+	/**
 	 * @return HTMLCollection
 	 */
 	public function getSelectedOptions();

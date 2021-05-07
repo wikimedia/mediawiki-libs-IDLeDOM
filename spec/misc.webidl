@@ -136,7 +136,7 @@ partial interface Window {
 interface AudioTrackList : EventTarget {
   readonly attribute unsigned long length;
   getter AudioTrack (unsigned long index);
-  AudioTrack? getTrackById(DOMString id);
+  [PHPExtension] getter AudioTrack? getTrackById(DOMString id);
 
   attribute EventHandler onchange;
   attribute EventHandler onaddtrack;
@@ -156,7 +156,7 @@ interface AudioTrack {
 interface VideoTrackList : EventTarget {
   readonly attribute unsigned long length;
   getter VideoTrack (unsigned long index);
-  VideoTrack? getTrackById(DOMString id);
+  [PHPExtension] getter VideoTrack? getTrackById(DOMString id);
   readonly attribute long selectedIndex;
 
   attribute EventHandler onchange;
@@ -178,7 +178,7 @@ interface VideoTrack {
 interface TextTrackList : EventTarget {
   readonly attribute unsigned long length;
   getter TextTrack (unsigned long index);
-  TextTrack? getTrackById(DOMString id);
+  [PHPExtension] getter TextTrack? getTrackById(DOMString id);
 
   attribute EventHandler onchange;
   attribute EventHandler onaddtrack;

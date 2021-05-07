@@ -17,11 +17,17 @@ namespace Wikimedia\IDLeDOM;
  * @property EventHandlerNonNull|callable|null $onremovetrack
  * @phan-forbid-undeclared-magic-properties
  */
-interface VideoTrackList extends EventTarget {
+interface VideoTrackList extends EventTarget, \ArrayAccess {
 	/**
 	 * @return int
 	 */
 	public function getLength() : int;
+
+	/**
+	 * @param int $index
+	 * @return VideoTrack
+	 */
+	public function item( int $index );
 
 	/**
 	 * @param string $id
