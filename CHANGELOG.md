@@ -1,6 +1,6 @@
 # IDLeDOM x.x.x (not yet released)
 * Add interfaces for HTML IDL, in particular the HTML*Element classes.
-* Support "unnamed" getter/setters/deleters.
+* Support "unnamed" getter/setters/deleters/stringifiers.
 
 # IDLeDOM 0.3.0 (2021-04-12)
 * Use interface (instead of class) for enumerations.  This allows

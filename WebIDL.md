@@ -83,9 +83,10 @@ reserved. (These are used to implement [`IteratorAggregate`] and
 [`Countable`].)
 
 If the WebIDL defines an "unnamed" indexed getter, named getter,
-indexed setter, named setter, indexed deleter or named deleter,
-the names `item`, `namedItem`, `setItem`, `setNamedItem`, `removeItem`,
-or `removeNamedItem` (respectively) are reserved.
+indexed setter, named setter, indexed deleter, named deleter, or
+stringifier operation, then the names `item`, `namedItem`, `setItem`,
+`setNamedItem`, `removeItem`, `removeNamedItem`, or `toString`
+(respectively) are reserved.
 
 ### Resolution order
 

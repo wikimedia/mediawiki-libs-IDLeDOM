@@ -65,4 +65,13 @@ trait Range {
 		return false;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function __toString() : string {
+		'@phan-var \Wikimedia\IDLeDOM\Range $this';
+		// @var \Wikimedia\IDLeDOM\Range $this
+		return $this->toString();
+	}
+
 }

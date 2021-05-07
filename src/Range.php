@@ -157,4 +157,9 @@ interface Range extends AbstractRange {
 	 */
 	public function intersectsNode( /* Node */ $node ) : bool;
 
+	/**
+	 * @return string
+	 */
+	public function toString() : string;
+
 }

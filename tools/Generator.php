@@ -260,15 +260,24 @@ class Generator {
 				( $m['name'] ?? '' ) === '' &&
 				( $m['special'] ?? '' ) !== '' ) {
 				if ( $m['special'] === 'stringifier' ) {
-					// XXX unnamed stringifier
+					// unnamed stringifier operation
+					$which = "stringifier";
+					$m['idlType'] = [
+						'idlType' => 'DOMString',
+						'type' => null,
+						'extAttrs' => [],
+						'generic' => '',
+						'nullable' => false,
+						'union' => false,
+					];
+				} elseif ( count( $m['arguments'] ?? [] ) === 0 ) {
 					continue;
+				} else {
+					$firstArgType = $m['arguments'][0]['idlType']['idlType'];
+					$which = ( (
+						$firstArgType === "unsigned long"
+					) ? "indexed " : "named " ) . ( $m['special'] ?? '' );
 				}
-				if ( count( $m['arguments'] ?? [] ) === 0 ) {
-					continue;
-				}
-				$which = ( (
-					$m['arguments'][0]['idlType']['idlType'] === "unsigned long"
-				) ? "indexed " : "named " ) . ( $m['special'] ?? '' );
 				$names = [
 					"indexed getter" => "item",
 					"named getter" => "namedItem",
@@ -276,6 +285,7 @@ class Generator {
 					"named setter" => "setNamedItem",
 					"indexed deleter" => "removeItem",
 					"named deleter" => "removeNamedItem",
+					"stringifier" => "toString",
 				];
 				$m['name'] = $names[$which] ?? '';
 			}

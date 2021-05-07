@@ -190,4 +190,11 @@ trait Range {
 		throw self::_unimplemented();
 	}
 
+	/**
+	 * @return string
+	 */
+	public function toString() : string {
+		throw self::_unimplemented();
+	}
+
 }
