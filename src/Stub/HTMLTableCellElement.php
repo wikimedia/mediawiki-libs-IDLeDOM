@@ -69,18 +69,4 @@ trait HTMLTableCellElement {
 		throw self::_unimplemented();
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function getNoWrap() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setNoWrap( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

@@ -484,6 +484,26 @@ trait HTMLElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getHidden() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'hidden' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setHidden( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'hidden', '' );
+		} else {
+			$this->removeAttribute( 'hidden' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getAccessKey() : string {

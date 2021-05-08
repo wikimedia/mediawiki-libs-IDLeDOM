@@ -534,4 +534,24 @@ trait HTMLTrackElement {
 		$this->setAttribute( 'label', $val );
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function getDefault() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'default' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDefault( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'default', '' );
+		} else {
+			$this->removeAttribute( 'default' );
+		}
+	}
+
 }

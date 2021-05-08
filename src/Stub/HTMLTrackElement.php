@@ -35,20 +35,6 @@ trait HTMLTrackElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getDefault() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDefault( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getReadyState() : int {

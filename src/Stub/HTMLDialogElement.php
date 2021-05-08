@@ -20,18 +20,4 @@ trait HTMLDialogElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return bool
-	 */
-	public function getOpen() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setOpen( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

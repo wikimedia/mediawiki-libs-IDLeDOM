@@ -671,4 +671,24 @@ trait HTMLAreaElement {
 		$this->setAttribute( 'rel', $val );
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function getNoHref() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'nohref' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setNoHref( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'nohref', '' );
+		} else {
+			$this->removeAttribute( 'nohref' );
+		}
+	}
+
 }

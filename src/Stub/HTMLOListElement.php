@@ -21,20 +21,6 @@ trait HTMLOListElement {
 	// phpcs:enable
 
 	/**
-	 * @return bool
-	 */
-	public function getReversed() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setReversed( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getStart() : int {
@@ -45,20 +31,6 @@ trait HTMLOListElement {
 	 * @param int $val
 	 */
 	public function setStart( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getCompact() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setCompact( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 

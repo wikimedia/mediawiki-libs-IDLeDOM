@@ -65,20 +65,6 @@ trait HTMLFormElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getNoValidate() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setNoValidate( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLFormControlsCollection
 	 */
 	public function getElements() {

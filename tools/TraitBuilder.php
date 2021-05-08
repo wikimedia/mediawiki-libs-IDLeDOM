@@ -214,7 +214,8 @@ class TraitBuilder extends Builder {
 			// We're only handling some of these cases right now.
 			$info['reflectHelper'] = (
 				$info['reflectType'] === 'Reflect' &&
-				$m['idlType']['idlType'] === 'DOMString' &&
+				( $m['idlType']['idlType'] === 'boolean' ||
+				 $m['idlType']['idlType'] === 'DOMString' ) &&
 				( $m['idlType']['nullable'] ?? false ) === false
 			);
 		}
@@ -362,7 +363,14 @@ class TraitBuilder extends Builder {
 			$this->nl( ' */' );
 			$this->nl( "public function {$info['getter']}(){$info['getterType']} {" );
 			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
-			$this->nl( "return \$this->getAttribute( $attrName ) ?? '';" );
+			switch ( $info['idlType']['idlType'] ) {
+			case 'DOMString':
+				$this->nl( "return \$this->getAttribute( $attrName ) ?? '';" );
+				break;
+			case 'boolean':
+				$this->nl( "return \$this->hasAttribute( $attrName );" );
+				break;
+			}
 			$this->nl( '}' );
 			$this->nl();
 			if ( $info['setter'] === null ) {
@@ -374,7 +382,18 @@ class TraitBuilder extends Builder {
 			$this->nl( ' */' );
 			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
 			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
-			$this->nl( "\$this->setAttribute( $attrName, \$val{$trailer} );" );
+			switch ( $info['idlType']['idlType'] ) {
+			case 'DOMString':
+				$this->nl( "\$this->setAttribute( $attrName, \$val{$trailer} );" );
+				break;
+			case 'boolean':
+				$this->nl( "if ( \$val ) {" );
+				$this->nl( "\$this->setAttribute( $attrName, '' );" );
+				$this->nl( "} else {" );
+				$this->nl( "\$this->removeAttribute( $attrName );" );
+				$this->nl( "}" );
+				break;
+			}
 			$this->nl( '}' );
 			$this->nl();
 		}

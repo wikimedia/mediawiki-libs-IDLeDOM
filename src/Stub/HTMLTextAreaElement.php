@@ -24,20 +24,6 @@ trait HTMLTextAreaElement {
 	// phpcs:enable
 
 	/**
-	 * @return bool
-	 */
-	public function getAutofocus() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setAutofocus( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getCols() : int {
@@ -48,20 +34,6 @@ trait HTMLTextAreaElement {
 	 * @param int $val
 	 */
 	public function setCols( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getDisabled() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDisabled( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -97,34 +69,6 @@ trait HTMLTextAreaElement {
 	 * @param int $val
 	 */
 	public function setMinLength( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getReadOnly() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setReadOnly( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getRequired() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setRequired( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 

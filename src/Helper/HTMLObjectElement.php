@@ -738,6 +738,26 @@ trait HTMLObjectElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getDeclare() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'declare' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDeclare( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'declare', '' );
+		} else {
+			$this->removeAttribute( 'declare' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getStandby() : string {

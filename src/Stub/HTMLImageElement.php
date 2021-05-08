@@ -63,20 +63,6 @@ trait HTMLImageElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getIsMap() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setIsMap( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getWidth() : int {

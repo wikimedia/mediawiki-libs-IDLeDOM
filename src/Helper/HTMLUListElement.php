@@ -454,6 +454,26 @@ trait HTMLUListElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getCompact() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'compact' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setCompact( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'compact', '' );
+		} else {
+			$this->removeAttribute( 'compact' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getType() : string {

@@ -63,20 +63,6 @@ trait HTMLMarqueeElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getTrueSpeed() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setTrueSpeed( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getVspace() : int {

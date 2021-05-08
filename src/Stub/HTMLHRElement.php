@@ -20,18 +20,4 @@ trait HTMLHRElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return bool
-	 */
-	public function getNoShade() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setNoShade( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

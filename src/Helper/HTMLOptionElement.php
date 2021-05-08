@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLOptionElement {
 	/**
 	 * @param string $name
@@ -497,6 +499,46 @@ trait HTMLOptionElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getDisabled() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'disabled' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDisabled( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'disabled', '' );
+		} else {
+			$this->removeAttribute( 'disabled' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getDefaultSelected() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'selected' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDefaultSelected( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'selected', '' );
+		} else {
+			$this->removeAttribute( 'selected' );
+		}
 	}
 
 }

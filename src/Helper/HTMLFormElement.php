@@ -543,6 +543,26 @@ trait HTMLFormElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getNoValidate() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'novalidate' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setNoValidate( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'novalidate', '' );
+		} else {
+			$this->removeAttribute( 'novalidate' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getTarget() : string {

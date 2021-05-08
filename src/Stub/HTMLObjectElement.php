@@ -95,20 +95,6 @@ trait HTMLObjectElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getDeclare() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDeclare( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getHspace() : int {

@@ -454,6 +454,26 @@ trait HTMLOptGroupElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getDisabled() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'disabled' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDisabled( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'disabled', '' );
+		} else {
+			$this->removeAttribute( 'disabled' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getLabel() : string {

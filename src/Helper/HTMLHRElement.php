@@ -513,6 +513,26 @@ trait HTMLHRElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getNoShade() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'noshade' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setNoShade( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'noshade', '' );
+		} else {
+			$this->removeAttribute( 'noshade' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getSize() : string {

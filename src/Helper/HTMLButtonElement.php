@@ -529,6 +529,66 @@ trait HTMLButtonElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getAutofocus() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'autofocus' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setAutofocus( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'autofocus', '' );
+		} else {
+			$this->removeAttribute( 'autofocus' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getDisabled() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'disabled' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDisabled( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'disabled', '' );
+		} else {
+			$this->removeAttribute( 'disabled' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getFormNoValidate() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'formnovalidate' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setFormNoValidate( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'formnovalidate', '' );
+		} else {
+			$this->removeAttribute( 'formnovalidate' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getFormTarget() : string {

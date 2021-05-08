@@ -638,4 +638,84 @@ trait HTMLMediaElement {
 		$this->setAttribute( 'preload', $val );
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function getAutoplay() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'autoplay' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setAutoplay( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'autoplay', '' );
+		} else {
+			$this->removeAttribute( 'autoplay' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getLoop() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'loop' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setLoop( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'loop', '' );
+		} else {
+			$this->removeAttribute( 'loop' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getControls() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'controls' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setControls( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'controls', '' );
+		} else {
+			$this->removeAttribute( 'controls' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getDefaultMuted() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'muted' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDefaultMuted( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'muted', '' );
+		} else {
+			$this->removeAttribute( 'muted' );
+		}
+	}
+
 }

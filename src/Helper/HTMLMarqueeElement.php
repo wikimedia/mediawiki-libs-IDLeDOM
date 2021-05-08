@@ -590,6 +590,26 @@ trait HTMLMarqueeElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getTrueSpeed() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'truespeed' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setTrueSpeed( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'truespeed', '' );
+		} else {
+			$this->removeAttribute( 'truespeed' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getWidth() : string {

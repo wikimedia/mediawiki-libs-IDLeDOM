@@ -35,20 +35,6 @@ trait HTMLScriptElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getDefer() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDefer( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return ?string
 	 */
 	public function getCrossOrigin() : ?string {

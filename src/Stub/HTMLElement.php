@@ -51,20 +51,6 @@ trait HTMLElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getHidden() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setHidden( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return void
 	 */
 	public function click() : void {

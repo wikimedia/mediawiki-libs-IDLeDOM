@@ -582,6 +582,26 @@ trait HTMLIFrameElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getAllowFullscreen() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'allowfullscreen' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setAllowFullscreen( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'allowfullscreen', '' );
+		} else {
+			$this->removeAttribute( 'allowfullscreen' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getWidth() : string {

@@ -696,6 +696,26 @@ trait HTMLTableCellElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getNoWrap() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'nowrap' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setNoWrap( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'nowrap', '' );
+		} else {
+			$this->removeAttribute( 'nowrap' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getVAlign() : string {

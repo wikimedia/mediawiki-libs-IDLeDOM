@@ -20,18 +20,4 @@ trait HTMLOptGroupElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return bool
-	 */
-	public function getDisabled() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDisabled( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

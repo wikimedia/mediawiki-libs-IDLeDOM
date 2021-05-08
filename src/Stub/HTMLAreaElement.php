@@ -29,18 +29,4 @@ trait HTMLAreaElement {
 		throw self::_unimplemented();
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function getNoHref() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setNoHref( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

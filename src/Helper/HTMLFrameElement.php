@@ -562,6 +562,26 @@ trait HTMLFrameElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getNoResize() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'noresize' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setNoResize( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'noresize', '' );
+		} else {
+			$this->removeAttribute( 'noresize' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getMarginHeight() : string {

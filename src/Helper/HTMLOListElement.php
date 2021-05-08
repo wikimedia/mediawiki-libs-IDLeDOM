@@ -472,6 +472,26 @@ trait HTMLOListElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getReversed() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'reversed' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setReversed( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'reversed', '' );
+		} else {
+			$this->removeAttribute( 'reversed' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getType() : string {
@@ -485,6 +505,26 @@ trait HTMLOListElement {
 	public function setType( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'type', $val );
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getCompact() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'compact' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setCompact( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'compact', '' );
+		} else {
+			$this->removeAttribute( 'compact' );
+		}
 	}
 
 }

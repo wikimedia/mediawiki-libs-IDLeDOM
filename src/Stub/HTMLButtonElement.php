@@ -24,51 +24,9 @@ trait HTMLButtonElement {
 	// phpcs:enable
 
 	/**
-	 * @return bool
-	 */
-	public function getAutofocus() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setAutofocus( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getDisabled() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDisabled( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getFormNoValidate() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setFormNoValidate( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 

@@ -76,18 +76,4 @@ trait HTMLVideoElement {
 		throw self::_unimplemented();
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function getPlaysInline() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setPlaysInline( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

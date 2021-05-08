@@ -172,51 +172,9 @@ trait HTMLMediaElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getAutoplay() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setAutoplay( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getLoop() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setLoop( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return void
 	 */
 	public function pause() : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getControls() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setControls( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -245,20 +203,6 @@ trait HTMLMediaElement {
 	 * @param bool $val
 	 */
 	public function setMuted( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getDefaultMuted() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDefaultMuted( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 

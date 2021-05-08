@@ -50,20 +50,6 @@ trait HTMLFrameElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getNoResize() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setNoResize( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return Document|null
 	 */
 	public function getContentDocument() {

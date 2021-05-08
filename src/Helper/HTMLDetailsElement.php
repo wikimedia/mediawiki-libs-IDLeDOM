@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLDetailsElement {
 	/**
 	 * @param string $name
@@ -440,6 +442,26 @@ trait HTMLDetailsElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getOpen() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'open' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setOpen( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'open', '' );
+		} else {
+			$this->removeAttribute( 'open' );
+		}
 	}
 
 }

@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLDirectoryElement {
 	/**
 	 * @param string $name
@@ -440,6 +442,26 @@ trait HTMLDirectoryElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getCompact() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'compact' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setCompact( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'compact', '' );
+		} else {
+			$this->removeAttribute( 'compact' );
+		}
 	}
 
 }

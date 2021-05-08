@@ -653,6 +653,26 @@ trait HTMLImageElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getIsMap() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'ismap' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setIsMap( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'ismap', '' );
+		} else {
+			$this->removeAttribute( 'ismap' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getName() : string {

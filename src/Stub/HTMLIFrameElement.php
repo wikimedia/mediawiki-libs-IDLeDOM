@@ -36,20 +36,6 @@ trait HTMLIFrameElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getAllowFullscreen() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setAllowFullscreen( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return Document|null
 	 */
 	public function getContentDocument() {

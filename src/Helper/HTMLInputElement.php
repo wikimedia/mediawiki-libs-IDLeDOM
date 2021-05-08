@@ -829,6 +829,46 @@ trait HTMLInputElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getAutofocus() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'autofocus' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setAutofocus( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'autofocus', '' );
+		} else {
+			$this->removeAttribute( 'autofocus' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getDefaultChecked() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'checked' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDefaultChecked( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'checked', '' );
+		} else {
+			$this->removeAttribute( 'checked' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getDirName() : string {
@@ -842,6 +882,46 @@ trait HTMLInputElement {
 	public function setDirName( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'dirname', $val );
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getDisabled() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'disabled' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDisabled( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'disabled', '' );
+		} else {
+			$this->removeAttribute( 'disabled' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getFormNoValidate() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'formnovalidate' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setFormNoValidate( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'formnovalidate', '' );
+		} else {
+			$this->removeAttribute( 'formnovalidate' );
+		}
 	}
 
 	/**
@@ -909,6 +989,26 @@ trait HTMLInputElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getMultiple() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'multiple' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setMultiple( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'multiple', '' );
+		} else {
+			$this->removeAttribute( 'multiple' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getName() : string {
@@ -954,6 +1054,46 @@ trait HTMLInputElement {
 	public function setPlaceholder( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'placeholder', $val );
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getReadOnly() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'readonly' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setReadOnly( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'readonly', '' );
+		} else {
+			$this->removeAttribute( 'readonly' );
+		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getRequired() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'required' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setRequired( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'required', '' );
+		} else {
+			$this->removeAttribute( 'required' );
+		}
 	}
 
 	/**

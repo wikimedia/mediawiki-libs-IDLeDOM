@@ -27,34 +27,6 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setAutofocus( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getDefaultChecked() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDefaultChecked( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
 	public function getChecked() : bool {
 		throw self::_unimplemented();
 	}
@@ -67,37 +39,9 @@ trait HTMLInputElement {
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function getDisabled() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDisabled( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getFormNoValidate() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setFormNoValidate( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -147,48 +91,6 @@ trait HTMLInputElement {
 	 * @param int $val
 	 */
 	public function setMinLength( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getMultiple() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setMultiple( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getReadOnly() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setReadOnly( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getRequired() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setRequired( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 

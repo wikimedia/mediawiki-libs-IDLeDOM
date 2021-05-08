@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLVideoElement {
 	/**
 	 * @param string $name
@@ -666,6 +668,26 @@ trait HTMLVideoElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getPlaysInline() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'playsinline' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setPlaysInline( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'playsinline', '' );
+		} else {
+			$this->removeAttribute( 'playsinline' );
+		}
 	}
 
 }

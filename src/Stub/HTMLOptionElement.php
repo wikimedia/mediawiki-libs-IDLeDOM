@@ -22,20 +22,6 @@ trait HTMLOptionElement {
 	// phpcs:enable
 
 	/**
-	 * @return bool
-	 */
-	public function getDisabled() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDisabled( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm() {
@@ -53,20 +39,6 @@ trait HTMLOptionElement {
 	 * @param string $val
 	 */
 	public function setLabel( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function getDefaultSelected() : bool {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param bool $val
-	 */
-	public function setDefaultSelected( bool $val ) : void {
 		throw self::_unimplemented();
 	}
 

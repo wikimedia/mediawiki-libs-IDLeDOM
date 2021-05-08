@@ -525,6 +525,26 @@ trait HTMLScriptElement {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getDefer() : bool {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->hasAttribute( 'defer' );
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setDefer( bool $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val ) {
+			$this->setAttribute( 'defer', '' );
+		} else {
+			$this->removeAttribute( 'defer' );
+		}
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getCharset() : string {
