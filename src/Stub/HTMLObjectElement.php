@@ -38,79 +38,9 @@ trait HTMLObjectElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getType() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setType( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getUseMap() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setUseMap( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getWidth() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setWidth( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getHeight() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setHeight( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -165,48 +95,6 @@ trait HTMLObjectElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getAlign() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlign( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getArchive() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setArchive( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getCode() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setCode( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getDeclare() : bool {
@@ -235,20 +123,6 @@ trait HTMLObjectElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getStandby() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setStandby( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getVspace() : int {
@@ -273,34 +147,6 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setCodeBase( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getCodeType() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setCodeType( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getBorder() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setBorder( ?string $val ) : void {
 		throw self::_unimplemented();
 	}
 

@@ -23,34 +23,6 @@ trait HTMLElement {
 	// phpcs:enable
 
 	/**
-	 * @return string
-	 */
-	public function getTitle() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setTitle( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getLang() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setLang( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getTranslate() : bool {
@@ -96,20 +68,6 @@ trait HTMLElement {
 	 * @return void
 	 */
 	public function click() : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAccessKey() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAccessKey( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLAreaElement {
 	/**
 	 * @param string $name
@@ -587,6 +589,86 @@ trait HTMLAreaElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlt() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'alt' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlt( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'alt', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCoords() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'coords' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setCoords( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'coords', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getShape() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'shape' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setShape( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'shape', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTarget() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'target' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setTarget( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'target', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRel() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'rel' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setRel( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'rel', $val );
 	}
 
 }

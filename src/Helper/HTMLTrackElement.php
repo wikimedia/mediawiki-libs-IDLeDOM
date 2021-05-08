@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLTrackElement {
 	/**
 	 * @param string $name
@@ -482,6 +484,54 @@ trait HTMLTrackElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getKind() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'kind' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setKind( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'kind', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSrclang() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'srclang' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSrclang( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'srclang', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLabel() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'label' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setLabel( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'label', $val );
 	}
 
 }

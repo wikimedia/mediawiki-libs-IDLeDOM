@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLTimeElement {
 	/**
 	 * @param string $name
@@ -440,6 +442,22 @@ trait HTMLTimeElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDateTime() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'datetime' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDateTime( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'datetime', $val );
 	}
 
 }

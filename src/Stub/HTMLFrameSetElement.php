@@ -20,32 +20,4 @@ trait HTMLFrameSetElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return string
-	 */
-	public function getCols() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setCols( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRows() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setRows( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

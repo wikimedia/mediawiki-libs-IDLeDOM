@@ -25,48 +25,6 @@ trait HTMLInputElement {
 	// phpcs:enable
 
 	/**
-	 * @return string
-	 */
-	public function getAccept() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAccept( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAlt() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlt( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAutocomplete() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAutocomplete( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getAutofocus() : bool {
@@ -109,20 +67,6 @@ trait HTMLInputElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getDirName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setDirName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getDisabled() : bool {
@@ -158,20 +102,6 @@ trait HTMLInputElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getFormTarget() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setFormTarget( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getIndeterminate() : bool {
@@ -186,37 +116,9 @@ trait HTMLInputElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getInputMode() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setInputMode( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLElement|null
 	 */
 	public function getList() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getMax() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setMax( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -231,20 +133,6 @@ trait HTMLInputElement {
 	 * @param int $val
 	 */
 	public function setMaxLength( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getMin() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setMin( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -273,48 +161,6 @@ trait HTMLInputElement {
 	 * @param bool $val
 	 */
 	public function setMultiple( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPattern() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setPattern( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPlaceholder() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setPlaceholder( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -377,20 +223,6 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getStep() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setStep( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getType() : string {
 		throw self::_unimplemented();
 	}
@@ -399,20 +231,6 @@ trait HTMLInputElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getDefaultValue() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setDefaultValue( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -574,34 +392,6 @@ trait HTMLInputElement {
 	 * @return void
 	 */
 	public function setSelectionRange( int $start, int $end, ?string $direction = null ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAlign() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlign( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getUseMap() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setUseMap( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

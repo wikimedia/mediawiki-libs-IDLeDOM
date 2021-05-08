@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLFrameSetElement {
 	/**
 	 * @param string $name
@@ -449,6 +451,38 @@ trait HTMLFrameSetElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCols() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'cols' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setCols( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'cols', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRows() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'rows' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setRows( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'rows', $val );
 	}
 
 }

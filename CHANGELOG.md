@@ -3,6 +3,8 @@
 * Support "unnamed" getter/setters/deleters/stringifiers.
 * Return return types for cast() helper methods, in order to accommodate
   the weak covariant return type checks in PHP 7.2.
+* Generate helper functions for attributes with the [Reflect] extended
+  attribute (which reflect an HTML element attribute).
 
 # IDLeDOM 0.3.0 (2021-04-12)
 * Use interface (instead of class) for enumerations.  This allows

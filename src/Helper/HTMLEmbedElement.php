@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLEmbedElement {
 	/**
 	 * @param string $name
@@ -485,6 +487,86 @@ trait HTMLEmbedElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'type' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'type', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getWidth() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'width' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setWidth( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'width', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHeight() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'height' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHeight( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'height', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlign() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'align' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlign( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'align', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
 	}
 
 }

@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLMetaElement {
 	/**
 	 * @param string $name
@@ -467,6 +469,70 @@ trait HTMLMetaElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHttpEquiv() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'http-equiv' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHttpEquiv( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'http-equiv', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getContent() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'content' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setContent( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'content', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getScheme() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'scheme' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setScheme( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'scheme', $val );
 	}
 
 }

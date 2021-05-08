@@ -49,20 +49,6 @@ trait HTMLTableCellElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getHeaders() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setHeaders( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getCellIndex() : int {
@@ -84,104 +70,6 @@ trait HTMLTableCellElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getAbbr() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAbbr( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAlign() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlign( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAxis() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAxis( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getHeight() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setHeight( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getWidth() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setWidth( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getCh() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setCh( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getChOff() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setChOff( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getNoWrap() : bool {
@@ -192,34 +80,6 @@ trait HTMLTableCellElement {
 	 * @param bool $val
 	 */
 	public function setNoWrap( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getVAlign() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setVAlign( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getBgColor() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setBgColor( ?string $val ) : void {
 		throw self::_unimplemented();
 	}
 

@@ -191,7 +191,34 @@ class TraitBuilder extends Builder {
 			'setter' => $readonly ? null :
 				$gen->map( $topName, 'set', $m['name'] ),
 			'default' => $default,
+			'reflectType' => null,
+			'reflectAttr' => strtolower( $m['name'] ),
+			'reflectHelper' => false,
+			'reflectLegacyNull' => false,
 		];
+		// Handle attributes with [Reflect]
+		$reflect = Generator::extAttrNamed( $m, 'Reflect' ) ??
+				 Generator::extAttrNamed( $m, 'ReflectURL' );
+		if ( $reflect ) {
+			$info['reflectType'] = $reflect['name'];
+			if ( $reflect['rhs'] !== null ) {
+				Assert::invariant(
+					$reflect['rhs']['type'] === 'string',
+					"Reflect argument of unexpected type"
+				);
+				$info['reflectAttr'] = json_decode( $reflect['rhs']['value'] );
+			}
+			// Handle [LegacyNullToEmptyString]
+			$info['reflectLegacyNull'] =
+				Generator::extAttrsContain( $m['idlType'], 'LegacyNullToEmptyString' );
+			// We're only handling some of these cases right now.
+			$info['reflectHelper'] = (
+				$info['reflectType'] === 'Reflect' &&
+				$m['idlType']['idlType'] === 'DOMString' &&
+				( $m['idlType']['nullable'] ?? false ) === false
+			);
+		}
+
 		return $info;
 	}
 
@@ -313,6 +340,43 @@ class TraitBuilder extends Builder {
 			 * contain attributes and are not mixins */
 			$this->emitGetterSetter( $topName, $attrs, $typeOpts );
 			$this->skip = false;
+		}
+
+		// Attributes with the [Reflect] property
+		// XXX need to include attributes from mixins as well, but not from
+		// our direct inheritance
+		foreach ( $attrs as $info ) {
+			if ( $info['singleInheritance'] ) {
+				continue; // skip attributes in single-inheritance chain
+			}
+			if ( !$info['reflectHelper'] ) {
+				continue; // not a reflected attribute
+			}
+			$this->skip = false;
+			$this->use( $info['idlType'], $typeOpts );
+			$this->use( [ 'idlType' => 'Element' ], $typeOpts );
+			$attrName = var_export( $info['reflectAttr'], true );
+
+			$this->nl( '/**' );
+			$this->nl( " * @return {$info['getterTypeDoc']}" );
+			$this->nl( ' */' );
+			$this->nl( "public function {$info['getter']}(){$info['getterType']} {" );
+			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
+			$this->nl( "return \$this->getAttribute( $attrName ) ?? '';" );
+			$this->nl( '}' );
+			$this->nl();
+			if ( $info['setter'] === null ) {
+				continue; // no setter
+			}
+			$trailer = $info['reflectLegacyNull'] ? " ?? ''" : '';
+			$this->nl( '/**' );
+			$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
+			$this->nl( ' */' );
+			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
+			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
+			$this->nl( "\$this->setAttribute( $attrName, \$val{$trailer} );" );
+			$this->nl( '}' );
+			$this->nl();
 		}
 
 		// We may need to implement \ArrayAccess, countable, or the

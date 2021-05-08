@@ -21,34 +21,6 @@ trait HTMLHRElement {
 	// phpcs:enable
 
 	/**
-	 * @return string
-	 */
-	public function getAlign() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlign( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getColor() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setColor( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getNoShade() : bool {
@@ -59,34 +31,6 @@ trait HTMLHRElement {
 	 * @param bool $val
 	 */
 	public function setNoShade( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSize() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setSize( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getWidth() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setWidth( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

@@ -24,34 +24,6 @@ trait HTMLFrameElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getScrolling() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setScrolling( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getSrc() : string {
 		throw self::_unimplemented();
 	}
@@ -60,20 +32,6 @@ trait HTMLFrameElement {
 	 * @param string $val
 	 */
 	public function setSrc( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getFrameBorder() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setFrameBorder( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -109,34 +67,6 @@ trait HTMLFrameElement {
 	 * @return Document|null
 	 */
 	public function getContentDocument() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getMarginHeight() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setMarginHeight( ?string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getMarginWidth() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setMarginWidth( ?string $val ) : void {
 		throw self::_unimplemented();
 	}
 

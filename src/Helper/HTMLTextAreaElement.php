@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLTextAreaElement {
 	/**
 	 * @param string $name
@@ -644,6 +646,102 @@ trait HTMLTextAreaElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAutocomplete() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'autocomplete' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAutocomplete( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'autocomplete', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDirName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'dirname' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDirName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'dirname', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInputMode() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'inputmode' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setInputMode( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'inputmode', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPlaceholder() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'placeholder' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setPlaceholder( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'placeholder', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getWrap() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'wrap' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setWrap( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'wrap', $val );
 	}
 
 }

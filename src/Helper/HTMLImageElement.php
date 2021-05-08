@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLImageElement {
 	/**
 	 * @param string $name
@@ -600,6 +602,102 @@ trait HTMLImageElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlt() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'alt' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlt( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'alt', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSizes() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'sizes' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSizes( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'sizes', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getUseMap() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'usemap' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setUseMap( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'usemap', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlign() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'align' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlign( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'align', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBorder() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'border' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setBorder( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'border', $val ?? '' );
 	}
 
 }

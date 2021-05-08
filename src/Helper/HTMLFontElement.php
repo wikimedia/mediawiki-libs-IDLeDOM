@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLFontElement {
 	/**
 	 * @param string $name
@@ -458,6 +460,54 @@ trait HTMLFontElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getColor() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'color' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setColor( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'color', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFace() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'face' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFace( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'face', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSize() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'size' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSize( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'size', $val );
 	}
 
 }

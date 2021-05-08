@@ -23,20 +23,6 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getAlt() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlt( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getSrc() : string {
 		throw self::_unimplemented();
 	}
@@ -63,20 +49,6 @@ trait HTMLImageElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getSizes() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setSizes( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return ?string
 	 */
 	public function getCrossOrigin() : ?string {
@@ -87,20 +59,6 @@ trait HTMLImageElement {
 	 * @param ?string $val
 	 */
 	public function setCrossOrigin( ?string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getUseMap() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setUseMap( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -177,20 +135,6 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getLowsrc() : string {
 		throw self::_unimplemented();
 	}
@@ -199,20 +143,6 @@ trait HTMLImageElement {
 	 * @param string $val
 	 */
 	public function setLowsrc( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAlign() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlign( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -255,20 +185,6 @@ trait HTMLImageElement {
 	 * @param string $val
 	 */
 	public function setLongDesc( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getBorder() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setBorder( ?string $val ) : void {
 		throw self::_unimplemented();
 	}
 

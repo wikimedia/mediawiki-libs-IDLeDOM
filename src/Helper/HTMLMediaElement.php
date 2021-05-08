@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLMediaElement {
 	/**
 	 * @param string $name
@@ -618,6 +620,22 @@ trait HTMLMediaElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPreload() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'preload' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setPreload( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'preload', $val );
 	}
 
 }

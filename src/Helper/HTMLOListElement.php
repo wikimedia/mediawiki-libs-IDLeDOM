@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLOListElement {
 	/**
 	 * @param string $name
@@ -467,6 +469,22 @@ trait HTMLOListElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'type' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'type', $val );
 	}
 
 }

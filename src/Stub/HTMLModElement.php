@@ -34,18 +34,4 @@ trait HTMLModElement {
 		throw self::_unimplemented();
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getDateTime() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setDateTime( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

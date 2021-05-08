@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLLabelElement {
 	/**
 	 * @param string $name
@@ -452,6 +454,22 @@ trait HTMLLabelElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHtmlFor() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'for' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHtmlFor( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'for', $val );
 	}
 
 }

@@ -41,20 +41,6 @@ trait HTMLOutputElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getType() : string {
 		throw self::_unimplemented();
 	}

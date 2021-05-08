@@ -34,18 +34,4 @@ trait HTMLBaseElement {
 		throw self::_unimplemented();
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getTarget() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setTarget( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

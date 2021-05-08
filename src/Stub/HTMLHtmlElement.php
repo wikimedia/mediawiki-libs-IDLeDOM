@@ -20,18 +20,4 @@ trait HTMLHtmlElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return string
-	 */
-	public function getVersion() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setVersion( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLIFrameElement {
 	/**
 	 * @param string $name
@@ -545,6 +547,150 @@ trait HTMLIFrameElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSrcdoc() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'srcdoc' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSrcdoc( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'srcdoc', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getWidth() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'width' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setWidth( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'width', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHeight() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'height' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHeight( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'height', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlign() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'align' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlign( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'align', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getScrolling() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'scrolling' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setScrolling( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'scrolling', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFrameBorder() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'frameborder' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFrameBorder( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'frameborder', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMarginHeight() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'marginheight' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setMarginHeight( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'marginheight', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMarginWidth() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'marginwidth' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setMarginWidth( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'marginwidth', $val ?? '' );
 	}
 
 }

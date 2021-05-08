@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLParamElement {
 	/**
 	 * @param string $name
@@ -467,6 +469,70 @@ trait HTMLParamElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getValue() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'value' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setValue( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'value', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'type' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'type', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getValueType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'valuetype' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setValueType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'valuetype', $val );
 	}
 
 }

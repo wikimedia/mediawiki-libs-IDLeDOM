@@ -20,18 +20,4 @@ trait HTMLDataElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return string
-	 */
-	public function getValue() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setValue( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

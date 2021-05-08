@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLAnchorElement {
 	/**
 	 * @param string $name
@@ -632,6 +634,166 @@ trait HTMLAnchorElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTarget() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'target' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setTarget( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'target', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDownload() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'download' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDownload( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'download', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRel() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'rel' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setRel( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'rel', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHreflang() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'hreflang' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHreflang( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'hreflang', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'type' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'type', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCoords() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'coords' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setCoords( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'coords', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCharset() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'charset' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setCharset( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'charset', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRev() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'rev' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setRev( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'rev', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getShape() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'shape' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setShape( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'shape', $val );
 	}
 
 }

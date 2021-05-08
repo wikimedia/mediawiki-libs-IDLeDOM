@@ -34,18 +34,4 @@ trait HTMLOptGroupElement {
 		throw self::_unimplemented();
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getLabel() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setLabel( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

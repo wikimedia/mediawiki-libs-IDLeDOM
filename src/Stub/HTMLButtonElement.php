@@ -75,34 +75,6 @@ trait HTMLButtonElement {
 	/**
 	 * @return string
 	 */
-	public function getFormTarget() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setFormTarget( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getType() : string {
 		throw self::_unimplemented();
 	}
@@ -111,20 +83,6 @@ trait HTMLButtonElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getValue() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setValue( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

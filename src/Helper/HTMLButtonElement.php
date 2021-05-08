@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLButtonElement {
 	/**
 	 * @param string $name
@@ -524,6 +526,54 @@ trait HTMLButtonElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFormTarget() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'formtarget' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormTarget( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'formtarget', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getValue() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'value' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setValue( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'value', $val );
 	}
 
 }

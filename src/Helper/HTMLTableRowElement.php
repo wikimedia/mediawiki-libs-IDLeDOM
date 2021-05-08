@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLTableRowElement {
 	/**
 	 * @param string $name
@@ -494,6 +496,86 @@ trait HTMLTableRowElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlign() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'align' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlign( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'align', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCh() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'char' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setCh( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'char', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getChOff() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'charoff' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setChOff( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'charoff', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getVAlign() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'valign' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setVAlign( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'valign', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBgColor() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'bgcolor' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setBgColor( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'bgcolor', $val ?? '' );
 	}
 
 }

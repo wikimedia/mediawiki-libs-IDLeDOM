@@ -30,20 +30,6 @@ trait HTMLLabelElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getHtmlFor() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setHtmlFor( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLElement|null
 	 */
 	public function getControl() {

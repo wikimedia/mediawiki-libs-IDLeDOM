@@ -23,20 +23,6 @@ trait HTMLTrackElement {
 	/**
 	 * @return string
 	 */
-	public function getKind() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setKind( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getSrc() : string {
 		throw self::_unimplemented();
 	}
@@ -45,34 +31,6 @@ trait HTMLTrackElement {
 	 * @param string $val
 	 */
 	public function setSrc( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSrclang() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setSrclang( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getLabel() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setLabel( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

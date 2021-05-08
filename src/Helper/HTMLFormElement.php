@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLFormElement {
 	/**
 	 * @param string $name
@@ -506,6 +508,54 @@ trait HTMLFormElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAcceptCharset() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'accept-charset' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAcceptCharset( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'accept-charset', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTarget() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'target' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setTarget( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'target', $val );
 	}
 
 }

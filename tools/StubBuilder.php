@@ -56,6 +56,10 @@ class StubBuilder extends Builder {
 	protected function emitMemberAttribute( string $topName, string $name, array $m ) {
 		$typeOpts = [ 'topName' => $topName ];
 		$info = TraitBuilder::attributeInfo( $this->gen, $topName, $typeOpts, $m );
+		if ( $info['reflectHelper'] ) {
+			// Skip this, it is a reflected attribute and doesn't need a stub
+			return;
+		}
 		$this->use( $m['idlType'], $typeOpts );
 
 		// Getter

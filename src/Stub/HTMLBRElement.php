@@ -20,18 +20,4 @@ trait HTMLBRElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return string
-	 */
-	public function getClear() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setClear( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

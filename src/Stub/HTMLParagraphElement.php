@@ -20,18 +20,4 @@ trait HTMLParagraphElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return string
-	 */
-	public function getAlign() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAlign( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

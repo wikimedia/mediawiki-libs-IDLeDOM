@@ -377,12 +377,25 @@ class Generator {
 	 *   among the extended attributes of the member.
 	 */
 	public static function extAttrsContain( array $m, string $name ) : bool {
+		return self::extAttrNamed( $m, $name ) !== null;
+	}
+
+	/**
+	 * Search the extended attributes for the given member for an attribute
+	 * with the given name and return it.
+	 * @param array $m WebIDL AST for a member
+	 * @param string $name Name of the extended attribute to search for
+	 * @return array|null The extended attribute array, if an extended
+	 *   attribute with the given name is among the extended attributes of
+	 *   the member, otherwise `null`.
+	 */
+	public static function extAttrNamed( array $m, string $name ) : ?array {
 		foreach ( $m['extAttrs'] ?? [] as $ea ) {
 			if ( ( $ea['name'] ?? '' ) === $name ) {
-				return true;
+				return $ea;
 			}
 		}
-		return false;
+		return null;
 	}
 
 	private function typeIncludes( array $ty, string $which ) {

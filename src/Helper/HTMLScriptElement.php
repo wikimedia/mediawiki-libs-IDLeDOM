@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLScriptElement {
 	/**
 	 * @param string $name
@@ -504,6 +506,70 @@ trait HTMLScriptElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'type' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'type', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCharset() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'charset' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setCharset( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'charset', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEvent() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'event' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setEvent( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'event', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHtmlFor() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'for' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHtmlFor( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'for', $val );
 	}
 
 }

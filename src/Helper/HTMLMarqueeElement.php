@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLMarqueeElement {
 	/**
 	 * @param string $name
@@ -521,6 +523,86 @@ trait HTMLMarqueeElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBehavior() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'behavior' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setBehavior( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'behavior', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBgColor() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'bgcolor' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setBgColor( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'bgcolor', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDirection() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'direction' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDirection( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'direction', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHeight() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'height' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHeight( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'height', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getWidth() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'width' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setWidth( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'width', $val );
 	}
 
 }

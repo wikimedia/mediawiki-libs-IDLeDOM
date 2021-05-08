@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLBodyElement {
 	/**
 	 * @param string $name
@@ -485,6 +487,102 @@ trait HTMLBodyElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getText() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'text' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setText( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'text', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLink() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'link' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setLink( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'link', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getVLink() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'vlink' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setVLink( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'vlink', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getALink() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'alink' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setALink( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'alink', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBgColor() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'bgcolor' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setBgColor( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'bgcolor', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBackground() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'background' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setBackground( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'background', $val );
 	}
 
 }

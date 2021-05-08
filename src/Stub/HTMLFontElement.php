@@ -20,46 +20,4 @@ trait HTMLFontElement {
 
 	// phpcs:enable
 
-	/**
-	 * @return string
-	 */
-	public function getColor() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setColor( ?string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getFace() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setFace( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSize() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setSize( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

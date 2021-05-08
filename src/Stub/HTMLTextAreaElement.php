@@ -24,20 +24,6 @@ trait HTMLTextAreaElement {
 	// phpcs:enable
 
 	/**
-	 * @return string
-	 */
-	public function getAutocomplete() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAutocomplete( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getAutofocus() : bool {
@@ -66,20 +52,6 @@ trait HTMLTextAreaElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getDirName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setDirName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getDisabled() : bool {
@@ -97,20 +69,6 @@ trait HTMLTextAreaElement {
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getInputMode() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setInputMode( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -139,34 +97,6 @@ trait HTMLTextAreaElement {
 	 * @param int $val
 	 */
 	public function setMinLength( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPlaceholder() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setPlaceholder( string $val ) : void {
 		throw self::_unimplemented();
 	}
 
@@ -209,20 +139,6 @@ trait HTMLTextAreaElement {
 	 * @param int $val
 	 */
 	public function setRows( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getWrap() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setWrap( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

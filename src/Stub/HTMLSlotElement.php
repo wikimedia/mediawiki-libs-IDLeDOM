@@ -24,20 +24,6 @@ trait HTMLSlotElement {
 	// phpcs:enable
 
 	/**
-	 * @return string
-	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @param AssignedNodesOptions|associative-array|null $options
 	 * @return list<Node>
 	 */

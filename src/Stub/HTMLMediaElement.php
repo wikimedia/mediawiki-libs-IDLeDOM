@@ -67,20 +67,6 @@ trait HTMLMediaElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getPreload() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setPreload( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return TimeRanges
 	 */
 	public function getBuffered() {

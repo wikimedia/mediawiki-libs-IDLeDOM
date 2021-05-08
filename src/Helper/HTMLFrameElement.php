@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLFrameElement {
 	/**
 	 * @param string $name
@@ -509,6 +511,86 @@ trait HTMLFrameElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getScrolling() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'scrolling' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setScrolling( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'scrolling', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFrameBorder() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'frameborder' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFrameBorder( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'frameborder', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMarginHeight() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'marginheight' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setMarginHeight( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'marginheight', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMarginWidth() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'marginwidth' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setMarginWidth( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'marginwidth', $val ?? '' );
 	}
 
 }

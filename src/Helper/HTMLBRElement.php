@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLBRElement {
 	/**
 	 * @param string $name
@@ -440,6 +442,22 @@ trait HTMLBRElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getClear() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'clear' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setClear( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'clear', $val );
 	}
 
 }

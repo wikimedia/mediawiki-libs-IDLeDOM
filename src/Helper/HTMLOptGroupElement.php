@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLOptGroupElement {
 	/**
 	 * @param string $name
@@ -449,6 +451,22 @@ trait HTMLOptGroupElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLabel() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'label' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setLabel( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'label', $val );
 	}
 
 }

@@ -25,20 +25,6 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getAcceptCharset() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setAcceptCharset( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getAction() : string {
 		throw self::_unimplemented();
 	}
@@ -79,20 +65,6 @@ trait HTMLFormElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function getNoValidate() : bool {
@@ -103,20 +75,6 @@ trait HTMLFormElement {
 	 * @param bool $val
 	 */
 	public function setNoValidate( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getTarget() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setTarget( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

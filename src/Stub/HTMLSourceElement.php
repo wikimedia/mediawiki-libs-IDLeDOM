@@ -37,20 +37,6 @@ trait HTMLSourceElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setType( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getSrcset() : string {
 		throw self::_unimplemented();
 	}
@@ -59,34 +45,6 @@ trait HTMLSourceElement {
 	 * @param string $val
 	 */
 	public function setSrcset( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSizes() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setSizes( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getMedia() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setMedia( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

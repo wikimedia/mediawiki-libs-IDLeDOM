@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLInputElement {
 	/**
 	 * @param string $name
@@ -776,6 +778,246 @@ trait HTMLInputElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAccept() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'accept' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAccept( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'accept', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlt() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'alt' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlt( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'alt', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAutocomplete() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'autocomplete' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAutocomplete( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'autocomplete', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDirName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'dirname' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDirName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'dirname', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFormTarget() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'formtarget' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormTarget( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'formtarget', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInputMode() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'inputmode' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setInputMode( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'inputmode', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMax() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'max' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setMax( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'max', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMin() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'min' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setMin( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'min', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'name' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setName( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPattern() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'pattern' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setPattern( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'pattern', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPlaceholder() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'placeholder' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setPlaceholder( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'placeholder', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getStep() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'step' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setStep( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'step', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDefaultValue() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'value' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDefaultValue( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'value', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlign() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'align' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlign( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'align', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getUseMap() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'usemap' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setUseMap( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'usemap', $val );
 	}
 
 }

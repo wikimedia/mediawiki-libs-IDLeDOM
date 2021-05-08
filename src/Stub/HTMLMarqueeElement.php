@@ -21,62 +21,6 @@ trait HTMLMarqueeElement {
 	// phpcs:enable
 
 	/**
-	 * @return string
-	 */
-	public function getBehavior() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setBehavior( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getBgColor() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setBgColor( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getDirection() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setDirection( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getHeight() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setHeight( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return int
 	 */
 	public function getHspace() : int {
@@ -143,20 +87,6 @@ trait HTMLMarqueeElement {
 	 * @param int $val
 	 */
 	public function setVspace( int $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getWidth() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setWidth( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

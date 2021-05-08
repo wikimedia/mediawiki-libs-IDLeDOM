@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLTableElement {
 	/**
 	 * @param string $name
@@ -554,6 +556,150 @@ trait HTMLTableElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAlign() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'align' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAlign( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'align', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBorder() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'border' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setBorder( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'border', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFrame() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'frame' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFrame( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'frame', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRules() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'rules' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setRules( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'rules', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSummary() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'summary' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSummary( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'summary', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getWidth() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'width' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setWidth( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'width', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBgColor() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'bgcolor' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setBgColor( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'bgcolor', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCellPadding() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'cellpadding' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setCellPadding( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'cellpadding', $val ?? '' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCellSpacing() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'cellspacing' ) ?? '';
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setCellSpacing( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'cellspacing', $val ?? '' );
 	}
 
 }

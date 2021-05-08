@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLElement {
 	/**
 	 * @param string $name
@@ -431,6 +433,70 @@ trait HTMLElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getNonce() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'nonce' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setNonce( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'nonce', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTitle() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'title' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setTitle( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'title', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLang() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'lang' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setLang( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'lang', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAccessKey() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'accesskey' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAccessKey( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'accesskey', $val );
 	}
 
 }
