@@ -5,6 +5,8 @@
   the weak covariant return type checks in PHP 7.2.
 * Generate helper functions for attributes with the [Reflect] extended
   attribute (which reflect an HTML element attribute).
+* Add Document::encoding setter, for compatibility with PHP's
+  DOMDocument.  This is marked as [PHPExtension].
 
 # IDLeDOM 0.3.0 (2021-04-12)
 * Use interface (instead of class) for enumerations.  This allows

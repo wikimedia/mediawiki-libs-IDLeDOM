@@ -36,6 +36,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $charset
  * @property string $inputEncoding
  * @property string $contentType
+ * @property string $encoding
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement
  * @phan-forbid-undeclared-magic-properties

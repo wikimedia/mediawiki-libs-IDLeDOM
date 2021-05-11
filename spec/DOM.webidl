@@ -269,6 +269,13 @@ interface Document : Node {
   readonly attribute DOMString inputEncoding; // legacy alias of .characterSet
   readonly attribute DOMString contentType;
 
+  // This exists in PHP's built-in DOMDocument.  PHP specs say:
+  // Encoding of the document, as specified by the XML declaration.
+  // This attribute is not present in the final DOM Level 3 specification,
+  // but is the only way of manipulating XML document encoding in this
+  // implementation.
+  [PHPExtension] attribute DOMString encoding;
+
   readonly attribute DocumentType? doctype;
   readonly attribute Element? documentElement;
   HTMLCollection getElementsByTagName(DOMString qualifiedName);
