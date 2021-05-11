@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -62,7 +66,9 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetHeight
  * @property string $acceptCharset
  * @property string $action
+ * @property string $autocomplete
  * @property string $enctype
+ * @property string $encoding
  * @property string $method
  * @property string $name
  * @property bool $noValidate
@@ -97,12 +103,32 @@ interface HTMLFormElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
+	public function getAutocomplete() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setAutocomplete( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
 	public function getEnctype() : string;
 
 	/**
 	 * @param string $val
 	 */
 	public function setEnctype( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getEncoding() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setEncoding( string $val ) : void;
 
 	/**
 	 * @return string

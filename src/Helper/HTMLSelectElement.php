@@ -78,6 +78,14 @@ trait HTMLSelectElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -116,6 +124,8 @@ trait HTMLSelectElement {
 				return $this->getOffsetWidth();
 			case "offsetHeight":
 				return $this->getOffsetHeight();
+			case "autocomplete":
+				return $this->getAutocomplete();
 			case "autofocus":
 				return $this->getAutofocus();
 			case "disabled":
@@ -233,6 +243,14 @@ trait HTMLSelectElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -270,6 +288,8 @@ trait HTMLSelectElement {
 			case "offsetWidth":
 				return true;
 			case "offsetHeight":
+				return true;
+			case "autocomplete":
 				return true;
 			case "autofocus":
 				return true;
@@ -334,6 +354,15 @@ trait HTMLSelectElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -369,6 +398,9 @@ trait HTMLSelectElement {
 				return;
 			case "innerText":
 				$this->setInnerText( $value );
+				return;
+			case "autocomplete":
+				$this->setAutocomplete( $value );
 				return;
 			case "autofocus":
 				$this->setAutofocus( $value );
@@ -480,6 +512,14 @@ trait HTMLSelectElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -517,6 +557,8 @@ trait HTMLSelectElement {
 			case "offsetWidth":
 				break;
 			case "offsetHeight":
+				break;
+			case "autocomplete":
 				break;
 			case "autofocus":
 				break;
@@ -562,6 +604,33 @@ trait HTMLSelectElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAutocomplete() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'autocomplete' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'on':
+				case 'off':
+					return $val;
+				default:
+					return 'on';
+			}
+		}
+		return 'on';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAutocomplete( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'autocomplete', $val );
 	}
 
 	/**

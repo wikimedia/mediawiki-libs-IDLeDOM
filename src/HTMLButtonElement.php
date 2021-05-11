@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -63,6 +67,8 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $autofocus
  * @property bool $disabled
  * @property HTMLFormElement|null $form
+ * @property string $formEnctype
+ * @property string $formMethod
  * @property bool $formNoValidate
  * @property string $formTarget
  * @property string $name
@@ -101,6 +107,26 @@ interface HTMLButtonElement extends HTMLElement {
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm();
+
+	/**
+	 * @return string
+	 */
+	public function getFormEnctype() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormEnctype( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getFormMethod() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormMethod( string $val ) : void;
 
 	/**
 	 * @return bool

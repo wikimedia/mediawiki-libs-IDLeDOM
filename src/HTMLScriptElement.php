@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -60,17 +64,17 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetLeft
  * @property int $offsetWidth
  * @property int $offsetHeight
+ * @property ?string $crossOrigin
  * @property string $src
  * @property string $type
  * @property bool $defer
- * @property ?string $crossOrigin
  * @property string $text
  * @property string $charset
  * @property string $event
  * @property string $htmlFor
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLScriptElement extends HTMLElement {
+interface HTMLScriptElement extends HTMLElement, CrossOrigin {
 	// Direct parent: HTMLElement
 
 	/**
@@ -102,16 +106,6 @@ interface HTMLScriptElement extends HTMLElement {
 	 * @param bool $val
 	 */
 	public function setDefer( bool $val ) : void;
-
-	/**
-	 * @return ?string
-	 */
-	public function getCrossOrigin() : ?string;
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setCrossOrigin( ?string $val ) : void;
 
 	/**
 	 * @return string

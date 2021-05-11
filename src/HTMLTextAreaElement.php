@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -66,7 +70,6 @@ namespace Wikimedia\IDLeDOM;
  * @property string $dirName
  * @property bool $disabled
  * @property HTMLFormElement|null $form
- * @property string $inputMode
  * @property int $maxLength
  * @property int $minLength
  * @property string $name
@@ -145,16 +148,6 @@ interface HTMLTextAreaElement extends HTMLElement {
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm();
-
-	/**
-	 * @return string
-	 */
-	public function getInputMode() : string;
-
-	/**
-	 * @param string $val
-	 */
-	public function setInputMode( string $val ) : void;
 
 	/**
 	 * @return int

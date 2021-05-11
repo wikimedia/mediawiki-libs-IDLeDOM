@@ -9,6 +9,7 @@ use Exception;
 use Wikimedia\IDLeDOM\Document;
 
 trait HTMLIFrameElement {
+	// use \Wikimedia\IDLeDOM\Stub\ReferrerPolicy;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

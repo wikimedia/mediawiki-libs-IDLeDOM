@@ -78,6 +78,14 @@ trait HTMLScriptElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -116,14 +124,14 @@ trait HTMLScriptElement {
 				return $this->getOffsetWidth();
 			case "offsetHeight":
 				return $this->getOffsetHeight();
+			case "crossOrigin":
+				return $this->getCrossOrigin();
 			case "src":
 				return $this->getSrc();
 			case "type":
 				return $this->getType();
 			case "defer":
 				return $this->getDefer();
-			case "crossOrigin":
-				return $this->getCrossOrigin();
 			case "text":
 				return $this->getText();
 			case "charset":
@@ -215,6 +223,14 @@ trait HTMLScriptElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -253,14 +269,14 @@ trait HTMLScriptElement {
 				return true;
 			case "offsetHeight":
 				return true;
+			case "crossOrigin":
+				return $this->getCrossOrigin() !== null;
 			case "src":
 				return true;
 			case "type":
 				return true;
 			case "defer":
 				return true;
-			case "crossOrigin":
-				return $this->getCrossOrigin() !== null;
 			case "text":
 				return true;
 			case "charset":
@@ -298,6 +314,15 @@ trait HTMLScriptElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -334,6 +359,9 @@ trait HTMLScriptElement {
 			case "innerText":
 				$this->setInnerText( $value );
 				return;
+			case "crossOrigin":
+				$this->setCrossOrigin( $value );
+				return;
 			case "src":
 				$this->setSrc( $value );
 				return;
@@ -342,9 +370,6 @@ trait HTMLScriptElement {
 				return;
 			case "defer":
 				$this->setDefer( $value );
-				return;
-			case "crossOrigin":
-				$this->setCrossOrigin( $value );
 				return;
 			case "text":
 				$this->setText( $value );
@@ -441,6 +466,14 @@ trait HTMLScriptElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -479,15 +512,15 @@ trait HTMLScriptElement {
 				break;
 			case "offsetHeight":
 				break;
+			case "crossOrigin":
+				$this->setCrossOrigin( null );
+				return;
 			case "src":
 				break;
 			case "type":
 				break;
 			case "defer":
 				break;
-			case "crossOrigin":
-				$this->setCrossOrigin( null );
-				return;
 			case "text":
 				break;
 			case "charset":
@@ -506,6 +539,37 @@ trait HTMLScriptElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return ?string
+	 */
+	public function getCrossOrigin() : ?string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'crossorigin' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'anonymous':
+				case 'use-credentials':
+					return $val;
+				default:
+					return 'anonymous';
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setCrossOrigin( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val !== null ) {
+			$this->setAttribute( 'crossorigin', $val );
+		} else {
+			$this->removeAttribute( 'crossorigin' );
+		}
 	}
 
 	/**

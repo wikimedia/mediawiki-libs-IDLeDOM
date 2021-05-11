@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -60,11 +64,12 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetLeft
  * @property int $offsetWidth
  * @property int $offsetHeight
+ * @property ?string $crossOrigin
+ * @property string $referrerPolicy
  * @property string $alt
  * @property string $src
  * @property string $srcset
  * @property string $sizes
- * @property ?string $crossOrigin
  * @property string $useMap
  * @property bool $isMap
  * @property int $width
@@ -73,6 +78,8 @@ namespace Wikimedia\IDLeDOM;
  * @property int $naturalHeight
  * @property bool $complete
  * @property string $currentSrc
+ * @property string $decoding
+ * @property string $loading
  * @property string $name
  * @property string $lowsrc
  * @property string $align
@@ -82,7 +89,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $border
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLImageElement extends HTMLElement {
+interface HTMLImageElement extends HTMLElement, CrossOrigin, ReferrerPolicy {
 	// Direct parent: HTMLElement
 
 	/**
@@ -124,16 +131,6 @@ interface HTMLImageElement extends HTMLElement {
 	 * @param string $val
 	 */
 	public function setSizes( string $val ) : void;
-
-	/**
-	 * @return ?string
-	 */
-	public function getCrossOrigin() : ?string;
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setCrossOrigin( ?string $val ) : void;
 
 	/**
 	 * @return string
@@ -194,6 +191,26 @@ interface HTMLImageElement extends HTMLElement {
 	 * @return string
 	 */
 	public function getCurrentSrc() : string;
+
+	/**
+	 * @return string
+	 */
+	public function getDecoding() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setDecoding( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getLoading() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setLoading( string $val ) : void;
 
 	/**
 	 * @return string

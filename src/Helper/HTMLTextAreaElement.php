@@ -78,6 +78,14 @@ trait HTMLTextAreaElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -128,8 +136,6 @@ trait HTMLTextAreaElement {
 				return $this->getDisabled();
 			case "form":
 				return $this->getForm();
-			case "inputMode":
-				return $this->getInputMode();
 			case "maxLength":
 				return $this->getMaxLength();
 			case "minLength":
@@ -251,6 +257,14 @@ trait HTMLTextAreaElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -301,8 +315,6 @@ trait HTMLTextAreaElement {
 				return true;
 			case "form":
 				return $this->getForm() !== null;
-			case "inputMode":
-				return true;
 			case "maxLength":
 				return true;
 			case "minLength":
@@ -370,6 +382,15 @@ trait HTMLTextAreaElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -420,9 +441,6 @@ trait HTMLTextAreaElement {
 				return;
 			case "disabled":
 				$this->setDisabled( $value );
-				return;
-			case "inputMode":
-				$this->setInputMode( $value );
 				return;
 			case "maxLength":
 				$this->setMaxLength( $value );
@@ -546,6 +564,14 @@ trait HTMLTextAreaElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -595,8 +621,6 @@ trait HTMLTextAreaElement {
 			case "disabled":
 				break;
 			case "form":
-				break;
-			case "inputMode":
 				break;
 			case "maxLength":
 				break;
@@ -653,7 +677,18 @@ trait HTMLTextAreaElement {
 	 */
 	public function getAutocomplete() : string {
 		'@phan-var Element $this'; /** @var Element $this */
-		return $this->getAttribute( 'autocomplete' ) ?? '';
+		$val = $this->getAttribute( 'autocomplete' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'on':
+				case 'off':
+					return $val;
+				default:
+					return 'on';
+			}
+		}
+		return 'on';
 	}
 
 	/**
@@ -718,22 +753,6 @@ trait HTMLTextAreaElement {
 		} else {
 			$this->removeAttribute( 'disabled' );
 		}
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getInputMode() : string {
-		'@phan-var Element $this'; /** @var Element $this */
-		return $this->getAttribute( 'inputmode' ) ?? '';
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setInputMode( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
-		$this->setAttribute( 'inputmode', $val );
 	}
 
 	/**

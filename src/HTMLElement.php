@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -62,7 +66,7 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetHeight
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLElement extends Element, HTMLOrSVGElement {
+interface HTMLElement extends Element, ElementContentEditable, HTMLOrSVGElement {
 	// Direct parent: Element
 
 	/**

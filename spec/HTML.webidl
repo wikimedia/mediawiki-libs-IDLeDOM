@@ -7,18 +7,18 @@
 interface HTMLAnchorElement : HTMLElement {
   [CEReactions, Reflect] attribute DOMString target;
   [CEReactions, Reflect] attribute DOMString download;
-//  [CEReactions] attribute USVString ping;
+  [CEReactions, ReflectURL] attribute USVString ping;
   [CEReactions, Reflect] attribute DOMString rel;
   [SameObject, PutForwards=value] readonly attribute DOMTokenList relList;
   [CEReactions, Reflect] attribute DOMString hreflang;
   [CEReactions, Reflect] attribute DOMString type;
 
   [CEReactions] attribute DOMString text;
-
-//  [CEReactions] attribute DOMString referrerPolicy;
+  // ReferrerPolicy, see below
 
   // also has obsolete members
 };
+HTMLAnchorElement includes ReferrerPolicy;
 HTMLAnchorElement includes HTMLHyperlinkElementUtils;
 
 partial interface HTMLAnchorElement {
@@ -42,10 +42,10 @@ interface HTMLAreaElement : HTMLElement {
 //  [CEReactions] attribute USVString ping;
   [CEReactions, Reflect] attribute DOMString rel;
   [SameObject, PutForwards=value] readonly attribute DOMTokenList relList;
-//  [CEReactions] attribute DOMString referrerPolicy;
 
   // also has obsolete members
 };
+HTMLAreaElement includes ReferrerPolicy;
 HTMLAreaElement includes HTMLHyperlinkElementUtils;
 
 partial interface HTMLAreaElement {
@@ -105,12 +105,12 @@ interface HTMLButtonElement : HTMLElement {
   [CEReactions, Reflect] attribute boolean disabled;
   readonly attribute HTMLFormElement? form;
 //  [CEReactions] attribute USVString formAction;
-//  [CEReactions] attribute DOMString formEnctype;
-//  [CEReactions] attribute DOMString formMethod;
+  [CEReactions, ReflectEnum=("application/x-www-form-urlencoded","multipart/form-data","text/plain"), ReflectInvalid="application/x-www-form-urlencoded"] attribute DOMString formEnctype;
+  [CEReactions, ReflectEnum=("get", "post", "dialog"), ReflectInvalid="get"] attribute DOMString formMethod;
   [CEReactions, Reflect] attribute boolean formNoValidate;
   [CEReactions, Reflect] attribute DOMString formTarget;
   [CEReactions, Reflect] attribute DOMString name;
-  [CEReactions] attribute DOMString type;
+  [CEReactions, ReflectEnum=("submit","reset","button"), ReflectDefault="submit"] attribute DOMString type;
   [CEReactions, Reflect] attribute DOMString value;
 
   readonly attribute boolean willValidate;
@@ -211,7 +211,7 @@ interface HTMLElement : Element {
   [CEReactions, Reflect] attribute DOMString title;
   [CEReactions, Reflect] attribute DOMString lang;
   [CEReactions] attribute boolean translate;
-  [CEReactions] attribute DOMString dir;
+  [CEReactions, ReflectEnum=("ltr","rtl","auto")] attribute DOMString dir;
 
   // user interaction
   [CEReactions, Reflect] attribute boolean hidden;
@@ -229,7 +229,7 @@ interface HTMLElement : Element {
 
 // HTMLElement includes GlobalEventHandlers;
 // HTMLElement includes DocumentAndElementEventHandlers;
-// HTMLElement includes ElementContentEditable;
+HTMLElement includes ElementContentEditable;
 HTMLElement includes HTMLOrSVGElement;
 
 // https://drafts.csswg.org/cssom-view/#extensions-to-the-htmlelement-interface
@@ -299,10 +299,10 @@ interface HTMLFontElement : HTMLElement {
 interface HTMLFormElement : HTMLElement {
   [CEReactions, Reflect="accept-charset"] attribute DOMString acceptCharset;
   [CEReactions] attribute USVString action;
-//  [CEReactions] attribute DOMString autocomplete;
-  [CEReactions] attribute DOMString enctype;
-//  [CEReactions] attribute DOMString encoding;
-  [CEReactions] attribute DOMString method;
+  [CEReactions, ReflectEnum=("on","off"), ReflectDefault="on"] attribute DOMString autocomplete;
+  [CEReactions, ReflectEnum=("application/x-www-form-urlencoded","multipart/form-data","text/plain"), ReflectDefault="application/x-www-form-urlencoded"] attribute DOMString enctype;
+  [CEReactions, Reflect="enctype", ReflectEnum=("application/x-www-form-urlencoded","multipart/form-data","text/plain"), ReflectDefault="application/x-www-form-urlencoded"] attribute DOMString encoding;
+  [CEReactions, ReflectEnum=("get", "post", "dialog"), ReflectDefault="get"] attribute DOMString method;
   [CEReactions, Reflect] attribute DOMString name;
   [CEReactions, Reflect] attribute boolean noValidate;
   [CEReactions, Reflect] attribute DOMString target;
@@ -410,18 +410,21 @@ interface HTMLIFrameElement : HTMLElement {
   [CEReactions, Reflect] attribute DOMString srcdoc;
   [CEReactions, Reflect] attribute DOMString name;
 //  [SameObject, PutForwards=value] readonly attribute DOMTokenList sandbox;
+  [CEReactions, Reflect] attribute DOMString allow;
   [CEReactions, Reflect] attribute boolean allowFullscreen;
 //  [CEReactions] attribute boolean allowPaymentRequest;
 //  [CEReactions] attribute boolean allowUserMedia;
   [CEReactions, Reflect] attribute DOMString width;
   [CEReactions, Reflect] attribute DOMString height;
-//  [CEReactions] attribute DOMString referrerPolicy;
+  // ReferrerPolicy, see below
+  [CEReactions, ReflectEnum=("eager","lazy"), ReflectDefault="eager"] attribute DOMString loading;
   readonly attribute Document? contentDocument;
 //  readonly attribute WindowProxy? contentWindow;
   Document? getSVGDocument();
 
   // also has obsolete members
 };
+HTMLIFrameElement includes ReferrerPolicy;
 
 // https://html.spec.whatwg.org/multipage/obsolete.html#HTMLIFrameElement-partial
 partial interface HTMLIFrameElement {
@@ -444,7 +447,7 @@ interface HTMLImageElement : HTMLElement {
   [CEReactions, ReflectURL] attribute USVString src;
   [CEReactions, Reflect] attribute USVString srcset;
   [CEReactions, Reflect] attribute DOMString sizes;
-  [CEReactions, Reflect] attribute DOMString? crossOrigin;
+  // crossOrigin, see below
   [CEReactions, Reflect] attribute DOMString useMap;
   [CEReactions, Reflect] attribute boolean isMap;
   [CEReactions] attribute unsigned long width;
@@ -453,12 +456,16 @@ interface HTMLImageElement : HTMLElement {
   readonly attribute unsigned long naturalHeight;
   readonly attribute boolean complete;
   readonly attribute USVString currentSrc;
-//  [CEReactions] attribute DOMString referrerPolicy;
+  // referrerPolicy, see below
+  [CEReactions, ReflectEnum=("auto","sync","async"), ReflectDefault="auto"] attribute DOMString decoding;
+  [CEReactions, ReflectEnum=("eager","lazy"), ReflectDefault="eager"] attribute DOMString loading;
 
 //  Promise<void> decode();
 
   // also has obsolete members
 };
+HTMLImageElement includes CrossOrigin;
+HTMLImageElement includes ReferrerPolicy;
 
 // https://html.spec.whatwg.org/multipage/obsolete.html#HTMLImageElement-partial
 partial interface HTMLImageElement {
@@ -479,7 +486,7 @@ partial interface HTMLImageElement {
 interface HTMLInputElement : HTMLElement {
   [CEReactions, Reflect] attribute DOMString accept;
   [CEReactions, Reflect] attribute DOMString alt;
-  [CEReactions, Reflect] attribute DOMString autocomplete;
+  [CEReactions, ReflectEnum=("on","off"), ReflectDefault="on"] attribute DOMString autocomplete;
   [CEReactions, Reflect] attribute boolean autofocus;
   [CEReactions, Reflect="checked"] attribute boolean defaultChecked;
   attribute boolean checked;
@@ -488,13 +495,12 @@ interface HTMLInputElement : HTMLElement {
   readonly attribute HTMLFormElement? form;
 //  attribute FileList? files;
 //  [CEReactions] attribute USVString formAction;
-//  [CEReactions] attribute DOMString formEnctype;
-//  [CEReactions] attribute DOMString formMethod;
+  [CEReactions, ReflectEnum=("application/x-www-form-urlencoded","multipart/form-data","text/plain"), ReflectInvalid="application/x-www-form-urlencoded"] attribute DOMString formEnctype;
+  [CEReactions, ReflectEnum=("get", "post", "dialog"), ReflectInvalid="get"] attribute DOMString formMethod;
   [CEReactions, Reflect] attribute boolean formNoValidate;
   [CEReactions, Reflect] attribute DOMString formTarget;
 //  [CEReactions] attribute unsigned long height;
   attribute boolean indeterminate;
-  [CEReactions, Reflect] attribute DOMString inputMode;
   readonly attribute HTMLElement? list;
   [CEReactions, Reflect] attribute DOMString max;
   [CEReactions] attribute long maxLength;
@@ -509,7 +515,7 @@ interface HTMLInputElement : HTMLElement {
   [CEReactions] attribute unsigned long size;
   [CEReactions, ReflectURL] attribute USVString src;
   [CEReactions, Reflect] attribute DOMString step;
-  [CEReactions] attribute DOMString type;
+  [CEReactions, ReflectEnum=("hidden","text","search","tel","url","email","password","date","month","week","time","datetime-local","number","range","color","checkbox","radio","file","submit","image","reset","button"), ReflectDefault="text"] attribute DOMString type;
   [CEReactions, Reflect="value"] attribute DOMString defaultValue;
   [CEReactions] attribute [LegacyNullToEmptyString] DOMString value;
 //  attribute object? valueAsDate;
@@ -594,9 +600,8 @@ partial interface HTMLLegendElement {
  HTMLConstructor]
 interface HTMLLinkElement : HTMLElement {
   [CEReactions, ReflectURL] attribute USVString href;
-  [CEReactions, Reflect] attribute DOMString? crossOrigin;
   [CEReactions, Reflect] attribute DOMString rel;
-//  [CEReactions] attribute DOMString as; // (default "")
+  [CEReactions, Reflect] attribute DOMString as; // (default "")
   [SameObject, PutForwards=value] readonly attribute DOMTokenList relList;
   [CEReactions, Reflect] attribute DOMString media;
 //  [CEReactions] attribute DOMString integrity;
@@ -605,10 +610,11 @@ interface HTMLLinkElement : HTMLElement {
 //  [SameObject, PutForwards=value] readonly attribute DOMTokenList sizes;
 //  [CEReactions] attribute USVString imageSrcset;
 //  [CEReactions] attribute DOMString imageSizes;
-//  [CEReactions] attribute DOMString referrerPolicy;
 
   // also has obsolete members
 };
+HTMLLinkElement includes CrossOrigin;
+HTMLLinkElement includes ReferrerPolicy;
 // https://drafts.csswg.org/cssom/#the-linkstyle-interface
 // HTMLLinkElement includes LinkStyle;
 
@@ -665,13 +671,14 @@ interface HTMLMediaElement : HTMLElement {
   [CEReactions, ReflectURL] attribute USVString src;
 //  attribute MediaProvider? srcObject;
   readonly attribute USVString currentSrc;
-  [CEReactions, Reflect] attribute DOMString? crossOrigin;
   const unsigned short NETWORK_EMPTY = 0;
   const unsigned short NETWORK_IDLE = 1;
   const unsigned short NETWORK_LOADING = 2;
   const unsigned short NETWORK_NO_SOURCE = 3;
   readonly attribute unsigned short networkState;
-  [CEReactions, Reflect] attribute DOMString preload; // TODO limited only to known values
+  // Note that the empty string is also valid and maps to 'auto', but we
+  // handle that by setting ReflectInvalid to 'auto'
+  [CEReactions, ReflectEnum=("none","metadata","auto"), ReflectInvalid="auto", ReflectMissing="metadata"] attribute DOMString preload;
   readonly attribute TimeRanges buffered;
   undefined load();
 //  CanPlayTypeResult canPlayType(DOMString type);
@@ -713,6 +720,7 @@ interface HTMLMediaElement : HTMLElement {
   [SameObject] readonly attribute TextTrackList textTracks;
 //  TextTrack addTextTrack(TextTrackKind kind, optional DOMString label = "", optional DOMString language = "");
 };
+HTMLMediaElement includes CrossOrigin;
 
 enum TextTrackKind { "subtitles",  "captions",  "descriptions",  "chapters",  "metadata" };
 
@@ -985,13 +993,13 @@ interface HTMLScriptElement : HTMLElement {
 //  [CEReactions, Reflect] attribute boolean noModule;
 //  [CEReactions] attribute boolean async;
   [CEReactions, Reflect] attribute boolean defer;
-  [CEReactions, Reflect] attribute DOMString? crossOrigin;
   [CEReactions] attribute DOMString text;
 //  [CEReactions, Reflect] attribute DOMString integrity;
 
 
   // also has obsolete members
 };
+HTMLScriptElement includes CrossOrigin;
 
 partial interface HTMLScriptElement {
   [CEReactions, Reflect] attribute DOMString charset;
@@ -1003,7 +1011,7 @@ partial interface HTMLScriptElement {
 [Exposed=Window,
  HTMLConstructor]
 interface HTMLSelectElement : HTMLElement {
-//  [CEReactions] attribute DOMString autocomplete;
+  [CEReactions, ReflectEnum=("on","off"), ReflectDefault="on"] attribute DOMString autocomplete;
   [CEReactions, Reflect] attribute boolean autofocus;
   [CEReactions, Reflect] attribute boolean disabled;
   readonly attribute HTMLFormElement? form;
@@ -1093,7 +1101,7 @@ interface HTMLTableCellElement : HTMLElement {
   [CEReactions, Reflect] attribute DOMString headers;
   readonly attribute long cellIndex;
 
-  [CEReactions] attribute DOMString scope; // only conforming for th elements
+  [CEReactions, ReflectEnum=("row","col","rowgroup","colgroup")] attribute DOMString scope; // only conforming for th elements
   [CEReactions, Reflect] attribute DOMString abbr;  // only conforming for th elements
 
   // also has obsolete members
@@ -1226,13 +1234,12 @@ interface HTMLTemplateElement : HTMLElement {
 [Exposed=Window,
  HTMLConstructor]
 interface HTMLTextAreaElement : HTMLElement {
-  [CEReactions, Reflect] attribute DOMString autocomplete;
+  [CEReactions, ReflectEnum=("on","off"), ReflectDefault="on"] attribute DOMString autocomplete;
   [CEReactions, Reflect] attribute boolean autofocus;
   [CEReactions] attribute unsigned long cols;
   [CEReactions, Reflect] attribute DOMString dirName;
   [CEReactions, Reflect] attribute boolean disabled;
   readonly attribute HTMLFormElement? form;
-  [CEReactions, Reflect] attribute DOMString inputMode;
   [CEReactions, Reflect] attribute long maxLength; // TODO limited to only non-negative numbers
   [CEReactions, Reflect] attribute long minLength; // TODO limited to only non-negative numbers
   [CEReactions, Reflect] attribute DOMString name;
@@ -1283,7 +1290,7 @@ interface HTMLTitleElement : HTMLElement {
 [Exposed=Window,
  HTMLConstructor]
 interface HTMLTrackElement : HTMLElement {
-  [CEReactions, Reflect] attribute DOMString kind; // TODO limited to only known values
+  [CEReactions, ReflectEnum=("subtitles","captions","descriptions","chapters","metadata"), ReflectMissing="subtitles", ReflectInvalid="metadata"] attribute DOMString kind;
   [CEReactions, ReflectURL] attribute USVString src;
   [CEReactions, Reflect] attribute DOMString srclang;
   [CEReactions, Reflect] attribute DOMString label;
@@ -1325,4 +1332,19 @@ interface HTMLVideoElement : HTMLMediaElement {
   readonly attribute unsigned long videoHeight;
   [CEReactions, ReflectURL] attribute USVString poster;
   [CEReactions, Reflect] attribute boolean playsInline;
+};
+
+// These are our own helper mixins, mostly for enumerated attribute types
+// "limited to only known values"
+[PHPExtension]
+interface mixin CrossOrigin {
+  // Note that "" is a valid value as well, mapping to 'anonymous', but since
+  // the invalid value default is also "anonymous" we can safely treat "" as
+  // an invalid value.
+  [CEReactions, ReflectEnum=("anonymous","use-credentials"), ReflectInvalid="anonymous"] attribute DOMString? crossOrigin;
+};
+
+[PHPExtension]
+interface mixin ReferrerPolicy {
+  [CEReactions, ReflectEnum=("","no-referrer", "no-referrer-when-downgrade", "same-origin", "origin", "strict-origin", "origin-when-cross-origin", "strict-origin-when-cross-origin", "unsafe-url"), ReflectDefault=""] attribute DOMString referrerPolicy;
 };

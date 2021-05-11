@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -60,6 +64,7 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetLeft
  * @property int $offsetWidth
  * @property int $offsetHeight
+ * @property string $autocomplete
  * @property bool $autofocus
  * @property bool $disabled
  * @property HTMLFormElement|null $form
@@ -81,6 +86,16 @@ namespace Wikimedia\IDLeDOM;
  */
 interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	// Direct parent: HTMLElement
+
+	/**
+	 * @return string
+	 */
+	public function getAutocomplete() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setAutocomplete( string $val ) : void;
 
 	/**
 	 * @return bool

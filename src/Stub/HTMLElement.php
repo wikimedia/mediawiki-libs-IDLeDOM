@@ -9,6 +9,7 @@ use Exception;
 use Wikimedia\IDLeDOM\Element;
 
 trait HTMLElement {
+	// use \Wikimedia\IDLeDOM\Stub\ElementContentEditable;
 	// use \Wikimedia\IDLeDOM\Stub\HTMLOrSVGElement;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
@@ -33,20 +34,6 @@ trait HTMLElement {
 	 * @param bool $val
 	 */
 	public function setTranslate( bool $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getDir() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setDir( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

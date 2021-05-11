@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -71,8 +75,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $pathname
  * @property string $search
  * @property string $hash
+ * @property string $referrerPolicy
  * @property string $target
  * @property string $download
+ * @property string $ping
  * @property string $rel
  * @property DOMTokenList $relList
  * @property string $hreflang
@@ -85,7 +91,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $shape
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLAnchorElement extends HTMLElement, HTMLHyperlinkElementUtils {
+interface HTMLAnchorElement extends HTMLElement, HTMLHyperlinkElementUtils, ReferrerPolicy {
 	// Direct parent: HTMLElement
 
 	/**
@@ -107,6 +113,16 @@ interface HTMLAnchorElement extends HTMLElement, HTMLHyperlinkElementUtils {
 	 * @param string $val
 	 */
 	public function setDownload( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getPing() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setPing( string $val ) : void;
 
 	/**
 	 * @return string

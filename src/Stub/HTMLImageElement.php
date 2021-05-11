@@ -8,6 +8,8 @@ namespace Wikimedia\IDLeDOM\Stub;
 use Exception;
 
 trait HTMLImageElement {
+	// use \Wikimedia\IDLeDOM\Stub\CrossOrigin;
+	// use \Wikimedia\IDLeDOM\Stub\ReferrerPolicy;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
@@ -45,20 +47,6 @@ trait HTMLImageElement {
 	 * @param string $val
 	 */
 	public function setSrcset( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return ?string
-	 */
-	public function getCrossOrigin() : ?string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setCrossOrigin( ?string $val ) : void {
 		throw self::_unimplemented();
 	}
 

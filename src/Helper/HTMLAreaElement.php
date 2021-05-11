@@ -78,6 +78,14 @@ trait HTMLAreaElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -138,6 +146,8 @@ trait HTMLAreaElement {
 				return $this->getSearch();
 			case "hash":
 				return $this->getHash();
+			case "referrerPolicy":
+				return $this->getReferrerPolicy();
 			case "alt":
 				return $this->getAlt();
 			case "coords":
@@ -235,6 +245,14 @@ trait HTMLAreaElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -295,6 +313,8 @@ trait HTMLAreaElement {
 				return true;
 			case "hash":
 				return true;
+			case "referrerPolicy":
+				return true;
 			case "alt":
 				return true;
 			case "coords":
@@ -337,6 +357,15 @@ trait HTMLAreaElement {
 				return;
 			case "slot":
 				$this->setSlot( $value );
+				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
 				return;
 			case "nonce":
 				$this->setNonce( $value );
@@ -403,6 +432,9 @@ trait HTMLAreaElement {
 				return;
 			case "hash":
 				$this->setHash( $value );
+				return;
+			case "referrerPolicy":
+				$this->setReferrerPolicy( $value );
 				return;
 			case "alt":
 				$this->setAlt( $value );
@@ -505,6 +537,14 @@ trait HTMLAreaElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -565,6 +605,8 @@ trait HTMLAreaElement {
 				break;
 			case "hash":
 				break;
+			case "referrerPolicy":
+				break;
 			case "alt":
 				break;
 			case "coords":
@@ -589,6 +631,40 @@ trait HTMLAreaElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getReferrerPolicy() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'referrerpolicy' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case '':
+				case 'no-referrer':
+				case 'no-referrer-when-downgrade':
+				case 'same-origin':
+				case 'origin':
+				case 'strict-origin':
+				case 'origin-when-cross-origin':
+				case 'strict-origin-when-cross-origin':
+				case 'unsafe-url':
+					return $val;
+				default:
+					return '';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setReferrerPolicy( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'referrerpolicy', $val );
 	}
 
 	/**

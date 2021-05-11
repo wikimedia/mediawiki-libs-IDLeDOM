@@ -78,6 +78,14 @@ trait HTMLTrackElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -211,6 +219,14 @@ trait HTMLTrackElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -289,6 +305,15 @@ trait HTMLTrackElement {
 				return;
 			case "slot":
 				$this->setSlot( $value );
+				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
 				return;
 			case "nonce":
 				$this->setNonce( $value );
@@ -424,6 +449,14 @@ trait HTMLTrackElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -491,7 +524,21 @@ trait HTMLTrackElement {
 	 */
 	public function getKind() : string {
 		'@phan-var Element $this'; /** @var Element $this */
-		return $this->getAttribute( 'kind' ) ?? '';
+		$val = $this->getAttribute( 'kind' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'subtitles':
+				case 'captions':
+				case 'descriptions':
+				case 'chapters':
+				case 'metadata':
+					return $val;
+				default:
+					return 'metadata';
+			}
+		}
+		return 'subtitles';
 	}
 
 	/**

@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -60,9 +64,9 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetLeft
  * @property int $offsetWidth
  * @property int $offsetHeight
+ * @property ?string $crossOrigin
  * @property string $src
  * @property string $currentSrc
- * @property ?string $crossOrigin
  * @property int $networkState
  * @property string $preload
  * @property TimeRanges $buffered
@@ -87,7 +91,7 @@ namespace Wikimedia\IDLeDOM;
  * @property TextTrackList $textTracks
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLMediaElement extends HTMLElement {
+interface HTMLMediaElement extends HTMLElement, CrossOrigin {
 	// Direct parent: HTMLElement
 
 	/**
@@ -104,16 +108,6 @@ interface HTMLMediaElement extends HTMLElement {
 	 * @return string
 	 */
 	public function getCurrentSrc() : string;
-
-	/**
-	 * @return ?string
-	 */
-	public function getCrossOrigin() : ?string;
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setCrossOrigin( ?string $val ) : void;
 
 	/** @var int */
 	public const NETWORK_EMPTY = 0;

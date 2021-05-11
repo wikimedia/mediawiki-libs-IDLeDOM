@@ -78,6 +78,14 @@ trait HTMLIFrameElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -116,18 +124,24 @@ trait HTMLIFrameElement {
 				return $this->getOffsetWidth();
 			case "offsetHeight":
 				return $this->getOffsetHeight();
+			case "referrerPolicy":
+				return $this->getReferrerPolicy();
 			case "src":
 				return $this->getSrc();
 			case "srcdoc":
 				return $this->getSrcdoc();
 			case "name":
 				return $this->getName();
+			case "allow":
+				return $this->getAllow();
 			case "allowFullscreen":
 				return $this->getAllowFullscreen();
 			case "width":
 				return $this->getWidth();
 			case "height":
 				return $this->getHeight();
+			case "loading":
+				return $this->getLoading();
 			case "contentDocument":
 				return $this->getContentDocument();
 			case "align":
@@ -225,6 +239,14 @@ trait HTMLIFrameElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -263,17 +285,23 @@ trait HTMLIFrameElement {
 				return true;
 			case "offsetHeight":
 				return true;
+			case "referrerPolicy":
+				return true;
 			case "src":
 				return true;
 			case "srcdoc":
 				return true;
 			case "name":
 				return true;
+			case "allow":
+				return true;
 			case "allowFullscreen":
 				return true;
 			case "width":
 				return true;
 			case "height":
+				return true;
+			case "loading":
 				return true;
 			case "contentDocument":
 				return $this->getContentDocument() !== null;
@@ -318,6 +346,15 @@ trait HTMLIFrameElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -354,6 +391,9 @@ trait HTMLIFrameElement {
 			case "innerText":
 				$this->setInnerText( $value );
 				return;
+			case "referrerPolicy":
+				$this->setReferrerPolicy( $value );
+				return;
 			case "src":
 				$this->setSrc( $value );
 				return;
@@ -363,6 +403,9 @@ trait HTMLIFrameElement {
 			case "name":
 				$this->setName( $value );
 				return;
+			case "allow":
+				$this->setAllow( $value );
+				return;
 			case "allowFullscreen":
 				$this->setAllowFullscreen( $value );
 				return;
@@ -371,6 +414,9 @@ trait HTMLIFrameElement {
 				return;
 			case "height":
 				$this->setHeight( $value );
+				return;
+			case "loading":
+				$this->setLoading( $value );
 				return;
 			case "align":
 				$this->setAlign( $value );
@@ -473,6 +519,14 @@ trait HTMLIFrameElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -511,17 +565,23 @@ trait HTMLIFrameElement {
 				break;
 			case "offsetHeight":
 				break;
+			case "referrerPolicy":
+				break;
 			case "src":
 				break;
 			case "srcdoc":
 				break;
 			case "name":
 				break;
+			case "allow":
+				break;
 			case "allowFullscreen":
 				break;
 			case "width":
 				break;
 			case "height":
+				break;
+			case "loading":
 				break;
 			case "contentDocument":
 				break;
@@ -547,6 +607,40 @@ trait HTMLIFrameElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getReferrerPolicy() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'referrerpolicy' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case '':
+				case 'no-referrer':
+				case 'no-referrer-when-downgrade':
+				case 'same-origin':
+				case 'origin':
+				case 'strict-origin':
+				case 'origin-when-cross-origin':
+				case 'strict-origin-when-cross-origin':
+				case 'unsafe-url':
+					return $val;
+				default:
+					return '';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setReferrerPolicy( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'referrerpolicy', $val );
 	}
 
 	/**
@@ -579,6 +673,22 @@ trait HTMLIFrameElement {
 	public function setName( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAllow() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'allow' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAllow( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'allow', $val );
 	}
 
 	/**
@@ -631,6 +741,33 @@ trait HTMLIFrameElement {
 	public function setHeight( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'height', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLoading() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'loading' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'eager':
+				case 'lazy':
+					return $val;
+				default:
+					return 'eager';
+			}
+		}
+		return 'eager';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setLoading( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'loading', $val );
 	}
 
 	/**

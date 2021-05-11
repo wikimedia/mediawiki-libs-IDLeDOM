@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -60,9 +64,11 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetLeft
  * @property int $offsetWidth
  * @property int $offsetHeight
- * @property string $href
  * @property ?string $crossOrigin
+ * @property string $referrerPolicy
+ * @property string $href
  * @property string $rel
+ * @property string $as
  * @property DOMTokenList $relList
  * @property string $media
  * @property string $hreflang
@@ -72,7 +78,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $target
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLLinkElement extends HTMLElement {
+interface HTMLLinkElement extends HTMLElement, CrossOrigin, ReferrerPolicy {
 	// Direct parent: HTMLElement
 
 	/**
@@ -86,16 +92,6 @@ interface HTMLLinkElement extends HTMLElement {
 	public function setHref( string $val ) : void;
 
 	/**
-	 * @return ?string
-	 */
-	public function getCrossOrigin() : ?string;
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setCrossOrigin( ?string $val ) : void;
-
-	/**
 	 * @return string
 	 */
 	public function getRel() : string;
@@ -104,6 +100,16 @@ interface HTMLLinkElement extends HTMLElement {
 	 * @param string $val
 	 */
 	public function setRel( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getAs() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setAs( string $val ) : void;
 
 	/**
 	 * @return DOMTokenList

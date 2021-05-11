@@ -195,13 +195,40 @@ class TraitBuilder extends Builder {
 			'reflectAttr' => strtolower( $m['name'] ),
 			'reflectHelper' => false,
 			'reflectLegacyNull' => false,
+			'reflectEnum' => null,
 		];
 		// Handle attributes with [Reflect]
-		$reflect = Generator::extAttrNamed( $m, 'Reflect' ) ??
+		$reflect = Generator::extAttrNamed( $m, 'ReflectEnum' ) ??
+				 Generator::extAttrNamed( $m, 'Reflect' ) ??
 				 Generator::extAttrNamed( $m, 'ReflectURL' );
 		if ( $reflect ) {
 			$info['reflectType'] = $reflect['name'];
-			if ( $reflect['rhs'] !== null ) {
+			if ( $reflect['name'] === 'ReflectEnum' ) {
+				Assert::invariant(
+					$reflect['rhs']['type'] === 'string-list',
+					"Reflect argument of unexpected type"
+				);
+				$name = Generator::extAttrNamed( $m, 'Reflect' );
+				if ( $name ) {
+					$info['reflectAttr'] = json_decode( $name['rhs']['value'] );
+				}
+				$invalid = Generator::extAttrNamed( $m, 'ReflectInvalid' ) ??
+						 Generator::extAttrNamed( $m, 'ReflectDefault' ) ??
+						 [ 'rhs' => [ 'value' => 'null' ] ];
+				$missing = Generator::extAttrNamed( $m, 'ReflectMissing' ) ??
+						 Generator::extAttrNamed( $m, 'ReflectDefault' ) ??
+						 [ 'rhs' => [ 'value' => 'null' ] ];
+				$info['reflectEnum'] = [
+					'values' => array_map(
+						function ( $value ) {
+							return json_decode( $value['value'] );
+						},
+						$reflect['rhs']['value']
+					),
+					'invalid' => json_decode( $invalid['rhs']['value'] ),
+					'missing' => json_decode( $missing['rhs']['value'] ),
+				];
+			} elseif ( $reflect['rhs'] !== null ) {
 				Assert::invariant(
 					$reflect['rhs']['type'] === 'string',
 					"Reflect argument of unexpected type"
@@ -212,11 +239,14 @@ class TraitBuilder extends Builder {
 			$info['reflectLegacyNull'] =
 				Generator::extAttrsContain( $m['idlType'], 'LegacyNullToEmptyString' );
 			// We're only handling some of these cases right now.
+			$nullable = $m['idlType']['nullable'] ?? false;
 			$info['reflectHelper'] = (
 				$info['reflectType'] === 'Reflect' &&
-				( $m['idlType']['idlType'] === 'boolean' ||
-				 $m['idlType']['idlType'] === 'DOMString' ) &&
-				( $m['idlType']['nullable'] ?? false ) === false
+				( ( $m['idlType']['idlType'] === 'boolean' && !$nullable ) ||
+				 $m['idlType']['idlType'] === 'DOMString' )
+			) || (
+				$info['reflectType'] === 'ReflectEnum' &&
+				$m['idlType']['idlType'] === 'DOMString'
 			);
 		}
 
@@ -365,7 +395,43 @@ class TraitBuilder extends Builder {
 			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
 			switch ( $info['idlType']['idlType'] ) {
 			case 'DOMString':
-				$this->nl( "return \$this->getAttribute( $attrName ) ?? '';" );
+				if ( $info['reflectType'] === 'ReflectEnum' ) {
+					$novalue = ( $info['idlType']['nullable'] ?? false ) ?
+							 "null" : "''";
+					$this->nl( "\$val = \$this->getAttribute( $attrName );" );
+					$this->nl( "if ( \$val !== null ) {" );
+					$this->nl( "\$val = strtr( \$val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );" );
+					$this->nl( "switch ( \$val ) {" );
+					foreach ( $info['reflectEnum']['values'] as $v ) {
+						$v = var_export( $v, true );
+						$this->nl( "case $v:" );
+					}
+					$this->nl( "\treturn \$val;" );
+					$this->nl( "default:" );
+					// Here we are in the "invalid value default" case
+					// (or if none, then the "no state represented")
+					if ( $info['reflectEnum']['invalid'] !== null ) {
+						$v = var_export( $info['reflectEnum']['invalid'], true );
+						$this->nl( "\treturn $v;" );
+					} else {
+						$this->nl( "\treturn $novalue;" );
+					}
+					$this->nl( "}" ); // close the switch statement
+					// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
+					$this->nl( "}" ); // close the if statement
+					// Here we are in the "missing value default" case
+					// (or if none, then the "no state represented")
+					if ( $info['reflectEnum']['missing'] !== null ) {
+						$v = var_export( $info['reflectEnum']['missing'], true );
+						$this->nl( "return $v;" );
+					} else {
+						$this->nl( "return $novalue;" );
+					}
+				} elseif ( $info['idlType']['nullable'] ?? false ) {
+					$this->nl( "return \$this->getAttribute( $attrName );" );
+				} else {
+					$this->nl( "return \$this->getAttribute( $attrName ) ?? '';" );
+				}
 				break;
 			case 'boolean':
 				$this->nl( "return \$this->hasAttribute( $attrName );" );
@@ -384,7 +450,15 @@ class TraitBuilder extends Builder {
 			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
 			switch ( $info['idlType']['idlType'] ) {
 			case 'DOMString':
-				$this->nl( "\$this->setAttribute( $attrName, \$val{$trailer} );" );
+				if ( $info['idlType']['nullable'] ?? false ) {
+					$this->nl( "if ( \$val !== null ) {" );
+					$this->nl( "\$this->setAttribute( $attrName, \$val );" );
+					$this->nl( "} else {" );
+					$this->nl( "\$this->removeAttribute( $attrName );" );
+					$this->nl( "}" );
+				} else {
+					$this->nl( "\$this->setAttribute( $attrName, \$val{$trailer} );" );
+				}
 				break;
 			case 'boolean':
 				$this->nl( "if ( \$val ) {" );

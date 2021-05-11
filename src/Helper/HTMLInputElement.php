@@ -78,6 +78,14 @@ trait HTMLInputElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -134,14 +142,16 @@ trait HTMLInputElement {
 				return $this->getDisabled();
 			case "form":
 				return $this->getForm();
+			case "formEnctype":
+				return $this->getFormEnctype();
+			case "formMethod":
+				return $this->getFormMethod();
 			case "formNoValidate":
 				return $this->getFormNoValidate();
 			case "formTarget":
 				return $this->getFormTarget();
 			case "indeterminate":
 				return $this->getIndeterminate();
-			case "inputMode":
-				return $this->getInputMode();
 			case "list":
 				return $this->getList();
 			case "max":
@@ -279,6 +289,14 @@ trait HTMLInputElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -335,13 +353,15 @@ trait HTMLInputElement {
 				return true;
 			case "form":
 				return $this->getForm() !== null;
+			case "formEnctype":
+				return true;
+			case "formMethod":
+				return true;
 			case "formNoValidate":
 				return true;
 			case "formTarget":
 				return true;
 			case "indeterminate":
-				return true;
-			case "inputMode":
 				return true;
 			case "list":
 				return $this->getList() !== null;
@@ -426,6 +446,15 @@ trait HTMLInputElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -486,6 +515,12 @@ trait HTMLInputElement {
 			case "disabled":
 				$this->setDisabled( $value );
 				return;
+			case "formEnctype":
+				$this->setFormEnctype( $value );
+				return;
+			case "formMethod":
+				$this->setFormMethod( $value );
+				return;
 			case "formNoValidate":
 				$this->setFormNoValidate( $value );
 				return;
@@ -494,9 +529,6 @@ trait HTMLInputElement {
 				return;
 			case "indeterminate":
 				$this->setIndeterminate( $value );
-				return;
-			case "inputMode":
-				$this->setInputMode( $value );
 				return;
 			case "max":
 				$this->setMax( $value );
@@ -647,6 +679,14 @@ trait HTMLInputElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -703,13 +743,15 @@ trait HTMLInputElement {
 				break;
 			case "form":
 				break;
+			case "formEnctype":
+				break;
+			case "formMethod":
+				break;
 			case "formNoValidate":
 				break;
 			case "formTarget":
 				break;
 			case "indeterminate":
-				break;
-			case "inputMode":
 				break;
 			case "list":
 				break;
@@ -817,7 +859,18 @@ trait HTMLInputElement {
 	 */
 	public function getAutocomplete() : string {
 		'@phan-var Element $this'; /** @var Element $this */
-		return $this->getAttribute( 'autocomplete' ) ?? '';
+		$val = $this->getAttribute( 'autocomplete' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'on':
+				case 'off':
+					return $val;
+				default:
+					return 'on';
+			}
+		}
+		return 'on';
 	}
 
 	/**
@@ -905,6 +958,62 @@ trait HTMLInputElement {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getFormEnctype() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'formenctype' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'application/x-www-form-urlencoded':
+				case 'multipart/form-data':
+				case 'text/plain':
+					return $val;
+				default:
+					return 'application/x-www-form-urlencoded';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormEnctype( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'formenctype', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFormMethod() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'formmethod' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'get':
+				case 'post':
+				case 'dialog':
+					return $val;
+				default:
+					return 'get';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormMethod( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'formmethod', $val );
+	}
+
+	/**
 	 * @return bool
 	 */
 	public function getFormNoValidate() : bool {
@@ -938,22 +1047,6 @@ trait HTMLInputElement {
 	public function setFormTarget( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'formtarget', $val );
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getInputMode() : string {
-		'@phan-var Element $this'; /** @var Element $this */
-		return $this->getAttribute( 'inputmode' ) ?? '';
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setInputMode( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
-		$this->setAttribute( 'inputmode', $val );
 	}
 
 	/**
@@ -1110,6 +1203,53 @@ trait HTMLInputElement {
 	public function setStep( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'step', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'type' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'hidden':
+				case 'text':
+				case 'search':
+				case 'tel':
+				case 'url':
+				case 'email':
+				case 'password':
+				case 'date':
+				case 'month':
+				case 'week':
+				case 'time':
+				case 'datetime-local':
+				case 'number':
+				case 'range':
+				case 'color':
+				case 'checkbox':
+				case 'radio':
+				case 'file':
+				case 'submit':
+				case 'image':
+				case 'reset':
+				case 'button':
+					return $val;
+				default:
+					return 'text';
+			}
+		}
+		return 'text';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'type', $val );
 	}
 
 	/**

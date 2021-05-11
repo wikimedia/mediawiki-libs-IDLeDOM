@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -69,10 +73,11 @@ namespace Wikimedia\IDLeDOM;
  * @property string $dirName
  * @property bool $disabled
  * @property HTMLFormElement|null $form
+ * @property string $formEnctype
+ * @property string $formMethod
  * @property bool $formNoValidate
  * @property string $formTarget
  * @property bool $indeterminate
- * @property string $inputMode
  * @property HTMLElement|null $list
  * @property string $max
  * @property int $maxLength
@@ -191,6 +196,26 @@ interface HTMLInputElement extends HTMLElement {
 	public function getForm();
 
 	/**
+	 * @return string
+	 */
+	public function getFormEnctype() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormEnctype( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getFormMethod() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormMethod( string $val ) : void;
+
+	/**
 	 * @return bool
 	 */
 	public function getFormNoValidate() : bool;
@@ -219,16 +244,6 @@ interface HTMLInputElement extends HTMLElement {
 	 * @param bool $val
 	 */
 	public function setIndeterminate( bool $val ) : void;
-
-	/**
-	 * @return string
-	 */
-	public function getInputMode() : string;
-
-	/**
-	 * @param string $val
-	 */
-	public function setInputMode( string $val ) : void;
 
 	/**
 	 * @return HTMLElement|null

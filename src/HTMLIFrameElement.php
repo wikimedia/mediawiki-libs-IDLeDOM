@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -60,12 +64,15 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetLeft
  * @property int $offsetWidth
  * @property int $offsetHeight
+ * @property string $referrerPolicy
  * @property string $src
  * @property string $srcdoc
  * @property string $name
+ * @property string $allow
  * @property bool $allowFullscreen
  * @property string $width
  * @property string $height
+ * @property string $loading
  * @property Document|null $contentDocument
  * @property string $align
  * @property string $scrolling
@@ -75,7 +82,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $marginWidth
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLIFrameElement extends HTMLElement {
+interface HTMLIFrameElement extends HTMLElement, ReferrerPolicy {
 	// Direct parent: HTMLElement
 
 	/**
@@ -109,6 +116,16 @@ interface HTMLIFrameElement extends HTMLElement {
 	public function setName( string $val ) : void;
 
 	/**
+	 * @return string
+	 */
+	public function getAllow() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setAllow( string $val ) : void;
+
+	/**
 	 * @return bool
 	 */
 	public function getAllowFullscreen() : bool;
@@ -137,6 +154,16 @@ interface HTMLIFrameElement extends HTMLElement {
 	 * @param string $val
 	 */
 	public function setHeight( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getLoading() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setLoading( string $val ) : void;
 
 	/**
 	 * @return Document|null

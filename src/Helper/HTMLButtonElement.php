@@ -78,6 +78,14 @@ trait HTMLButtonElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -122,6 +130,10 @@ trait HTMLButtonElement {
 				return $this->getDisabled();
 			case "form":
 				return $this->getForm();
+			case "formEnctype":
+				return $this->getFormEnctype();
+			case "formMethod":
+				return $this->getFormMethod();
 			case "formNoValidate":
 				return $this->getFormNoValidate();
 			case "formTarget":
@@ -223,6 +235,14 @@ trait HTMLButtonElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -267,6 +287,10 @@ trait HTMLButtonElement {
 				return true;
 			case "form":
 				return $this->getForm() !== null;
+			case "formEnctype":
+				return true;
+			case "formMethod":
+				return true;
 			case "formNoValidate":
 				return true;
 			case "formTarget":
@@ -314,6 +338,15 @@ trait HTMLButtonElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -355,6 +388,12 @@ trait HTMLButtonElement {
 				return;
 			case "disabled":
 				$this->setDisabled( $value );
+				return;
+			case "formEnctype":
+				$this->setFormEnctype( $value );
+				return;
+			case "formMethod":
+				$this->setFormMethod( $value );
 				return;
 			case "formNoValidate":
 				$this->setFormNoValidate( $value );
@@ -454,6 +493,14 @@ trait HTMLButtonElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -497,6 +544,10 @@ trait HTMLButtonElement {
 			case "disabled":
 				break;
 			case "form":
+				break;
+			case "formEnctype":
+				break;
+			case "formMethod":
 				break;
 			case "formNoValidate":
 				break;
@@ -569,6 +620,62 @@ trait HTMLButtonElement {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getFormEnctype() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'formenctype' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'application/x-www-form-urlencoded':
+				case 'multipart/form-data':
+				case 'text/plain':
+					return $val;
+				default:
+					return 'application/x-www-form-urlencoded';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormEnctype( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'formenctype', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFormMethod() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'formmethod' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'get':
+				case 'post':
+				case 'dialog':
+					return $val;
+				default:
+					return 'get';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setFormMethod( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'formmethod', $val );
+	}
+
+	/**
 	 * @return bool
 	 */
 	public function getFormNoValidate() : bool {
@@ -618,6 +725,34 @@ trait HTMLButtonElement {
 	public function setName( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'name', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'type' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'submit':
+				case 'reset':
+				case 'button':
+					return $val;
+				default:
+					return 'submit';
+			}
+		}
+		return 'submit';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setType( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'type', $val );
 	}
 
 	/**

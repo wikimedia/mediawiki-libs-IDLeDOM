@@ -78,6 +78,14 @@ trait HTMLLinkElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -116,12 +124,16 @@ trait HTMLLinkElement {
 				return $this->getOffsetWidth();
 			case "offsetHeight":
 				return $this->getOffsetHeight();
-			case "href":
-				return $this->getHref();
 			case "crossOrigin":
 				return $this->getCrossOrigin();
+			case "referrerPolicy":
+				return $this->getReferrerPolicy();
+			case "href":
+				return $this->getHref();
 			case "rel":
 				return $this->getRel();
+			case "as":
+				return $this->getAs();
 			case "relList":
 				return $this->getRelList();
 			case "media":
@@ -219,6 +231,14 @@ trait HTMLLinkElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -257,11 +277,15 @@ trait HTMLLinkElement {
 				return true;
 			case "offsetHeight":
 				return true;
-			case "href":
-				return true;
 			case "crossOrigin":
 				return $this->getCrossOrigin() !== null;
+			case "referrerPolicy":
+				return true;
+			case "href":
+				return true;
 			case "rel":
+				return true;
+			case "as":
 				return true;
 			case "relList":
 				return true;
@@ -306,6 +330,15 @@ trait HTMLLinkElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -342,14 +375,20 @@ trait HTMLLinkElement {
 			case "innerText":
 				$this->setInnerText( $value );
 				return;
-			case "href":
-				$this->setHref( $value );
-				return;
 			case "crossOrigin":
 				$this->setCrossOrigin( $value );
 				return;
+			case "referrerPolicy":
+				$this->setReferrerPolicy( $value );
+				return;
+			case "href":
+				$this->setHref( $value );
+				return;
 			case "rel":
 				$this->setRel( $value );
+				return;
+			case "as":
+				$this->setAs( $value );
 				return;
 			case "media":
 				$this->setMedia( $value );
@@ -452,6 +491,14 @@ trait HTMLLinkElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -490,12 +537,16 @@ trait HTMLLinkElement {
 				break;
 			case "offsetHeight":
 				break;
-			case "href":
-				break;
 			case "crossOrigin":
 				$this->setCrossOrigin( null );
 				return;
+			case "referrerPolicy":
+				break;
+			case "href":
+				break;
 			case "rel":
+				break;
+			case "as":
 				break;
 			case "relList":
 				break;
@@ -524,6 +575,71 @@ trait HTMLLinkElement {
 	}
 
 	/**
+	 * @return ?string
+	 */
+	public function getCrossOrigin() : ?string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'crossorigin' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'anonymous':
+				case 'use-credentials':
+					return $val;
+				default:
+					return 'anonymous';
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setCrossOrigin( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val !== null ) {
+			$this->setAttribute( 'crossorigin', $val );
+		} else {
+			$this->removeAttribute( 'crossorigin' );
+		}
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getReferrerPolicy() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'referrerpolicy' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case '':
+				case 'no-referrer':
+				case 'no-referrer-when-downgrade':
+				case 'same-origin':
+				case 'origin':
+				case 'strict-origin':
+				case 'origin-when-cross-origin':
+				case 'strict-origin-when-cross-origin':
+				case 'unsafe-url':
+					return $val;
+				default:
+					return '';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setReferrerPolicy( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'referrerpolicy', $val );
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getRel() : string {
@@ -537,6 +653,22 @@ trait HTMLLinkElement {
 	public function setRel( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'rel', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAs() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		return $this->getAttribute( 'as' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAs( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'as', $val );
 	}
 
 	/**

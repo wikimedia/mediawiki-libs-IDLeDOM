@@ -10,6 +10,7 @@ use Wikimedia\IDLeDOM\DOMTokenList;
 
 trait HTMLAreaElement {
 	// use \Wikimedia\IDLeDOM\Stub\HTMLHyperlinkElementUtils;
+	// use \Wikimedia\IDLeDOM\Stub\ReferrerPolicy;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

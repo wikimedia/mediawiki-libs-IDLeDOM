@@ -41,6 +41,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $contentEditable
+ * @property string $enterKeyHint
+ * @property bool $isContentEditable
+ * @property string $inputMode
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -71,6 +75,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $pathname
  * @property string $search
  * @property string $hash
+ * @property string $referrerPolicy
  * @property string $alt
  * @property string $coords
  * @property string $shape
@@ -80,7 +85,7 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $noHref
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLAreaElement extends HTMLElement, HTMLHyperlinkElementUtils {
+interface HTMLAreaElement extends HTMLElement, HTMLHyperlinkElementUtils, ReferrerPolicy {
 	// Direct parent: HTMLElement
 
 	/**

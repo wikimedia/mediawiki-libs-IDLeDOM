@@ -125,20 +125,6 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setType( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getValue() : string {
 		throw self::_unimplemented();
 	}

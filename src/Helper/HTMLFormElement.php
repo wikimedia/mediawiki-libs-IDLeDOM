@@ -78,6 +78,14 @@ trait HTMLFormElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -120,8 +128,12 @@ trait HTMLFormElement {
 				return $this->getAcceptCharset();
 			case "action":
 				return $this->getAction();
+			case "autocomplete":
+				return $this->getAutocomplete();
 			case "enctype":
 				return $this->getEnctype();
+			case "encoding":
+				return $this->getEncoding();
 			case "method":
 				return $this->getMethod();
 			case "name":
@@ -217,6 +229,14 @@ trait HTMLFormElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -259,7 +279,11 @@ trait HTMLFormElement {
 				return true;
 			case "action":
 				return true;
+			case "autocomplete":
+				return true;
 			case "enctype":
+				return true;
+			case "encoding":
 				return true;
 			case "method":
 				return true;
@@ -301,6 +325,15 @@ trait HTMLFormElement {
 				return;
 			case "slot":
 				$this->setSlot( $value );
+				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
 				return;
 			case "nonce":
 				$this->setNonce( $value );
@@ -344,8 +377,14 @@ trait HTMLFormElement {
 			case "action":
 				$this->setAction( $value );
 				return;
+			case "autocomplete":
+				$this->setAutocomplete( $value );
+				return;
 			case "enctype":
 				$this->setEnctype( $value );
+				return;
+			case "encoding":
+				$this->setEncoding( $value );
 				return;
 			case "method":
 				$this->setMethod( $value );
@@ -442,6 +481,14 @@ trait HTMLFormElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -484,7 +531,11 @@ trait HTMLFormElement {
 				break;
 			case "action":
 				break;
+			case "autocomplete":
+				break;
 			case "enctype":
+				break;
+			case "encoding":
 				break;
 			case "method":
 				break;
@@ -524,6 +575,117 @@ trait HTMLFormElement {
 	public function setAcceptCharset( string $val ) : void {
 		'@phan-var Element $this'; /** @var Element $this */
 		$this->setAttribute( 'accept-charset', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAutocomplete() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'autocomplete' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'on':
+				case 'off':
+					return $val;
+				default:
+					return 'on';
+			}
+		}
+		return 'on';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setAutocomplete( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'autocomplete', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEnctype() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'enctype' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'application/x-www-form-urlencoded':
+				case 'multipart/form-data':
+				case 'text/plain':
+					return $val;
+				default:
+					return 'application/x-www-form-urlencoded';
+			}
+		}
+		return 'application/x-www-form-urlencoded';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setEnctype( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'enctype', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEncoding() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'enctype' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'application/x-www-form-urlencoded':
+				case 'multipart/form-data':
+				case 'text/plain':
+					return $val;
+				default:
+					return 'application/x-www-form-urlencoded';
+			}
+		}
+		return 'application/x-www-form-urlencoded';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setEncoding( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'enctype', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMethod() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'method' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'get':
+				case 'post':
+				case 'dialog':
+					return $val;
+				default:
+					return 'get';
+			}
+		}
+		return 'get';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setMethod( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'method', $val );
 	}
 
 	/**

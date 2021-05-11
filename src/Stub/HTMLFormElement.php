@@ -37,34 +37,6 @@ trait HTMLFormElement {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getEnctype() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setEnctype( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getMethod() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setMethod( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return HTMLFormControlsCollection
 	 */
 	public function getElements() {

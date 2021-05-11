@@ -76,6 +76,14 @@ trait HTMLAudioElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -114,12 +122,12 @@ trait HTMLAudioElement {
 				return $this->getOffsetWidth();
 			case "offsetHeight":
 				return $this->getOffsetHeight();
+			case "crossOrigin":
+				return $this->getCrossOrigin();
 			case "src":
 				return $this->getSrc();
 			case "currentSrc":
 				return $this->getCurrentSrc();
-			case "crossOrigin":
-				return $this->getCrossOrigin();
 			case "networkState":
 				return $this->getNetworkState();
 			case "preload":
@@ -247,6 +255,14 @@ trait HTMLAudioElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -285,12 +301,12 @@ trait HTMLAudioElement {
 				return true;
 			case "offsetHeight":
 				return true;
+			case "crossOrigin":
+				return $this->getCrossOrigin() !== null;
 			case "src":
 				return true;
 			case "currentSrc":
 				return true;
-			case "crossOrigin":
-				return $this->getCrossOrigin() !== null;
 			case "networkState":
 				return true;
 			case "preload":
@@ -364,6 +380,15 @@ trait HTMLAudioElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -400,11 +425,11 @@ trait HTMLAudioElement {
 			case "innerText":
 				$this->setInnerText( $value );
 				return;
-			case "src":
-				$this->setSrc( $value );
-				return;
 			case "crossOrigin":
 				$this->setCrossOrigin( $value );
+				return;
+			case "src":
+				$this->setSrc( $value );
 				return;
 			case "preload":
 				$this->setPreload( $value );
@@ -519,6 +544,14 @@ trait HTMLAudioElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -557,13 +590,13 @@ trait HTMLAudioElement {
 				break;
 			case "offsetHeight":
 				break;
+			case "crossOrigin":
+				$this->setCrossOrigin( null );
+				return;
 			case "src":
 				break;
 			case "currentSrc":
 				break;
-			case "crossOrigin":
-				$this->setCrossOrigin( null );
-				return;
 			case "networkState":
 				break;
 			case "preload":

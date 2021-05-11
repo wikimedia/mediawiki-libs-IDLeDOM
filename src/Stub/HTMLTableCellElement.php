@@ -55,18 +55,4 @@ trait HTMLTableCellElement {
 		throw self::_unimplemented();
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getScope() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setScope( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
 }

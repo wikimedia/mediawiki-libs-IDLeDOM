@@ -78,6 +78,14 @@ trait HTMLImageElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "contentEditable":
+				return $this->getContentEditable();
+			case "enterKeyHint":
+				return $this->getEnterKeyHint();
+			case "isContentEditable":
+				return $this->getIsContentEditable();
+			case "inputMode":
+				return $this->getInputMode();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -116,6 +124,10 @@ trait HTMLImageElement {
 				return $this->getOffsetWidth();
 			case "offsetHeight":
 				return $this->getOffsetHeight();
+			case "crossOrigin":
+				return $this->getCrossOrigin();
+			case "referrerPolicy":
+				return $this->getReferrerPolicy();
 			case "alt":
 				return $this->getAlt();
 			case "src":
@@ -124,8 +136,6 @@ trait HTMLImageElement {
 				return $this->getSrcset();
 			case "sizes":
 				return $this->getSizes();
-			case "crossOrigin":
-				return $this->getCrossOrigin();
 			case "useMap":
 				return $this->getUseMap();
 			case "isMap":
@@ -142,6 +152,10 @@ trait HTMLImageElement {
 				return $this->getComplete();
 			case "currentSrc":
 				return $this->getCurrentSrc();
+			case "decoding":
+				return $this->getDecoding();
+			case "loading":
+				return $this->getLoading();
 			case "name":
 				return $this->getName();
 			case "lowsrc":
@@ -239,6 +253,14 @@ trait HTMLImageElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "contentEditable":
+				return true;
+			case "enterKeyHint":
+				return true;
+			case "isContentEditable":
+				return true;
+			case "inputMode":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -277,6 +299,10 @@ trait HTMLImageElement {
 				return true;
 			case "offsetHeight":
 				return true;
+			case "crossOrigin":
+				return $this->getCrossOrigin() !== null;
+			case "referrerPolicy":
+				return true;
 			case "alt":
 				return true;
 			case "src":
@@ -285,8 +311,6 @@ trait HTMLImageElement {
 				return true;
 			case "sizes":
 				return true;
-			case "crossOrigin":
-				return $this->getCrossOrigin() !== null;
 			case "useMap":
 				return true;
 			case "isMap":
@@ -302,6 +326,10 @@ trait HTMLImageElement {
 			case "complete":
 				return true;
 			case "currentSrc":
+				return true;
+			case "decoding":
+				return true;
+			case "loading":
 				return true;
 			case "name":
 				return true;
@@ -346,6 +374,15 @@ trait HTMLImageElement {
 			case "slot":
 				$this->setSlot( $value );
 				return;
+			case "contentEditable":
+				$this->setContentEditable( $value );
+				return;
+			case "enterKeyHint":
+				$this->setEnterKeyHint( $value );
+				return;
+			case "inputMode":
+				$this->setInputMode( $value );
+				return;
 			case "nonce":
 				$this->setNonce( $value );
 				return;
@@ -382,6 +419,12 @@ trait HTMLImageElement {
 			case "innerText":
 				$this->setInnerText( $value );
 				return;
+			case "crossOrigin":
+				$this->setCrossOrigin( $value );
+				return;
+			case "referrerPolicy":
+				$this->setReferrerPolicy( $value );
+				return;
 			case "alt":
 				$this->setAlt( $value );
 				return;
@@ -394,9 +437,6 @@ trait HTMLImageElement {
 			case "sizes":
 				$this->setSizes( $value );
 				return;
-			case "crossOrigin":
-				$this->setCrossOrigin( $value );
-				return;
 			case "useMap":
 				$this->setUseMap( $value );
 				return;
@@ -408,6 +448,12 @@ trait HTMLImageElement {
 				return;
 			case "height":
 				$this->setHeight( $value );
+				return;
+			case "decoding":
+				$this->setDecoding( $value );
+				return;
+			case "loading":
+				$this->setLoading( $value );
 				return;
 			case "name":
 				$this->setName( $value );
@@ -513,6 +559,14 @@ trait HTMLImageElement {
 				break;
 			case "shadowRoot":
 				break;
+			case "contentEditable":
+				break;
+			case "enterKeyHint":
+				break;
+			case "isContentEditable":
+				break;
+			case "inputMode":
+				break;
 			case "dataset":
 				break;
 			case "nonce":
@@ -551,6 +605,11 @@ trait HTMLImageElement {
 				break;
 			case "offsetHeight":
 				break;
+			case "crossOrigin":
+				$this->setCrossOrigin( null );
+				return;
+			case "referrerPolicy":
+				break;
 			case "alt":
 				break;
 			case "src":
@@ -559,9 +618,6 @@ trait HTMLImageElement {
 				break;
 			case "sizes":
 				break;
-			case "crossOrigin":
-				$this->setCrossOrigin( null );
-				return;
 			case "useMap":
 				break;
 			case "isMap":
@@ -577,6 +633,10 @@ trait HTMLImageElement {
 			case "complete":
 				break;
 			case "currentSrc":
+				break;
+			case "decoding":
+				break;
+			case "loading":
 				break;
 			case "name":
 				break;
@@ -602,6 +662,71 @@ trait HTMLImageElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @return ?string
+	 */
+	public function getCrossOrigin() : ?string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'crossorigin' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'anonymous':
+				case 'use-credentials':
+					return $val;
+				default:
+					return 'anonymous';
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setCrossOrigin( ?string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		if ( $val !== null ) {
+			$this->setAttribute( 'crossorigin', $val );
+		} else {
+			$this->removeAttribute( 'crossorigin' );
+		}
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getReferrerPolicy() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'referrerpolicy' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case '':
+				case 'no-referrer':
+				case 'no-referrer-when-downgrade':
+				case 'same-origin':
+				case 'origin':
+				case 'strict-origin':
+				case 'origin-when-cross-origin':
+				case 'strict-origin-when-cross-origin':
+				case 'unsafe-url':
+					return $val;
+				default:
+					return '';
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setReferrerPolicy( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'referrerpolicy', $val );
 	}
 
 	/**
@@ -670,6 +795,61 @@ trait HTMLImageElement {
 		} else {
 			$this->removeAttribute( 'ismap' );
 		}
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDecoding() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'decoding' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'auto':
+				case 'sync':
+				case 'async':
+					return $val;
+				default:
+					return 'auto';
+			}
+		}
+		return 'auto';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDecoding( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'decoding', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLoading() : string {
+		'@phan-var Element $this'; /** @var Element $this */
+		$val = $this->getAttribute( 'loading' );
+		if ( $val !== null ) {
+			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
+			switch ( $val ) {
+				case 'eager':
+				case 'lazy':
+					return $val;
+				default:
+					return 'eager';
+			}
+		}
+		return 'eager';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setLoading( string $val ) : void {
+		'@phan-var Element $this'; /** @var Element $this */
+		$this->setAttribute( 'loading', $val );
 	}
 
 	/**

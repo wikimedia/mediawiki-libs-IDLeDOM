@@ -10,6 +10,7 @@ use Wikimedia\IDLeDOM\DOMTokenList;
 
 trait HTMLAnchorElement {
 	// use \Wikimedia\IDLeDOM\Stub\HTMLHyperlinkElementUtils;
+	// use \Wikimedia\IDLeDOM\Stub\ReferrerPolicy;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
@@ -21,6 +22,20 @@ trait HTMLAnchorElement {
 	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
+
+	/**
+	 * @return string
+	 */
+	public function getPing() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setPing( string $val ) : void {
+		throw self::_unimplemented();
+	}
 
 	/**
 	 * @return DOMTokenList
