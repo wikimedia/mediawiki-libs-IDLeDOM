@@ -288,4 +288,32 @@ trait Element {
 		throw self::_unimplemented();
 	}
 
+	/**
+	 * @param string $qualifiedName
+	 * @param bool $isId
+	 * @return void
+	 */
+	public function setIdAttribute( string $qualifiedName, bool $isId ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param Attr $attr
+	 * @param bool $isId
+	 * @return void
+	 */
+	public function setIdAttributeNode( /* Attr */ $attr, bool $isId ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $namespace
+	 * @param string $qualifiedName
+	 * @param bool $isId
+	 * @return void
+	 */
+	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void {
+		throw self::_unimplemented();
+	}
+
 }

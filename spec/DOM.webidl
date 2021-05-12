@@ -386,6 +386,13 @@ interface Element : Node {
 
   [CEReactions] Element? insertAdjacentElement(DOMString where, Element element); // legacy
   undefined insertAdjacentText(DOMString where, DOMString data); // legacy
+
+  [PHPExtension]
+  undefined setIdAttribute(DOMString qualifiedName, boolean isId);
+  [PHPExtension]
+  undefined setIdAttributeNode(Attr attr, boolean isId);
+  [PHPExtension]
+  undefined setIdAttributeNS(DOMString namespace, DOMString qualifiedName, boolean isId);
 };
 
 dictionary ShadowRootInit {

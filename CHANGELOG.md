@@ -2,6 +2,9 @@
 * Add DOMException interface.
 * Add interfaces for WebIDL "simple exceptions".
 * Annotate `id`, `className`, and `slot` attributes of Element for reflection.
+* Add `Element::setIdAttribute`, `Element::setIdAttributeNode`, and
+  `Element::setIdAttributeNS` for compatibility with PHP code written for
+  `DOMElement`.
 
 # IDLeDOM 0.4.0 (2021-05-11)
 * Add interfaces for HTML IDL, in particular the HTML*Element classes.

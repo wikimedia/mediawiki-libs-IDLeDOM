@@ -270,4 +270,26 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 	 */
 	public function insertAdjacentText( string $where, string $data ) : void;
 
+	/**
+	 * @param string $qualifiedName
+	 * @param bool $isId
+	 * @return void
+	 */
+	public function setIdAttribute( string $qualifiedName, bool $isId ) : void;
+
+	/**
+	 * @param Attr $attr
+	 * @param bool $isId
+	 * @return void
+	 */
+	public function setIdAttributeNode( /* Attr */ $attr, bool $isId ) : void;
+
+	/**
+	 * @param string $namespace
+	 * @param string $qualifiedName
+	 * @param bool $isId
+	 * @return void
+	 */
+	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void;
+
 }

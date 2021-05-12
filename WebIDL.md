@@ -607,18 +607,33 @@ types.
 
 # Compatibility
 
-IDL interfaces, mixins, attributes, or operations which occur in IDLeDOM
-for PHP interoperability or compatibility with PHP's built-in `DOMDocument`
-classes have been marked with the extended attribute `[PHPExtension]`.
+In this section we describe some specific differences between the
+binding as described above, the names resulting from the `DOMDocument`
+classes, and the standard JavaScript bindings.  In general IDL
+interfaces, mixins, attributes, or operations which occur in IDLeDOM
+for PHP interoperability or compatibility with PHP's built-in
+`DOMDocument` classes have been marked with the extended attribute
+`[PHPExtension]`.
 
-PHP contains a writeable `encoding` attribute on the `Document` interface
-in the definition of the built-in `DOMDocument`.  We have copied that
-non-standard attribute to our IDL for Document.
+PHP contains a writeable
+[`encoding`](https://www.php.net/manual/en/class.domdocument.php#domdocument.props.encoding)
+attribute in the definition of the built-in `DOMDocument`.  We have
+copied that non-standard attribute to our IDL for `Document`.
 
-XXX: In this section we should describe some specific differences between
-the binding as described above, and the names resulting from the
-`DOMDocument` classes, on one hand, and the JavaScript binding, on the
-other.
+PHP contains methods on
+[`DOMElement`](https://www.php.net/manual/en/class.domelement.php)
+named
+[`setIdAttribute`](https://www.php.net/manual/en/domelement.setidattribute.php),
+[`setIdAttributeNode`](https://www.php.net/manual/en/domelement.setidattributenode.php),
+and
+[`setIdAttributeNS`](https://www.php.net/manual/en/domelement.setidattributens.php).
+In legacy code using `DOMDocument` calling one of these methods is
+necessary in order to make
+[`DOMDocument::getElementById`](https://www.php.net/manual/en/domdocument.getelementbyid.php)
+work properly, so these methods have been added to our IDL for
+`Element`.  It is recommended that implementers implement them as
+no-ops for compatibility with legacy code.
+
 
 [PHP escaped]: #names
 [`dictionary`]: https://heycam.github.io/webidl/#idl-dictionaries
