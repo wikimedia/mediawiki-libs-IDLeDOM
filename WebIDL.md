@@ -650,10 +650,8 @@ other.
 [operation]: https://www.w3.org/TR/WebIDL-1/#idl-operations
 [identifier]: https://www.w3.org/TR/WebIDL-1/#idl-names
 [interface]: https://www.w3.org/TR/WebIDL-1#idl-interfaces
-rev
 [attribute]: https://www.w3.org/TR/WebIDL-1/#idl-attributes
-[IDL exception]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
-[IDL exceptions]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
+[WebIDL exception]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
 [read only]: https://www.w3.org/TR/WebIDL-1/#dfn-read-only
 [extended attribute]: https://www.w3.org/TR/WebIDL-1/#dfn-extended-attribute
 [`PutForwards`]: https://www.w3.org/TR/WebIDL-1/#PutForwards
