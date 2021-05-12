@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLDataElement {
 	/**
 	 * @param string $name
@@ -481,7 +479,8 @@ trait HTMLDataElement {
 	 * @return string
 	 */
 	public function getValue() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'value' ) ?? '';
 	}
 
@@ -489,7 +488,8 @@ trait HTMLDataElement {
 	 * @param string $val
 	 */
 	public function setValue( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'value', $val );
 	}
 

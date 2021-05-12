@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLAnchorElement {
 	/**
 	 * @param string $name
@@ -691,7 +689,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getReferrerPolicy() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'referrerpolicy' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -717,7 +716,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setReferrerPolicy( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'referrerpolicy', $val );
 	}
 
@@ -725,7 +725,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getTarget() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'target' ) ?? '';
 	}
 
@@ -733,7 +734,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setTarget( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'target', $val );
 	}
 
@@ -741,7 +743,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getDownload() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'download' ) ?? '';
 	}
 
@@ -749,7 +752,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setDownload( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'download', $val );
 	}
 
@@ -757,7 +761,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getRel() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'rel' ) ?? '';
 	}
 
@@ -765,7 +770,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setRel( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'rel', $val );
 	}
 
@@ -773,7 +779,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getHreflang() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'hreflang' ) ?? '';
 	}
 
@@ -781,7 +788,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setHreflang( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'hreflang', $val );
 	}
 
@@ -789,7 +797,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
 	}
 
@@ -797,7 +806,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 
@@ -805,7 +815,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getCoords() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'coords' ) ?? '';
 	}
 
@@ -813,7 +824,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setCoords( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'coords', $val );
 	}
 
@@ -821,7 +833,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getCharset() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charset' ) ?? '';
 	}
 
@@ -829,7 +842,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setCharset( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charset', $val );
 	}
 
@@ -837,7 +851,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -845,7 +860,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -853,7 +869,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getRev() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'rev' ) ?? '';
 	}
 
@@ -861,7 +878,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setRev( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'rev', $val );
 	}
 
@@ -869,7 +887,8 @@ trait HTMLAnchorElement {
 	 * @return string
 	 */
 	public function getShape() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'shape' ) ?? '';
 	}
 
@@ -877,7 +896,8 @@ trait HTMLAnchorElement {
 	 * @param string $val
 	 */
 	public function setShape( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'shape', $val );
 	}
 

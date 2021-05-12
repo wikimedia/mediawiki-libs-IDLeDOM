@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLFormElement {
 	/**
 	 * @param string $name
@@ -565,7 +563,8 @@ trait HTMLFormElement {
 	 * @return string
 	 */
 	public function getAcceptCharset() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'accept-charset' ) ?? '';
 	}
 
@@ -573,7 +572,8 @@ trait HTMLFormElement {
 	 * @param string $val
 	 */
 	public function setAcceptCharset( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'accept-charset', $val );
 	}
 
@@ -581,7 +581,8 @@ trait HTMLFormElement {
 	 * @return string
 	 */
 	public function getAutocomplete() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'autocomplete' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -600,7 +601,8 @@ trait HTMLFormElement {
 	 * @param string $val
 	 */
 	public function setAutocomplete( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'autocomplete', $val );
 	}
 
@@ -608,7 +610,8 @@ trait HTMLFormElement {
 	 * @return string
 	 */
 	public function getEnctype() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enctype' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -628,7 +631,8 @@ trait HTMLFormElement {
 	 * @param string $val
 	 */
 	public function setEnctype( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enctype', $val );
 	}
 
@@ -636,7 +640,8 @@ trait HTMLFormElement {
 	 * @return string
 	 */
 	public function getEncoding() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enctype' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -656,7 +661,8 @@ trait HTMLFormElement {
 	 * @param string $val
 	 */
 	public function setEncoding( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enctype', $val );
 	}
 
@@ -664,7 +670,8 @@ trait HTMLFormElement {
 	 * @return string
 	 */
 	public function getMethod() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'method' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -684,7 +691,8 @@ trait HTMLFormElement {
 	 * @param string $val
 	 */
 	public function setMethod( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'method', $val );
 	}
 
@@ -692,7 +700,8 @@ trait HTMLFormElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -700,7 +709,8 @@ trait HTMLFormElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -708,7 +718,8 @@ trait HTMLFormElement {
 	 * @return bool
 	 */
 	public function getNoValidate() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'novalidate' );
 	}
 
@@ -716,7 +727,8 @@ trait HTMLFormElement {
 	 * @param bool $val
 	 */
 	public function setNoValidate( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'novalidate', '' );
 		} else {
@@ -728,7 +740,8 @@ trait HTMLFormElement {
 	 * @return string
 	 */
 	public function getTarget() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'target' ) ?? '';
 	}
 
@@ -736,7 +749,8 @@ trait HTMLFormElement {
 	 * @param string $val
 	 */
 	public function setTarget( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'target', $val );
 	}
 

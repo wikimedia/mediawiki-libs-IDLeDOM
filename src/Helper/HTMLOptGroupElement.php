@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLOptGroupElement {
 	/**
 	 * @param string $name
@@ -490,7 +488,8 @@ trait HTMLOptGroupElement {
 	 * @return bool
 	 */
 	public function getDisabled() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
 	}
 
@@ -498,7 +497,8 @@ trait HTMLOptGroupElement {
 	 * @param bool $val
 	 */
 	public function setDisabled( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'disabled', '' );
 		} else {
@@ -510,7 +510,8 @@ trait HTMLOptGroupElement {
 	 * @return string
 	 */
 	public function getLabel() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'label' ) ?? '';
 	}
 
@@ -518,7 +519,8 @@ trait HTMLOptGroupElement {
 	 * @param string $val
 	 */
 	public function setLabel( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'label', $val );
 	}
 

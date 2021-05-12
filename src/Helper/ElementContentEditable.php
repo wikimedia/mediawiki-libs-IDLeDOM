@@ -5,14 +5,13 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait ElementContentEditable {
 	/**
 	 * @return string
 	 */
 	public function getEnterKeyHint() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enterkeyhint' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -36,7 +35,8 @@ trait ElementContentEditable {
 	 * @param string $val
 	 */
 	public function setEnterKeyHint( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enterkeyhint', $val );
 	}
 
@@ -44,7 +44,8 @@ trait ElementContentEditable {
 	 * @return string
 	 */
 	public function getInputMode() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'inputmode' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -69,7 +70,8 @@ trait ElementContentEditable {
 	 * @param string $val
 	 */
 	public function setInputMode( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'inputmode', $val );
 	}
 

@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLFieldSetElement {
 	/**
 	 * @param string $name
@@ -526,7 +524,8 @@ trait HTMLFieldSetElement {
 	 * @return bool
 	 */
 	public function getDisabled() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
 	}
 
@@ -534,7 +533,8 @@ trait HTMLFieldSetElement {
 	 * @param bool $val
 	 */
 	public function setDisabled( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'disabled', '' );
 		} else {
@@ -546,7 +546,8 @@ trait HTMLFieldSetElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -554,7 +555,8 @@ trait HTMLFieldSetElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 

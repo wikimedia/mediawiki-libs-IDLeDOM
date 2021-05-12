@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLFrameElement {
 	/**
 	 * @param string $name
@@ -550,7 +548,8 @@ trait HTMLFrameElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -558,7 +557,8 @@ trait HTMLFrameElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -566,7 +566,8 @@ trait HTMLFrameElement {
 	 * @return string
 	 */
 	public function getScrolling() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'scrolling' ) ?? '';
 	}
 
@@ -574,7 +575,8 @@ trait HTMLFrameElement {
 	 * @param string $val
 	 */
 	public function setScrolling( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'scrolling', $val );
 	}
 
@@ -582,7 +584,8 @@ trait HTMLFrameElement {
 	 * @return string
 	 */
 	public function getFrameBorder() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'frameborder' ) ?? '';
 	}
 
@@ -590,7 +593,8 @@ trait HTMLFrameElement {
 	 * @param string $val
 	 */
 	public function setFrameBorder( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'frameborder', $val );
 	}
 
@@ -598,7 +602,8 @@ trait HTMLFrameElement {
 	 * @return bool
 	 */
 	public function getNoResize() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'noresize' );
 	}
 
@@ -606,7 +611,8 @@ trait HTMLFrameElement {
 	 * @param bool $val
 	 */
 	public function setNoResize( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'noresize', '' );
 		} else {
@@ -618,7 +624,8 @@ trait HTMLFrameElement {
 	 * @return string
 	 */
 	public function getMarginHeight() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'marginheight' ) ?? '';
 	}
 
@@ -626,7 +633,8 @@ trait HTMLFrameElement {
 	 * @param ?string $val
 	 */
 	public function setMarginHeight( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'marginheight', $val ?? '' );
 	}
 
@@ -634,7 +642,8 @@ trait HTMLFrameElement {
 	 * @return string
 	 */
 	public function getMarginWidth() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'marginwidth' ) ?? '';
 	}
 
@@ -642,7 +651,8 @@ trait HTMLFrameElement {
 	 * @param ?string $val
 	 */
 	public function setMarginWidth( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'marginwidth', $val ?? '' );
 	}
 

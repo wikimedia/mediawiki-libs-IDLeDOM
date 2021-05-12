@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLHtmlElement {
 	/**
 	 * @param string $name
@@ -481,7 +479,8 @@ trait HTMLHtmlElement {
 	 * @return string
 	 */
 	public function getVersion() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'version' ) ?? '';
 	}
 
@@ -489,7 +488,8 @@ trait HTMLHtmlElement {
 	 * @param string $val
 	 */
 	public function setVersion( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'version', $val );
 	}
 

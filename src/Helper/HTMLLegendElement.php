@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLLegendElement {
 	/**
 	 * @param string $name
@@ -487,7 +485,8 @@ trait HTMLLegendElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -495,7 +494,8 @@ trait HTMLLegendElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 

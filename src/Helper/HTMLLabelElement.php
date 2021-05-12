@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLLabelElement {
 	/**
 	 * @param string $name
@@ -493,7 +491,8 @@ trait HTMLLabelElement {
 	 * @return string
 	 */
 	public function getHtmlFor() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'for' ) ?? '';
 	}
 
@@ -501,7 +500,8 @@ trait HTMLLabelElement {
 	 * @param string $val
 	 */
 	public function setHtmlFor( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'for', $val );
 	}
 

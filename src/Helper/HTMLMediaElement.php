@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLMediaElement {
 	/**
 	 * @param string $name
@@ -659,7 +657,8 @@ trait HTMLMediaElement {
 	 * @return ?string
 	 */
 	public function getCrossOrigin() : ?string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -678,7 +677,8 @@ trait HTMLMediaElement {
 	 * @param ?string $val
 	 */
 	public function setCrossOrigin( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {
 			$this->setAttribute( 'crossorigin', $val );
 		} else {
@@ -690,7 +690,8 @@ trait HTMLMediaElement {
 	 * @return string
 	 */
 	public function getPreload() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'preload' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -710,7 +711,8 @@ trait HTMLMediaElement {
 	 * @param string $val
 	 */
 	public function setPreload( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'preload', $val );
 	}
 
@@ -718,7 +720,8 @@ trait HTMLMediaElement {
 	 * @return bool
 	 */
 	public function getAutoplay() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autoplay' );
 	}
 
@@ -726,7 +729,8 @@ trait HTMLMediaElement {
 	 * @param bool $val
 	 */
 	public function setAutoplay( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'autoplay', '' );
 		} else {
@@ -738,7 +742,8 @@ trait HTMLMediaElement {
 	 * @return bool
 	 */
 	public function getLoop() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'loop' );
 	}
 
@@ -746,7 +751,8 @@ trait HTMLMediaElement {
 	 * @param bool $val
 	 */
 	public function setLoop( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'loop', '' );
 		} else {
@@ -758,7 +764,8 @@ trait HTMLMediaElement {
 	 * @return bool
 	 */
 	public function getControls() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'controls' );
 	}
 
@@ -766,7 +773,8 @@ trait HTMLMediaElement {
 	 * @param bool $val
 	 */
 	public function setControls( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'controls', '' );
 		} else {
@@ -778,7 +786,8 @@ trait HTMLMediaElement {
 	 * @return bool
 	 */
 	public function getDefaultMuted() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'muted' );
 	}
 
@@ -786,7 +795,8 @@ trait HTMLMediaElement {
 	 * @param bool $val
 	 */
 	public function setDefaultMuted( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'muted', '' );
 		} else {

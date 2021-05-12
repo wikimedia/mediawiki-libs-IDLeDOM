@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLTrackElement {
 	/**
 	 * @param string $name
@@ -523,7 +521,8 @@ trait HTMLTrackElement {
 	 * @return string
 	 */
 	public function getKind() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'kind' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -545,7 +544,8 @@ trait HTMLTrackElement {
 	 * @param string $val
 	 */
 	public function setKind( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'kind', $val );
 	}
 
@@ -553,7 +553,8 @@ trait HTMLTrackElement {
 	 * @return string
 	 */
 	public function getSrclang() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'srclang' ) ?? '';
 	}
 
@@ -561,7 +562,8 @@ trait HTMLTrackElement {
 	 * @param string $val
 	 */
 	public function setSrclang( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'srclang', $val );
 	}
 
@@ -569,7 +571,8 @@ trait HTMLTrackElement {
 	 * @return string
 	 */
 	public function getLabel() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'label' ) ?? '';
 	}
 
@@ -577,7 +580,8 @@ trait HTMLTrackElement {
 	 * @param string $val
 	 */
 	public function setLabel( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'label', $val );
 	}
 
@@ -585,7 +589,8 @@ trait HTMLTrackElement {
 	 * @return bool
 	 */
 	public function getDefault() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'default' );
 	}
 
@@ -593,7 +598,8 @@ trait HTMLTrackElement {
 	 * @param bool $val
 	 */
 	public function setDefault( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'default', '' );
 		} else {

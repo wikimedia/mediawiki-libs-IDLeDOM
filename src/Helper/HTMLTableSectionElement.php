@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLTableSectionElement {
 	/**
 	 * @param string $name
@@ -514,7 +512,8 @@ trait HTMLTableSectionElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -522,7 +521,8 @@ trait HTMLTableSectionElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 
@@ -530,7 +530,8 @@ trait HTMLTableSectionElement {
 	 * @return string
 	 */
 	public function getCh() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'char' ) ?? '';
 	}
 
@@ -538,7 +539,8 @@ trait HTMLTableSectionElement {
 	 * @param string $val
 	 */
 	public function setCh( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'char', $val );
 	}
 
@@ -546,7 +548,8 @@ trait HTMLTableSectionElement {
 	 * @return string
 	 */
 	public function getChOff() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charoff' ) ?? '';
 	}
 
@@ -554,7 +557,8 @@ trait HTMLTableSectionElement {
 	 * @param string $val
 	 */
 	public function setChOff( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charoff', $val );
 	}
 
@@ -562,7 +566,8 @@ trait HTMLTableSectionElement {
 	 * @return string
 	 */
 	public function getVAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'valign' ) ?? '';
 	}
 
@@ -570,7 +575,8 @@ trait HTMLTableSectionElement {
 	 * @param string $val
 	 */
 	public function setVAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'valign', $val );
 	}
 

@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLIFrameElement {
 	/**
 	 * @param string $name
@@ -613,7 +611,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getReferrerPolicy() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'referrerpolicy' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -639,7 +638,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setReferrerPolicy( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'referrerpolicy', $val );
 	}
 
@@ -647,7 +647,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getSrcdoc() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'srcdoc' ) ?? '';
 	}
 
@@ -655,7 +656,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setSrcdoc( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'srcdoc', $val );
 	}
 
@@ -663,7 +665,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -671,7 +674,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -679,7 +683,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getAllow() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'allow' ) ?? '';
 	}
 
@@ -687,7 +692,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setAllow( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'allow', $val );
 	}
 
@@ -695,7 +701,8 @@ trait HTMLIFrameElement {
 	 * @return bool
 	 */
 	public function getAllowFullscreen() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'allowfullscreen' );
 	}
 
@@ -703,7 +710,8 @@ trait HTMLIFrameElement {
 	 * @param bool $val
 	 */
 	public function setAllowFullscreen( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'allowfullscreen', '' );
 		} else {
@@ -715,7 +723,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getWidth() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'width' ) ?? '';
 	}
 
@@ -723,7 +732,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setWidth( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'width', $val );
 	}
 
@@ -731,7 +741,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getHeight() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'height' ) ?? '';
 	}
 
@@ -739,7 +750,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setHeight( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'height', $val );
 	}
 
@@ -747,7 +759,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getLoading() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'loading' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -766,7 +779,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setLoading( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'loading', $val );
 	}
 
@@ -774,7 +788,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -782,7 +797,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 
@@ -790,7 +806,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getScrolling() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'scrolling' ) ?? '';
 	}
 
@@ -798,7 +815,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setScrolling( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'scrolling', $val );
 	}
 
@@ -806,7 +824,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getFrameBorder() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'frameborder' ) ?? '';
 	}
 
@@ -814,7 +833,8 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setFrameBorder( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'frameborder', $val );
 	}
 
@@ -822,7 +842,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getMarginHeight() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'marginheight' ) ?? '';
 	}
 
@@ -830,7 +851,8 @@ trait HTMLIFrameElement {
 	 * @param ?string $val
 	 */
 	public function setMarginHeight( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'marginheight', $val ?? '' );
 	}
 
@@ -838,7 +860,8 @@ trait HTMLIFrameElement {
 	 * @return string
 	 */
 	public function getMarginWidth() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'marginwidth' ) ?? '';
 	}
 
@@ -846,7 +869,8 @@ trait HTMLIFrameElement {
 	 * @param ?string $val
 	 */
 	public function setMarginWidth( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'marginwidth', $val ?? '' );
 	}
 

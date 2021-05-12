@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLFontElement {
 	/**
 	 * @param string $name
@@ -499,7 +497,8 @@ trait HTMLFontElement {
 	 * @return string
 	 */
 	public function getColor() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'color' ) ?? '';
 	}
 
@@ -507,7 +506,8 @@ trait HTMLFontElement {
 	 * @param ?string $val
 	 */
 	public function setColor( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'color', $val ?? '' );
 	}
 
@@ -515,7 +515,8 @@ trait HTMLFontElement {
 	 * @return string
 	 */
 	public function getFace() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'face' ) ?? '';
 	}
 
@@ -523,7 +524,8 @@ trait HTMLFontElement {
 	 * @param string $val
 	 */
 	public function setFace( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'face', $val );
 	}
 
@@ -531,7 +533,8 @@ trait HTMLFontElement {
 	 * @return string
 	 */
 	public function getSize() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'size' ) ?? '';
 	}
 
@@ -539,7 +542,8 @@ trait HTMLFontElement {
 	 * @param string $val
 	 */
 	public function setSize( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'size', $val );
 	}
 

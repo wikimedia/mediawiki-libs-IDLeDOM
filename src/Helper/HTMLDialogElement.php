@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLDialogElement {
 	/**
 	 * @param string $name
@@ -481,7 +479,8 @@ trait HTMLDialogElement {
 	 * @return bool
 	 */
 	public function getOpen() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'open' );
 	}
 
@@ -489,7 +488,8 @@ trait HTMLDialogElement {
 	 * @param bool $val
 	 */
 	public function setOpen( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'open', '' );
 		} else {

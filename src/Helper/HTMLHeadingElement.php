@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLHeadingElement {
 	/**
 	 * @param string $name
@@ -481,7 +479,8 @@ trait HTMLHeadingElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -489,7 +488,8 @@ trait HTMLHeadingElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 

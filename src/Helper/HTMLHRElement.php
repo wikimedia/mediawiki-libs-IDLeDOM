@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLHRElement {
 	/**
 	 * @param string $name
@@ -517,7 +515,8 @@ trait HTMLHRElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -525,7 +524,8 @@ trait HTMLHRElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 
@@ -533,7 +533,8 @@ trait HTMLHRElement {
 	 * @return string
 	 */
 	public function getColor() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'color' ) ?? '';
 	}
 
@@ -541,7 +542,8 @@ trait HTMLHRElement {
 	 * @param string $val
 	 */
 	public function setColor( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'color', $val );
 	}
 
@@ -549,7 +551,8 @@ trait HTMLHRElement {
 	 * @return bool
 	 */
 	public function getNoShade() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'noshade' );
 	}
 
@@ -557,7 +560,8 @@ trait HTMLHRElement {
 	 * @param bool $val
 	 */
 	public function setNoShade( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'noshade', '' );
 		} else {
@@ -569,7 +573,8 @@ trait HTMLHRElement {
 	 * @return string
 	 */
 	public function getSize() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'size' ) ?? '';
 	}
 
@@ -577,7 +582,8 @@ trait HTMLHRElement {
 	 * @param string $val
 	 */
 	public function setSize( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'size', $val );
 	}
 
@@ -585,7 +591,8 @@ trait HTMLHRElement {
 	 * @return string
 	 */
 	public function getWidth() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'width' ) ?? '';
 	}
 
@@ -593,7 +600,8 @@ trait HTMLHRElement {
 	 * @param string $val
 	 */
 	public function setWidth( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'width', $val );
 	}
 

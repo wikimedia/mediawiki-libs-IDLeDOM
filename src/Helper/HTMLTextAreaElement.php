@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLTextAreaElement {
 	/**
 	 * @param string $name
@@ -676,7 +674,8 @@ trait HTMLTextAreaElement {
 	 * @return string
 	 */
 	public function getAutocomplete() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'autocomplete' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -695,7 +694,8 @@ trait HTMLTextAreaElement {
 	 * @param string $val
 	 */
 	public function setAutocomplete( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'autocomplete', $val );
 	}
 
@@ -703,7 +703,8 @@ trait HTMLTextAreaElement {
 	 * @return bool
 	 */
 	public function getAutofocus() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autofocus' );
 	}
 
@@ -711,7 +712,8 @@ trait HTMLTextAreaElement {
 	 * @param bool $val
 	 */
 	public function setAutofocus( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'autofocus', '' );
 		} else {
@@ -723,7 +725,8 @@ trait HTMLTextAreaElement {
 	 * @return string
 	 */
 	public function getDirName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'dirname' ) ?? '';
 	}
 
@@ -731,7 +734,8 @@ trait HTMLTextAreaElement {
 	 * @param string $val
 	 */
 	public function setDirName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'dirname', $val );
 	}
 
@@ -739,7 +743,8 @@ trait HTMLTextAreaElement {
 	 * @return bool
 	 */
 	public function getDisabled() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
 	}
 
@@ -747,7 +752,8 @@ trait HTMLTextAreaElement {
 	 * @param bool $val
 	 */
 	public function setDisabled( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'disabled', '' );
 		} else {
@@ -759,7 +765,8 @@ trait HTMLTextAreaElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -767,7 +774,8 @@ trait HTMLTextAreaElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -775,7 +783,8 @@ trait HTMLTextAreaElement {
 	 * @return string
 	 */
 	public function getPlaceholder() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'placeholder' ) ?? '';
 	}
 
@@ -783,7 +792,8 @@ trait HTMLTextAreaElement {
 	 * @param string $val
 	 */
 	public function setPlaceholder( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'placeholder', $val );
 	}
 
@@ -791,7 +801,8 @@ trait HTMLTextAreaElement {
 	 * @return bool
 	 */
 	public function getReadOnly() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'readonly' );
 	}
 
@@ -799,7 +810,8 @@ trait HTMLTextAreaElement {
 	 * @param bool $val
 	 */
 	public function setReadOnly( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'readonly', '' );
 		} else {
@@ -811,7 +823,8 @@ trait HTMLTextAreaElement {
 	 * @return bool
 	 */
 	public function getRequired() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'required' );
 	}
 
@@ -819,7 +832,8 @@ trait HTMLTextAreaElement {
 	 * @param bool $val
 	 */
 	public function setRequired( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'required', '' );
 		} else {
@@ -831,7 +845,8 @@ trait HTMLTextAreaElement {
 	 * @return string
 	 */
 	public function getWrap() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'wrap' ) ?? '';
 	}
 
@@ -839,7 +854,8 @@ trait HTMLTextAreaElement {
 	 * @param string $val
 	 */
 	public function setWrap( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'wrap', $val );
 	}
 

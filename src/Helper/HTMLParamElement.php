@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLParamElement {
 	/**
 	 * @param string $name
@@ -508,7 +506,8 @@ trait HTMLParamElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -516,7 +515,8 @@ trait HTMLParamElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -524,7 +524,8 @@ trait HTMLParamElement {
 	 * @return string
 	 */
 	public function getValue() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'value' ) ?? '';
 	}
 
@@ -532,7 +533,8 @@ trait HTMLParamElement {
 	 * @param string $val
 	 */
 	public function setValue( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'value', $val );
 	}
 
@@ -540,7 +542,8 @@ trait HTMLParamElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
 	}
 
@@ -548,7 +551,8 @@ trait HTMLParamElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 
@@ -556,7 +560,8 @@ trait HTMLParamElement {
 	 * @return string
 	 */
 	public function getValueType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'valuetype' ) ?? '';
 	}
 
@@ -564,7 +569,8 @@ trait HTMLParamElement {
 	 * @param string $val
 	 */
 	public function setValueType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'valuetype', $val );
 	}
 

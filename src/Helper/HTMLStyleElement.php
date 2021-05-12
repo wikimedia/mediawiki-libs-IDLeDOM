@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLStyleElement {
 	/**
 	 * @param string $name
@@ -490,7 +488,8 @@ trait HTMLStyleElement {
 	 * @return string
 	 */
 	public function getMedia() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'media' ) ?? '';
 	}
 
@@ -498,7 +497,8 @@ trait HTMLStyleElement {
 	 * @param string $val
 	 */
 	public function setMedia( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'media', $val );
 	}
 
@@ -506,7 +506,8 @@ trait HTMLStyleElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
 	}
 
@@ -514,7 +515,8 @@ trait HTMLStyleElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 

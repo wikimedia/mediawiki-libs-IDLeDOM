@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLTableCellElement {
 	/**
 	 * @param string $name
@@ -604,7 +602,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getHeaders() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'headers' ) ?? '';
 	}
 
@@ -612,7 +611,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setHeaders( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'headers', $val );
 	}
 
@@ -620,7 +620,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getScope() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'scope' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -641,7 +642,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setScope( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'scope', $val );
 	}
 
@@ -649,7 +651,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getAbbr() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'abbr' ) ?? '';
 	}
 
@@ -657,7 +660,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setAbbr( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'abbr', $val );
 	}
 
@@ -665,7 +669,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -673,7 +678,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 
@@ -681,7 +687,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getAxis() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'axis' ) ?? '';
 	}
 
@@ -689,7 +696,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setAxis( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'axis', $val );
 	}
 
@@ -697,7 +705,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getHeight() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'height' ) ?? '';
 	}
 
@@ -705,7 +714,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setHeight( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'height', $val );
 	}
 
@@ -713,7 +723,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getWidth() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'width' ) ?? '';
 	}
 
@@ -721,7 +732,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setWidth( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'width', $val );
 	}
 
@@ -729,7 +741,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getCh() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'char' ) ?? '';
 	}
 
@@ -737,7 +750,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setCh( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'char', $val );
 	}
 
@@ -745,7 +759,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getChOff() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charoff' ) ?? '';
 	}
 
@@ -753,7 +768,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setChOff( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charoff', $val );
 	}
 
@@ -761,7 +777,8 @@ trait HTMLTableCellElement {
 	 * @return bool
 	 */
 	public function getNoWrap() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'nowrap' );
 	}
 
@@ -769,7 +786,8 @@ trait HTMLTableCellElement {
 	 * @param bool $val
 	 */
 	public function setNoWrap( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'nowrap', '' );
 		} else {
@@ -781,7 +799,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getVAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'valign' ) ?? '';
 	}
 
@@ -789,7 +808,8 @@ trait HTMLTableCellElement {
 	 * @param string $val
 	 */
 	public function setVAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'valign', $val );
 	}
 
@@ -797,7 +817,8 @@ trait HTMLTableCellElement {
 	 * @return string
 	 */
 	public function getBgColor() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'bgcolor' ) ?? '';
 	}
 
@@ -805,7 +826,8 @@ trait HTMLTableCellElement {
 	 * @param ?string $val
 	 */
 	public function setBgColor( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'bgcolor', $val ?? '' );
 	}
 

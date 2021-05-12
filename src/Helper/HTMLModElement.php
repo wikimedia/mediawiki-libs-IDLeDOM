@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLModElement {
 	/**
 	 * @param string $name
@@ -490,7 +488,8 @@ trait HTMLModElement {
 	 * @return string
 	 */
 	public function getDateTime() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'datetime' ) ?? '';
 	}
 
@@ -498,7 +497,8 @@ trait HTMLModElement {
 	 * @param string $val
 	 */
 	public function setDateTime( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'datetime', $val );
 	}
 

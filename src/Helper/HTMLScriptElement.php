@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLScriptElement {
 	/**
 	 * @param string $name
@@ -545,7 +543,8 @@ trait HTMLScriptElement {
 	 * @return ?string
 	 */
 	public function getCrossOrigin() : ?string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -564,7 +563,8 @@ trait HTMLScriptElement {
 	 * @param ?string $val
 	 */
 	public function setCrossOrigin( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {
 			$this->setAttribute( 'crossorigin', $val );
 		} else {
@@ -576,7 +576,8 @@ trait HTMLScriptElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
 	}
 
@@ -584,7 +585,8 @@ trait HTMLScriptElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 
@@ -592,7 +594,8 @@ trait HTMLScriptElement {
 	 * @return bool
 	 */
 	public function getDefer() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'defer' );
 	}
 
@@ -600,7 +603,8 @@ trait HTMLScriptElement {
 	 * @param bool $val
 	 */
 	public function setDefer( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'defer', '' );
 		} else {
@@ -612,7 +616,8 @@ trait HTMLScriptElement {
 	 * @return string
 	 */
 	public function getCharset() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charset' ) ?? '';
 	}
 
@@ -620,7 +625,8 @@ trait HTMLScriptElement {
 	 * @param string $val
 	 */
 	public function setCharset( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charset', $val );
 	}
 
@@ -628,7 +634,8 @@ trait HTMLScriptElement {
 	 * @return string
 	 */
 	public function getEvent() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'event' ) ?? '';
 	}
 
@@ -636,7 +643,8 @@ trait HTMLScriptElement {
 	 * @param string $val
 	 */
 	public function setEvent( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'event', $val );
 	}
 
@@ -644,7 +652,8 @@ trait HTMLScriptElement {
 	 * @return string
 	 */
 	public function getHtmlFor() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'for' ) ?? '';
 	}
 
@@ -652,7 +661,8 @@ trait HTMLScriptElement {
 	 * @param string $val
 	 */
 	public function setHtmlFor( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'for', $val );
 	}
 

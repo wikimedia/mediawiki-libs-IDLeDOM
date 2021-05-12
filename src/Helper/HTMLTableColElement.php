@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLTableColElement {
 	/**
 	 * @param string $name
@@ -526,7 +524,8 @@ trait HTMLTableColElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -534,7 +533,8 @@ trait HTMLTableColElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 
@@ -542,7 +542,8 @@ trait HTMLTableColElement {
 	 * @return string
 	 */
 	public function getCh() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'char' ) ?? '';
 	}
 
@@ -550,7 +551,8 @@ trait HTMLTableColElement {
 	 * @param string $val
 	 */
 	public function setCh( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'char', $val );
 	}
 
@@ -558,7 +560,8 @@ trait HTMLTableColElement {
 	 * @return string
 	 */
 	public function getChOff() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charoff' ) ?? '';
 	}
 
@@ -566,7 +569,8 @@ trait HTMLTableColElement {
 	 * @param string $val
 	 */
 	public function setChOff( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charoff', $val );
 	}
 
@@ -574,7 +578,8 @@ trait HTMLTableColElement {
 	 * @return string
 	 */
 	public function getVAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'valign' ) ?? '';
 	}
 
@@ -582,7 +587,8 @@ trait HTMLTableColElement {
 	 * @param string $val
 	 */
 	public function setVAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'valign', $val );
 	}
 
@@ -590,7 +596,8 @@ trait HTMLTableColElement {
 	 * @return string
 	 */
 	public function getWidth() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'width' ) ?? '';
 	}
 
@@ -598,7 +605,8 @@ trait HTMLTableColElement {
 	 * @param string $val
 	 */
 	public function setWidth( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'width', $val );
 	}
 

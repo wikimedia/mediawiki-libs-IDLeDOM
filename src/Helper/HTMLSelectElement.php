@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLSelectElement {
 	/**
 	 * @param string $name
@@ -610,7 +608,8 @@ trait HTMLSelectElement {
 	 * @return string
 	 */
 	public function getAutocomplete() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'autocomplete' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -629,7 +628,8 @@ trait HTMLSelectElement {
 	 * @param string $val
 	 */
 	public function setAutocomplete( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'autocomplete', $val );
 	}
 
@@ -637,7 +637,8 @@ trait HTMLSelectElement {
 	 * @return bool
 	 */
 	public function getAutofocus() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autofocus' );
 	}
 
@@ -645,7 +646,8 @@ trait HTMLSelectElement {
 	 * @param bool $val
 	 */
 	public function setAutofocus( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'autofocus', '' );
 		} else {
@@ -657,7 +659,8 @@ trait HTMLSelectElement {
 	 * @return bool
 	 */
 	public function getDisabled() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
 	}
 
@@ -665,7 +668,8 @@ trait HTMLSelectElement {
 	 * @param bool $val
 	 */
 	public function setDisabled( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'disabled', '' );
 		} else {
@@ -677,7 +681,8 @@ trait HTMLSelectElement {
 	 * @return bool
 	 */
 	public function getMultiple() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'multiple' );
 	}
 
@@ -685,7 +690,8 @@ trait HTMLSelectElement {
 	 * @param bool $val
 	 */
 	public function setMultiple( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'multiple', '' );
 		} else {
@@ -697,7 +703,8 @@ trait HTMLSelectElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -705,7 +712,8 @@ trait HTMLSelectElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -713,7 +721,8 @@ trait HTMLSelectElement {
 	 * @return bool
 	 */
 	public function getRequired() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'required' );
 	}
 
@@ -721,7 +730,8 @@ trait HTMLSelectElement {
 	 * @param bool $val
 	 */
 	public function setRequired( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'required', '' );
 		} else {

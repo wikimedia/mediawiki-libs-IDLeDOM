@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLBodyElement {
 	/**
 	 * @param string $name
@@ -526,7 +524,8 @@ trait HTMLBodyElement {
 	 * @return string
 	 */
 	public function getText() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'text' ) ?? '';
 	}
 
@@ -534,7 +533,8 @@ trait HTMLBodyElement {
 	 * @param ?string $val
 	 */
 	public function setText( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'text', $val ?? '' );
 	}
 
@@ -542,7 +542,8 @@ trait HTMLBodyElement {
 	 * @return string
 	 */
 	public function getLink() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'link' ) ?? '';
 	}
 
@@ -550,7 +551,8 @@ trait HTMLBodyElement {
 	 * @param ?string $val
 	 */
 	public function setLink( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'link', $val ?? '' );
 	}
 
@@ -558,7 +560,8 @@ trait HTMLBodyElement {
 	 * @return string
 	 */
 	public function getVLink() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'vlink' ) ?? '';
 	}
 
@@ -566,7 +569,8 @@ trait HTMLBodyElement {
 	 * @param ?string $val
 	 */
 	public function setVLink( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'vlink', $val ?? '' );
 	}
 
@@ -574,7 +578,8 @@ trait HTMLBodyElement {
 	 * @return string
 	 */
 	public function getALink() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'alink' ) ?? '';
 	}
 
@@ -582,7 +587,8 @@ trait HTMLBodyElement {
 	 * @param ?string $val
 	 */
 	public function setALink( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'alink', $val ?? '' );
 	}
 
@@ -590,7 +596,8 @@ trait HTMLBodyElement {
 	 * @return string
 	 */
 	public function getBgColor() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'bgcolor' ) ?? '';
 	}
 
@@ -598,7 +605,8 @@ trait HTMLBodyElement {
 	 * @param ?string $val
 	 */
 	public function setBgColor( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'bgcolor', $val ?? '' );
 	}
 
@@ -606,7 +614,8 @@ trait HTMLBodyElement {
 	 * @return string
 	 */
 	public function getBackground() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'background' ) ?? '';
 	}
 
@@ -614,7 +623,8 @@ trait HTMLBodyElement {
 	 * @param string $val
 	 */
 	public function setBackground( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'background', $val );
 	}
 

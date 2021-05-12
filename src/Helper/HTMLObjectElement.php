@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLObjectElement {
 	/**
 	 * @param string $name
@@ -646,7 +644,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
 	}
 
@@ -654,7 +653,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 
@@ -662,7 +662,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -670,7 +671,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -678,7 +680,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getUseMap() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'usemap' ) ?? '';
 	}
 
@@ -686,7 +689,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setUseMap( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'usemap', $val );
 	}
 
@@ -694,7 +698,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getWidth() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'width' ) ?? '';
 	}
 
@@ -702,7 +707,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setWidth( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'width', $val );
 	}
 
@@ -710,7 +716,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getHeight() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'height' ) ?? '';
 	}
 
@@ -718,7 +725,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setHeight( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'height', $val );
 	}
 
@@ -726,7 +734,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getAlign() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
 	}
 
@@ -734,7 +743,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setAlign( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
 	}
 
@@ -742,7 +752,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getArchive() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'archive' ) ?? '';
 	}
 
@@ -750,7 +761,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setArchive( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'archive', $val );
 	}
 
@@ -758,7 +770,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getCode() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'code' ) ?? '';
 	}
 
@@ -766,7 +779,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setCode( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'code', $val );
 	}
 
@@ -774,7 +788,8 @@ trait HTMLObjectElement {
 	 * @return bool
 	 */
 	public function getDeclare() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'declare' );
 	}
 
@@ -782,7 +797,8 @@ trait HTMLObjectElement {
 	 * @param bool $val
 	 */
 	public function setDeclare( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'declare', '' );
 		} else {
@@ -794,7 +810,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getStandby() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'standby' ) ?? '';
 	}
 
@@ -802,7 +819,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setStandby( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'standby', $val );
 	}
 
@@ -810,7 +828,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getCodeType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'codetype' ) ?? '';
 	}
 
@@ -818,7 +837,8 @@ trait HTMLObjectElement {
 	 * @param string $val
 	 */
 	public function setCodeType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'codetype', $val );
 	}
 
@@ -826,7 +846,8 @@ trait HTMLObjectElement {
 	 * @return string
 	 */
 	public function getBorder() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'border' ) ?? '';
 	}
 
@@ -834,7 +855,8 @@ trait HTMLObjectElement {
 	 * @param ?string $val
 	 */
 	public function setBorder( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'border', $val ?? '' );
 	}
 

@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLMetaElement {
 	/**
 	 * @param string $name
@@ -508,7 +506,8 @@ trait HTMLMetaElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -516,7 +515,8 @@ trait HTMLMetaElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -524,7 +524,8 @@ trait HTMLMetaElement {
 	 * @return string
 	 */
 	public function getHttpEquiv() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'http-equiv' ) ?? '';
 	}
 
@@ -532,7 +533,8 @@ trait HTMLMetaElement {
 	 * @param string $val
 	 */
 	public function setHttpEquiv( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'http-equiv', $val );
 	}
 
@@ -540,7 +542,8 @@ trait HTMLMetaElement {
 	 * @return string
 	 */
 	public function getContent() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'content' ) ?? '';
 	}
 
@@ -548,7 +551,8 @@ trait HTMLMetaElement {
 	 * @param string $val
 	 */
 	public function setContent( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'content', $val );
 	}
 
@@ -556,7 +560,8 @@ trait HTMLMetaElement {
 	 * @return string
 	 */
 	public function getScheme() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'scheme' ) ?? '';
 	}
 
@@ -564,7 +569,8 @@ trait HTMLMetaElement {
 	 * @param string $val
 	 */
 	public function setScheme( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'scheme', $val );
 	}
 

@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLLinkElement {
 	/**
 	 * @param string $name
@@ -578,7 +576,8 @@ trait HTMLLinkElement {
 	 * @return ?string
 	 */
 	public function getCrossOrigin() : ?string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -597,7 +596,8 @@ trait HTMLLinkElement {
 	 * @param ?string $val
 	 */
 	public function setCrossOrigin( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {
 			$this->setAttribute( 'crossorigin', $val );
 		} else {
@@ -609,7 +609,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getReferrerPolicy() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'referrerpolicy' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -635,7 +636,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setReferrerPolicy( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'referrerpolicy', $val );
 	}
 
@@ -643,7 +645,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getRel() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'rel' ) ?? '';
 	}
 
@@ -651,7 +654,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setRel( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'rel', $val );
 	}
 
@@ -659,7 +663,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getAs() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'as' ) ?? '';
 	}
 
@@ -667,7 +672,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setAs( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'as', $val );
 	}
 
@@ -675,7 +681,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getMedia() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'media' ) ?? '';
 	}
 
@@ -683,7 +690,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setMedia( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'media', $val );
 	}
 
@@ -691,7 +699,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getHreflang() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'hreflang' ) ?? '';
 	}
 
@@ -699,7 +708,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setHreflang( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'hreflang', $val );
 	}
 
@@ -707,7 +717,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
 	}
 
@@ -715,7 +726,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 
@@ -723,7 +735,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getCharset() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charset' ) ?? '';
 	}
 
@@ -731,7 +744,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setCharset( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charset', $val );
 	}
 
@@ -739,7 +753,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getRev() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'rev' ) ?? '';
 	}
 
@@ -747,7 +762,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setRev( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'rev', $val );
 	}
 
@@ -755,7 +771,8 @@ trait HTMLLinkElement {
 	 * @return string
 	 */
 	public function getTarget() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'target' ) ?? '';
 	}
 
@@ -763,7 +780,8 @@ trait HTMLLinkElement {
 	 * @param string $val
 	 */
 	public function setTarget( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'target', $val );
 	}
 

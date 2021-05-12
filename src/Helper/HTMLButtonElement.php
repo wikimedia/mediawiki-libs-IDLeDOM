@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLButtonElement {
 	/**
 	 * @param string $name
@@ -583,7 +581,8 @@ trait HTMLButtonElement {
 	 * @return bool
 	 */
 	public function getAutofocus() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autofocus' );
 	}
 
@@ -591,7 +590,8 @@ trait HTMLButtonElement {
 	 * @param bool $val
 	 */
 	public function setAutofocus( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'autofocus', '' );
 		} else {
@@ -603,7 +603,8 @@ trait HTMLButtonElement {
 	 * @return bool
 	 */
 	public function getDisabled() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
 	}
 
@@ -611,7 +612,8 @@ trait HTMLButtonElement {
 	 * @param bool $val
 	 */
 	public function setDisabled( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'disabled', '' );
 		} else {
@@ -623,7 +625,8 @@ trait HTMLButtonElement {
 	 * @return string
 	 */
 	public function getFormEnctype() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'formenctype' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -643,7 +646,8 @@ trait HTMLButtonElement {
 	 * @param string $val
 	 */
 	public function setFormEnctype( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'formenctype', $val );
 	}
 
@@ -651,7 +655,8 @@ trait HTMLButtonElement {
 	 * @return string
 	 */
 	public function getFormMethod() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'formmethod' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -671,7 +676,8 @@ trait HTMLButtonElement {
 	 * @param string $val
 	 */
 	public function setFormMethod( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'formmethod', $val );
 	}
 
@@ -679,7 +685,8 @@ trait HTMLButtonElement {
 	 * @return bool
 	 */
 	public function getFormNoValidate() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'formnovalidate' );
 	}
 
@@ -687,7 +694,8 @@ trait HTMLButtonElement {
 	 * @param bool $val
 	 */
 	public function setFormNoValidate( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'formnovalidate', '' );
 		} else {
@@ -699,7 +707,8 @@ trait HTMLButtonElement {
 	 * @return string
 	 */
 	public function getFormTarget() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'formtarget' ) ?? '';
 	}
 
@@ -707,7 +716,8 @@ trait HTMLButtonElement {
 	 * @param string $val
 	 */
 	public function setFormTarget( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'formtarget', $val );
 	}
 
@@ -715,7 +725,8 @@ trait HTMLButtonElement {
 	 * @return string
 	 */
 	public function getName() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
 	}
 
@@ -723,7 +734,8 @@ trait HTMLButtonElement {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
 	}
 
@@ -731,7 +743,8 @@ trait HTMLButtonElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'type' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -751,7 +764,8 @@ trait HTMLButtonElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 
@@ -759,7 +773,8 @@ trait HTMLButtonElement {
 	 * @return string
 	 */
 	public function getValue() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'value' ) ?? '';
 	}
 
@@ -767,7 +782,8 @@ trait HTMLButtonElement {
 	 * @param string $val
 	 */
 	public function setValue( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'value', $val );
 	}
 

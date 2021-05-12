@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLBRElement {
 	/**
 	 * @param string $name
@@ -481,7 +479,8 @@ trait HTMLBRElement {
 	 * @return string
 	 */
 	public function getClear() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'clear' ) ?? '';
 	}
 
@@ -489,7 +488,8 @@ trait HTMLBRElement {
 	 * @param string $val
 	 */
 	public function setClear( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'clear', $val );
 	}
 

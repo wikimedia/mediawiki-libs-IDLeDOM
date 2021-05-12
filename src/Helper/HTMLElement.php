@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLElement {
 	/**
 	 * @param string $name
@@ -472,7 +470,8 @@ trait HTMLElement {
 	 * @return string
 	 */
 	public function getEnterKeyHint() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enterkeyhint' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -496,7 +495,8 @@ trait HTMLElement {
 	 * @param string $val
 	 */
 	public function setEnterKeyHint( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enterkeyhint', $val );
 	}
 
@@ -504,7 +504,8 @@ trait HTMLElement {
 	 * @return string
 	 */
 	public function getInputMode() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'inputmode' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -529,7 +530,8 @@ trait HTMLElement {
 	 * @param string $val
 	 */
 	public function setInputMode( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'inputmode', $val );
 	}
 
@@ -537,7 +539,8 @@ trait HTMLElement {
 	 * @return string
 	 */
 	public function getNonce() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'nonce' ) ?? '';
 	}
 
@@ -545,7 +548,8 @@ trait HTMLElement {
 	 * @param string $val
 	 */
 	public function setNonce( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'nonce', $val );
 	}
 
@@ -553,7 +557,8 @@ trait HTMLElement {
 	 * @return string
 	 */
 	public function getTitle() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'title' ) ?? '';
 	}
 
@@ -561,7 +566,8 @@ trait HTMLElement {
 	 * @param string $val
 	 */
 	public function setTitle( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'title', $val );
 	}
 
@@ -569,7 +575,8 @@ trait HTMLElement {
 	 * @return string
 	 */
 	public function getLang() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'lang' ) ?? '';
 	}
 
@@ -577,7 +584,8 @@ trait HTMLElement {
 	 * @param string $val
 	 */
 	public function setLang( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'lang', $val );
 	}
 
@@ -585,7 +593,8 @@ trait HTMLElement {
 	 * @return string
 	 */
 	public function getDir() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'dir' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -605,7 +614,8 @@ trait HTMLElement {
 	 * @param string $val
 	 */
 	public function setDir( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'dir', $val );
 	}
 
@@ -613,7 +623,8 @@ trait HTMLElement {
 	 * @return bool
 	 */
 	public function getHidden() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'hidden' );
 	}
 
@@ -621,7 +632,8 @@ trait HTMLElement {
 	 * @param bool $val
 	 */
 	public function setHidden( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'hidden', '' );
 		} else {
@@ -633,7 +645,8 @@ trait HTMLElement {
 	 * @return string
 	 */
 	public function getAccessKey() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'accesskey' ) ?? '';
 	}
 
@@ -641,7 +654,8 @@ trait HTMLElement {
 	 * @param string $val
 	 */
 	public function setAccessKey( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'accesskey', $val );
 	}
 

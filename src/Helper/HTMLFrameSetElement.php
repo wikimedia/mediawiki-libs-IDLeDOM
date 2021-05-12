@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLFrameSetElement {
 	/**
 	 * @param string $name
@@ -490,7 +488,8 @@ trait HTMLFrameSetElement {
 	 * @return string
 	 */
 	public function getCols() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'cols' ) ?? '';
 	}
 
@@ -498,7 +497,8 @@ trait HTMLFrameSetElement {
 	 * @param string $val
 	 */
 	public function setCols( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'cols', $val );
 	}
 
@@ -506,7 +506,8 @@ trait HTMLFrameSetElement {
 	 * @return string
 	 */
 	public function getRows() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'rows' ) ?? '';
 	}
 
@@ -514,7 +515,8 @@ trait HTMLFrameSetElement {
 	 * @param string $val
 	 */
 	public function setRows( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'rows', $val );
 	}
 

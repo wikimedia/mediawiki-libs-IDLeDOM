@@ -5,14 +5,13 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLOrSVGElement {
 	/**
 	 * @return string
 	 */
 	public function getNonce() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'nonce' ) ?? '';
 	}
 
@@ -20,7 +19,8 @@ trait HTMLOrSVGElement {
 	 * @param string $val
 	 */
 	public function setNonce( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'nonce', $val );
 	}
 

@@ -5,14 +5,13 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait CrossOrigin {
 	/**
 	 * @return ?string
 	 */
 	public function getCrossOrigin() : ?string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
 		if ( $val !== null ) {
 			$val = strtr( $val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );
@@ -31,7 +30,8 @@ trait CrossOrigin {
 	 * @param ?string $val
 	 */
 	public function setCrossOrigin( ?string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {
 			$this->setAttribute( 'crossorigin', $val );
 		} else {

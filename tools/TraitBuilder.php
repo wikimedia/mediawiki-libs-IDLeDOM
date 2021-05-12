@@ -385,14 +385,14 @@ class TraitBuilder extends Builder {
 			}
 			$this->skip = false;
 			$this->use( $info['idlType'], $typeOpts );
-			$this->use( [ 'idlType' => 'Element' ], $typeOpts );
 			$attrName = var_export( $info['reflectAttr'], true );
 
 			$this->nl( '/**' );
 			$this->nl( " * @return {$info['getterTypeDoc']}" );
 			$this->nl( ' */' );
 			$this->nl( "public function {$info['getter']}(){$info['getterType']} {" );
-			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
+			$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\Element \$this';" );
+			$this->nl( "// @var \\Wikimedia\\IDLeDOM\\Element \$this" );
 			switch ( $info['idlType']['idlType'] ) {
 			case 'DOMString':
 				if ( $info['reflectType'] === 'ReflectEnum' ) {
@@ -447,7 +447,8 @@ class TraitBuilder extends Builder {
 			$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
 			$this->nl( ' */' );
 			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
-			$this->nl( "'@phan-var Element \$this'; /** @var Element \$this */" );
+			$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\Element \$this';" );
+			$this->nl( "// @var \\Wikimedia\\IDLeDOM\\Element \$this" );
 			switch ( $info['idlType']['idlType'] ) {
 			case 'DOMString':
 				if ( $info['idlType']['nullable'] ?? false ) {

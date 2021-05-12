@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLDirectoryElement {
 	/**
 	 * @param string $name
@@ -481,7 +479,8 @@ trait HTMLDirectoryElement {
 	 * @return bool
 	 */
 	public function getCompact() : bool {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'compact' );
 	}
 
@@ -489,7 +488,8 @@ trait HTMLDirectoryElement {
 	 * @param bool $val
 	 */
 	public function setCompact( bool $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
 			$this->setAttribute( 'compact', '' );
 		} else {

@@ -5,8 +5,6 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
-use Wikimedia\IDLeDOM\Element;
-
 trait HTMLSourceElement {
 	/**
 	 * @param string $name
@@ -517,7 +515,8 @@ trait HTMLSourceElement {
 	 * @return string
 	 */
 	public function getType() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
 	}
 
@@ -525,7 +524,8 @@ trait HTMLSourceElement {
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
 	}
 
@@ -533,7 +533,8 @@ trait HTMLSourceElement {
 	 * @return string
 	 */
 	public function getSizes() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'sizes' ) ?? '';
 	}
 
@@ -541,7 +542,8 @@ trait HTMLSourceElement {
 	 * @param string $val
 	 */
 	public function setSizes( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'sizes', $val );
 	}
 
@@ -549,7 +551,8 @@ trait HTMLSourceElement {
 	 * @return string
 	 */
 	public function getMedia() : string {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'media' ) ?? '';
 	}
 
@@ -557,7 +560,8 @@ trait HTMLSourceElement {
 	 * @param string $val
 	 */
 	public function setMedia( string $val ) : void {
-		'@phan-var Element $this'; /** @var Element $this */
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'media', $val );
 	}
 
