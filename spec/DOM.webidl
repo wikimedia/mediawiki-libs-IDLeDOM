@@ -349,10 +349,10 @@ interface Element : Node {
   readonly attribute DOMString localName;
   readonly attribute DOMString tagName;
 
-  [CEReactions] attribute DOMString id;
-  [CEReactions] attribute DOMString className;
+  [CEReactions, Reflect] attribute DOMString id;
+  [CEReactions, Reflect="class"] attribute DOMString className;
   [SameObject, PutForwards=value] readonly attribute DOMTokenList classList;
-  [CEReactions, Unscopable] attribute DOMString slot;
+  [CEReactions, Unscopable, Reflect] attribute DOMString slot;
 
   boolean hasAttributes();
   [SameObject] readonly attribute NamedNodeMap attributes;

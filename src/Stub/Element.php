@@ -59,51 +59,9 @@ trait Element {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getId() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setId( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getClassName() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setClassName( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return DOMTokenList
 	 */
 	public function getClassList() {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSlot() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setSlot( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

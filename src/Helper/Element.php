@@ -283,4 +283,58 @@ trait Element {
 		);
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getId() : string {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
+		return $this->getAttribute( 'id' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setId( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
+		$this->setAttribute( 'id', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getClassName() : string {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
+		return $this->getAttribute( 'class' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setClassName( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
+		$this->setAttribute( 'class', $val );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSlot() : string {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
+		return $this->getAttribute( 'slot' ) ?? '';
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSlot( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
+		$this->setAttribute( 'slot', $val );
+	}
+
 }
