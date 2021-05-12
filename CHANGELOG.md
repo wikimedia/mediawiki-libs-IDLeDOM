@@ -1,3 +1,5 @@
+# IDLeDOM x.x.x (not yet released)
+
 # IDLeDOM 0.4.0 (2021-05-11)
 * Add interfaces for HTML IDL, in particular the HTML*Element classes.
 * Support "unnamed" getter/setters/deleters/stringifiers.
