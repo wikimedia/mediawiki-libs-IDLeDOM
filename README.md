@@ -25,6 +25,15 @@ implement the interfaces defined by IDLeDOM.  Client code can be
 written to work with any DOM implementation which follows the IDLeDOM
 PHP binding for WebIDL.
 
+IDLeDOM does contain stubs and helper traits which can greatly aid a
+DOM implementation.  Including stub traits in your DOM implementation
+will ensure that new methods added to IDLeDOM will be stubbed out by
+default (throwing a user-defined exception), instead of breaking your
+implementation due to new unimplemented interface methods.  Including
+the helper traits in your DOM implementation will provide
+implementations of certain PHP magic methods and IDL "attribute
+reflection" attributes.
+
 Additional documentation about the library can be found on
 [MediaWiki.org](https://www.mediawiki.org/wiki/IDLeDOM).
 
@@ -64,14 +73,17 @@ To write a new DOM implementation you will be implementing the
 interface types in `Wikimedia\IDLeDOM`.  This library provides
 two traits for most interfaces in order to ease the task:
 
-1. The helper trait in `Wikimedia\IDLeDOM\Helper` will implement
-the magic `__get` and `__set` methods for interfaces and dictionaries,
-`ArrayAccess` methods for dictionaries,
-the magic `__invoke` method for callback classes, and `cast` methods
-for callbacks and dictionaries to turn a `callable` and associative-array,
-respectively, into the proper callback or dictionary type.
-The helper will also implement `Countable` and `IteratorAggregate`
-where appropriate.
+1. The helper trait in `Wikimedia\IDLeDOM\Helper` will implement the
+magic `__get` and `__set` methods for interfaces and dictionaries,
+`ArrayAccess` methods for dictionaries, the magic `__invoke` method
+for callback classes, and `cast` methods for callbacks and
+dictionaries to turn a `callable` and associative-array, respectively,
+into the proper callback or dictionary type.  The helper will
+implement `Countable` and `IteratorAggregate` where appropriate.  For
+IDL interfaces which reflect Element attributes, the helper class will
+also implement these reflected interface attributes in terms of
+`Element::getAttribute()`, `Element::hasAttribute()`, and
+`Element::setAttribute()` calls.
 
 2. The stub trait in `Wikimedia\IDLeDOM\Stub` will stub out all
 methods of the interface by implementing them to throw the
@@ -106,6 +118,9 @@ class Document extends Node implements \Wikimedia\IDLeDOM\Document {
 	use \Wikimedia\IDLeDOM\Stub\Document;
 
 	// Helper functions from IDLeDOM
+	// (Note that the Document helper will also include reflected
+	// attribute accessors for the mixin classes; you don't need
+	// to include helper traits in your implementations of DOM mixins)
 	use \Wikimedia\IDLeDOM\Helper\Document;
 
 	protected function _unimplemented() : \Exception {

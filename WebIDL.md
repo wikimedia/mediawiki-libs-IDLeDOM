@@ -240,12 +240,14 @@ type](https://www.php.net/manual/en/language.types.object.php).
 
 The WebIDL [`symbol`] type is not supported.
 
-### Enumerations
+### Enumeration types
 
 WebIDL [enumeration](https://heycam.github.io/webidl/#idl-enums) types
 correspond to the PHP `int` type.  (There is a PHP interface created
 to hold the enumeration values as class constants, but enumeration
 values are `int`s, not objects implementing this interface.)
+
+See the [section on Enumeration interfaces below](#enumeration-interfaces).
 
 ## Objects implementing interfaces
 
@@ -408,6 +410,17 @@ interface with the following properties:
   corresponding to DOM interfaces (as described in the "operations"
   section above).
 
+#### Reflected attributes
+
+Certain IDL attributes are defined in the relevant specifications to
+reflect the value of Element attributes. These do not affect the
+interface declaration of the IDL attribute. Since implementation
+details are out-of-scope for this document, we will briefly note that
+IDLeDOM uses extended attributes named `[Reflect]`, `[ReflectURL]`,
+`[ReflectEnum]`, `[ReflectDefault]`, `[ReflectMissing]`, and
+`[ReflectInvalid]` in the IDL specification to guide the automatic
+creation of getter and setter methods for reflected attributes.
+
 #### Attribute compatibility
 
 In every interface with attributes, the PHP [magic
@@ -430,6 +443,8 @@ by storing and fetching values indexed by these names in an auxiliary
 array.
 
 XXX: should we be specific here and choose one behavior?
+
+XXX: perhaps a 'standard' extension point should be provided as well?
 
 *The use of these compatibility methods is not recommended in
 performance-critical code*.  They are provided to provide
@@ -531,7 +546,7 @@ method named `cast` with a single argument:
   invoking the single regular operation of the `callback interface` will
   invoke the [callable] with the same arguments, and return the result.
 
-## Enumerations
+## Enumeration interfaces
 
 WebIDL [enumerations](https://heycam.github.io/webidl/#idl-enums)
 shall correspond to a PHP interface with an integer constant for every
@@ -555,6 +570,11 @@ interface ShadowRootMode {
 	public const closed = 1;
 }
 ```
+
+XXX: Consider using 'string' to represent enumerations, instead of
+'int', which might be more compatible with JavaScript usage, and/or
+using a "real" Java-style enumeration object, with helpers to coerce
+strings to enumeration objects.
 
 ## Exceptions
 
@@ -599,12 +619,20 @@ the following properties:
 
 # Compatibility
 
+IDL interfaces, mixins, attributes, or operations which occur in IDLeDOM
+for PHP interoperability or compatibility with PHP's built-in `DOMDocument`
+classes have been marked with the extended attribute `[PHPExtension]`.
+
+PHP contains a writeable `encoding` attribute on the `Document` interface
+in the definition of the built-in `DOMDocument`.  We have copied that
+non-standard attribute to our IDL for Document.
+
 XXX: In this section we should describe some specific differences between
 the binding as described above, and the names resulting from the
 `DOMDocument` classes, on one hand, and the JavaScript binding, on the
 other.
 
-[PHP escaped]: #Names
+[PHP escaped]: #names
 [`dictionary`]: https://heycam.github.io/webidl/#idl-dictionaries
 [`callback`]: https://heycam.github.io/webidl/#idl-callback-functions
 [`callback interface`]: https://heycam.github.io/webidl/#idl-callback-interfaces
@@ -618,10 +646,11 @@ other.
 [`undefined`]: https://heycam.github.io/webidl/#idl-undefined
 [`object`]: https://heycam.github.io/webidl/#idl-object
 [`symbol`]: https://heycam.github.io/webidl/#idl-symbol
-[type section above]: #Types
+[type section above]: #types
 [operation]: https://www.w3.org/TR/WebIDL-1/#idl-operations
 [identifier]: https://www.w3.org/TR/WebIDL-1/#idl-names
 [interface]: https://www.w3.org/TR/WebIDL-1#idl-interfaces
+rev
 [attribute]: https://www.w3.org/TR/WebIDL-1/#idl-attributes
 [IDL exception]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
 [IDL exceptions]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
