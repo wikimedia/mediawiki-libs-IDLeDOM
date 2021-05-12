@@ -1,5 +1,6 @@
 # IDLeDOM x.x.x (not yet released)
 * Add DOMException interface.
+* Add interfaces for WebIDL "simple exceptions".
 
 # IDLeDOM 0.4.0 (2021-05-11)
 * Add interfaces for HTML IDL, in particular the HTML*Element classes.
