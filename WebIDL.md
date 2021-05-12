@@ -19,8 +19,8 @@ in a different namespace; for example the implementation of `Document`
 might be in a class `Wikimedia\Dodo\Document` which implements
 `Wikimedia\IDLeDOM\Document`.
 
-It is expected that users will obtain a `DOMImplementation` object
-by some mechanism, and use that to create all concrete DOM objects.
+It is expected that users will obtain a `DOMImplementation` or `Document`
+object by some mechanism, and use that to create all concrete DOM objects.
 Code which attempts to maintain implementation-independence will
 avoid direct references to the particular implementation class,
 and instead refer to the IDLeDOM interface.
@@ -248,6 +248,12 @@ to hold the enumeration values as class constants, but enumeration
 values are `int`s, not objects implementing this interface.)
 
 See the [section on Enumeration interfaces below](#enumeration-interfaces).
+
+### Exception types
+
+Exceptions are represented by the objects implementing the interfaces
+defined in [the Exceptions section below](#Exceptions).  They will
+also implement the PHP `Throwable` type.
 
 ## Objects implementing interfaces
 
@@ -578,44 +584,26 @@ strings to enumeration objects.
 
 ## Exceptions
 
-A conforming PHP implementation must have a PHP class corresponding to
-every [WebIDL exception] that is supported, whose name is the [PHP escaped]
-[identifier] of the WebIDL exception.
+A conforming PHP implementation must have a PHP interface corresponding to
+every [WebIDL exception] that is supported.  For simple exceptions, the
+interface name must be the [PHP escaped] [identifier] of the WebIDL
+simple exception name: `Error`, `EvalError`, `RangeError`, `ReferenceError`,
+`TypeError`, or `URIError`.  These PHP interfaces must have only the `public`
+modifier.
 
-The PHP class must have only the `public` modifier, and be declared to extend
-the PHP base class `Exception`.
+In addition, the PHP implementation must have a PHP interface named
+`DOMException` corresponding to the [WebIDL exception] DOMException type.
+This PHP interface must [correspond in the usual way](#interfaces)
+to the [WebIDL interface for DOMException given in the WebIDL spec](https://heycam.github.io/webidl/#idl-DOMException).
 
-### Exception constants
-
-For each [constant] defined on the [enclosing module] of the [WebIDL
-exception], where that module has been declared with the
-`[ExceptionConsts]` [extended attribute], there must be a
-corresponding constant declared on the PHP class with the following
-properties:
-
-* The constant has `public` visibility.
-* The type of the constant is the PHP type that corresponds to the
-  type of the WebIDL constant, according to the rules in the [type
-  section above].
-* The name of the constant is the [PHP escaped] [identifier] of the
-  constant.
-* The value of the constant is the PHP value that is equivalent to the
-  constant’s WebIDL value, according to the rules in the [type section
-  above].
-
-### Exception members
-
-For each [exception member] defined on the [WebIDL exception], there must
-be a corresponding instance variable declared on the PHP class with
-the following properties:
-
-* The instance variable has `public` visibility.
-* The type of the instance variable is the PHP type that corresponds
-  to the type of the WebIDL exception member, according to the rules in
-  the [type section above].
-* The name of the instance variable is the [PHP escaped] [identifier]
-  of the exception member.
-* The instance variable is not declared with an initializer.
+Note that because these exceptions are represented as interface types,
+an implementation may chose to (for example) subclass PHP built-in
+types such as
+[`RangeException`](https://www.php.net/manual/en/class.rangeexception)
+and
+[`DOMException`](https://www.php.net/manual/en/class.domexception.php)
+as long as these subclasses also implement the appropriate interface
+types.
 
 # Compatibility
 
