@@ -42,6 +42,8 @@ trait HTMLObjectElement {
 				return $this->getNodeValue();
 			case "textContent":
 				return $this->getTextContent();
+			case "innerHTML":
+				return $this->getInnerHTML();
 			case "previousElementSibling":
 				return $this->getPreviousElementSibling();
 			case "nextElementSibling":
@@ -76,6 +78,8 @@ trait HTMLObjectElement {
 				return $this->getAttributes();
 			case "shadowRoot":
 				return $this->getShadowRoot();
+			case "outerHTML":
+				return $this->getOuterHTML();
 			case "contentEditable":
 				return $this->getContentEditable();
 			case "enterKeyHint":
@@ -213,6 +217,8 @@ trait HTMLObjectElement {
 				return $this->getNodeValue() !== null;
 			case "textContent":
 				return $this->getTextContent() !== null;
+			case "innerHTML":
+				return true;
 			case "previousElementSibling":
 				return $this->getPreviousElementSibling() !== null;
 			case "nextElementSibling":
@@ -247,6 +253,8 @@ trait HTMLObjectElement {
 				return true;
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
+			case "outerHTML":
+				return true;
 			case "contentEditable":
 				return true;
 			case "enterKeyHint":
@@ -355,6 +363,9 @@ trait HTMLObjectElement {
 			case "textContent":
 				$this->setTextContent( $value );
 				return;
+			case "innerHTML":
+				$this->setInnerHTML( $value );
+				return;
 			case "id":
 				$this->setId( $value );
 				return;
@@ -363,6 +374,9 @@ trait HTMLObjectElement {
 				return;
 			case "slot":
 				$this->setSlot( $value );
+				return;
+			case "outerHTML":
+				$this->setOuterHTML( $value );
 				return;
 			case "contentEditable":
 				$this->setContentEditable( $value );
@@ -506,6 +520,8 @@ trait HTMLObjectElement {
 			case "textContent":
 				$this->setTextContent( null );
 				return;
+			case "innerHTML":
+				break;
 			case "previousElementSibling":
 				break;
 			case "nextElementSibling":
@@ -539,6 +555,8 @@ trait HTMLObjectElement {
 			case "attributes":
 				break;
 			case "shadowRoot":
+				break;
+			case "outerHTML":
 				break;
 			case "contentEditable":
 				break;

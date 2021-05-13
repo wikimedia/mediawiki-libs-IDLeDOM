@@ -196,4 +196,12 @@ trait Range {
 		throw self::_unimplemented();
 	}
 
+	/**
+	 * @param string $fragment
+	 * @return DocumentFragment
+	 */
+	public function createContextualFragment( string $fragment ) {
+		throw self::_unimplemented();
+	}
+
 }

@@ -50,6 +50,8 @@ trait ShadowRoot {
 				return $this->getLastElementChild();
 			case "childElementCount":
 				return $this->getChildElementCount();
+			case "innerHTML":
+				return $this->getInnerHTML();
 			case "mode":
 				return $this->getMode();
 			case "host":
@@ -113,6 +115,8 @@ trait ShadowRoot {
 				return $this->getLastElementChild() !== null;
 			case "childElementCount":
 				return true;
+			case "innerHTML":
+				return true;
 			case "mode":
 				return true;
 			case "host":
@@ -138,6 +142,9 @@ trait ShadowRoot {
 				return;
 			case "textContent":
 				$this->setTextContent( $value );
+				return;
+			case "innerHTML":
+				$this->setInnerHTML( $value );
 				return;
 			case "onslotchange":
 				$this->setOnslotchange( $value );
@@ -198,6 +205,8 @@ trait ShadowRoot {
 			case "lastElementChild":
 				break;
 			case "childElementCount":
+				break;
+			case "innerHTML":
 				break;
 			case "mode":
 				break;

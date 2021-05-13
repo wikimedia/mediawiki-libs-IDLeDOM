@@ -24,6 +24,7 @@ namespace Wikimedia\IDLeDOM;
  * @property Node|null $nextSibling
  * @property ?string $nodeValue
  * @property ?string $textContent
+ * @property string $innerHTML
  * @property Element|null $previousElementSibling
  * @property Element|null $nextElementSibling
  * @property HTMLCollection $children
@@ -41,9 +42,10 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $outerHTML
  * @phan-forbid-undeclared-magic-properties
  */
-interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode, Slottable {
+interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, ParentNode, Slottable {
 	// Direct parent: Node
 
 	/**
@@ -291,5 +293,22 @@ interface Element extends Node, ChildNode, NonDocumentTypeChildNode, ParentNode,
 	 * @return void
 	 */
 	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getOuterHTML() : string;
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setOuterHTML( ?string $val ) : void;
+
+	/**
+	 * @param string $position
+	 * @param string $text
+	 * @return void
+	 */
+	public function insertAdjacentHTML( string $position, string $text ) : void;
 
 }

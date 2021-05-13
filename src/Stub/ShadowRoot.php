@@ -11,6 +11,7 @@ use Wikimedia\IDLeDOM\EventHandlerNonNull;
 
 trait ShadowRoot {
 	// use \Wikimedia\IDLeDOM\Stub\DocumentOrShadowRoot;
+	// use \Wikimedia\IDLeDOM\Stub\InnerHTML;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

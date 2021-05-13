@@ -163,4 +163,10 @@ interface Range extends AbstractRange {
 	 */
 	public function toString() : string;
 
+	/**
+	 * @param string $fragment
+	 * @return DocumentFragment
+	 */
+	public function createContextualFragment( string $fragment );
+
 }

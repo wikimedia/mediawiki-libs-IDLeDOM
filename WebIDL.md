@@ -38,8 +38,12 @@ or an `IDLeDOM`-compatible implementation.
 
 ## Names
 
+To form a PHP identifier from a name in the WebIDL spec, first replace
+any non-alphanumeric characters with `_`. (This isn't generally needed
+except when turning enumeration values into identifiers.)
+
 Since PHP has a number of reserved words in the language, identifiers
-of PHP constructs corresponding to WebIDL definitions need to be escaped
+of PHP constructs corresponding to WebIDL definitions then need to be escaped
 to avoid conflicts.  There are also reserved method names used
 for PHP interfaces like `ArrayAccess` and `Countable` which could
 conflict with WebIDL definitions.  Finally, WebIDL properties are turned

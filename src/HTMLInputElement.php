@@ -24,6 +24,7 @@ namespace Wikimedia\IDLeDOM;
  * @property Node|null $nextSibling
  * @property ?string $nodeValue
  * @property ?string $textContent
+ * @property string $innerHTML
  * @property Element|null $previousElementSibling
  * @property Element|null $nextElementSibling
  * @property HTMLCollection $children
@@ -41,6 +42,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $slot
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
+ * @property string $outerHTML
  * @property string $contentEditable
  * @property string $enterKeyHint
  * @property bool $isContentEditable

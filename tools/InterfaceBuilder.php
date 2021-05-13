@@ -283,7 +283,7 @@ class InterfaceBuilder extends Builder {
 		// Treat enumerations like interfaces with const members
 		$val = 0;
 		foreach ( $def['values'] as $m ) {
-			$name = $m['value'];
+			$name = preg_replace( '/[^A-Za-z0-9_]/', '_', $m['value'] );
 			$name = $this->map( $topName, 'const', $name );
 			$this->nl( "public const $name = $val;" );
 			$val += 1;

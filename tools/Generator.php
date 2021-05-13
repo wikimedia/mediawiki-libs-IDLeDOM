@@ -234,7 +234,7 @@ class Generator {
 		if ( $def['type'] === 'enum' ) {
 			// Treat enumerations like interfaces with const members
 			foreach ( $def['values'] as $m ) {
-				$name = $m['value'];
+				$name = preg_replace( '/[^A-Za-z0-9_]/', '_', $m['value'] );
 				$this->nameMap["$topName:const:$name"] = $findName( $name );
 			}
 			$done[$topName] = $allNames;
@@ -630,7 +630,7 @@ class Generator {
 	/** Main entry point: generates DOM interfaces from WebIDL */
 	public static function main() {
 		$webidl = [];
-		$files = [ "DOM", "misc", "HTML", "HTMLDocument", ];
+		$files = [ "DOM", "misc", "HTML", "HTMLDocument", "parsing", ];
 		foreach ( $files as $f ) {
 			$filename = __DIR__ . "/../spec/$f.webidl";
 			$webidl[] = file_get_contents( $filename );

@@ -15,6 +15,7 @@ use Wikimedia\IDLeDOM\ShadowRootInit;
 
 trait Element {
 	// use \Wikimedia\IDLeDOM\Stub\ChildNode;
+	// use \Wikimedia\IDLeDOM\Stub\InnerHTML;
 	// use \Wikimedia\IDLeDOM\Stub\NonDocumentTypeChildNode;
 	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\Slottable;
@@ -313,6 +314,29 @@ trait Element {
 	 * @return void
 	 */
 	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getOuterHTML() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setOuterHTML( ?string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $position
+	 * @param string $text
+	 * @return void
+	 */
+	public function insertAdjacentHTML( string $position, string $text ) : void {
 		throw self::_unimplemented();
 	}
 
