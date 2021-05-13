@@ -15,10 +15,15 @@ use Wikimedia\IDLeDOM\DOMImplementation;
 use Wikimedia\IDLeDOM\Element;
 use Wikimedia\IDLeDOM\ElementCreationOptions;
 use Wikimedia\IDLeDOM\Event;
+use Wikimedia\IDLeDOM\EventHandlerNonNull;
 use Wikimedia\IDLeDOM\HTMLCollection;
+use Wikimedia\IDLeDOM\HTMLElement;
+use Wikimedia\IDLeDOM\HTMLHeadElement;
+use Wikimedia\IDLeDOM\HTMLScriptElement;
 use Wikimedia\IDLeDOM\Node;
 use Wikimedia\IDLeDOM\NodeFilter;
 use Wikimedia\IDLeDOM\NodeIterator;
+use Wikimedia\IDLeDOM\NodeList;
 use Wikimedia\IDLeDOM\ProcessingInstruction;
 use Wikimedia\IDLeDOM\Range;
 use Wikimedia\IDLeDOM\Text;
@@ -275,6 +280,256 @@ trait Document {
 	 * @return TreeWalker
 	 */
 	public function createTreeWalker( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getReferrer() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCookie() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setCookie( string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLastModified() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTitle() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setTitle( string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDir() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setDir( string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLElement|null
+	 */
+	public function getBody() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param HTMLElement|null $val
+	 */
+	public function setBody( /* ?HTMLElement */ $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLHeadElement|null
+	 */
+	public function getHead() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getImages() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getEmbeds() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getPlugins() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getLinks() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getForms() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getScripts() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $elementName
+	 * @return NodeList
+	 */
+	public function getElementsByName( string $elementName ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLScriptElement|null
+	 */
+	public function getCurrentScript() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $type
+	 * @param string $replace
+	 * @return \Wikimedia\IDLeDOM\Document
+	 */
+	public function open( string $type = 'text/html', string $replace = '' ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return void
+	 */
+	public function close() : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string ...$text
+	 * @return void
+	 */
+	public function write( string ...$text ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string ...$text
+	 * @return void
+	 */
+	public function writeln( string ...$text ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function hasFocus() : bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return EventHandlerNonNull|callable|null
+	 */
+	public function getOnreadystatechange() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param EventHandlerNonNull|callable|null $val
+	 */
+	public function setOnreadystatechange( /* ?mixed */ $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getAnchors() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getApplets() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return void
+	 */
+	public function clear() : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return void
+	 */
+	public function captureEvents() : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return void
+	 */
+	public function releaseEvents() : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getHidden() : bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getVisibilityState() : int {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return EventHandlerNonNull|callable|null
+	 */
+	public function getOnvisibilitychange() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param EventHandlerNonNull|callable|null $val
+	 */
+	public function setOnvisibilitychange( /* ?mixed */ $val ) : void {
 		throw self::_unimplemented();
 	}
 

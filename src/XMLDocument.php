@@ -39,6 +39,26 @@ namespace Wikimedia\IDLeDOM;
  * @property string $encoding
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement
+ * @property string $referrer
+ * @property string $cookie
+ * @property string $lastModified
+ * @property string $title
+ * @property string $dir
+ * @property HTMLElement|null $body
+ * @property HTMLHeadElement|null $head
+ * @property HTMLCollection $images
+ * @property HTMLCollection $embeds
+ * @property HTMLCollection $plugins
+ * @property HTMLCollection $links
+ * @property HTMLCollection $forms
+ * @property HTMLCollection $scripts
+ * @property HTMLScriptElement|null $currentScript
+ * @property EventHandlerNonNull|callable|null $onreadystatechange
+ * @property HTMLCollection $anchors
+ * @property HTMLCollection $applets
+ * @property bool $hidden
+ * @property int $visibilityState
+ * @property EventHandlerNonNull|callable|null $onvisibilitychange
  * @phan-forbid-undeclared-magic-properties
  */
 interface XMLDocument extends Document {

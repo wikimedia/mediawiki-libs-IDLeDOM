@@ -582,6 +582,8 @@ class Generator {
 			return $val['value'] ? 'true' : 'false';
 		case 'null':
 			return 'null';
+		case 'string':
+			return var_export( $val['value'], true );
 		default:
 			self::unreachable( "Unknown value type " . var_export( $val, true ) );
 		}
@@ -628,7 +630,7 @@ class Generator {
 	/** Main entry point: generates DOM interfaces from WebIDL */
 	public static function main() {
 		$webidl = [];
-		$files = [ "DOM", "misc", "HTML", ];
+		$files = [ "DOM", "misc", "HTML", "HTMLDocument", ];
 		foreach ( $files as $f ) {
 			$filename = __DIR__ . "/../spec/$f.webidl";
 			$webidl[] = file_get_contents( $filename );

@@ -39,6 +39,26 @@ namespace Wikimedia\IDLeDOM;
  * @property string $encoding
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement
+ * @property string $referrer
+ * @property string $cookie
+ * @property string $lastModified
+ * @property string $title
+ * @property string $dir
+ * @property HTMLElement|null $body
+ * @property HTMLHeadElement|null $head
+ * @property HTMLCollection $images
+ * @property HTMLCollection $embeds
+ * @property HTMLCollection $plugins
+ * @property HTMLCollection $links
+ * @property HTMLCollection $forms
+ * @property HTMLCollection $scripts
+ * @property HTMLScriptElement|null $currentScript
+ * @property EventHandlerNonNull|callable|null $onreadystatechange
+ * @property HTMLCollection $anchors
+ * @property HTMLCollection $applets
+ * @property bool $hidden
+ * @property int $visibilityState
+ * @property EventHandlerNonNull|callable|null $onvisibilitychange
  * @phan-forbid-undeclared-magic-properties
  */
 interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, ParentNode, XPathEvaluatorBase {
@@ -220,5 +240,185 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	 * @return TreeWalker
 	 */
 	public function createTreeWalker( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null );
+
+	/**
+	 * @return string
+	 */
+	public function getReferrer() : string;
+
+	/**
+	 * @return string
+	 */
+	public function getCookie() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setCookie( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getLastModified() : string;
+
+	/**
+	 * @return string
+	 */
+	public function getTitle() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setTitle( string $val ) : void;
+
+	/**
+	 * @return string
+	 */
+	public function getDir() : string;
+
+	/**
+	 * @param string $val
+	 */
+	public function setDir( string $val ) : void;
+
+	/**
+	 * @return HTMLElement|null
+	 */
+	public function getBody();
+
+	/**
+	 * @param HTMLElement|null $val
+	 */
+	public function setBody( /* ?HTMLElement */ $val ) : void;
+
+	/**
+	 * @return HTMLHeadElement|null
+	 */
+	public function getHead();
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getImages();
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getEmbeds();
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getPlugins();
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getLinks();
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getForms();
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getScripts();
+
+	/**
+	 * @param string $elementName
+	 * @return NodeList
+	 */
+	public function getElementsByName( string $elementName );
+
+	/**
+	 * @return HTMLScriptElement|null
+	 */
+	public function getCurrentScript();
+
+	/**
+	 * @param string $type
+	 * @param string $replace
+	 * @return \Wikimedia\IDLeDOM\Document
+	 */
+	public function open( string $type = 'text/html', string $replace = '' );
+
+	/**
+	 * @return void
+	 */
+	public function close() : void;
+
+	/**
+	 * @param string ...$text
+	 * @return void
+	 */
+	public function write( string ...$text ) : void;
+
+	/**
+	 * @param string ...$text
+	 * @return void
+	 */
+	public function writeln( string ...$text ) : void;
+
+	/**
+	 * @return bool
+	 */
+	public function hasFocus() : bool;
+
+	/**
+	 * @return EventHandlerNonNull|callable|null
+	 */
+	public function getOnreadystatechange();
+
+	/**
+	 * @param EventHandlerNonNull|callable|null $val
+	 */
+	public function setOnreadystatechange( /* ?mixed */ $val ) : void;
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getAnchors();
+
+	/**
+	 * @return HTMLCollection
+	 */
+	public function getApplets();
+
+	/**
+	 * @return void
+	 */
+	public function clear() : void;
+
+	/**
+	 * @return void
+	 */
+	public function captureEvents() : void;
+
+	/**
+	 * @return void
+	 */
+	public function releaseEvents() : void;
+
+	/**
+	 * @return bool
+	 */
+	public function getHidden() : bool;
+
+	/**
+	 * @return int
+	 */
+	public function getVisibilityState() : int;
+
+	/**
+	 * @return EventHandlerNonNull|callable|null
+	 */
+	public function getOnvisibilitychange();
+
+	/**
+	 * @param EventHandlerNonNull|callable|null $val
+	 */
+	public function setOnvisibilitychange( /* ?mixed */ $val ) : void;
 
 }

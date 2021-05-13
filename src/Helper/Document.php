@@ -72,6 +72,46 @@ trait Document {
 				return $this->getDoctype();
 			case "documentElement":
 				return $this->getDocumentElement();
+			case "referrer":
+				return $this->getReferrer();
+			case "cookie":
+				return $this->getCookie();
+			case "lastModified":
+				return $this->getLastModified();
+			case "title":
+				return $this->getTitle();
+			case "dir":
+				return $this->getDir();
+			case "body":
+				return $this->getBody();
+			case "head":
+				return $this->getHead();
+			case "images":
+				return $this->getImages();
+			case "embeds":
+				return $this->getEmbeds();
+			case "plugins":
+				return $this->getPlugins();
+			case "links":
+				return $this->getLinks();
+			case "forms":
+				return $this->getForms();
+			case "scripts":
+				return $this->getScripts();
+			case "currentScript":
+				return $this->getCurrentScript();
+			case "onreadystatechange":
+				return $this->getOnreadystatechange();
+			case "anchors":
+				return $this->getAnchors();
+			case "applets":
+				return $this->getApplets();
+			case "hidden":
+				return $this->getHidden();
+			case "visibilityState":
+				return $this->getVisibilityState();
+			case "onvisibilitychange":
+				return $this->getOnvisibilitychange();
 			default:
 				break;
 		}
@@ -151,6 +191,46 @@ trait Document {
 				return $this->getDoctype() !== null;
 			case "documentElement":
 				return $this->getDocumentElement() !== null;
+			case "referrer":
+				return true;
+			case "cookie":
+				return true;
+			case "lastModified":
+				return true;
+			case "title":
+				return true;
+			case "dir":
+				return true;
+			case "body":
+				return $this->getBody() !== null;
+			case "head":
+				return $this->getHead() !== null;
+			case "images":
+				return true;
+			case "embeds":
+				return true;
+			case "plugins":
+				return true;
+			case "links":
+				return true;
+			case "forms":
+				return true;
+			case "scripts":
+				return true;
+			case "currentScript":
+				return $this->getCurrentScript() !== null;
+			case "onreadystatechange":
+				return true;
+			case "anchors":
+				return true;
+			case "applets":
+				return true;
+			case "hidden":
+				return true;
+			case "visibilityState":
+				return true;
+			case "onvisibilitychange":
+				return true;
 			default:
 				break;
 		}
@@ -173,6 +253,24 @@ trait Document {
 				return;
 			case "encoding":
 				$this->setEncoding( $value );
+				return;
+			case "cookie":
+				$this->setCookie( $value );
+				return;
+			case "title":
+				$this->setTitle( $value );
+				return;
+			case "dir":
+				$this->setDir( $value );
+				return;
+			case "body":
+				$this->setBody( $value );
+				return;
+			case "onreadystatechange":
+				$this->setOnreadystatechange( $value );
+				return;
+			case "onvisibilitychange":
+				$this->setOnvisibilitychange( $value );
 				return;
 			default:
 				break;
@@ -252,6 +350,47 @@ trait Document {
 			case "doctype":
 				break;
 			case "documentElement":
+				break;
+			case "referrer":
+				break;
+			case "cookie":
+				break;
+			case "lastModified":
+				break;
+			case "title":
+				break;
+			case "dir":
+				break;
+			case "body":
+				$this->setBody( null );
+				return;
+			case "head":
+				break;
+			case "images":
+				break;
+			case "embeds":
+				break;
+			case "plugins":
+				break;
+			case "links":
+				break;
+			case "forms":
+				break;
+			case "scripts":
+				break;
+			case "currentScript":
+				break;
+			case "onreadystatechange":
+				break;
+			case "anchors":
+				break;
+			case "applets":
+				break;
+			case "hidden":
+				break;
+			case "visibilityState":
+				break;
+			case "onvisibilitychange":
 				break;
 			default:
 				return;

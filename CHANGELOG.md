@@ -1,4 +1,5 @@
 # IDLeDOM x.x.x (not yet released)
+* Add HTML extensions to Document interface.
 
 # IDLeDOM 0.4.1 (2021-05-12)
 * Add DOMException interface.
