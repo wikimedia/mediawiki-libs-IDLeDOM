@@ -66,8 +66,6 @@ trait XMLDocument {
 				return $this->getInputEncoding();
 			case "contentType":
 				return $this->getContentType();
-			case "encoding":
-				return $this->getEncoding();
 			case "doctype":
 				return $this->getDoctype();
 			case "documentElement":
@@ -112,6 +110,8 @@ trait XMLDocument {
 				return $this->getVisibilityState();
 			case "onvisibilitychange":
 				return $this->getOnvisibilitychange();
+			case "encoding":
+				return $this->getEncoding();
 			default:
 				break;
 		}
@@ -185,8 +185,6 @@ trait XMLDocument {
 				return true;
 			case "contentType":
 				return true;
-			case "encoding":
-				return true;
 			case "doctype":
 				return $this->getDoctype() !== null;
 			case "documentElement":
@@ -231,6 +229,8 @@ trait XMLDocument {
 				return true;
 			case "onvisibilitychange":
 				return true;
+			case "encoding":
+				return true;
 			default:
 				break;
 		}
@@ -251,9 +251,6 @@ trait XMLDocument {
 			case "textContent":
 				$this->setTextContent( $value );
 				return;
-			case "encoding":
-				$this->setEncoding( $value );
-				return;
 			case "cookie":
 				$this->setCookie( $value );
 				return;
@@ -271,6 +268,9 @@ trait XMLDocument {
 				return;
 			case "onvisibilitychange":
 				$this->setOnvisibilitychange( $value );
+				return;
+			case "encoding":
+				$this->setEncoding( $value );
 				return;
 			default:
 				break;
@@ -345,8 +345,6 @@ trait XMLDocument {
 				break;
 			case "contentType":
 				break;
-			case "encoding":
-				break;
 			case "doctype":
 				break;
 			case "documentElement":
@@ -391,6 +389,8 @@ trait XMLDocument {
 			case "visibilityState":
 				break;
 			case "onvisibilitychange":
+				break;
+			case "encoding":
 				break;
 			default:
 				return;

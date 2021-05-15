@@ -36,7 +36,6 @@ namespace Wikimedia\IDLeDOM;
  * @property string $charset
  * @property string $inputEncoding
  * @property string $contentType
- * @property string $encoding
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement
  * @property string $referrer
@@ -59,6 +58,7 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $hidden
  * @property int $visibilityState
  * @property EventHandlerNonNull|callable|null $onvisibilitychange
+ * @property string $encoding
  * @phan-forbid-undeclared-magic-properties
  */
 interface XMLDocument extends Document {

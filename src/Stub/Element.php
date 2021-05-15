@@ -290,6 +290,29 @@ trait Element {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getOuterHTML() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setOuterHTML( ?string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $position
+	 * @param string $text
+	 * @return void
+	 */
+	public function insertAdjacentHTML( string $position, string $text ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param string $qualifiedName
 	 * @param bool $isId
 	 * @return void
@@ -314,29 +337,6 @@ trait Element {
 	 * @return void
 	 */
 	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getOuterHTML() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setOuterHTML( ?string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $position
-	 * @param string $text
-	 * @return void
-	 */
-	public function insertAdjacentHTML( string $position, string $text ) : void {
 		throw self::_unimplemented();
 	}
 

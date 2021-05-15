@@ -103,20 +103,6 @@ trait Document {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getEncoding() : string {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param string $val
-	 */
-	public function setEncoding( string $val ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
 	 * @return DocumentType|null
 	 */
 	public function getDoctype() {
@@ -530,6 +516,20 @@ trait Document {
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
 	public function setOnvisibilitychange( /* ?mixed */ $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEncoding() : string {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setEncoding( string $val ) : void {
 		throw self::_unimplemented();
 	}
 

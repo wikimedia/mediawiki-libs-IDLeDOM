@@ -273,6 +273,23 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	public function insertAdjacentText( string $where, string $data ) : void;
 
 	/**
+	 * @return string
+	 */
+	public function getOuterHTML() : string;
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setOuterHTML( ?string $val ) : void;
+
+	/**
+	 * @param string $position
+	 * @param string $text
+	 * @return void
+	 */
+	public function insertAdjacentHTML( string $position, string $text ) : void;
+
+	/**
 	 * @param string $qualifiedName
 	 * @param bool $isId
 	 * @return void
@@ -293,22 +310,5 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	 * @return void
 	 */
 	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void;
-
-	/**
-	 * @return string
-	 */
-	public function getOuterHTML() : string;
-
-	/**
-	 * @param ?string $val
-	 */
-	public function setOuterHTML( ?string $val ) : void;
-
-	/**
-	 * @param string $position
-	 * @param string $text
-	 * @return void
-	 */
-	public function insertAdjacentHTML( string $position, string $text ) : void;
 
 }

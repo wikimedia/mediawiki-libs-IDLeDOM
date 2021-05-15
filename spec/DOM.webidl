@@ -269,13 +269,6 @@ interface Document : Node {
   readonly attribute DOMString inputEncoding; // legacy alias of .characterSet
   readonly attribute DOMString contentType;
 
-  // This exists in PHP's built-in DOMDocument.  PHP specs say:
-  // Encoding of the document, as specified by the XML declaration.
-  // This attribute is not present in the final DOM Level 3 specification,
-  // but is the only way of manipulating XML document encoding in this
-  // implementation.
-  [PHPExtension] attribute DOMString encoding;
-
   readonly attribute DocumentType? doctype;
   readonly attribute Element? documentElement;
   HTMLCollection getElementsByTagName(DOMString qualifiedName);
@@ -387,12 +380,6 @@ interface Element : Node {
   [CEReactions] Element? insertAdjacentElement(DOMString where, Element element); // legacy
   undefined insertAdjacentText(DOMString where, DOMString data); // legacy
 
-  [PHPExtension]
-  undefined setIdAttribute(DOMString qualifiedName, boolean isId);
-  [PHPExtension]
-  undefined setIdAttributeNode(Attr attr, boolean isId);
-  [PHPExtension]
-  undefined setIdAttributeNS(DOMString namespace, DOMString qualifiedName, boolean isId);
 };
 
 dictionary ShadowRootInit {
