@@ -421,4 +421,31 @@ interface Document extends Node, DocumentOrShadowRoot, NonElementParentNode, Par
 	 */
 	public function setEncoding( string $val ) : void;
 
+	/**
+	 * @param string $source
+	 * @param int $options
+	 * @return \Wikimedia\IDLeDOM\Document|bool
+	 */
+	public function load( string $source, int $options = 0 );
+
+	/**
+	 * @param string $source
+	 * @param int $options
+	 * @return \Wikimedia\IDLeDOM\Document|bool
+	 */
+	public function loadXML( string $source, int $options = 0 );
+
+	/**
+	 * @param Node|null $node
+	 * @return string|bool
+	 */
+	public function saveHTML( /* ?Node */ $node = null );
+
+	/**
+	 * @param Node|null $node
+	 * @param int $options
+	 * @return string|bool
+	 */
+	public function saveXML( /* ?Node */ $node = null, int $options = 0 );
+
 }

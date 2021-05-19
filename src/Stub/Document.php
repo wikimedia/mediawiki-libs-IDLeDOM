@@ -533,4 +533,39 @@ trait Document {
 		throw self::_unimplemented();
 	}
 
+	/**
+	 * @param string $source
+	 * @param int $options
+	 * @return \Wikimedia\IDLeDOM\Document|bool
+	 */
+	public function load( string $source, int $options = 0 ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param string $source
+	 * @param int $options
+	 * @return \Wikimedia\IDLeDOM\Document|bool
+	 */
+	public function loadXML( string $source, int $options = 0 ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param Node|null $node
+	 * @return string|bool
+	 */
+	public function saveHTML( /* ?Node */ $node = null ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param Node|null $node
+	 * @param int $options
+	 * @return string|bool
+	 */
+	public function saveXML( /* ?Node */ $node = null, int $options = 0 ) {
+		throw self::_unimplemented();
+	}
+
 }
