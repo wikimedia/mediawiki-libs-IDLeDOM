@@ -79,7 +79,7 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 				[ $name ],
 				$matches[1]
 			);
-			$useStubs = implode( "\n", array_map( function ( $n ) {
+			$useStubs = implode( "\n", array_map( static function ( $n ) {
 				return "use \\Wikimedia\\IDLeDOM\\Stub\\$n;";
 			}, $stubs ) );
 		} else {
@@ -87,10 +87,10 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 		}
 
 		$helpers = [ $name ];
-		$helpers = array_filter( $helpers, function ( $n ) {
+		$helpers = array_filter( $helpers, static function ( $n ) {
 			return file_exists( __DIR__ . "/../src/Helper/$n.php" );
 		} );
-		$useHelpers = implode( "\n", array_map( function ( $n ) {
+		$useHelpers = implode( "\n", array_map( static function ( $n ) {
 			return "use \\Wikimedia\\IDLeDOM\\Helper\\$n;";
 		}, $helpers ) );
 

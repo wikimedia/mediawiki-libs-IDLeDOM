@@ -46,7 +46,7 @@ class Emitter {
 		$needle = "%MARKER%$marker%";
 		$this->out = preg_replace_callback(
 			'/(\n\n?)([\t]*)' . preg_quote( $needle, '/' ) . '\n/',
-			function ( $matches ) use ( $replacement ) {
+			static function ( $matches ) use ( $replacement ) {
 				$repl = [];
 				foreach ( $replacement as $s ) {
 					$repl[] = $matches[2] . $s;

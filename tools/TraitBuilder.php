@@ -220,7 +220,7 @@ class TraitBuilder extends Builder {
 						 [ 'rhs' => [ 'value' => 'null' ] ];
 				$info['reflectEnum'] = [
 					'values' => array_map(
-						function ( $value ) {
+						static function ( $value ) {
 							return json_decode( $value['value'] );
 						},
 						$reflect['rhs']['value']

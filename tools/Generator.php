@@ -107,7 +107,7 @@ class Generator {
 			if ( $this->options['skipLegacy'] ?? false ) {
 				$definition['members'] = array_values( array_filter(
 					$definition['members'] ?? [],
-					function ( $m ) {
+					static function ( $m ) {
 						foreach ( $m['trailingComments'] ?? [] as $c ) {
 							if ( preg_match( '|^// legacy|', $c ) ) {
 								// Skip this legacy member
@@ -182,7 +182,7 @@ class Generator {
 		foreach ( self::RESERVED_NAMES as $n ) {
 			$used[$n] = true;
 		}
-		$findName = function ( $n, $builtin = false ) use ( &$used, &$allNames ) {
+		$findName = static function ( $n, $builtin = false ) use ( &$used, &$allNames ) {
 			$origName = $n;
 			if ( $used[$n] ?? false ) {
 				for ( $i = 1; ; $i++ ) {
@@ -538,6 +538,7 @@ class Generator {
 			return 'mixed|null';
 		case 'void':
 			self::unreachable( "void is now 'undefined'" );
+			// This could fall through if we weren't asserting
 		case 'undefined':
 			if ( $opts['returnType'] ?? false ) {
 				return 'void';
