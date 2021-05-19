@@ -465,8 +465,8 @@ class Generator {
 			if ( !$phpdoc ) {
 				return "/* {$n}mixed */";
 			}
-			$result = implode( '|', array_map( function ( $ty ) {
-				return $this->typeToPHPDoc( $ty );
+			$result = implode( '|', array_map( function ( $ty ) use ( $opts ) {
+				return $this->typeToPHPDoc( $ty, $opts );
 			}, $ty['idlType'] ) );
 			if ( $ty['nullable'] ?? false ) {
 				$result .= '|null';
@@ -479,7 +479,7 @@ class Generator {
 			if ( !$phpdoc ) {
 				return 'array';
 			}
-			return $n . 'list<' . $this->typeToPHPDoc( $ty['idlType'][0] ) . '>';
+			return $n . 'list<' . $this->typeToPHPDoc( $ty['idlType'][0], $opts ) . '>';
 		case '':
 			break;
 		default:

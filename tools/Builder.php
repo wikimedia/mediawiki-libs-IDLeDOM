@@ -61,21 +61,21 @@ class Builder {
 	protected function use( array $ty, array $typeOpts = [] ):void {
 		if ( $ty['union'] ?? false ) {
 			foreach ( $ty['idlType'] as $subtype ) {
-				$this->use( $subtype );
+				$this->use( $subtype, $typeOpts );
 			}
 			return;
 		}
 		$generic = $ty['generic'] ?? '';
 		if ( $generic !== '' ) {
 			foreach ( $ty['idlType'] as $subtype ) {
-				$this->use( $subtype );
+				$this->use( $subtype, $typeOpts );
 			}
 			return;
 		}
 		$name = $ty['idlType'];
 		$typedef = $this->gen->typedef( $name );
 		if ( $typedef !== null ) {
-			$this->use( $typedef );
+			$this->use( $typedef, $typeOpts );
 			return;
 		}
 		$def = $this->gen->def( $name );
