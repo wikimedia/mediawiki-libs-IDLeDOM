@@ -185,7 +185,7 @@ trait DOMTokenList {
 	}
 
 	/**
-	 * @return \Iterator An Iterator<string>
+	 * @return \Iterator<string> Value iterator returning string items
 	 */
 	public function getIterator() {
 		'@phan-var \Wikimedia\IDLeDOM\DOMTokenList $this';

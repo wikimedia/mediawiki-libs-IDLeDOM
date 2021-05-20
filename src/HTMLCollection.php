@@ -32,7 +32,7 @@ interface HTMLCollection extends \ArrayAccess, \IteratorAggregate, \Countable {
 	public function namedItem( string $name );
 
 	/**
-	 * @return \Iterator An Iterator<Element>
+	 * @return \Iterator<Element> Value iterator returning Element items
 	 */
 	public function getIterator();
 

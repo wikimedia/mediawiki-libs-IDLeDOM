@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLOptionsCollection {
 	/**
 	 * @param string $name
@@ -176,7 +178,7 @@ trait HTMLOptionsCollection {
 	}
 
 	/**
-	 * @return \Iterator An Iterator<Element>
+	 * @return \Iterator<Element> Value iterator returning Element items
 	 */
 	public function getIterator() {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptionsCollection $this';

@@ -64,7 +64,7 @@ interface NamedNodeMap extends \ArrayAccess, \IteratorAggregate, \Countable {
 	public function removeNamedItemNS( ?string $namespace, string $localName );
 
 	/**
-	 * @return \Iterator An Iterator<Attr>
+	 * @return \Iterator<Attr> Value iterator returning Attr items
 	 */
 	public function getIterator();
 

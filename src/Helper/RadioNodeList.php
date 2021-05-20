@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Node;
+
 trait RadioNodeList {
 	/**
 	 * @param string $name
@@ -176,7 +178,7 @@ trait RadioNodeList {
 	}
 
 	/**
-	 * @return \Iterator An Iterator<Node>
+	 * @return \Iterator<Node> Value iterator returning Node items
 	 */
 	public function getIterator() {
 		'@phan-var \Wikimedia\IDLeDOM\RadioNodeList $this';

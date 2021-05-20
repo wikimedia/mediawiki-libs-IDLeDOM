@@ -618,6 +618,8 @@ class TraitBuilder extends Builder {
 
 		// If there's an indexed getter and a countable, then we can
 		// provide a default implementation of the iterator
+		// Note that pair iterators will not have indexed getters, so
+		// we know this will be a value iterator.
 		if ( $igetter && $countable ) {
 			$iteratorName = $this->map( $igetter['topName'], 'op', '_iterable' );
 			$iteratorType = $igetter['ast']['idlType'];
@@ -626,10 +628,10 @@ class TraitBuilder extends Builder {
 			// phan can't handle inferring the generic type here, so it's
 			// just in a comment.  If this graduates to the 'real' return
 			// type, then you'll need this 'use' statement:
-			// $this->use( $iteratorType, $typeOpts );
+			$this->use( $iteratorType, $typeOpts );
 			$retTypeDoc = $this->gen->typeToPHPDoc( $iteratorType, $typeOpts );
 			$this->nl( '/**' );
-			$this->nl( " * @return \\Iterator An Iterator<$retTypeDoc>" );
+			$this->nl( " * @return \\Iterator<$retTypeDoc> Value iterator returning $retTypeDoc items" );
 			$this->nl( ' */' );
 			$this->nl( "public function $iteratorName() {" );
 			$this->emitThisHint( $topName );

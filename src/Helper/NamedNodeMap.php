@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Attr;
+
 trait NamedNodeMap {
 	/**
 	 * @param string $name
@@ -126,7 +128,7 @@ trait NamedNodeMap {
 	}
 
 	/**
-	 * @return \Iterator An Iterator<Attr>
+	 * @return \Iterator<Attr> Value iterator returning Attr items
 	 */
 	public function getIterator() {
 		'@phan-var \Wikimedia\IDLeDOM\NamedNodeMap $this';

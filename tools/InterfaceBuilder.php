@@ -219,9 +219,18 @@ class InterfaceBuilder extends Builder {
 	/** @inheritDoc */
 	protected function emitMemberIterable( string $topName, string $name, array $m ) {
 		$iteratorName = $this->map( $topName, 'op', '_iterable' );
-		$docType = $this->gen->typeToPHPDoc( $m['idlType'][0] );
+		// pair iterator: https://heycam.github.io/webidl/#dfn-pair-iterator
+		// value iterator: https://heycam.github.io/webidl/#dfn-value-iterator
+		$isValueIter = ( count( $m['idlType'] ) === 1 );
 		$this->nl( '/**' );
-		$this->nl( " * @return \\Iterator An Iterator<$docType>" );
+		if ( $isValueIter ) {
+			$docType = $this->gen->typeToPHPDoc( $m['idlType'][0] );
+			$this->nl( " * @return \\Iterator<$docType> Value iterator returning $docType items" );
+		} else {
+			$keyType = $this->gen->typeToPHPDoc( $m['idlType'][0] );
+			$valType = $this->gen->typeToPHPDoc( $m['idlType'][1] );
+			$this->nl( " * @return \\Iterator<$keyType,$valType> Pair iterator: $keyType => $valType" );
+		}
 		$this->nl( ' */' );
 		$this->nl( "public function $iteratorName();" );
 	}

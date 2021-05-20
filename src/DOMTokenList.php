@@ -75,7 +75,7 @@ interface DOMTokenList extends \ArrayAccess, \IteratorAggregate, \Countable {
 	public function setValue( string $val ) : void;
 
 	/**
-	 * @return \Iterator An Iterator<string>
+	 * @return \Iterator<string> Value iterator returning string items
 	 */
 	public function getIterator();
 

@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Element;
+
 trait HTMLCollection {
 	/**
 	 * @param string $name
@@ -126,7 +128,7 @@ trait HTMLCollection {
 	}
 
 	/**
-	 * @return \Iterator An Iterator<Element>
+	 * @return \Iterator<Element> Value iterator returning Element items
 	 */
 	public function getIterator() {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';

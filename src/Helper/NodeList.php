@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\Node;
+
 trait NodeList {
 	/**
 	 * @param string $name
@@ -126,7 +128,7 @@ trait NodeList {
 	}
 
 	/**
-	 * @return \Iterator An Iterator<Node>
+	 * @return \Iterator<Node> Value iterator returning Node items
 	 */
 	public function getIterator() {
 		'@phan-var \Wikimedia\IDLeDOM\NodeList $this';
