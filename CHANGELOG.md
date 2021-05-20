@@ -3,6 +3,7 @@
   DOMException::getCode() so that you can override a built-in
   \Exception class.
 * Support pair iterators.
+* Add URL and URLSearchParams interfaces.
 
 # IDLeDOM 0.5.0 (2021-05-19)
 * Add HTML extensions to Document interface.

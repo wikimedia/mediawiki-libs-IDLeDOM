@@ -634,7 +634,10 @@ class Generator {
 	/** Main entry point: generates DOM interfaces from WebIDL */
 	public static function main() {
 		$webidl = [];
-		$files = [ "DOM", "misc", "HTML", "HTMLDocument", "parsing", "php", ];
+		$files = [
+			"DOM", "misc", "HTML", "HTMLDocument", "parsing", "php",
+			"URL",
+		];
 		foreach ( $files as $f ) {
 			$filename = __DIR__ . "/../spec/$f.webidl";
 			$webidl[] = file_get_contents( $filename );
