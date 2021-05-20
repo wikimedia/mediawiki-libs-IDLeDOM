@@ -1,3 +1,5 @@
+# IDLeDOM x.x.x (not yet released)
+
 # IDLeDOM 0.6.0 (2021-06-14)
 * Map WebIDL enumeration types to PHP string type (previously enumerations
   were mapped to an integer type).
