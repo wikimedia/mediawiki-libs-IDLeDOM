@@ -1,4 +1,4 @@
-# IDLeDOM x.x.x (not yet released)
+# IDLeDOM 0.5.1 (2021-05-20)
 * Suppress type hints on DOMException::getMessage() and
   DOMException::getCode() so that you can override a built-in
   \Exception class.
