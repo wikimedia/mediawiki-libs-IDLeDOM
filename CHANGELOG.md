@@ -1,4 +1,7 @@
 # IDLeDOM x.x.x (not yet released)
+* Suppress type hints on DOMException::getMessage() and
+  DOMException::getCode() so that you can override a built-in
+  \Exception class.
 
 # IDLeDOM 0.5.0 (2021-05-19)
 * Add HTML extensions to Document interface.

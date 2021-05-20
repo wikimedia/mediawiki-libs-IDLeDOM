@@ -30,14 +30,14 @@ trait DOMException {
 	/**
 	 * @return string
 	 */
-	public function getMessage() : string {
+	public function getMessage() {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getCode() : int {
+	public function getCode() {
 		throw self::_unimplemented();
 	}
 

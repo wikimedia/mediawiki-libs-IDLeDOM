@@ -447,6 +447,10 @@ class Generator {
 			 !( $opts['returnType2'] ?? false ) &&
 			 !$phpdoc ) {
 			$result = $this->typeToPHP( $ty, [ 'returnType2' => true ] + $opts );
+			if ( self::extAttrsContain( $ty, 'PHPNoHint' ) ) {
+				// suppress the PHP type hint
+				return '';
+			}
 			if ( substr( $result, 0, 1 ) === '/' ) {
 				return '';
 			} else {

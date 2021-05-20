@@ -261,8 +261,12 @@ interface mixin ElementContentEditable {
 interface DOMException { // but see below note about ECMAScript binding
   constructor(optional DOMString message = "", optional DOMString name = "Error");
   readonly attribute DOMString name;
-  readonly attribute DOMString message;
-  readonly attribute unsigned short code;
+  // Use [PHPNoHint] to prevent the type from being emitted as a type hint,
+  // since that prevents us from extending a 'real' PHP Exception type
+  // (which doesn't have hints on these methods and don't allow overriding
+  // them)
+  readonly attribute [PHPNoHint] DOMString message;
+  readonly attribute [PHPNoHint] unsigned short code;
 
   const unsigned short INDEX_SIZE_ERR = 1;
   const unsigned short DOMSTRING_SIZE_ERR = 2;

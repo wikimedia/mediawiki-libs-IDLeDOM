@@ -25,12 +25,12 @@ interface DOMException {
 	/**
 	 * @return string
 	 */
-	public function getMessage() : string;
+	public function getMessage();
 
 	/**
 	 * @return int
 	 */
-	public function getCode() : int;
+	public function getCode();
 
 	/** @var int */
 	public const INDEX_SIZE_ERR = 1;
