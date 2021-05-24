@@ -9,7 +9,9 @@ use Exception;
 use Wikimedia\IDLeDOM\Element;
 
 trait HTMLElement {
+	// use \Wikimedia\IDLeDOM\Stub\DocumentAndElementEventHandlers;
 	// use \Wikimedia\IDLeDOM\Stub\ElementContentEditable;
+	// use \Wikimedia\IDLeDOM\Stub\GlobalEventHandlers;
 	// use \Wikimedia\IDLeDOM\Stub\HTMLOrSVGElement;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names

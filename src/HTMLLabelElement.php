@@ -47,6 +47,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $enterKeyHint
  * @property bool $isContentEditable
  * @property string $inputMode
+ * @property EventHandlerNonNull|callable|null $onload
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex

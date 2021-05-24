@@ -47,6 +47,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $enterKeyHint
  * @property bool $isContentEditable
  * @property string $inputMode
+ * @property EventHandlerNonNull|callable|null $onload
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -74,7 +75,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $background
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLBodyElement extends HTMLElement {
+interface HTMLBodyElement extends HTMLElement, WindowEventHandlers {
 	// Direct parent: HTMLElement
 
 	/**

@@ -47,8 +47,8 @@ partial interface Document {
   // special event handler IDL attributes that only apply to Document objects
   [LegacyLenientThis] attribute EventHandler onreadystatechange;
 };
-// Document includes GlobalEventHandlers;
-// Document includes DocumentAndElementEventHandlers;
+Document includes GlobalEventHandlers;
+Document includes DocumentAndElementEventHandlers;
 
 // https://html.spec.whatwg.org/#Document-partial
 partial interface Document {

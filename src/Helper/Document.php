@@ -42,6 +42,8 @@ trait Document {
 				return $this->getNodeValue();
 			case "textContent":
 				return $this->getTextContent();
+			case "onload":
+				return $this->getOnload();
 			case "children":
 				return $this->getChildren();
 			case "firstElementChild":
@@ -161,6 +163,8 @@ trait Document {
 				return $this->getNodeValue() !== null;
 			case "textContent":
 				return $this->getTextContent() !== null;
+			case "onload":
+				return true;
 			case "children":
 				return true;
 			case "firstElementChild":
@@ -251,6 +255,9 @@ trait Document {
 			case "textContent":
 				$this->setTextContent( $value );
 				return;
+			case "onload":
+				$this->setOnload( $value );
+				return;
 			case "cookie":
 				$this->setCookie( $value );
 				return;
@@ -321,6 +328,8 @@ trait Document {
 			case "textContent":
 				$this->setTextContent( null );
 				return;
+			case "onload":
+				break;
 			case "children":
 				break;
 			case "firstElementChild":

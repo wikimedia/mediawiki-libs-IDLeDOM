@@ -120,8 +120,8 @@ interface Window : EventTarget {
 
   // also has obsolete members
 };
-// Window includes GlobalEventHandlers;
-// Window includes WindowEventHandlers;
+Window includes GlobalEventHandlers;
+Window includes WindowEventHandlers;
 
 // dictionary WindowPostMessageOptions : PostMessageOptions {
 //  USVString targetOrigin = "/";

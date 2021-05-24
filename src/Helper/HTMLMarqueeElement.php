@@ -88,6 +88,8 @@ trait HTMLMarqueeElement {
 				return $this->getIsContentEditable();
 			case "inputMode":
 				return $this->getInputMode();
+			case "onload":
+				return $this->getOnload();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -241,6 +243,8 @@ trait HTMLMarqueeElement {
 				return true;
 			case "inputMode":
 				return true;
+			case "onload":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -342,6 +346,9 @@ trait HTMLMarqueeElement {
 				return;
 			case "inputMode":
 				$this->setInputMode( $value );
+				return;
+			case "onload":
+				$this->setOnload( $value );
 				return;
 			case "nonce":
 				$this->setNonce( $value );
@@ -503,6 +510,8 @@ trait HTMLMarqueeElement {
 			case "isContentEditable":
 				break;
 			case "inputMode":
+				break;
+			case "onload":
 				break;
 			case "dataset":
 				break;

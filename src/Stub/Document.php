@@ -30,7 +30,9 @@ use Wikimedia\IDLeDOM\Text;
 use Wikimedia\IDLeDOM\TreeWalker;
 
 trait Document {
+	// use \Wikimedia\IDLeDOM\Stub\DocumentAndElementEventHandlers;
 	// use \Wikimedia\IDLeDOM\Stub\DocumentOrShadowRoot;
+	// use \Wikimedia\IDLeDOM\Stub\GlobalEventHandlers;
 	// use \Wikimedia\IDLeDOM\Stub\NonElementParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\ParentNode;
 	// use \Wikimedia\IDLeDOM\Stub\XPathEvaluatorBase;

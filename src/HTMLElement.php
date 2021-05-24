@@ -47,6 +47,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $enterKeyHint
  * @property bool $isContentEditable
  * @property string $inputMode
+ * @property EventHandlerNonNull|callable|null $onload
  * @property DOMStringMap $dataset
  * @property string $nonce
  * @property int $tabIndex
@@ -68,7 +69,7 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetHeight
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLElement extends Element, ElementContentEditable, HTMLOrSVGElement {
+interface HTMLElement extends Element, DocumentAndElementEventHandlers, ElementContentEditable, GlobalEventHandlers, HTMLOrSVGElement {
 	// Direct parent: Element
 
 	/**

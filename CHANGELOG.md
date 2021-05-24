@@ -1,4 +1,8 @@
 # IDLeDOM x.x.x (not yet released)
+* Add interfaces for GlobalEventHandlers,
+  DocumentAndElementEventHandlers, and WindowEventHandlers, although at
+  this time only the `onload` event handler is defined in order to
+  avoid bloating the `__get`/`__set` helpers.
 
 # IDLeDOM 0.5.1 (2021-05-20)
 * Suppress type hints on DOMException::getMessage() and

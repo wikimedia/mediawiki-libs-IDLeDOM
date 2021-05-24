@@ -14,6 +14,8 @@ trait Window {
 		'@phan-var \Wikimedia\IDLeDOM\Window $this';
 		// @var \Wikimedia\IDLeDOM\Window $this
 		switch ( $name ) {
+			case "onload":
+				return $this->getOnload();
 			case "document":
 				return $this->getDocument();
 			case "name":
@@ -55,6 +57,8 @@ trait Window {
 		'@phan-var \Wikimedia\IDLeDOM\Window $this';
 		// @var \Wikimedia\IDLeDOM\Window $this
 		switch ( $name ) {
+			case "onload":
+				return true;
 			case "document":
 				return true;
 			case "name":
@@ -89,6 +93,9 @@ trait Window {
 		'@phan-var \Wikimedia\IDLeDOM\Window $this';
 		// @var \Wikimedia\IDLeDOM\Window $this
 		switch ( $name ) {
+			case "onload":
+				$this->setOnload( $value );
+				return;
 			case "name":
 				$this->setName( $value );
 				return;
@@ -117,6 +124,8 @@ trait Window {
 		'@phan-var \Wikimedia\IDLeDOM\Window $this';
 		// @var \Wikimedia\IDLeDOM\Window $this
 		switch ( $name ) {
+			case "onload":
+				break;
 			case "document":
 				break;
 			case "name":

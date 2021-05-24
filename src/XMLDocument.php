@@ -24,6 +24,7 @@ namespace Wikimedia\IDLeDOM;
  * @property Node|null $nextSibling
  * @property ?string $nodeValue
  * @property ?string $textContent
+ * @property EventHandlerNonNull|callable|null $onload
  * @property HTMLCollection $children
  * @property Element|null $firstElementChild
  * @property Element|null $lastElementChild

@@ -88,6 +88,8 @@ trait HTMLImageElement {
 				return $this->getIsContentEditable();
 			case "inputMode":
 				return $this->getInputMode();
+			case "onload":
+				return $this->getOnload();
 			case "dataset":
 				return $this->getDataset();
 			case "nonce":
@@ -267,6 +269,8 @@ trait HTMLImageElement {
 				return true;
 			case "inputMode":
 				return true;
+			case "onload":
+				return true;
 			case "dataset":
 				return true;
 			case "nonce":
@@ -394,6 +398,9 @@ trait HTMLImageElement {
 				return;
 			case "inputMode":
 				$this->setInputMode( $value );
+				return;
+			case "onload":
+				$this->setOnload( $value );
 				return;
 			case "nonce":
 				$this->setNonce( $value );
@@ -582,6 +589,8 @@ trait HTMLImageElement {
 			case "isContentEditable":
 				break;
 			case "inputMode":
+				break;
+			case "onload":
 				break;
 			case "dataset":
 				break;

@@ -10,6 +10,7 @@ namespace Wikimedia\IDLeDOM;
  *
  * @see https://dom.spec.whatwg.org/#interface-window
  *
+ * @property EventHandlerNonNull|callable|null $onload
  * @property Document $document
  * @property string $name
  * @property string $status
@@ -22,7 +23,7 @@ namespace Wikimedia\IDLeDOM;
  * @property Event|null $event
  * @phan-forbid-undeclared-magic-properties
  */
-interface Window extends EventTarget {
+interface Window extends EventTarget, GlobalEventHandlers, WindowEventHandlers {
 	// Direct parent: EventTarget
 
 	/**
