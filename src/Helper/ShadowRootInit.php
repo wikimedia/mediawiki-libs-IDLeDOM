@@ -5,6 +5,8 @@
 
 namespace Wikimedia\IDLeDOM\Helper;
 
+use Wikimedia\IDLeDOM\ShadowRootMode;
+
 trait ShadowRootInit {
 	/**
 	 * @param string $name
@@ -111,10 +113,10 @@ trait ShadowRootInit {
 			}
 
 			/**
-			 * @return int
+			 * @return string
 			 */
-			public function getMode() : int {
-				return $this->a["mode"];
+			public function getMode() : /* ShadowRootMode */ string {
+				return ShadowRootMode::cast( $this->a["mode"] );
 			}
 
 			/**

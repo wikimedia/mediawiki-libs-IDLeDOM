@@ -76,7 +76,7 @@ class Emitter {
 			}
 			return;
 		}
-		if ( substr( $line, 0, 1 ) === '}' ) {
+		if ( substr( trim( $line ), 0, 1 ) === '}' ) {
 			$this->indentLevel -= 1;
 		}
 		if ( preg_match( '/^\s*$/', $line ) ) {

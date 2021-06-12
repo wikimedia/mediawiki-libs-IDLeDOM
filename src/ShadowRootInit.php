@@ -10,15 +10,15 @@ namespace Wikimedia\IDLeDOM;
  *
  * @see https://dom.spec.whatwg.org/#dictdef-shadowrootinit
  *
- * @property int $mode
+ * @property string $mode
  * @property bool $delegatesFocus
  * @phan-forbid-undeclared-magic-properties
  */
 interface ShadowRootInit extends \ArrayAccess {
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getMode() : int;
+	public function getMode() : /* ShadowRootMode */ string;
 
 	/**
 	 * @return bool

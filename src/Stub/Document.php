@@ -501,9 +501,9 @@ trait Document {
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getVisibilityState() : int {
+	public function getVisibilityState() : /* VisibilityState */ string {
 		throw self::_unimplemented();
 	}
 

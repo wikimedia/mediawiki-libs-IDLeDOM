@@ -80,8 +80,13 @@ class Builder {
 		}
 		$def = $this->gen->def( $name );
 		if ( $def !== null ) {
-			if ( $name !== ( $typeOpts['topName'] ?? null ) &&
-				 $def['type'] !== 'enum' ) {
+			if (
+				$name !== ( $typeOpts['topName'] ?? null ) &&
+				(
+					( $typeOpts['forceEnum'] ?? false ) ||
+					$def['type'] !== 'enum'
+				)
+			) {
 				$this->used[$name] = true;
 			}
 		}

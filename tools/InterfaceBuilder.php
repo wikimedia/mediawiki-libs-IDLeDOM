@@ -288,16 +288,49 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitEnum( string $topName, array $def ): void {
-		$this->firstLine( 'interface', $topName, $def );
+		$this->firstLine( 'final class', $topName, $def );
+		$this->nl( '/* Enumeration values */' );
 		// Treat enumerations like interfaces with const members
-		$val = 0;
 		foreach ( $def['values'] as $m ) {
 			$name = preg_replace( '/[^A-Za-z0-9_]/', '_', $m['value'] );
 			$name = $this->map( $topName, 'const', $name );
+			$val = var_export( $m['value'], true );
 			$this->nl( "public const $name = $val;" );
-			$val += 1;
 		}
+		// Ensure this can't be instantiated
+		$this->nl();
+		$this->nl( 'private function __construct() {' );
+		$this->nl( '/* Enumerations can\'t be instantiated */' );
 		$this->nl( '}' );
+
+		// Emit the static "cast" method
+		$funcName = $this->map( $topName, 'op', '_cast' );
+		$this->nl();
+		$this->nl( '// @phan-file-suppress PhanTypeInvalidThrowsIsInterface' );
+		$this->nl();
+		$this->nl( '/**' );
+		$this->nl( ' * Throw a TypeError if the provided string is not a' );
+		$this->nl( ' * valid member of this enumeration.' );
+		$this->nl( ' *' );
+		$this->nl( ' * @param string $value The string to test' );
+		$this->nl( ' * @return string The provided string, if it is valid' );
+		$this->nl( ' * @throws \\Wikimedia\\IDLeDOM\\TypeError if it is not valid' );
+		$this->nl( ' */' );
+		$this->nl( 'public static function cast( string $value ): string {' );
+		$this->nl( 'switch ( $value ) {' );
+		foreach ( $def['values'] as $m ) {
+			$val = var_export( $m['value'], true );
+			$this->nl( "case $val:" );
+		}
+		$this->nl( "\treturn \$value;" );
+		$this->nl( 'default:' );
+		$this->nl( "\tthrow new class() extends \\Exception implements \\Wikimedia\\IDLeDOM\\TypeError {" );
+		$this->nl( "\t};" ); // close exception class
+		$this->nl( '}' ); // close switch statement
+		// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
+		$this->nl( '}' ); // close cast method
+		// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
+		$this->nl( '}' ); // close interface
 	}
 
 	/**

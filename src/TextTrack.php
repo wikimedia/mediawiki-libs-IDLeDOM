@@ -10,7 +10,7 @@ namespace Wikimedia\IDLeDOM;
  *
  * @see https://dom.spec.whatwg.org/#interface-texttrack
  *
- * @property int $kind
+ * @property string $kind
  * @property string $label
  * @property string $language
  * @property string $id
@@ -24,9 +24,9 @@ interface TextTrack extends EventTarget {
 	// Direct parent: EventTarget
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getKind() : int;
+	public function getKind() : /* TextTrackKind */ string;
 
 	/**
 	 * @return string

@@ -24,9 +24,9 @@ trait TextTrack {
 	// phpcs:enable
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getKind() : int {
+	public function getKind() : /* TextTrackKind */ string {
 		throw self::_unimplemented();
 	}
 

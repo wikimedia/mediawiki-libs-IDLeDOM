@@ -2,6 +2,8 @@
 
 namespace Wikimedia\IDLeDOM\Tests;
 
+use Wikimedia\IDLeDOM\TypeError;
+
 class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @var string Prefix used when generating temporary class names.
@@ -28,6 +30,42 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 			$threw = true;
 		}
 		$this->assertTrue( !$threw );
+	}
+
+	/**
+	 * Verify that enumerations can't be instantiated
+	 * @covers \Wikimedia\IDLeDOM\ShadowRootMode
+	 * @dataProvider enumProvider
+	 */
+	public function testEnumInstantiationFails( string $name ) {
+		$className = self::makeClassName();
+		$expr = "return new \\Wikimedia\\IDLeDOM\\$name;";
+		$threw = false;
+		try {
+			eval( $expr );
+		} catch ( \Throwable $e ) {
+			$threw = true;
+		}
+		$this->assertTrue( $threw );
+	}
+
+	/**
+	 * Verify that enumerations have a cast() method which throw an exception
+	 * when given bogus input.
+	 * @covers \Wikimedia\IDLeDOM\ShadowRootMode
+	 * @dataProvider enumProvider
+	 */
+	public function testEnumCastFails( string $name ) {
+		$className = self::makeClassName();
+		$expr = "\\Wikimedia\\IDLeDOM\\$name::cast('bogus not a valid value');";
+		$threw = false;
+		try {
+			eval( $expr );
+		} catch ( \Throwable $e ) {
+			$threw = true;
+			$this->assertInstanceOf( TypeError::class, $e );
+		}
+		$this->assertTrue( $threw );
 	}
 
 	/**
@@ -110,7 +148,29 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	 * List all interfaces.
 	 */
 	public function ifaceProvider() {
-		return self::listFiles( __DIR__ . '/../src/' );
+		return array_values( array_filter(
+			self::listFiles( __DIR__ . '/../src/' ),
+			function ( $args ) { return !self::fileIsEnumeration( $args[0] );
+			}
+		) );
+	}
+
+	/**
+	 * List all enumerations
+	 */
+	public function enumProvider() {
+		return array_values( array_filter(
+			self::listFiles( __DIR__ . '/../src/' ),
+			function ( $args ) { return self::fileIsEnumeration( $args[0] );
+			}
+		) );
+	}
+
+	private static function fileIsEnumeration( string $name ) {
+		$contents = file_get_contents(
+			__DIR__ . "/../src/$name.php"
+		);
+		return strstr( $contents, "/* Enumeration values */\n" ) !== false;
 	}
 
 	private static function listFiles( $dirname ) {

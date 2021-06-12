@@ -29,7 +29,7 @@ namespace Wikimedia\IDLeDOM;
  * @property Element|null $lastElementChild
  * @property int $childElementCount
  * @property string $innerHTML
- * @property int $mode
+ * @property string $mode
  * @property Element $host
  * @property EventHandlerNonNull|callable|null $onslotchange
  * @phan-forbid-undeclared-magic-properties
@@ -38,9 +38,9 @@ interface ShadowRoot extends DocumentFragment, DocumentOrShadowRoot, InnerHTML {
 	// Direct parent: DocumentFragment
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getMode() : int;
+	public function getMode() : /* ShadowRootMode */ string;
 
 	/**
 	 * @return Element

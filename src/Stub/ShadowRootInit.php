@@ -21,9 +21,9 @@ trait ShadowRootInit {
 	// phpcs:enable
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getMode() : int {
+	public function getMode() : /* ShadowRootMode */ string {
 		throw self::_unimplemented();
 	}
 

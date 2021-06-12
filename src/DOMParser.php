@@ -16,9 +16,9 @@ interface DOMParser {
 
 	/**
 	 * @param string $string
-	 * @param int $type
+	 * @param string $type
 	 * @return Document
 	 */
-	public function parseFromString( string $string, int $type );
+	public function parseFromString( string $string, /* DOMParserSupportedType */ string $type );
 
 }

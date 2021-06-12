@@ -12,9 +12,37 @@ namespace Wikimedia\IDLeDOM;
  *
  * @phan-forbid-undeclared-magic-properties
  */
-interface SelectionMode {
-	public const select = 0;
-	public const start = 1;
-	public const end = 2;
-	public const preserve = 3;
+final class SelectionMode {
+	/* Enumeration values */
+	public const select = 'select';
+	public const start = 'start';
+	public const end = 'end';
+	public const preserve = 'preserve';
+
+	private function __construct() {
+		/* Enumerations can't be instantiated */
+	}
+
+	// @phan-file-suppress PhanTypeInvalidThrowsIsInterface
+
+	/**
+	 * Throw a TypeError if the provided string is not a
+	 * valid member of this enumeration.
+	 *
+	 * @param string $value The string to test
+	 * @return string The provided string, if it is valid
+	 * @throws \Wikimedia\IDLeDOM\TypeError if it is not valid
+	 */
+	public static function cast( string $value ): string {
+		switch ( $value ) {
+			case 'select':
+			case 'start':
+			case 'end':
+			case 'preserve':
+				return $value;
+			default:
+				throw new class() extends \Exception implements \Wikimedia\IDLeDOM\TypeError {
+				};
+		}
+	}
 }

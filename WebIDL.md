@@ -82,6 +82,8 @@ is not reserved in [`callback interface`] types.)
 In WebIDL [`callback`], [`callback interface`], and [`dictionary`] types,
 the name `cast` is reserved.
 
+In WebIDL [`enumeration`] types, the name `cast` is reserved.
+
 In WebIDL [`interface`] types, the names `getIterator` and `count` are
 reserved. (These are used to implement [`IteratorAggregate`] and
 [`Countable`].)
@@ -247,9 +249,9 @@ The WebIDL [`symbol`] type is not supported.
 ### Enumeration types
 
 WebIDL [enumeration](https://heycam.github.io/webidl/#idl-enums) types
-correspond to the PHP `int` type.  (There is a PHP interface created
+correspond to the PHP `string` type.  (There is a PHP interface created
 to hold the enumeration values as class constants, but enumeration
-values are `int`s, not objects implementing this interface.)
+values are `string`s, not objects implementing this interface.)
 
 See the [section on Enumeration interfaces below](#enumeration-interfaces).
 
@@ -559,15 +561,18 @@ method named `cast` with a single argument:
 ## Enumeration interfaces
 
 WebIDL [enumerations](https://heycam.github.io/webidl/#idl-enums)
-shall correspond to a PHP interface with an integer constant for every
+shall correspond to a PHP final class with an string constant for every
 enumeration value.
 
 For each enumeration value:
 * The constant shall have `public` visibility.
-* The type shall be the PHP `int` type.
+* The type shall be the PHP `string` type.
 * The name shall be the [PHP escaped] [identifier] of the enumeration value.
-* The value should be zero-based and sequential, in the same order as the
-  enumeration values appear in the WebIDL declaration.
+
+In addition, the enumeration class will have a static method named
+`cast` which will throw a `TypeError` exception if its argument is not
+a string matching a valid enumeration value; otherwise it will return
+its argument.
 
 For example, the following WebIDL:
 ```
@@ -575,16 +580,19 @@ enum ShadowRootMode { "open", "closed" };
 ```
 corresponds to the PHP interface:
 ```
-interface ShadowRootMode {
-	public const open = 0;
-	public const closed = 1;
+final class ShadowRootMode {
+	public const open = "open";
+	public const closed = "closed";
+
+	public static cast(string $value): string {
+		if ( $value === "open" || $value === "closed" ) {
+			return $value;
+		}
+		throw new class() extends \Exception implements TypeError {
+		};
+	}
 }
 ```
-
-XXX: Consider using 'string' to represent enumerations, instead of
-'int', which might be more compatible with JavaScript usage, and/or
-using a "real" Java-style enumeration object, with helpers to coerce
-strings to enumeration objects.
 
 ## Exceptions
 
@@ -643,6 +651,7 @@ no-ops for compatibility with legacy code.
 [`dictionary`]: https://heycam.github.io/webidl/#idl-dictionaries
 [`callback`]: https://heycam.github.io/webidl/#idl-callback-functions
 [`callback interface`]: https://heycam.github.io/webidl/#idl-callback-interfaces
+[`enumeration`]: https://heycam.github.io/webidl/#idl-enums
 [`interface`]: https://heycam.github.io/webidl/#idl-interfaces
 [`iterable`]: https://heycam.github.io/webidl/#idl-iterable
 [`stringifier`]: https://heycam.github.io/webidl/#idl-stringifiers

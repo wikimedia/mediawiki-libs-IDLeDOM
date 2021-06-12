@@ -182,6 +182,12 @@ class TraitBuilder extends Builder {
 			'type' => $m['type'],
 			'name' => $m['name'],
 			'idlType' => $m['idlType'],
+			'isEnum' => strstr(
+				$gen->typeToPHP(
+					$m['idlType'], [ 'flagEnums' => true ] + $typeOpts
+				),
+				'/* enum */'
+			) !== false,
 			'readonly' => $readonly,
 			'getterType' => $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
 			'getterTypeDoc' => $gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
@@ -340,10 +346,19 @@ class TraitBuilder extends Builder {
 			$this->nl( " * @return {$a['getterTypeDoc']}" );
 			$this->nl( ' */' );
 			$this->nl( "public function {$a['getter']}(){$a['getterType']} {" );
-			$this->nl( 'return $this->a[' . json_encode( $a['name'] ) . ']' . $a['default'] . ';' );
+			$castStart = $castEnd = '';
+			if ( $a['isEnum'] ) {
+				$castStart = $a['idlType']['idlType'] . '::cast( ';
+				$castEnd = ' )';
+			}
+			$this->nl(
+				'return ' . $castStart .
+				'$this->a[' . json_encode( $a['name'] ) . ']' .
+				$a['default'] . $castEnd . ';'
+			);
 			$this->nl( '}' );
 			$this->nl();
-			$this->use( $a['idlType'] );
+			$this->use( $a['idlType'], [ 'forceEnum' => true ] );
 		}
 		$this->nl( '};' );
 		$this->nl( '}' );

@@ -1,4 +1,6 @@
 # IDLeDOM x.x.x (not yet released)
+* Map WebIDL enumeration types to PHP string type (previously enumerations
+  were mapped to an integer type).
 * Add interfaces for GlobalEventHandlers,
   DocumentAndElementEventHandlers, and WindowEventHandlers, although at
   this time only the `onload` event handler is defined in order to

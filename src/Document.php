@@ -57,7 +57,7 @@ namespace Wikimedia\IDLeDOM;
  * @property HTMLCollection $anchors
  * @property HTMLCollection $applets
  * @property bool $hidden
- * @property int $visibilityState
+ * @property string $visibilityState
  * @property EventHandlerNonNull|callable|null $onvisibilitychange
  * @property string $encoding
  * @phan-forbid-undeclared-magic-properties
@@ -398,9 +398,9 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	public function getHidden() : bool;
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getVisibilityState() : int;
+	public function getVisibilityState() : /* VisibilityState */ string;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null

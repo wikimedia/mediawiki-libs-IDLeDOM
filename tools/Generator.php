@@ -225,13 +225,15 @@ class Generator {
 			}
 		}
 		if ( $def['type'] === 'callback' ) {
-			// Callbacks have a synthetic 'invoke' method.
+			// Callbacks have synthetic 'invoke' and 'cast' methods.
 			$this->nameMap["$topName:op:_invoke"] = $findName( "invoke" );
 			$this->nameMap["$topName:op:_cast"] = $findName( "cast" );
 			$done[$topName] = $allNames;
 			return $allNames;
 		}
 		if ( $def['type'] === 'enum' ) {
+			// Enumerations have a synthetic 'cast' method.
+			$this->nameMap["$topName:op:_cast"] = $findName( "cast" );
 			// Treat enumerations like interfaces with const members
 			foreach ( $def['values'] as $m ) {
 				$name = preg_replace( '/[^A-Za-z0-9_]/', '_', $m['value'] );
@@ -451,7 +453,7 @@ class Generator {
 				// suppress the PHP type hint
 				return '';
 			}
-			if ( substr( $result, 0, 1 ) === '/' ) {
+			if ( substr( $result, 0, 2 ) === '/*' && substr( $result, -2 ) === '*/' ) {
 				return '';
 			} else {
 				return " : $result";
@@ -503,8 +505,13 @@ class Generator {
 			}
 			$extraType = null;
 			if ( $this->typeIncludes( $ty, 'enum' ) ) {
-				$result = 'int'; // enumerations are integers
-				return $n . $result;
+				$result = 'string'; // enumerations are strings
+				$result = $n . $result;
+				if ( !$phpdoc ) {
+					$c = ( $opts['flagEnums'] ?? false ) ? 'enum' : $ty['idlType'];
+					$result = "/* $c */ $result";
+				}
+				return $result;
 			}
 			if ( $this->typeIncludes( $ty, 'dictionary' ) ) {
 				$extraType = 'associative-array';
