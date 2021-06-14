@@ -55,7 +55,7 @@ class StubBuilder extends Builder {
 	/** @inheritDoc */
 	protected function emitMemberAttribute( string $topName, string $name, array $m ) {
 		$typeOpts = [ 'topName' => $topName ];
-		$info = TraitBuilder::attributeInfo( $this->gen, $topName, $typeOpts, $m );
+		$info = HelperBuilder::attributeInfo( $this->gen, $topName, $typeOpts, $m );
 		if ( $info['reflectHelper'] ) {
 			// Skip this, it is a reflected attribute and doesn't need a stub
 			return;

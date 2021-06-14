@@ -5,9 +5,11 @@ namespace Wikimedia\IDLeDOM\Tools;
 use Wikimedia\Assert\Assert;
 
 /**
- * This class builds PHP interfaces. These are completely generic, and
- * should be implemented by any DOM implementation compliant with our
- * WebIDL mapping.
+ * This class builds the PHP interfaces (and classes) required by the
+ * WebIDL spec. These are completely generic, and should be
+ * implemented by any DOM implementation compliant with our WebIDL
+ * mapping.  Most WebIDL types generate interfaces; enumerations and
+ * dictionaries generate classes.
  */
 class InterfaceBuilder extends Builder {
 
@@ -364,7 +366,7 @@ class InterfaceBuilder extends Builder {
 		$this->nl( ' *' );
 		// Magic properties
 		$attrs = [];
-		TraitBuilder::collectAttributes( $this->gen, $topName, [], $attrs );
+		HelperBuilder::collectAttributes( $this->gen, $topName, [], $attrs );
 		if ( count( $attrs ) > 0 ) {
 			foreach ( $attrs as $a ) {
 				$this->nl( " * @property {$a['getterTypeDoc']} \${$a['name']}" );

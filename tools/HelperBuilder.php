@@ -9,7 +9,7 @@ use Wikimedia\Assert\Assert;
  * of the DOM interface classes.  DOM implementations aren't under any
  * obligation to use these traits.
  */
-class TraitBuilder extends Builder {
+class HelperBuilder extends Builder {
 	/**
 	 * Helper method: generates a typical trait start.
 	 * @param string $topName The class name

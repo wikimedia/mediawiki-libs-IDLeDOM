@@ -615,7 +615,7 @@ class Generator {
 			}
 			// Helper Traits
 			$filename = $dir . "/Helper/$name.php";
-			$out = TraitBuilder::emit( $this, $def, $this->options );
+			$out = HelperBuilder::emit( $this, $def, $this->options );
 			if ( $out !== null ) {
 				file_put_contents( $filename, $out );
 			}
