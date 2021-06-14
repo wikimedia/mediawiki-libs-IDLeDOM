@@ -13,10 +13,14 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $capture
  * @phan-forbid-undeclared-magic-properties
  */
-interface EventListenerOptions extends \ArrayAccess {
+abstract class EventListenerOptions implements \ArrayAccess {
+	// Dictionary type
+
+	use \Wikimedia\IDLeDOM\Helper\EventListenerOptions;
+
 	/**
 	 * @return bool
 	 */
-	public function getCapture() : bool;
+	abstract public function getCapture() : bool;
 
 }

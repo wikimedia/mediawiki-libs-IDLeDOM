@@ -92,7 +92,7 @@ trait AssignedNodesOptions {
 		if ( $a instanceof \Wikimedia\IDLeDOM\AssignedNodesOptions ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\AssignedNodesOptions {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\AssignedNodesOptions {
 			use AssignedNodesOptions;
 
 			/** @var array */

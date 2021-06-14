@@ -122,7 +122,7 @@ trait MutationObserverInit {
 		if ( $a instanceof \Wikimedia\IDLeDOM\MutationObserverInit ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\MutationObserverInit {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\MutationObserverInit {
 			use MutationObserverInit;
 
 			/** @var array */

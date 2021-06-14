@@ -15,20 +15,24 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $composed
  * @phan-forbid-undeclared-magic-properties
  */
-interface EventInit extends \ArrayAccess {
-	/**
-	 * @return bool
-	 */
-	public function getBubbles() : bool;
+abstract class EventInit implements \ArrayAccess {
+	// Dictionary type
+
+	use \Wikimedia\IDLeDOM\Helper\EventInit;
 
 	/**
 	 * @return bool
 	 */
-	public function getCancelable() : bool;
+	abstract public function getBubbles() : bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getComposed() : bool;
+	abstract public function getCancelable() : bool;
+
+	/**
+	 * @return bool
+	 */
+	abstract public function getComposed() : bool;
 
 }

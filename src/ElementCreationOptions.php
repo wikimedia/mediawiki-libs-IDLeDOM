@@ -13,10 +13,14 @@ namespace Wikimedia\IDLeDOM;
  * @property string $is
  * @phan-forbid-undeclared-magic-properties
  */
-interface ElementCreationOptions extends \ArrayAccess {
+abstract class ElementCreationOptions implements \ArrayAccess {
+	// Dictionary type
+
+	use \Wikimedia\IDLeDOM\Helper\ElementCreationOptions;
+
 	/**
 	 * @return string
 	 */
-	public function getIs() : string;
+	abstract public function getIs() : string;
 
 }

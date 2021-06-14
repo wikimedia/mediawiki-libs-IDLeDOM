@@ -92,7 +92,7 @@ trait GetRootNodeOptions {
 		if ( $a instanceof \Wikimedia\IDLeDOM\GetRootNodeOptions ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\GetRootNodeOptions {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\GetRootNodeOptions {
 			use GetRootNodeOptions;
 
 			/** @var array */

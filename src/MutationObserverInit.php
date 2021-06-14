@@ -19,40 +19,44 @@ namespace Wikimedia\IDLeDOM;
  * @property list<string> $attributeFilter
  * @phan-forbid-undeclared-magic-properties
  */
-interface MutationObserverInit extends \ArrayAccess {
-	/**
-	 * @return bool
-	 */
-	public function getChildList() : bool;
+abstract class MutationObserverInit implements \ArrayAccess {
+	// Dictionary type
+
+	use \Wikimedia\IDLeDOM\Helper\MutationObserverInit;
 
 	/**
 	 * @return bool
 	 */
-	public function getAttributes() : bool;
+	abstract public function getChildList() : bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getCharacterData() : bool;
+	abstract public function getAttributes() : bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getSubtree() : bool;
+	abstract public function getCharacterData() : bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getAttributeOldValue() : bool;
+	abstract public function getSubtree() : bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getCharacterDataOldValue() : bool;
+	abstract public function getAttributeOldValue() : bool;
+
+	/**
+	 * @return bool
+	 */
+	abstract public function getCharacterDataOldValue() : bool;
 
 	/**
 	 * @return list<string>
 	 */
-	public function getAttributeFilter() : array;
+	abstract public function getAttributeFilter() : array;
 
 }

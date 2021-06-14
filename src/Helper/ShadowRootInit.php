@@ -99,7 +99,7 @@ trait ShadowRootInit {
 		if ( $a instanceof \Wikimedia\IDLeDOM\ShadowRootInit ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\ShadowRootInit {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\ShadowRootInit {
 			use ShadowRootInit;
 
 			/** @var array */

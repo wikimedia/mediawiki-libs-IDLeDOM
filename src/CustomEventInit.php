@@ -16,12 +16,15 @@ namespace Wikimedia\IDLeDOM;
  * @property mixed|null $detail
  * @phan-forbid-undeclared-magic-properties
  */
-interface CustomEventInit extends EventInit {
+abstract class CustomEventInit extends EventInit {
+	// Dictionary type
 	// Direct parent: EventInit
+
+	use \Wikimedia\IDLeDOM\Helper\CustomEventInit;
 
 	/**
 	 * @return mixed|null
 	 */
-	public function getDetail();
+	abstract public function getDetail();
 
 }

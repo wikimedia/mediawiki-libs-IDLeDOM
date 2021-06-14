@@ -107,7 +107,7 @@ trait CustomEventInit {
 		if ( $a instanceof \Wikimedia\IDLeDOM\CustomEventInit ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\CustomEventInit {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\CustomEventInit {
 			use CustomEventInit;
 
 			/** @var array */

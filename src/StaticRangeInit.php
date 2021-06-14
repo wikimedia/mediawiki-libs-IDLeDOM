@@ -16,25 +16,29 @@ namespace Wikimedia\IDLeDOM;
  * @property int $endOffset
  * @phan-forbid-undeclared-magic-properties
  */
-interface StaticRangeInit extends \ArrayAccess {
-	/**
-	 * @return Node
-	 */
-	public function getStartContainer();
+abstract class StaticRangeInit implements \ArrayAccess {
+	// Dictionary type
 
-	/**
-	 * @return int
-	 */
-	public function getStartOffset() : int;
+	use \Wikimedia\IDLeDOM\Helper\StaticRangeInit;
 
 	/**
 	 * @return Node
 	 */
-	public function getEndContainer();
+	abstract public function getStartContainer();
 
 	/**
 	 * @return int
 	 */
-	public function getEndOffset() : int;
+	abstract public function getStartOffset() : int;
+
+	/**
+	 * @return Node
+	 */
+	abstract public function getEndContainer();
+
+	/**
+	 * @return int
+	 */
+	abstract public function getEndOffset() : int;
 
 }

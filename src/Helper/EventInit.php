@@ -102,7 +102,7 @@ trait EventInit {
 		if ( $a instanceof \Wikimedia\IDLeDOM\EventInit ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\EventInit {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\EventInit {
 			use EventInit;
 
 			/** @var array */

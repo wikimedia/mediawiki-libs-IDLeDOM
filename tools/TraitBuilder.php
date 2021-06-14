@@ -263,13 +263,8 @@ class TraitBuilder extends Builder {
 	protected function emitDictionary( string $topName, array $def ): void {
 		$typeOpts = [ 'topName' => $topName ];
 		$parentName = $this->parentName( $topName );
-		/* Only create helpers for interface which contain attributes */
 		$attrs = [];
 		self::collectAttributes( $this->gen, $topName, $typeOpts, $attrs );
-		if ( count( $attrs ) === 0 ) {
-			parent::emitDictionary( $topName, $def );
-			return;
-		}
 
 		$this->firstLine( $topName );
 		// Getters and setters
@@ -328,7 +323,7 @@ class TraitBuilder extends Builder {
 		$this->nl( "if ( \$a instanceof \\Wikimedia\\IDLeDOM\\$topName ) {" );
 		$this->nl( 'return $a;' );
 		$this->nl( '}' );
-		$this->nl( "return new class( \$a ) implements \\Wikimedia\\IDLeDOM\\$topName {" );
+		$this->nl( "return new class( \$a ) extends \\Wikimedia\\IDLeDOM\\$topName {" );
 		$this->nl( "use $topName;" );
 		$this->nl();
 		$this->nl( '/** @var array */' );

@@ -14,15 +14,19 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $delegatesFocus
  * @phan-forbid-undeclared-magic-properties
  */
-interface ShadowRootInit extends \ArrayAccess {
+abstract class ShadowRootInit implements \ArrayAccess {
+	// Dictionary type
+
+	use \Wikimedia\IDLeDOM\Helper\ShadowRootInit;
+
 	/**
 	 * @return string
 	 */
-	public function getMode() : /* ShadowRootMode */ string;
+	abstract public function getMode() : /* ShadowRootMode */ string;
 
 	/**
 	 * @return bool
 	 */
-	public function getDelegatesFocus() : bool;
+	abstract public function getDelegatesFocus() : bool;
 
 }

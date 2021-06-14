@@ -92,7 +92,7 @@ trait ElementCreationOptions {
 		if ( $a instanceof \Wikimedia\IDLeDOM\ElementCreationOptions ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\ElementCreationOptions {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\ElementCreationOptions {
 			use ElementCreationOptions;
 
 			/** @var array */

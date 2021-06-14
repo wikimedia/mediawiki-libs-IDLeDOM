@@ -109,7 +109,7 @@ trait StaticRangeInit {
 		if ( $a instanceof \Wikimedia\IDLeDOM\StaticRangeInit ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\StaticRangeInit {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\StaticRangeInit {
 			use StaticRangeInit;
 
 			/** @var array */

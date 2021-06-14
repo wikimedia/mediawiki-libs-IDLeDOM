@@ -13,10 +13,14 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $flatten
  * @phan-forbid-undeclared-magic-properties
  */
-interface AssignedNodesOptions extends \ArrayAccess {
+abstract class AssignedNodesOptions implements \ArrayAccess {
+	// Dictionary type
+
+	use \Wikimedia\IDLeDOM\Helper\AssignedNodesOptions;
+
 	/**
 	 * @return bool
 	 */
-	public function getFlatten() : bool;
+	abstract public function getFlatten() : bool;
 
 }

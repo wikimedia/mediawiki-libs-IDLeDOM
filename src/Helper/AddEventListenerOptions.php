@@ -109,7 +109,7 @@ trait AddEventListenerOptions {
 		if ( $a instanceof \Wikimedia\IDLeDOM\AddEventListenerOptions ) {
 			return $a;
 		}
-		return new class( $a ) implements \Wikimedia\IDLeDOM\AddEventListenerOptions {
+		return new class( $a ) extends \Wikimedia\IDLeDOM\AddEventListenerOptions {
 			use AddEventListenerOptions;
 
 			/** @var array */

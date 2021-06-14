@@ -16,22 +16,25 @@ namespace Wikimedia\IDLeDOM;
  * @property AbortSignal $signal
  * @phan-forbid-undeclared-magic-properties
  */
-interface AddEventListenerOptions extends EventListenerOptions {
+abstract class AddEventListenerOptions extends EventListenerOptions {
+	// Dictionary type
 	// Direct parent: EventListenerOptions
 
-	/**
-	 * @return bool
-	 */
-	public function getPassive() : bool;
+	use \Wikimedia\IDLeDOM\Helper\AddEventListenerOptions;
 
 	/**
 	 * @return bool
 	 */
-	public function getOnce() : bool;
+	abstract public function getPassive() : bool;
+
+	/**
+	 * @return bool
+	 */
+	abstract public function getOnce() : bool;
 
 	/**
 	 * @return AbortSignal
 	 */
-	public function getSignal();
+	abstract public function getSignal();
 
 }

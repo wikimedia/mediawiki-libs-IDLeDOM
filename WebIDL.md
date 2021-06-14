@@ -470,15 +470,16 @@ magic methods, even if they are not used.
 
 ## Dictionaries
 
-WebIDL [`dictionary`] objects are PHP interfaces which extend one other
-PHP interface: dictionaries which directly inherit from another dictionary
-will extend the PHP interface corresponding to that inherited
-dictionary, and dictionaries with no inherited dictionaries shall
-extend the PHP [`ArrayAccess`] interface.
+WebIDL [`dictionary`] objects are PHP abstract classes which extend
+one other PHP class or interface: dictionaries which directly inherit
+from another dictionary shall extend the PHP abstract class
+corresponding to that inherited dictionary, and dictionaries with no
+inherited dictionaries shall extend the PHP [`ArrayAccess`] interface.
 
-Dictionary interfaces shall have getter methods for every field of the
+Dictionary classes shall have getter methods for every field of the
 dictionary:
 * The method has `public` visibility.
+* The method is abstract.
 * The return type of the method is the PHP type that corresponds to
   the field type, according to the rules in the [type section
   above].
@@ -492,7 +493,7 @@ dictionary:
   function).  This name is then [PHP escaped] to resolve conflicts.
 * The method has no arguments.
 
-In every interface corresponding to a dictionary, the PHP [magic
+In every class corresponding to a dictionary, the PHP [magic
 methods](https://www.php.net/manual/en/language.oop5.magic.php)
 [`__get()`] and [`__isset()`] (and optionally [`__set()`] and [`__unset()`])
 should be defined with the following behavior:
@@ -513,15 +514,15 @@ The [`ArrayAccess`] methods of a dictionary should have the following behavior:
 * The `offsetSet` method should throw an appropriate exception.
 * The `offsetUnset` method should throw an appropriate exception.
 
-In addition, classes implementing the interface should define a static
+In addition, classes corresponding to a dictionary should define a static
 method named `cast` with a single argument:
-* The `cast` method should return an object implementing the interface
+* The `cast` method should return an object extending the class
   corresponding to the dictionary.
 * The argument of the `cast` method should be either an associative array
-  or an object implementing the interface corresponding to the dictionary.
-* If invoked with an argument implementing the interface corresponding to
+  or an object extending the class corresponding to the dictionary.
+* If invoked with an argument extending the class corresponding to
   the dictionary, the argument should be directly returned.
-* If invoked with an associative array, an object implementing the interface
+* If invoked with an associative array, an object extending the class
   corresponding to the dictionary should be returned, where the getter for
   each field returns the array value associated with the key equal to the
   field's WebIDL name (not PHP escaped) if there is one, otherwise the getter

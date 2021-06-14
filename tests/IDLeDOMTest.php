@@ -69,6 +69,18 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
+	 * Verify that the cast() method of dictionaries succeeeds.
+	 * @covers \Wikimedia\IDLeDOM\StaticRangeInit
+	 * @dataProvider dictProvider
+	 */
+	public function testDictCast( string $name ) {
+		$className = self::makeClassName();
+		$expr = "return \\Wikimedia\\IDLeDOM\\$name::cast([]);";
+		$val = eval( $expr );
+		$this->assertInstanceOf( "\\Wikimedia\\IDLeDOM\\$name", $val );
+	}
+
+	/**
 	 * Generate a unique temporary class name.
 	 * @return string
 	 */
@@ -150,7 +162,14 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	public function ifaceProvider() {
 		return array_values( array_filter(
 			self::listFiles( __DIR__ . '/../src/' ),
-			function ( $args ) { return !self::fileIsEnumeration( $args[0] );
+			function ( $args ) {
+				if ( self::fileIsEnumeration( $args[0] ) ) {
+					return false;
+				}
+				if ( self::fileIsDictionary( $args[0] ) ) {
+					return false;
+				}
+				return true;
 			}
 		) );
 	}
@@ -171,6 +190,24 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 			__DIR__ . "/../src/$name.php"
 		);
 		return strstr( $contents, "/* Enumeration values */\n" ) !== false;
+	}
+
+	/**
+	 * List all dictionaries
+	 */
+	public function dictProvider() {
+		return array_values( array_filter(
+			self::listFiles( __DIR__ . '/../src/' ),
+			function ( $args ) { return self::fileIsDictionary( $args[0] );
+			}
+		) );
+	}
+
+	private static function fileIsDictionary( string $name ) {
+		$contents = file_get_contents(
+			__DIR__ . "/../src/$name.php"
+		);
+		return strstr( $contents, "// Dictionary type\n" ) !== false;
 	}
 
 	private static function listFiles( $dirname ) {

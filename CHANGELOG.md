@@ -1,6 +1,9 @@
 # IDLeDOM x.x.x (not yet released)
 * Map WebIDL enumeration types to PHP string type (previously enumerations
   were mapped to an integer type).
+* Map WebIDL dictionary types to an abstract class instead of an interface
+  type.  This allows IDLeDOM to provide a static `cast` method for the
+  dictionary, which is all that most implementations need.
 * Add interfaces for GlobalEventHandlers,
   DocumentAndElementEventHandlers, and WindowEventHandlers, although at
   this time only the `onload` event handler is defined in order to

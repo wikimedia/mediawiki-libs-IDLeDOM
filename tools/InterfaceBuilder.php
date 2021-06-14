@@ -23,10 +23,11 @@ class InterfaceBuilder extends Builder {
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'] );
 		$phpType = $this->gen->typeToPHP( $m['idlType'], [ 'setter' => true ] );
 		$retType = $this->gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] );
+		$public = ( $m['abstract'] ?? false ) ? 'abstract public' : 'public';
 		$this->nl( '/**' );
 		$this->nl( " * @return $docType" );
 		$this->nl( ' */' );
-		$this->nl( "public function $getter()$retType;" );
+		$this->nl( "$public function $getter()$retType;" );
 		if ( $m['readonly'] ?? false ) {
 			return;
 		}
@@ -37,7 +38,7 @@ class InterfaceBuilder extends Builder {
 		$this->nl( '/**' );
 		$this->nl( " * @param $docType \$val" );
 		$this->nl( ' */' );
-		$this->nl( "public function $setter( $phpType \$val ) : void;" );
+		$this->nl( "$public function $setter( $phpType \$val ) : void;" );
 	}
 
 	/**
@@ -249,11 +250,15 @@ class InterfaceBuilder extends Builder {
 		// Only the top-level dictionary needs to extend \ArrayAccess;
 		// child classes will pick it up from the parent.
 		$extendArray = ( $def['inheritance'] ?? null ) === null;
-		$this->firstLine( 'interface', $topName, $def );
+		$this->firstLine( 'abstract class', $topName, $def );
+		// Somewhat unusually: have the abstract class include the helper.
+		$this->nl( "use \\Wikimedia\\IDLeDOM\\Helper\\$topName;" );
+		$this->nl();
 		foreach ( $def['members'] as $m ) {
 			// Treat as pseudo-attributes
 			$this->emitMemberAttribute( $topName, $m['name'], [
 				'readonly' => true,
+				'abstract' => true,
 			] + $m );
 			$this->nl();
 		}
@@ -370,9 +375,11 @@ class InterfaceBuilder extends Builder {
 
 		$firstLine = "$type $topName";
 		$mixins = $this->gen->mixins( $topName );
+		$mixinLength = count( $mixins );
 		$extendArray = false;
 		$extendIterator = false;
 		$extendCountable = false;
+		$hints = [];
 		// Top level dictionaries extend \ArrayAccess
 		if (
 			$def['type'] === 'dictionary' &&
@@ -408,14 +415,31 @@ class InterfaceBuilder extends Builder {
 		if ( $extendCountable ) {
 			$mixins[] = '\Countable';
 		}
-		if ( count( $mixins ) ) {
-			$firstLine .= " extends " . implode( ', ', $mixins );
+		if ( $def['type'] === 'dictionary' ) {
+			$direct = array_splice( $mixins, 0, $mixinLength );
+			if ( count( $direct ) ) {
+				$firstLine .= " extends " . implode( ', ', $direct );
+			}
+			if ( count( $mixins ) ) {
+				$firstLine .= " implements " . implode( ', ', $mixins );
+			}
+			// Hint to the test program that this is a dictionary.
+			$hints[] = '// Dictionary type';
+		} else {
+			if ( count( $mixins ) ) {
+				$firstLine .= " extends " . implode( ', ', $mixins );
+			}
 		}
 		$this->nl( "$firstLine {" );
 		// This is a hint to the test program (and end user?) about
 		// the single inheritance chain.
 		if ( $def['inheritance'] ?? false ) {
-			$this->nl( "// Direct parent: " . $def['inheritance'] );
+			$hints[] = '// Direct parent: ' . $def['inheritance'];
+		}
+		if ( count( $hints ) ) {
+			foreach ( $hints as $h ) {
+				$this->nl( $h );
+			}
 			$this->nl();
 		}
 	}

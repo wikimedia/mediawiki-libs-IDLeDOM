@@ -13,10 +13,14 @@ namespace Wikimedia\IDLeDOM;
  * @property bool $composed
  * @phan-forbid-undeclared-magic-properties
  */
-interface GetRootNodeOptions extends \ArrayAccess {
+abstract class GetRootNodeOptions implements \ArrayAccess {
+	// Dictionary type
+
+	use \Wikimedia\IDLeDOM\Helper\GetRootNodeOptions;
+
 	/**
 	 * @return bool
 	 */
-	public function getComposed() : bool;
+	abstract public function getComposed() : bool;
 
 }
