@@ -598,16 +598,18 @@ final class ShadowRootMode {
 ## Exceptions
 
 A conforming PHP implementation must have a PHP interface corresponding to
-every [WebIDL exception] that is supported.  For simple exceptions, the
+every [WebIDL exception] that is supported.  For [simple exceptions], the
 interface name must be the [PHP escaped] [identifier] of the WebIDL
 simple exception name: `Error`, `EvalError`, `RangeError`, `ReferenceError`,
 `TypeError`, or `URIError`.  These PHP interfaces must have only the `public`
-modifier.
+modifier.  All simple exception interface classes will also extend an empty
+marker interface named `SimpleException`.
 
 In addition, the PHP implementation must have a PHP interface named
 `DOMException` corresponding to the [WebIDL exception] DOMException type.
 This PHP interface must [correspond in the usual way](#interfaces)
-to the [WebIDL interface for DOMException given in the WebIDL spec](https://heycam.github.io/webidl/#idl-DOMException).
+to the [WebIDL interface for DOMException given in the WebIDL spec](https://heycam.github.io/webidl/#idl-DOMException).  `DOMException` will not extend
+`SimpleException`.
 
 Note that because these exceptions are represented as interface types,
 an implementation may chose to (for example) subclass PHP built-in
@@ -669,6 +671,7 @@ no-ops for compatibility with legacy code.
 [interface]: https://www.w3.org/TR/WebIDL-1#idl-interfaces
 [attribute]: https://www.w3.org/TR/WebIDL-1/#idl-attributes
 [WebIDL exception]: https://www.w3.org/TR/WebIDL-1/#idl-exceptions
+[simple exceptions]: https://heycam.github.io/webidl/#dfn-simple-exception
 [read only]: https://www.w3.org/TR/WebIDL-1/#dfn-read-only
 [extended attribute]: https://www.w3.org/TR/WebIDL-1/#dfn-extended-attribute
 [`PutForwards`]: https://www.w3.org/TR/WebIDL-1/#PutForwards

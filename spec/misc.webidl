@@ -296,6 +296,7 @@ interface DOMException { // but see below note about ECMAScript binding
 };
 
 // Interfaces for WebIDL "simple exceptions"
+// https://heycam.github.io/webidl/#dfn-simple-exception
 [PHPExtension]
 interface SimpleException { };
 [PHPExtension]
