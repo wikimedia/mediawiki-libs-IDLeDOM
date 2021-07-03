@@ -571,9 +571,8 @@ class Generator {
 		case 'unrestricted double':
 			return $n . 'float';
 		case 'DOMString':
-			return $n . 'string';
 		case 'USVString':
-			return $n . 'string'; // XXX?
+			return $n . 'string';
 		default:
 			self::unreachable( "Unknown type " . var_export( $ty, true ) );
 		}

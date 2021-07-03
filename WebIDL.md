@@ -232,10 +232,57 @@ TODO: No DOM interface yet uses these types.
 
 ### DOMString, ByteString, USVString
 
-PHP uses `string` for all string types.
+PHP uses `string` for all WebIDL string types.  Strings are expected
+to be encoded in UTF-8.
 
-TODO: describe encoding conversions, if any.  DOMString is used for almost
-all DOM interfaces, except for URL which uses USVString.
+As described in a note
+[in the CSS Object Model spec](https://drafts.csswg.org/cssom/#cssomstring)
+the main difference between DOMString and USVString has to do with how
+surrogate code units are handled.  DOMString allows surrogates, while
+USVString replaces them with U+FFFD.  As rationale the spec states
+that "well-formed UTF-8 specifically disallows surrogate code points".
+
+Since we represent strings natively as UTF-8, it is true that
+surrogates don't appear in our native representation.  However, for
+those interfaces (`CharacterData` and `Text`, for example) which
+require offsets to be in UTF-16 units we will perform an internal
+conversion to UTF-16, which will by necessity generate surrogate pairs
+where needed.  If you extract a substring (using UTF-16 offsets) that
+contains an unmatched surrogate, it would need to be converted back to
+UTF-8 before being returned -- but UTF-8 cannot properly represent
+these characters.
+
+The behavior of a PHP WebIDL implementation following this
+specification should be considered undefined in these situations.
+
+The most efficient option (and the one implemented by
+`wikimedia/Dodo`, for instance) is to use PHP's built-in
+`mb_convert_encoding` to convert between UTF-16 and UTF-8.  The
+`mb_convert_encoding` function will drop an unpaired initial surrogate
+and return an ASCII question mark character for an unpaired trailing
+surrogate.  This may be surprising:
+```php
+# In JavaScript/UTF-16 U+10437 is represented as U+D801 U+DC37
+$text = $document->createTextNode("\u{10437}");
+assertEquals(4, strlen($text->data)); // 4 UTF-8 characters
+assertEquals(2, $text->length); // 2 UTF-16 characters
+$text2 = $text->splitText(1);
+assertEquals('', $text->data); // leading unpaired surrogate deleted
+assertEquals('?', $text2->data); // trailing unpaired surrogate converted to ?
+```
+
+At a slight cost in performance, an implementation might also choose
+to fall back to a [WTF-8] encoding of the unpaired surrogate.  String
+concatenation of unpaired surrogates is likely to lead to further
+unexpected behavior, however, and PHP does not contain robust support
+for [WTF-8]. (Another alternative would be [CESU-8], but that alters
+the encoding of characters outside the Basic Multilingual Plane even
+where surrogate-splitting is not involved and so would be explicitly
+in violation of this spec, which mandates UTF-8 for all results not
+involving unpaired surrogates.)
+
+Perhaps the safest option is to throw an exception if an unpaired
+surrogate is encountered.
 
 ### object
 
@@ -684,3 +731,5 @@ no-ops for compatibility with legacy code.
 [`__unset()`]: https://www.php.net/manual/en/language.oop5.magic.php#object.unset
 [`__invoke()`]: https://www.php.net/manual/en/language.oop5.magic.php#object.invoke
 [`__toString()`]: https://www.php.net/manual/en/language.oop5.magic.php#object.tostring
+[WTF-8]: https://en.wikipedia.org/wiki/UTF-8#WTF-8
+[CESU-8]: https://en.wikipedia.org/wiki/UTF-8#CESU-8
