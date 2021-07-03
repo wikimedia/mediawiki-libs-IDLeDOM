@@ -80,6 +80,8 @@ trait HTMLLinkElement {
 				return $this->getShadowRoot();
 			case "outerHTML":
 				return $this->getOuterHTML();
+			case "style":
+				return $this->getStyle();
 			case "contentEditable":
 				return $this->getContentEditable();
 			case "enterKeyHint":
@@ -130,6 +132,8 @@ trait HTMLLinkElement {
 				return $this->getOffsetHeight();
 			case "crossOrigin":
 				return $this->getCrossOrigin();
+			case "sheet":
+				return $this->getSheet();
 			case "referrerPolicy":
 				return $this->getReferrerPolicy();
 			case "href":
@@ -239,6 +243,8 @@ trait HTMLLinkElement {
 				return $this->getShadowRoot() !== null;
 			case "outerHTML":
 				return true;
+			case "style":
+				return true;
 			case "contentEditable":
 				return true;
 			case "enterKeyHint":
@@ -289,6 +295,8 @@ trait HTMLLinkElement {
 				return true;
 			case "crossOrigin":
 				return $this->getCrossOrigin() !== null;
+			case "sheet":
+				return $this->getSheet() !== null;
 			case "referrerPolicy":
 				return true;
 			case "href":
@@ -514,6 +522,8 @@ trait HTMLLinkElement {
 				break;
 			case "outerHTML":
 				break;
+			case "style":
+				break;
 			case "contentEditable":
 				break;
 			case "enterKeyHint":
@@ -565,6 +575,8 @@ trait HTMLLinkElement {
 			case "crossOrigin":
 				$this->setCrossOrigin( null );
 				return;
+			case "sheet":
+				break;
 			case "referrerPolicy":
 				break;
 			case "href":

@@ -43,6 +43,7 @@ namespace Wikimedia\IDLeDOM;
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
  * @property string $outerHTML
+ * @property CSSStyleDeclaration $style
  * @property string $contentEditable
  * @property string $enterKeyHint
  * @property bool $isContentEditable
@@ -67,11 +68,12 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetLeft
  * @property int $offsetWidth
  * @property int $offsetHeight
+ * @property CSSStyleSheet|null $sheet
  * @property string $media
  * @property string $type
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLStyleElement extends HTMLElement {
+interface HTMLStyleElement extends HTMLElement, LinkStyle {
 	// Direct parent: HTMLElement
 
 	/**

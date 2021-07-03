@@ -572,6 +572,7 @@ class Generator {
 			return $n . 'float';
 		case 'DOMString':
 		case 'USVString':
+		case 'CSSOMString':
 			return $n . 'string';
 		default:
 			self::unreachable( "Unknown type " . var_export( $ty, true ) );
@@ -642,7 +643,7 @@ class Generator {
 		$webidl = [];
 		$files = [
 			"DOM", "misc", "HTML", "HTMLDocument", "parsing", "php",
-			"URL",
+			"URL", "CSS", "CSSProperties",
 		];
 		foreach ( $files as $f ) {
 			$filename = __DIR__ . "/../spec/$f.webidl";

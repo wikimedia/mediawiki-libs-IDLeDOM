@@ -10,6 +10,7 @@ use Wikimedia\IDLeDOM\Element;
 
 trait HTMLElement {
 	// use \Wikimedia\IDLeDOM\Stub\DocumentAndElementEventHandlers;
+	// use \Wikimedia\IDLeDOM\Stub\ElementCSSInlineStyle;
 	// use \Wikimedia\IDLeDOM\Stub\ElementContentEditable;
 	// use \Wikimedia\IDLeDOM\Stub\GlobalEventHandlers;
 	// use \Wikimedia\IDLeDOM\Stub\HTMLOrSVGElement;

@@ -80,6 +80,8 @@ trait HTMLStyleElement {
 				return $this->getShadowRoot();
 			case "outerHTML":
 				return $this->getOuterHTML();
+			case "style":
+				return $this->getStyle();
 			case "contentEditable":
 				return $this->getContentEditable();
 			case "enterKeyHint":
@@ -128,6 +130,8 @@ trait HTMLStyleElement {
 				return $this->getOffsetWidth();
 			case "offsetHeight":
 				return $this->getOffsetHeight();
+			case "sheet":
+				return $this->getSheet();
 			case "media":
 				return $this->getMedia();
 			case "type":
@@ -219,6 +223,8 @@ trait HTMLStyleElement {
 				return $this->getShadowRoot() !== null;
 			case "outerHTML":
 				return true;
+			case "style":
+				return true;
 			case "contentEditable":
 				return true;
 			case "enterKeyHint":
@@ -267,6 +273,8 @@ trait HTMLStyleElement {
 				return true;
 			case "offsetHeight":
 				return true;
+			case "sheet":
+				return $this->getSheet() !== null;
 			case "media":
 				return true;
 			case "type":
@@ -447,6 +455,8 @@ trait HTMLStyleElement {
 				break;
 			case "outerHTML":
 				break;
+			case "style":
+				break;
 			case "contentEditable":
 				break;
 			case "enterKeyHint":
@@ -494,6 +504,8 @@ trait HTMLStyleElement {
 			case "offsetWidth":
 				break;
 			case "offsetHeight":
+				break;
+			case "sheet":
 				break;
 			case "media":
 				break;

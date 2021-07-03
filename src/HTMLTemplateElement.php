@@ -43,6 +43,7 @@ namespace Wikimedia\IDLeDOM;
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
  * @property string $outerHTML
+ * @property CSSStyleDeclaration $style
  * @property string $contentEditable
  * @property string $enterKeyHint
  * @property bool $isContentEditable

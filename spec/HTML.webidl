@@ -616,7 +616,7 @@ interface HTMLLinkElement : HTMLElement {
 HTMLLinkElement includes CrossOrigin;
 HTMLLinkElement includes ReferrerPolicy;
 // https://drafts.csswg.org/cssom/#the-linkstyle-interface
-// HTMLLinkElement includes LinkStyle;
+HTMLLinkElement includes LinkStyle;
 
 // https://html.spec.whatwg.org/#HTMLLinkElement-partial
 partial interface HTMLLinkElement {
@@ -1073,7 +1073,7 @@ interface HTMLStyleElement : HTMLElement {
   // also has obsolete members
 };
 // https://drafts.csswg.org/cssom/#the-linkstyle-interface
-// HTMLStyleElement includes LinkStyle;
+HTMLStyleElement includes LinkStyle;
 
 // https://html.spec.whatwg.org/#HTMLStyleElement-partial
 partial interface HTMLStyleElement {

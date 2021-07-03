@@ -80,6 +80,8 @@ trait HTMLModElement {
 				return $this->getShadowRoot();
 			case "outerHTML":
 				return $this->getOuterHTML();
+			case "style":
+				return $this->getStyle();
 			case "contentEditable":
 				return $this->getContentEditable();
 			case "enterKeyHint":
@@ -218,6 +220,8 @@ trait HTMLModElement {
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
 			case "outerHTML":
+				return true;
+			case "style":
 				return true;
 			case "contentEditable":
 				return true;
@@ -446,6 +450,8 @@ trait HTMLModElement {
 			case "shadowRoot":
 				break;
 			case "outerHTML":
+				break;
+			case "style":
 				break;
 			case "contentEditable":
 				break;

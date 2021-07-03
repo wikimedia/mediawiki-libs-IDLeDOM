@@ -116,4 +116,11 @@ interface Window extends EventTarget, GlobalEventHandlers, WindowEventHandlers {
 	 */
 	public function getEvent();
 
+	/**
+	 * @param Element $elt
+	 * @param ?string $pseudoElt
+	 * @return CSSStyleDeclaration
+	 */
+	public function getComputedStyle( /* Element */ $elt, ?string $pseudoElt = null );
+
 }

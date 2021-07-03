@@ -10,7 +10,13 @@ namespace Wikimedia\IDLeDOM;
  *
  * @see https://dom.spec.whatwg.org/#interface-documentorshadowroot
  *
+ * @property StyleSheetList $styleSheets
  * @phan-forbid-undeclared-magic-properties
  */
 interface DocumentOrShadowRoot {
+	/**
+	 * @return StyleSheetList
+	 */
+	public function getStyleSheets();
+
 }

@@ -230,7 +230,7 @@ types, `null` is not a valid value of these WebIDL types.
 
 TODO: No DOM interface yet uses these types.
 
-### DOMString, ByteString, USVString
+### DOMString, ByteString, USVString, CSSOMString
 
 PHP uses `string` for all WebIDL string types.  Strings are expected
 to be encoded in UTF-8.

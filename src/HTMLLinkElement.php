@@ -43,6 +43,7 @@ namespace Wikimedia\IDLeDOM;
  * @property NamedNodeMap $attributes
  * @property ShadowRoot|null $shadowRoot
  * @property string $outerHTML
+ * @property CSSStyleDeclaration $style
  * @property string $contentEditable
  * @property string $enterKeyHint
  * @property bool $isContentEditable
@@ -68,6 +69,7 @@ namespace Wikimedia\IDLeDOM;
  * @property int $offsetWidth
  * @property int $offsetHeight
  * @property ?string $crossOrigin
+ * @property CSSStyleSheet|null $sheet
  * @property string $referrerPolicy
  * @property string $href
  * @property string $rel
@@ -81,7 +83,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $target
  * @phan-forbid-undeclared-magic-properties
  */
-interface HTMLLinkElement extends HTMLElement, CrossOrigin, ReferrerPolicy {
+interface HTMLLinkElement extends HTMLElement, CrossOrigin, LinkStyle, ReferrerPolicy {
 	// Direct parent: HTMLElement
 
 	/**

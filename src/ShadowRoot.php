@@ -28,6 +28,7 @@ namespace Wikimedia\IDLeDOM;
  * @property Element|null $firstElementChild
  * @property Element|null $lastElementChild
  * @property int $childElementCount
+ * @property StyleSheetList $styleSheets
  * @property string $innerHTML
  * @property string $mode
  * @property Element $host

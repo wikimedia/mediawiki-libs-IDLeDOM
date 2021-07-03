@@ -80,6 +80,8 @@ trait HTMLTrackElement {
 				return $this->getShadowRoot();
 			case "outerHTML":
 				return $this->getOuterHTML();
+			case "style":
+				return $this->getStyle();
 			case "contentEditable":
 				return $this->getContentEditable();
 			case "enterKeyHint":
@@ -226,6 +228,8 @@ trait HTMLTrackElement {
 			case "shadowRoot":
 				return $this->getShadowRoot() !== null;
 			case "outerHTML":
+				return true;
+			case "style":
 				return true;
 			case "contentEditable":
 				return true;
@@ -471,6 +475,8 @@ trait HTMLTrackElement {
 			case "shadowRoot":
 				break;
 			case "outerHTML":
+				break;
+			case "style":
 				break;
 			case "contentEditable":
 				break;

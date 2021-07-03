@@ -6,6 +6,7 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 use Exception;
+use Wikimedia\IDLeDOM\StyleSheetList;
 
 trait DocumentOrShadowRoot {
 
@@ -19,5 +20,12 @@ trait DocumentOrShadowRoot {
 	abstract protected function _unimplemented() : Exception;
 
 	// phpcs:enable
+
+	/**
+	 * @return StyleSheetList
+	 */
+	public function getStyleSheets() {
+		throw self::_unimplemented();
+	}
 
 }

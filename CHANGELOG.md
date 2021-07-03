@@ -1,4 +1,5 @@
 # IDLeDOM x.x.x (not yet released)
+* Add CSS Object Model (CSSOM) interfaces.
 
 # IDLeDOM 0.6.0 (2021-06-14)
 * Map WebIDL enumeration types to PHP string type (previously enumerations

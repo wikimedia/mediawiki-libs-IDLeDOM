@@ -8,6 +8,7 @@ namespace Wikimedia\IDLeDOM\Stub;
 use Exception;
 
 trait ProcessingInstruction {
+	// use \Wikimedia\IDLeDOM\Stub\LinkStyle;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names
 	// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore

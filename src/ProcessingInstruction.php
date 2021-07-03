@@ -28,10 +28,11 @@ namespace Wikimedia\IDLeDOM;
  * @property Element|null $nextElementSibling
  * @property string $data
  * @property int $length
+ * @property CSSStyleSheet|null $sheet
  * @property string $target
  * @phan-forbid-undeclared-magic-properties
  */
-interface ProcessingInstruction extends CharacterData {
+interface ProcessingInstruction extends CharacterData, LinkStyle {
 	// Direct parent: CharacterData
 
 	/**

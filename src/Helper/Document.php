@@ -42,6 +42,8 @@ trait Document {
 				return $this->getNodeValue();
 			case "textContent":
 				return $this->getTextContent();
+			case "styleSheets":
+				return $this->getStyleSheets();
 			case "onload":
 				return $this->getOnload();
 			case "children":
@@ -163,6 +165,8 @@ trait Document {
 				return $this->getNodeValue() !== null;
 			case "textContent":
 				return $this->getTextContent() !== null;
+			case "styleSheets":
+				return true;
 			case "onload":
 				return true;
 			case "children":
@@ -328,6 +332,8 @@ trait Document {
 			case "textContent":
 				$this->setTextContent( null );
 				return;
+			case "styleSheets":
+				break;
 			case "onload":
 				break;
 			case "children":

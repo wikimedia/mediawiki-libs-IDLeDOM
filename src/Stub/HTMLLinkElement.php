@@ -10,6 +10,7 @@ use Wikimedia\IDLeDOM\DOMTokenList;
 
 trait HTMLLinkElement {
 	// use \Wikimedia\IDLeDOM\Stub\CrossOrigin;
+	// use \Wikimedia\IDLeDOM\Stub\LinkStyle;
 	// use \Wikimedia\IDLeDOM\Stub\ReferrerPolicy;
 
 	// Underscore is used to avoid conflicts with DOM-reserved names

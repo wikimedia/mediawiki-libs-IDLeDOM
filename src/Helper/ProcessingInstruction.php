@@ -50,6 +50,8 @@ trait ProcessingInstruction {
 				return $this->getData();
 			case "length":
 				return $this->getLength();
+			case "sheet":
+				return $this->getSheet();
 			case "target":
 				return $this->getTarget();
 			default:
@@ -109,6 +111,8 @@ trait ProcessingInstruction {
 				return true;
 			case "length":
 				return true;
+			case "sheet":
+				return $this->getSheet() !== null;
 			case "target":
 				return true;
 			default:
@@ -190,6 +194,8 @@ trait ProcessingInstruction {
 			case "data":
 				break;
 			case "length":
+				break;
+			case "sheet":
 				break;
 			case "target":
 				break;

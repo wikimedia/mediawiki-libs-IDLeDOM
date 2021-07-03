@@ -6,6 +6,7 @@
 namespace Wikimedia\IDLeDOM\Stub;
 
 use Exception;
+use Wikimedia\IDLeDOM\CSSStyleDeclaration;
 use Wikimedia\IDLeDOM\Document;
 use Wikimedia\IDLeDOM\Element;
 use Wikimedia\IDLeDOM\Event;
@@ -149,6 +150,15 @@ trait Window {
 	 * @return Event|null
 	 */
 	public function getEvent() {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param Element $elt
+	 * @param ?string $pseudoElt
+	 * @return CSSStyleDeclaration
+	 */
+	public function getComputedStyle( /* Element */ $elt, ?string $pseudoElt = null ) {
 		throw self::_unimplemented();
 	}
 
