@@ -89,6 +89,11 @@ interface HTMLOutputElement extends HTMLElement {
 	public function getHtmlFor();
 
 	/**
+	 * @param string $val
+	 */
+	public function setHtmlFor( string $val ) : void;
+
+	/**
 	 * @return HTMLFormElement|null
 	 */
 	public function getForm();

@@ -80,6 +80,9 @@ trait CSSImportRule {
 			case "cssText":
 				$this->setCssText( $value );
 				return;
+			case "media":
+				$this->setMedia( $value );
+				return;
 			default:
 				break;
 		}
@@ -123,6 +126,15 @@ trait CSSImportRule {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setMedia( ?string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\CSSImportRule $this';
+		// @var \Wikimedia\IDLeDOM\CSSImportRule $this
+		$this->getMedia()->setMediaText( $val );
 	}
 
 }

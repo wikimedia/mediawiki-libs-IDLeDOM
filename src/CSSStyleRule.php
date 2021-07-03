@@ -36,4 +36,9 @@ interface CSSStyleRule extends CSSRule {
 	 */
 	public function getStyle();
 
+	/**
+	 * @param string $val
+	 */
+	public function setStyle( string $val ) : void;
+
 }

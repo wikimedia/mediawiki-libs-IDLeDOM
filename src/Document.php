@@ -40,6 +40,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $contentType
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement
+ * @property Location|null $location
  * @property string $referrer
  * @property string $cookie
  * @property string $lastModified
@@ -232,6 +233,16 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	 * @return TreeWalker
 	 */
 	public function createTreeWalker( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null );
+
+	/**
+	 * @return Location|null
+	 */
+	public function getLocation();
+
+	/**
+	 * @param string $val
+	 */
+	public function setLocation( string $val ) : void;
 
 	/**
 	 * @return string

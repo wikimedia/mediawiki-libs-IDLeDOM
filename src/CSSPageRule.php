@@ -37,4 +37,9 @@ interface CSSPageRule extends CSSGroupingRule {
 	 */
 	public function getStyle();
 
+	/**
+	 * @param string $val
+	 */
+	public function setStyle( string $val ) : void;
+
 }

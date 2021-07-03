@@ -396,11 +396,17 @@ trait HTMLAnchorElement {
 			case "className":
 				$this->setClassName( $value );
 				return;
+			case "classList":
+				$this->setClassList( $value );
+				return;
 			case "slot":
 				$this->setSlot( $value );
 				return;
 			case "outerHTML":
 				$this->setOuterHTML( $value );
+				return;
+			case "style":
+				$this->setStyle( $value );
 				return;
 			case "contentEditable":
 				$this->setContentEditable( $value );
@@ -494,6 +500,9 @@ trait HTMLAnchorElement {
 				return;
 			case "rel":
 				$this->setRel( $value );
+				return;
+			case "relList":
+				$this->setRelList( $value );
 				return;
 			case "hreflang":
 				$this->setHreflang( $value );
@@ -716,6 +725,15 @@ trait HTMLAnchorElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setRelList( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLAnchorElement $this';
+		// @var \Wikimedia\IDLeDOM\HTMLAnchorElement $this
+		$this->getRelList()->setValue( $val );
 	}
 
 	/**

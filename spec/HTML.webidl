@@ -409,7 +409,7 @@ interface HTMLIFrameElement : HTMLElement {
   [CEReactions, ReflectURL] attribute USVString src;
   [CEReactions, Reflect] attribute DOMString srcdoc;
   [CEReactions, Reflect] attribute DOMString name;
-//  [SameObject, PutForwards=value] readonly attribute DOMTokenList sandbox;
+  [SameObject, PutForwards=value] readonly attribute DOMTokenList sandbox;
   [CEReactions, Reflect] attribute DOMString allow;
   [CEReactions, Reflect] attribute boolean allowFullscreen;
 //  [CEReactions] attribute boolean allowPaymentRequest;
@@ -607,7 +607,7 @@ interface HTMLLinkElement : HTMLElement {
 //  [CEReactions] attribute DOMString integrity;
   [CEReactions, Reflect] attribute DOMString hreflang;
   [CEReactions, Reflect] attribute DOMString type;
-//  [SameObject, PutForwards=value] readonly attribute DOMTokenList sizes;
+  [SameObject, PutForwards=value] readonly attribute DOMTokenList sizes;
 //  [CEReactions] attribute USVString imageSrcset;
 //  [CEReactions] attribute DOMString imageSizes;
 
@@ -1444,6 +1444,25 @@ typedef OnErrorEventHandlerNonNull? OnErrorEventHandler;
 [LegacyTreatNonObjectAsNull]
 callback OnBeforeUnloadEventHandlerNonNull = DOMString? (Event event);
 typedef OnBeforeUnloadEventHandlerNonNull? OnBeforeUnloadEventHandler;
+
+[Exposed=Window]
+interface Location { // but see also additional creation steps and overridden internal methods
+  [LegacyUnforgeable] stringifier attribute USVString href;
+  [LegacyUnforgeable] readonly attribute USVString origin;
+  [LegacyUnforgeable] attribute USVString protocol;
+  [LegacyUnforgeable] attribute USVString host;
+  [LegacyUnforgeable] attribute USVString hostname;
+  [LegacyUnforgeable] attribute USVString port;
+  [LegacyUnforgeable] attribute USVString pathname;
+  [LegacyUnforgeable] attribute USVString search;
+  [LegacyUnforgeable] attribute USVString hash;
+
+  [LegacyUnforgeable] undefined assign(USVString url);
+  [LegacyUnforgeable] undefined replace(USVString url);
+  [LegacyUnforgeable] undefined reload();
+
+//  [LegacyUnforgeable, SameObject] readonly attribute DOMStringList ancestorOrigins;
+};
 
 // These are our own helper mixins, mostly for enumerated attribute types
 // "limited to only known values"

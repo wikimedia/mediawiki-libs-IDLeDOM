@@ -40,6 +40,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $contentType
  * @property DocumentType|null $doctype
  * @property Element|null $documentElement
+ * @property Location|null $location
  * @property string $referrer
  * @property string $cookie
  * @property string $lastModified

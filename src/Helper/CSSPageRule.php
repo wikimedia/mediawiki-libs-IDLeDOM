@@ -83,6 +83,9 @@ trait CSSPageRule {
 			case "selectorText":
 				$this->setSelectorText( $value );
 				return;
+			case "style":
+				$this->setStyle( $value );
+				return;
 			default:
 				break;
 		}
@@ -126,6 +129,15 @@ trait CSSPageRule {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setStyle( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\CSSPageRule $this';
+		// @var \Wikimedia\IDLeDOM\CSSPageRule $this
+		$this->getStyle()->setCssText( $val );
 	}
 
 }

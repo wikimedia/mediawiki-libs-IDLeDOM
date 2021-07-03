@@ -76,6 +76,9 @@ trait CSSMarginRule {
 			case "cssText":
 				$this->setCssText( $value );
 				return;
+			case "style":
+				$this->setStyle( $value );
+				return;
 			default:
 				break;
 		}
@@ -117,6 +120,15 @@ trait CSSMarginRule {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setStyle( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\CSSMarginRule $this';
+		// @var \Wikimedia\IDLeDOM\CSSMarginRule $this
+		$this->getStyle()->setCssText( $val );
 	}
 
 }

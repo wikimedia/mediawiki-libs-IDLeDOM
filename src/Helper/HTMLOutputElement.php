@@ -336,11 +336,17 @@ trait HTMLOutputElement {
 			case "className":
 				$this->setClassName( $value );
 				return;
+			case "classList":
+				$this->setClassList( $value );
+				return;
 			case "slot":
 				$this->setSlot( $value );
 				return;
 			case "outerHTML":
 				$this->setOuterHTML( $value );
+				return;
+			case "style":
+				$this->setStyle( $value );
 				return;
 			case "contentEditable":
 				$this->setContentEditable( $value );
@@ -389,6 +395,9 @@ trait HTMLOutputElement {
 				return;
 			case "innerText":
 				$this->setInnerText( $value );
+				return;
+			case "htmlFor":
+				$this->setHtmlFor( $value );
 				return;
 			case "name":
 				$this->setName( $value );
@@ -566,6 +575,15 @@ trait HTMLOutputElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setHtmlFor( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLOutputElement $this';
+		// @var \Wikimedia\IDLeDOM\HTMLOutputElement $this
+		$this->getHtmlFor()->setValue( $val );
 	}
 
 	/**

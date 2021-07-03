@@ -20,6 +20,7 @@ use Wikimedia\IDLeDOM\HTMLCollection;
 use Wikimedia\IDLeDOM\HTMLElement;
 use Wikimedia\IDLeDOM\HTMLHeadElement;
 use Wikimedia\IDLeDOM\HTMLScriptElement;
+use Wikimedia\IDLeDOM\Location;
 use Wikimedia\IDLeDOM\Node;
 use Wikimedia\IDLeDOM\NodeFilter;
 use Wikimedia\IDLeDOM\NodeIterator;
@@ -268,6 +269,13 @@ trait Document {
 	 * @return TreeWalker
 	 */
 	public function createTreeWalker( /* Node */ $root, int $whatToShow = 0xFFFFFFFF, /* ?mixed */ $filter = null ) {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return Location|null
+	 */
+	public function getLocation() {
 		throw self::_unimplemented();
 	}
 

@@ -74,6 +74,8 @@ trait XMLDocument {
 				return $this->getDoctype();
 			case "documentElement":
 				return $this->getDocumentElement();
+			case "location":
+				return $this->getLocation();
 			case "referrer":
 				return $this->getReferrer();
 			case "cookie":
@@ -197,6 +199,8 @@ trait XMLDocument {
 				return $this->getDoctype() !== null;
 			case "documentElement":
 				return $this->getDocumentElement() !== null;
+			case "location":
+				return $this->getLocation() !== null;
 			case "referrer":
 				return true;
 			case "cookie":
@@ -261,6 +265,9 @@ trait XMLDocument {
 				return;
 			case "onload":
 				$this->setOnload( $value );
+				return;
+			case "location":
+				$this->setLocation( $value );
 				return;
 			case "cookie":
 				$this->setCookie( $value );
@@ -363,6 +370,8 @@ trait XMLDocument {
 			case "doctype":
 				break;
 			case "documentElement":
+				break;
+			case "location":
 				break;
 			case "referrer":
 				break;

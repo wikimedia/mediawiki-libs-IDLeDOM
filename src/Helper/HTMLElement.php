@@ -296,11 +296,17 @@ trait HTMLElement {
 			case "className":
 				$this->setClassName( $value );
 				return;
+			case "classList":
+				$this->setClassList( $value );
+				return;
 			case "slot":
 				$this->setSlot( $value );
 				return;
 			case "outerHTML":
 				$this->setOuterHTML( $value );
+				return;
+			case "style":
+				$this->setStyle( $value );
 				return;
 			case "contentEditable":
 				$this->setContentEditable( $value );
@@ -497,6 +503,15 @@ trait HTMLElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setStyle( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLElement $this';
+		// @var \Wikimedia\IDLeDOM\HTMLElement $this
+		$this->getStyle()->setCssText( $val );
 	}
 
 	/**

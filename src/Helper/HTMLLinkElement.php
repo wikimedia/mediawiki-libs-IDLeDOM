@@ -150,6 +150,8 @@ trait HTMLLinkElement {
 				return $this->getHreflang();
 			case "type":
 				return $this->getType();
+			case "sizes":
+				return $this->getSizes();
 			case "charset":
 				return $this->getCharset();
 			case "rev":
@@ -313,6 +315,8 @@ trait HTMLLinkElement {
 				return true;
 			case "type":
 				return true;
+			case "sizes":
+				return true;
 			case "charset":
 				return true;
 			case "rev":
@@ -348,11 +352,17 @@ trait HTMLLinkElement {
 			case "className":
 				$this->setClassName( $value );
 				return;
+			case "classList":
+				$this->setClassList( $value );
+				return;
 			case "slot":
 				$this->setSlot( $value );
 				return;
 			case "outerHTML":
 				$this->setOuterHTML( $value );
+				return;
+			case "style":
+				$this->setStyle( $value );
 				return;
 			case "contentEditable":
 				$this->setContentEditable( $value );
@@ -417,6 +427,9 @@ trait HTMLLinkElement {
 			case "as":
 				$this->setAs( $value );
 				return;
+			case "relList":
+				$this->setRelList( $value );
+				return;
 			case "media":
 				$this->setMedia( $value );
 				return;
@@ -425,6 +438,9 @@ trait HTMLLinkElement {
 				return;
 			case "type":
 				$this->setType( $value );
+				return;
+			case "sizes":
+				$this->setSizes( $value );
 				return;
 			case "charset":
 				$this->setCharset( $value );
@@ -593,6 +609,8 @@ trait HTMLLinkElement {
 				break;
 			case "type":
 				break;
+			case "sizes":
+				break;
 			case "charset":
 				break;
 			case "rev":
@@ -609,6 +627,24 @@ trait HTMLLinkElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setRelList( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLLinkElement $this';
+		// @var \Wikimedia\IDLeDOM\HTMLLinkElement $this
+		$this->getRelList()->setValue( $val );
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSizes( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLLinkElement $this';
+		// @var \Wikimedia\IDLeDOM\HTMLLinkElement $this
+		$this->getSizes()->setValue( $val );
 	}
 
 	/**

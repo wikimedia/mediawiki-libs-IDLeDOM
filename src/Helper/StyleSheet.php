@@ -77,6 +77,9 @@ trait StyleSheet {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheet $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheet $this
 		switch ( $name ) {
+			case "media":
+				$this->setMedia( $value );
+				return;
 			case "disabled":
 				$this->setDisabled( $value );
 				return;
@@ -123,6 +126,15 @@ trait StyleSheet {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param ?string $val
+	 */
+	public function setMedia( ?string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\StyleSheet $this';
+		// @var \Wikimedia\IDLeDOM\StyleSheet $this
+		$this->getMedia()->setMediaText( $val );
 	}
 
 }

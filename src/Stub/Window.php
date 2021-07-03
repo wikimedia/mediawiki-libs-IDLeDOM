@@ -10,6 +10,7 @@ use Wikimedia\IDLeDOM\CSSStyleDeclaration;
 use Wikimedia\IDLeDOM\Document;
 use Wikimedia\IDLeDOM\Element;
 use Wikimedia\IDLeDOM\Event;
+use Wikimedia\IDLeDOM\Location;
 use Wikimedia\IDLeDOM\Navigator;
 
 trait Window {
@@ -45,6 +46,13 @@ trait Window {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return Location
+	 */
+	public function getLocation() {
 		throw self::_unimplemented();
 	}
 

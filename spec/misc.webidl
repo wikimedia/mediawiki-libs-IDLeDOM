@@ -75,7 +75,7 @@ interface Window : EventTarget {
 //  [Replaceable] readonly attribute WindowProxy self;
   [LegacyUnforgeable] readonly attribute Document document;
   attribute DOMString name; 
-//  [PutForwards=href, LegacyUnforgeable] readonly attribute Location location;
+  [PutForwards=href, LegacyUnforgeable] readonly attribute Location location;
 //  readonly attribute History history;
 //  readonly attribute CustomElementRegistry customElements;
 //  [Replaceable] readonly attribute BarProp locationbar;

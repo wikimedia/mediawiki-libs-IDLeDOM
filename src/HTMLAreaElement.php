@@ -148,6 +148,11 @@ interface HTMLAreaElement extends HTMLElement, HTMLHyperlinkElementUtils, Referr
 	public function getRelList();
 
 	/**
+	 * @param string $val
+	 */
+	public function setRelList( string $val ) : void;
+
+	/**
 	 * @return bool
 	 */
 	public function getNoHref() : bool;

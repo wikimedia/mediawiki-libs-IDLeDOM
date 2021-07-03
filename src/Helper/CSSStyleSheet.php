@@ -89,6 +89,9 @@ trait CSSStyleSheet {
 		'@phan-var \Wikimedia\IDLeDOM\CSSStyleSheet $this';
 		// @var \Wikimedia\IDLeDOM\CSSStyleSheet $this
 		switch ( $name ) {
+			case "media":
+				$this->setMedia( $value );
+				return;
 			case "disabled":
 				$this->setDisabled( $value );
 				return;

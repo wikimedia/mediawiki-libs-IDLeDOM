@@ -371,6 +371,24 @@ class Generator {
 	}
 
 	/**
+	 * Look up a member.
+	 * @param string $topName
+	 * @param string $memberName
+	 * @return ?array
+	 */
+	public function memberDef( string $topName, string $memberName ): ?array {
+		$def = $this->def( $topName );
+		if ( $def !== null ) {
+			foreach ( $def['members'] as $m ) {
+				if ( ( $m['name'] ?? null ) === $memberName ) {
+					return $m;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Search the extended attributes for the given member for an attribute
 	 * with the given name.
 	 * @param array $m WebIDL AST for a member

@@ -312,11 +312,17 @@ trait HTMLMetaElement {
 			case "className":
 				$this->setClassName( $value );
 				return;
+			case "classList":
+				$this->setClassList( $value );
+				return;
 			case "slot":
 				$this->setSlot( $value );
 				return;
 			case "outerHTML":
 				$this->setOuterHTML( $value );
+				return;
+			case "style":
+				$this->setStyle( $value );
 				return;
 			case "contentEditable":
 				$this->setContentEditable( $value );

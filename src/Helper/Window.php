@@ -20,6 +20,8 @@ trait Window {
 				return $this->getDocument();
 			case "name":
 				return $this->getName();
+			case "location":
+				return $this->getLocation();
 			case "status":
 				return $this->getStatus();
 			case "closed":
@@ -63,6 +65,8 @@ trait Window {
 				return true;
 			case "name":
 				return true;
+			case "location":
+				return true;
 			case "status":
 				return true;
 			case "closed":
@@ -99,6 +103,9 @@ trait Window {
 			case "name":
 				$this->setName( $value );
 				return;
+			case "location":
+				$this->setLocation( $value );
+				return;
 			case "status":
 				$this->setStatus( $value );
 				return;
@@ -130,6 +137,8 @@ trait Window {
 				break;
 			case "name":
 				break;
+			case "location":
+				break;
 			case "status":
 				break;
 			case "closed":
@@ -156,6 +165,15 @@ trait Window {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setLocation( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Window $this';
+		// @var \Wikimedia\IDLeDOM\Window $this
+		$this->getLocation()->setHref( $val );
 	}
 
 }

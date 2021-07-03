@@ -45,4 +45,11 @@ trait HTMLLinkElement {
 		throw self::_unimplemented();
 	}
 
+	/**
+	 * @return DOMTokenList
+	 */
+	public function getSizes() {
+		throw self::_unimplemented();
+	}
+
 }

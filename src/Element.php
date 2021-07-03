@@ -94,6 +94,11 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	public function getClassList();
 
 	/**
+	 * @param string $val
+	 */
+	public function setClassList( string $val ) : void;
+
+	/**
 	 * @return string
 	 */
 	public function getSlot() : string;

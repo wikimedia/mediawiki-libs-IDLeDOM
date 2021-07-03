@@ -78,6 +78,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $media
  * @property string $hreflang
  * @property string $type
+ * @property DOMTokenList $sizes
  * @property string $charset
  * @property string $rev
  * @property string $target
@@ -122,6 +123,11 @@ interface HTMLLinkElement extends HTMLElement, CrossOrigin, LinkStyle, ReferrerP
 	public function getRelList();
 
 	/**
+	 * @param string $val
+	 */
+	public function setRelList( string $val ) : void;
+
+	/**
 	 * @return string
 	 */
 	public function getMedia() : string;
@@ -150,6 +156,16 @@ interface HTMLLinkElement extends HTMLElement, CrossOrigin, LinkStyle, ReferrerP
 	 * @param string $val
 	 */
 	public function setType( string $val ) : void;
+
+	/**
+	 * @return DOMTokenList
+	 */
+	public function getSizes();
+
+	/**
+	 * @param string $val
+	 */
+	public function setSizes( string $val ) : void;
 
 	/**
 	 * @return string

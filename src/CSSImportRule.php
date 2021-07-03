@@ -33,6 +33,11 @@ interface CSSImportRule extends CSSRule {
 	public function getMedia();
 
 	/**
+	 * @param ?string $val
+	 */
+	public function setMedia( ?string $val ) : void;
+
+	/**
 	 * @return CSSStyleSheet
 	 */
 	public function getStyleSheet();

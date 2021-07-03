@@ -177,24 +177,40 @@ class HelperBuilder extends Builder {
 			$val = $gen->valueToPHP( $m['default'] );
 			$default = " ?? $val";
 		}
+		$fwd = $m;
+		// Handle [PutForwards]
+		$putForwards = Generator::extAttrNamed( $m, 'PutForwards' );
+		if ( $putForwards ) {
+			// We'll tweak types of setter based on referenced attribute
+			$lhs = $m['idlType']['idlType'];
+			$rhs = $putForwards['rhs']['value'];
+			$fwd = $gen->memberDef( $lhs, $rhs );
+			if ( $fwd === null || $fwd['type'] !== 'attribute' ) {
+				throw new \Exception(
+					"Can't find PutForwards: " . $lhs . '::' . $rhs
+				);
+			}
+			$putForwards = $gen->map( $lhs, 'set', $rhs );
+		}
 		$info = [
 			'topName' => $topName,
 			'type' => $m['type'],
 			'name' => $m['name'],
 			'idlType' => $m['idlType'],
+			'setterIdlType' => $fwd['idlType'],
 			'isEnum' => strstr(
 				$gen->typeToPHP(
 					$m['idlType'], [ 'flagEnums' => true ] + $typeOpts
 				),
 				'/* enum */'
 			) !== false,
-			'readonly' => $readonly,
+			'readonly' => $readonly && !$putForwards,
 			'getterType' => $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
 			'getterTypeDoc' => $gen->typeToPHPDoc( $m['idlType'], $typeOpts ),
-			'setterType' => $gen->typeToPHP( $m['idlType'], [ 'setter' => true ] + $typeOpts ),
-			'setterTypeDoc' => $gen->typeToPHPDoc( $m['idlType'], [ 'setter' => true ] + $typeOpts ),
+			'setterType' => $gen->typeToPHP( $fwd['idlType'], [ 'setter' => true ] + $typeOpts ),
+			'setterTypeDoc' => $gen->typeToPHPDoc( $fwd['idlType'], [ 'setter' => true ] + $typeOpts ),
 			'getter' => $gen->map( $topName, 'get', $m['name'] ),
-			'setter' => $readonly ? null :
+			'setter' => ( $readonly && !$putForwards ) ? null :
 				$gen->map( $topName, 'set', $m['name'] ),
 			'default' => $default,
 			'reflectType' => null,
@@ -202,6 +218,7 @@ class HelperBuilder extends Builder {
 			'reflectHelper' => false,
 			'reflectLegacyNull' => false,
 			'reflectEnum' => null,
+			'putForwards' => $putForwards,
 		];
 		// Handle attributes with [Reflect]
 		$reflect = Generator::extAttrNamed( $m, 'ReflectEnum' ) ??
@@ -381,6 +398,27 @@ class HelperBuilder extends Builder {
 			 * contain attributes and are not mixins */
 			$this->emitGetterSetter( $topName, $attrs, $typeOpts );
 			$this->skip = false;
+		}
+
+		// Attributes with [PutForwards]
+		foreach ( $attrs as $info ) {
+			if ( $info['singleInheritance'] ) {
+				continue; // skip attributes in single-inheritance chain
+			}
+			if ( !$info['putForwards'] ) {
+				continue; // not a forwarded attribute
+			}
+			$this->skip = false;
+			$this->use( $info['setterIdlType'], $typeOpts );
+			$this->nl( '/**' );
+			$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
+			$this->nl( ' */' );
+			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
+			$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\$topName \$this';" );
+			$this->nl( "// @var \\Wikimedia\\IDLeDOM\\$topName \$this" );
+			$this->nl( "\$this->{$info['getter']}()->{$info['putForwards']}( \$val );" );
+			$this->nl( "}" );
+			$this->nl();
 		}
 
 		// Attributes with the [Reflect] property
@@ -757,8 +795,8 @@ class HelperBuilder extends Builder {
 				$setter = $a['setter'];
 				$this->nl( 'case ' . json_encode( $name ) . ':' );
 				if (
-					( $a['idlType']['nullable'] ?? false ) &&
-					!( $a['readonly'] ?? false )
+					( $a['setterIdlType']['nullable'] ?? false ) &&
+					!$a['readonly']
 				) {
 					$this->nl( "\t\$this->$setter( null );" );
 					$this->nl( "\treturn;" );

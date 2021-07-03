@@ -72,6 +72,7 @@ namespace Wikimedia\IDLeDOM;
  * @property string $src
  * @property string $srcdoc
  * @property string $name
+ * @property DOMTokenList $sandbox
  * @property string $allow
  * @property bool $allowFullscreen
  * @property string $width
@@ -118,6 +119,16 @@ interface HTMLIFrameElement extends HTMLElement, ReferrerPolicy {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void;
+
+	/**
+	 * @return DOMTokenList
+	 */
+	public function getSandbox();
+
+	/**
+	 * @param string $val
+	 */
+	public function setSandbox( string $val ) : void;
 
 	/**
 	 * @return string

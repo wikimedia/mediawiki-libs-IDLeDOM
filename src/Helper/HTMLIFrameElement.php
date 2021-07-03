@@ -138,6 +138,8 @@ trait HTMLIFrameElement {
 				return $this->getSrcdoc();
 			case "name":
 				return $this->getName();
+			case "sandbox":
+				return $this->getSandbox();
 			case "allow":
 				return $this->getAllow();
 			case "allowFullscreen":
@@ -307,6 +309,8 @@ trait HTMLIFrameElement {
 				return true;
 			case "name":
 				return true;
+			case "sandbox":
+				return true;
 			case "allow":
 				return true;
 			case "allowFullscreen":
@@ -360,11 +364,17 @@ trait HTMLIFrameElement {
 			case "className":
 				$this->setClassName( $value );
 				return;
+			case "classList":
+				$this->setClassList( $value );
+				return;
 			case "slot":
 				$this->setSlot( $value );
 				return;
 			case "outerHTML":
 				$this->setOuterHTML( $value );
+				return;
+			case "style":
+				$this->setStyle( $value );
 				return;
 			case "contentEditable":
 				$this->setContentEditable( $value );
@@ -425,6 +435,9 @@ trait HTMLIFrameElement {
 				return;
 			case "name":
 				$this->setName( $value );
+				return;
+			case "sandbox":
+				$this->setSandbox( $value );
 				return;
 			case "allow":
 				$this->setAllow( $value );
@@ -604,6 +617,8 @@ trait HTMLIFrameElement {
 				break;
 			case "name":
 				break;
+			case "sandbox":
+				break;
 			case "allow":
 				break;
 			case "allowFullscreen":
@@ -638,6 +653,15 @@ trait HTMLIFrameElement {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setSandbox( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\HTMLIFrameElement $this';
+		// @var \Wikimedia\IDLeDOM\HTMLIFrameElement $this
+		$this->getSandbox()->setValue( $val );
 	}
 
 	/**

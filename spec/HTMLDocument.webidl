@@ -2,7 +2,7 @@
 
 partial interface Document {
   // resource metadata management
-//  [PutForwards=href, LegacyUnforgeable] readonly attribute Location? location;
+  [PutForwards=href, LegacyUnforgeable] readonly attribute Location? location;
 //  attribute USVString domain;
   readonly attribute USVString referrer;
   attribute USVString cookie;

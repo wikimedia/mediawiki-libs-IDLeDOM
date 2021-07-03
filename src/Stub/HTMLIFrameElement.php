@@ -7,6 +7,7 @@ namespace Wikimedia\IDLeDOM\Stub;
 
 use Exception;
 use Wikimedia\IDLeDOM\Document;
+use Wikimedia\IDLeDOM\DOMTokenList;
 
 trait HTMLIFrameElement {
 	// use \Wikimedia\IDLeDOM\Stub\ReferrerPolicy;
@@ -33,6 +34,13 @@ trait HTMLIFrameElement {
 	 * @param string $val
 	 */
 	public function setSrc( string $val ) : void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return DOMTokenList
+	 */
+	public function getSandbox() {
 		throw self::_unimplemented();
 	}
 

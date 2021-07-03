@@ -69,7 +69,9 @@ class StubBuilder extends Builder {
 		$this->nl( "public function {$info['getter']}(){$info['getterType']} {" );
 		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
-		if ( $info['setter'] === null ) {
+		if ( $info['setter'] === null || $info['putForwards'] ) {
+			// We don't need a setter stub if the attribute is readonly
+			// or if the Helper has a forwarding definition
 			return;
 		}
 		$this->nl();

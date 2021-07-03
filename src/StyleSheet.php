@@ -51,6 +51,11 @@ interface StyleSheet {
 	public function getMedia();
 
 	/**
+	 * @param ?string $val
+	 */
+	public function setMedia( ?string $val ) : void;
+
+	/**
 	 * @return bool
 	 */
 	public function getDisabled() : bool;

@@ -196,6 +196,9 @@ trait Element {
 			case "className":
 				$this->setClassName( $value );
 				return;
+			case "classList":
+				$this->setClassList( $value );
+				return;
 			case "slot":
 				$this->setSlot( $value );
 				return;
@@ -299,6 +302,15 @@ trait Element {
 			' on line ' . $trace[0]['line'],
 			E_USER_NOTICE
 		);
+	}
+
+	/**
+	 * @param string $val
+	 */
+	public function setClassList( string $val ) : void {
+		'@phan-var \Wikimedia\IDLeDOM\Element $this';
+		// @var \Wikimedia\IDLeDOM\Element $this
+		$this->getClassList()->setValue( $val );
 	}
 
 	/**

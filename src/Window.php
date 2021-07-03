@@ -13,6 +13,7 @@ namespace Wikimedia\IDLeDOM;
  * @property EventHandlerNonNull|callable|null $onload
  * @property Document $document
  * @property string $name
+ * @property Location $location
  * @property string $status
  * @property bool $closed
  * @property int $length
@@ -40,6 +41,16 @@ interface Window extends EventTarget, GlobalEventHandlers, WindowEventHandlers {
 	 * @param string $val
 	 */
 	public function setName( string $val ) : void;
+
+	/**
+	 * @return Location
+	 */
+	public function getLocation();
+
+	/**
+	 * @param string $val
+	 */
+	public function setLocation( string $val ) : void;
 
 	/**
 	 * @return string

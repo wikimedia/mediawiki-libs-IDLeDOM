@@ -144,6 +144,11 @@ interface HTMLAnchorElement extends HTMLElement, HTMLHyperlinkElementUtils, Refe
 	public function getRelList();
 
 	/**
+	 * @param string $val
+	 */
+	public function setRelList( string $val ) : void;
+
+	/**
 	 * @return string
 	 */
 	public function getHreflang() : string;
