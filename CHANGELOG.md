@@ -1,4 +1,4 @@
-# IDLeDOM x.x.x (not yet released)
+# IDLeDOM  0.7.0 (2021-07-04)
 * Add CSS Object Model (CSSOM) interfaces.
 * Add Location interface.
 * Support [PutForwards] extended attribute.
