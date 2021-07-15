@@ -20,6 +20,55 @@ class HelperBuilder extends Builder {
 		$this->e->emitMarker( 'UseStatements' );
 		$this->nl();
 		$this->nl( "trait $topName {" );
+		$this->nl();
+		$this->nl( '// Underscore is used to avoid conflicts with DOM-reserved names' );
+		$this->nl( '// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore' );
+		$this->nl( '// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName' );
+		$this->nl();
+		$this->nl( '/**' );
+		$this->nl( ' * Handle an attempt to get a non-existing property on this' );
+		$this->nl( ' * object.  The default implementation raises an exception' );
+		$this->nl( ' * but the implementor can choose a different behavior:' );
+		$this->nl( ' * return null (like JavaScript), dynamically create the' );
+		$this->nl( ' * property, etc.' );
+		$this->nl( ' * @param string $prop the name of the property requested' );
+		$this->nl( ' * @return mixed' );
+		$this->nl( ' */' );
+		// This function is implemented in base classes, but given as an
+		// abstract method in subclasses so as not to override any
+		// implementation present in a superclass.
+		$def = $this->gen->def( $topName );
+		if ( ( $def['inheritance'] ?? null ) === null ) {
+			$this->nl( 'protected function _getMissingProp( string $prop ) {' );
+			$this->triggerError( '__get', 'prop', 1 );
+			$this->nl( 'return null;' ); // to keep linter happy
+			$this->nl( '}' );
+			$this->skip = false;
+		} else {
+			$this->nl( 'abstract protected function _getMissingProp( string $prop );' );
+		}
+		$this->nl();
+		$this->nl( '/**' );
+		$this->nl( ' * Handle an attempt to set a non-existing property on this' );
+		$this->nl( ' * object.  The default implementation raises an exception' );
+		$this->nl( ' * but the implementor can choose a different behavior:' );
+		$this->nl( ' * ignore the operation (like JavaScript), dynamically create' );
+		$this->nl( ' * the property, etc.' );
+		$this->nl( ' * @param string $prop the name of the property requested' );
+		$this->nl( ' * @param mixed $value the value to set' );
+		$this->nl( ' */' );
+		if ( ( $def['inheritance'] ?? null ) === null ) {
+			$this->nl( 'protected function _setMissingProp( string $prop, $value ) : void {' );
+			$this->triggerError( '__set', 'prop', 1 );
+			$this->nl( '}' );
+			$this->skip = false;
+		} else {
+			$this->nl( 'abstract protected function _setMissingProp( string $prop, $value ) : void;' );
+		}
+		$this->nl();
+
+		$this->nl( '// phpcs:enable' );
+		$this->nl();
 	}
 
 	/**
@@ -610,7 +659,7 @@ class HelperBuilder extends Builder {
 			$this->nl( '/* Fall through */' );
 		}
 		$this->nl( '}' );
-		$this->triggerError( 'offsetGet', 'offset' );
+		$this->triggerError( [ 'offsetGet', 'offsetExists' ], 'offset' );
 		$this->nl( 'return null;' );
 		$this->nl( '}' );
 		$this->nl();
@@ -691,12 +740,38 @@ class HelperBuilder extends Builder {
 		$this->nl( '}' );
 	}
 
-	private function triggerError( string $method, string $var ) {
+	private function triggerError( $method, string $var, int $depth = 0 ) {
+		if ( is_string( $method ) ) {
+			$method = [ $method ];
+		}
 		$this->nl( '$trace = debug_backtrace();' );
+		$this->nl( 'while (' );
+		$this->nl( "\tcount( \$trace ) > 0 &&" );
+		for ( $i = 0; $i < count( $method ); $i++ ) {
+			$and = ( $i + 1 ) < count( $method ) ? ' &&' : '';
+			$this->nl( "\t\$trace[0]['function'] !== " .
+					  json_encode( $method[$i] ) . $and );
+		}
+		$this->nl( ') {' );
+		$this->nl( 'array_shift( $trace );' );
+		$this->nl( '}' );
+		if ( count( $method ) > 1 ) {
+			$this->nl( 'while (' );
+			$this->nl( "\tcount( \$trace ) > 1 && (" );
+			for ( $i = 0; $i < count( $method ); $i++ ) {
+				$or = ( $i + 1 ) < count( $method ) ? ' ||' : '';
+				$this->nl( "\t\$trace[1]['function'] === " .
+						  json_encode( $method[$i] ) . $or );
+			}
+			$this->nl( ') ) {' );
+			$this->nl( 'array_shift( $trace );' );
+			$this->nl( '}' );
+		}
 		$this->nl( 'trigger_error(' );
-		$this->nl( "\t'Undefined property via {$method}(): ' . \${$var} ." );
-		$this->nl( "\t' in ' . \$trace[0]['file'] ." );
-		$this->nl( "\t' on line ' . \$trace[0]['line']," );
+		$this->nl( "\t'Undefined property' ." );
+		$this->nl( "\t' via ' . ( \$trace[0]['function'] ?? '' ) . '(): ' . \${$var} ." );
+		$this->nl( "\t' in ' . ( \$trace[0]['file'] ?? '' ) ." );
+		$this->nl( "\t' on line ' . ( \$trace[0]['line'] ?? '' )," );
 		$this->nl( "\tE_USER_NOTICE" );
 		$this->nl( ');' );
 	}
@@ -727,8 +802,8 @@ class HelperBuilder extends Builder {
 		$this->nl( 'default:' );
 		$this->nl( "\tbreak;" );
 		$this->nl( '}' );
-		$this->triggerError( '__get', 'name' );
-		$this->nl( 'return null;' );
+		$this->emitThisHint( 'Helper\\' . $topName );
+		$this->nl( 'return $this->_getMissingProp( $name );' );
 		$this->nl( '}' );
 		$this->nl();
 
@@ -779,7 +854,8 @@ class HelperBuilder extends Builder {
 			$this->nl( 'default:' );
 			$this->nl( "\tbreak;" );
 			$this->nl( '}' );
-			$this->triggerError( '__set', 'name' );
+			$this->emitThisHint( 'Helper\\' . $topName );
+			$this->nl( '$this->_setMissingProp( $name, $value );' );
 			$this->nl( '}' );
 			$this->nl();
 

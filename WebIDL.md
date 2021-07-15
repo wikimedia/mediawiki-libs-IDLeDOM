@@ -501,7 +501,12 @@ throw an exception, or else to permit creation of dynamic properties
 by storing and fetching values indexed by these names in an auxiliary
 array.
 
-XXX: should we be specific here and choose one behavior?
+Note: the helper traits provided by `WebIDL` choose to invoke a helper
+method (`_getMissingProp` or `_setMissingProp`) when `$name` is not a
+valid attribute of the interface.  The default implementation of these
+methods in the helper traits throws an exception, but by providing a
+specific implementation of these methods other behaviors can be
+chosen by a DOM implementation.
 
 XXX: perhaps a 'standard' extension point should be provided as well?
 

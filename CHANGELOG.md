@@ -1,9 +1,11 @@
+# IDLeDOM  x.x.x (not yet released)
+* Add `_getMissingProp`/`_setMissingProp` extension points for
+  DOM implementations to support additional/alternative properties.
+
 # IDLeDOM  0.7.0 (2021-07-04)
 * Add CSS Object Model (CSSOM) interfaces.
 * Add Location interface.
 * Support [PutForwards] extended attribute.
-
-# IDLeDOM  x.x.x (not yet released)
 
 # IDLeDOM 0.6.0 (2021-06-14)
 * Map WebIDL enumeration types to PHP string type (previously enumerations
