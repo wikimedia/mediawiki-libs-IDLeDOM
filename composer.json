@@ -46,6 +46,9 @@
 		"build": [
 			"bin/idledom-build"
 		],
+		"update-changelog": [
+			"bin/update-changelog"
+		],
 		"cover": "phpunit --coverage-html coverage",
 		"phan": "phan --allow-polyfill-parser",
 		"fix": [
