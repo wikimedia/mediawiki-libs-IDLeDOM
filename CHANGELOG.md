@@ -1,8 +1,8 @@
-# IDLeDOM  x.x.x (not yet released)
+# IDLeDOM 0.7.1 (2021-07-16)
 * Add `_getMissingProp`/`_setMissingProp` extension points for
   DOM implementations to support additional/alternative properties.
 
-# IDLeDOM  0.7.0 (2021-07-04)
+# IDLeDOM 0.7.0 (2021-07-04)
 * Add CSS Object Model (CSSOM) interfaces.
 * Add Location interface.
 * Support [PutForwards] extended attribute.
