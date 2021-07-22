@@ -145,7 +145,7 @@ class StubBuilder extends Builder {
 	}
 
 	/** @inheritDoc */
-	protected function emitCallback( string $topName, array $def ):void {
+	protected function emitCallback( string $topName, array $def ): void {
 		$this->firstLine( $topName );
 		$this->emitMemberOperation( $topName, '_invoke', [
 			'idlType' => $def['idlType'],
@@ -155,7 +155,7 @@ class StubBuilder extends Builder {
 	}
 
 	/** @inheritDoc */
-	protected function emitCallbackInterface( string $topName, array $def ):void {
+	protected function emitCallbackInterface( string $topName, array $def ): void {
 		$this->firstLine( $topName );
 		foreach ( $def['members'] as $m ) {
 			$this->emitMember( $topName, $m );
@@ -169,7 +169,7 @@ class StubBuilder extends Builder {
 	}
 
 	/** @inheritDoc */
-	protected function emitInterface( string $topName, array $def ):void {
+	protected function emitInterface( string $topName, array $def ): void {
 		$this->firstLine( $topName );
 		foreach ( $def['members'] as $m ) {
 			$this->emitMember( $topName, $m );

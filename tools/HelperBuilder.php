@@ -155,14 +155,14 @@ class HelperBuilder extends Builder {
 	}
 
 	/** @inheritDoc */
-	protected function emitCallback( string $topName, array $def ):void {
+	protected function emitCallback( string $topName, array $def ): void {
 		$this->firstLine( $topName );
 		$this->callbackHelper( $topName, '_invoke', $def );
 		$this->nl( '}' );
 	}
 
 	/** @inheritDoc */
-	protected function emitCallbackInterface( string $topName, array $def ):void {
+	protected function emitCallbackInterface( string $topName, array $def ): void {
 		// Find the callback method
 		$m = null;
 		foreach ( $def['members'] as $mm ) {
@@ -190,7 +190,7 @@ class HelperBuilder extends Builder {
 	public static function collectAttributes(
 		Generator $gen, string $topName, array $typeOpts, array &$attrs,
 		bool $singleInheritance = false
-	) : void {
+	): void {
 		$def = $gen->def( $topName );
 		$parent = $def['inheritance'] ?? null;
 		foreach ( $gen->mixins( $topName ) as $m ) {
@@ -434,7 +434,7 @@ class HelperBuilder extends Builder {
 	}
 
 	/** @inheritDoc */
-	protected function emitInterface( string $topName, array $def ):void {
+	protected function emitInterface( string $topName, array $def ): void {
 		$this->skip = true; // skip unless we actually emit something.
 		$typeOpts = [ 'topName' => $topName ];
 

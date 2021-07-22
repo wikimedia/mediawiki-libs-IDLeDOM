@@ -58,7 +58,7 @@ class Builder {
 	 * @param array $ty WebIDL AST type
 	 * @param array $typeOpts Optional type options (top-level name)
 	 */
-	protected function use( array $ty, array $typeOpts = [] ):void {
+	protected function use( array $ty, array $typeOpts = [] ): void {
 		if ( $ty['union'] ?? false ) {
 			foreach ( $ty['idlType'] as $subtype ) {
 				$this->use( $subtype, $typeOpts );
@@ -226,7 +226,7 @@ class Builder {
 	 * Dispatch to specialized emitter.
 	 * @param array $def
 	 */
-	protected function emitDefinition( array $def ):void {
+	protected function emitDefinition( array $def ): void {
 		$methodName = 'emit' . str_replace( ' ', '', ucwords( $def['type'] ) );
 		$this->$methodName( $def['name'], $def );
 	}

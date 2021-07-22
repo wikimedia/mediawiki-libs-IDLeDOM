@@ -396,7 +396,7 @@ class Generator {
 	 * @return bool True if an extended attribute with the given name is
 	 *   among the extended attributes of the member.
 	 */
-	public static function extAttrsContain( array $m, string $name ) : bool {
+	public static function extAttrsContain( array $m, string $name ): bool {
 		return self::extAttrNamed( $m, $name ) !== null;
 	}
 
@@ -409,7 +409,7 @@ class Generator {
 	 *   attribute with the given name is among the extended attributes of
 	 *   the member, otherwise `null`.
 	 */
-	public static function extAttrNamed( array $m, string $name ) : ?array {
+	public static function extAttrNamed( array $m, string $name ): ?array {
 		foreach ( $m['extAttrs'] ?? [] as $ea ) {
 			if ( ( $ea['name'] ?? '' ) === $name ) {
 				return $ea;
@@ -449,7 +449,7 @@ class Generator {
 	 * @param array $opts Whether this is a return type, etc.
 	 * @return string
 	 */
-	public function typeToPHPDoc( array $ty, array $opts = [] ):string {
+	public function typeToPHPDoc( array $ty, array $opts = [] ): string {
 		return $this->typeToPHP( $ty, [
 			'phpdoc' => true,
 		] + $opts );
@@ -461,7 +461,7 @@ class Generator {
 	 * @param array $opts Whether this is a return type, etc.
 	 * @return string
 	 */
-	public function typeToPHP( array $ty, array $opts = [] ):string {
+	public function typeToPHP( array $ty, array $opts = [] ): string {
 		$phpdoc = $opts['phpdoc'] ?? false;
 		if ( ( $opts['returnType'] ?? false ) &&
 			 !( $opts['returnType2'] ?? false ) &&
@@ -603,7 +603,7 @@ class Generator {
 	 * @param array $opts Options that may affect the conversion
 	 * @return string
 	 */
-	public function valueToPHP( array $val, array $opts = [] ):string {
+	public function valueToPHP( array $val, array $opts = [] ): string {
 		switch ( $val['type'] ) {
 		case 'number':
 			return $val['value'];
