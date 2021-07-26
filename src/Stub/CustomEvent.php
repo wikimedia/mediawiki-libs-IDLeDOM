@@ -16,7 +16,7 @@ trait CustomEvent {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -34,7 +34,7 @@ trait CustomEvent {
 	 * @param mixed|null $detail
 	 * @return void
 	 */
-	public function initCustomEvent( string $type, bool $bubbles = false, bool $cancelable = false, /* any */ $detail = null ) : void {
+	public function initCustomEvent( string $type, bool $bubbles = false, bool $cancelable = false, /* any */ $detail = null ): void {
 		throw self::_unimplemented();
 	}
 

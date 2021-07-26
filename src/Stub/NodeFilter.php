@@ -17,7 +17,7 @@ trait NodeFilter {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -25,7 +25,7 @@ trait NodeFilter {
 	 * @param Node $node
 	 * @return int
 	 */
-	public function acceptNode( /* Node */ $node ) : int {
+	public function acceptNode( /* Node */ $node ): int {
 		throw self::_unimplemented();
 	}
 

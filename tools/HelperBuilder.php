@@ -40,7 +40,7 @@ class HelperBuilder extends Builder {
 		$def = $this->gen->def( $topName );
 		if ( ( $def['inheritance'] ?? null ) === null ) {
 			$this->nl( 'protected function _getMissingProp( string $prop ) {' );
-			$this->triggerError( '__get', 'prop', 1 );
+			$this->triggerError( '__get', 'prop' );
 			$this->nl( 'return null;' ); // to keep linter happy
 			$this->nl( '}' );
 			$this->skip = false;
@@ -58,12 +58,12 @@ class HelperBuilder extends Builder {
 		$this->nl( ' * @param mixed $value the value to set' );
 		$this->nl( ' */' );
 		if ( ( $def['inheritance'] ?? null ) === null ) {
-			$this->nl( 'protected function _setMissingProp( string $prop, $value ) : void {' );
-			$this->triggerError( '__set', 'prop', 1 );
+			$this->nl( 'protected function _setMissingProp( string $prop, $value ): void {' );
+			$this->triggerError( '__set', 'prop' );
 			$this->nl( '}' );
 			$this->skip = false;
 		} else {
-			$this->nl( 'abstract protected function _setMissingProp( string $prop, $value ) : void;' );
+			$this->nl( 'abstract protected function _setMissingProp( string $prop, $value ): void;' );
 		}
 		$this->nl();
 
@@ -87,6 +87,13 @@ class HelperBuilder extends Builder {
 		return $parentDef['name'];
 	}
 
+	/**
+	 * This function does most of the heavy lifting for the
+	 * ::emitCallback and ::emitCallbackInterface methods.
+	 * @param string $topName
+	 * @param string $name
+	 * @param array $m Information about the callback
+	 */
 	private function callbackHelper( string $topName, string $name, array $m ): void {
 		$typeOpts = [ 'topName' => $topName ];
 		$parentName = $this->parentName( $topName );
@@ -365,14 +372,14 @@ class HelperBuilder extends Builder {
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' * @param mixed $value' );
 		$this->nl( ' */' );
-		$this->nl( 'public function offsetSet( $offset, $value ) : void {' );
+		$this->nl( 'public function offsetSet( $offset, $value ): void {' );
 		$this->nl( '$this->$offset = $value;' );
 		$this->nl( '}' );
 		$this->nl();
 		$this->nl( '/**' );
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' */' );
-		$this->nl( 'public function offsetUnset( $offset ) : void {' );
+		$this->nl( 'public function offsetUnset( $offset ): void {' );
 		$this->nl( 'unset( $this->$offset );' );
 		$this->nl( '}' );
 		$this->nl();
@@ -462,7 +469,7 @@ class HelperBuilder extends Builder {
 			$this->nl( '/**' );
 			$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
 			$this->nl( ' */' );
-			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
+			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ): void {" );
 			$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\$topName \$this';" );
 			$this->nl( "// @var \\Wikimedia\\IDLeDOM\\$topName \$this" );
 			$this->nl( "\$this->{$info['getter']}()->{$info['putForwards']}( \$val );" );
@@ -543,7 +550,7 @@ class HelperBuilder extends Builder {
 			$this->nl( '/**' );
 			$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
 			$this->nl( ' */' );
-			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
+			$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ): void {" );
 			$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\Element \$this';" );
 			$this->nl( "// @var \\Wikimedia\\IDLeDOM\\Element \$this" );
 			switch ( $info['idlType']['idlType'] ) {
@@ -598,7 +605,7 @@ class HelperBuilder extends Builder {
 			$this->nl( '/**' );
 			$this->nl( ' * @return string' );
 			$this->nl( ' */' );
-			$this->nl( 'public function __toString() : string {' );
+			$this->nl( 'public function __toString(): string {' );
 			$this->emitThisHint( $topName );
 			$this->nl( "return \$this->{$stringifier['funcName']}();" );
 			$this->nl( '}' );
@@ -616,7 +623,7 @@ class HelperBuilder extends Builder {
 			$this->nl( '/**' );
 			$this->nl( ' * @return int' );
 			$this->nl( ' */' );
-			$this->nl( 'public function count() : int {' );
+			$this->nl( 'public function count(): int {' );
 			$this->emitThisHint( $topName );
 			$this->nl( "return \$this->{$countable['funcName']}();" );
 			$this->nl( '}' );
@@ -668,7 +675,7 @@ class HelperBuilder extends Builder {
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' * @param mixed $value' );
 		$this->nl( ' */' );
-		$this->nl( 'public function offsetSet( $offset, $value ) : void {' );
+		$this->nl( 'public function offsetSet( $offset, $value ): void {' );
 		$this->emitThisHint( $topName );
 		$this->nl( 'if ( is_numeric( $offset ) ) {' );
 		$setter = $specials['indexed setter'] ?? null;
@@ -692,7 +699,7 @@ class HelperBuilder extends Builder {
 		$this->nl( '/**' );
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' */' );
-		$this->nl( 'public function offsetUnset( $offset ) : void {' );
+		$this->nl( 'public function offsetUnset( $offset ): void {' );
 		$this->emitThisHint( $topName );
 		$this->nl( 'if ( is_numeric( $offset ) ) {' );
 		$deleter = $specials['indexed deleter'] ?? null;
@@ -740,7 +747,16 @@ class HelperBuilder extends Builder {
 		$this->nl( '}' );
 	}
 
-	private function triggerError( $method, string $var, int $depth = 0 ) {
+	/**
+	 * Emit the code to call the PHP `trigger_error` function with
+	 * useful-to-humans information about what failed.
+	 * @param string|array $method The method (or methods) in which we
+	 *   are triggering this error.  Used to skip past these in the
+	 *   backtrace.
+	 * @param string $var The variable name which contains the 'unknown
+	 *   property' we are going to complain about.
+	 */
+	private function triggerError( $method, string $var ): void {
 		if ( is_string( $method ) ) {
 			$method = [ $method ];
 		}
@@ -776,6 +792,12 @@ class HelperBuilder extends Builder {
 		$this->nl( ');' );
 	}
 
+	/**
+	 * Create __get/__set/__isset/__unset methods.
+	 * @param string $topName
+	 * @param array $attrs
+	 * @param array $typeOpts
+	 */
 	private function emitGetterSetter( string $topName, array $attrs, array $typeOpts ): void {
 		$needsSetter = false;
 		foreach ( $attrs as $a ) {
@@ -812,7 +834,7 @@ class HelperBuilder extends Builder {
 		$this->nl( ' * @param string $name' );
 		$this->nl( ' * @return bool' );
 		$this->nl( ' */' );
-		$this->nl( 'public function __isset( string $name ) : bool {' );
+		$this->nl( 'public function __isset( string $name ): bool {' );
 		$this->emitThisHint( $topName );
 		$this->nl( 'switch ( $name ) {' );
 		foreach ( $attrs as $a ) {
@@ -838,7 +860,7 @@ class HelperBuilder extends Builder {
 			$this->nl( ' * @param string $name' );
 			$this->nl( ' * @param mixed $value' );
 			$this->nl( ' */' );
-			$this->nl( 'public function __set( string $name, $value ) : void {' );
+			$this->nl( 'public function __set( string $name, $value ): void {' );
 			$this->emitThisHint( $topName );
 			$this->nl( 'switch ( $name ) {' );
 			foreach ( $attrs as $a ) {
@@ -863,7 +885,7 @@ class HelperBuilder extends Builder {
 			$this->nl( '/**' );
 			$this->nl( ' * @param string $name' );
 			$this->nl( ' */' );
-			$this->nl( 'public function __unset( string $name ) : void {' );
+			$this->nl( 'public function __unset( string $name ): void {' );
 			$this->emitThisHint( $topName );
 			$this->nl( 'switch ( $name ) {' );
 			foreach ( $attrs as $a ) {

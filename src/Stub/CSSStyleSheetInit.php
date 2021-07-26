@@ -17,14 +17,14 @@ trait CSSStyleSheetInit {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getBaseURL() : string {
+	public function getBaseURL(): string {
 		throw self::_unimplemented();
 	}
 
@@ -38,7 +38,7 @@ trait CSSStyleSheetInit {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool {
+	public function getDisabled(): bool {
 		throw self::_unimplemented();
 	}
 

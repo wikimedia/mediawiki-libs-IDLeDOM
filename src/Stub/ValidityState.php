@@ -16,84 +16,84 @@ trait ValidityState {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getValueMissing() : bool {
+	public function getValueMissing(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getTypeMismatch() : bool {
+	public function getTypeMismatch(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getPatternMismatch() : bool {
+	public function getPatternMismatch(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getTooLong() : bool {
+	public function getTooLong(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getTooShort() : bool {
+	public function getTooShort(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getRangeUnderflow() : bool {
+	public function getRangeUnderflow(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getRangeOverflow() : bool {
+	public function getRangeOverflow(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getStepMismatch() : bool {
+	public function getStepMismatch(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getBadInput() : bool {
+	public function getBadInput(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getCustomError() : bool {
+	public function getCustomError(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getValid() : bool {
+	public function getValid(): bool {
 		throw self::_unimplemented();
 	}
 

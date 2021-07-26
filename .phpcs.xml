@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
-		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
-		<exclude name="PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon" />
-		<exclude name="PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeReturnType" />
 	</rule>
 	<file>.</file>
 	<arg name="encoding" value="UTF-8"/>
@@ -19,6 +16,11 @@
 	</rule>
 	<!-- Can't enforce line length limits on auto-generated code -->
 	<rule ref="Generic.Files.LineLength.TooLong">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+	<!-- We add type hints to return types in comments, which
+	     codesniffer can't deal with -->
+	<rule ref="PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeReturnType">
 		<exclude-pattern>src/*</exclude-pattern>
 	</rule>
 </ruleset>

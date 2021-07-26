@@ -20,7 +20,7 @@ trait EventTarget {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -30,7 +30,7 @@ trait EventTarget {
 	 * @param AddEventListenerOptions|associative-array|bool|null $options
 	 * @return void
 	 */
-	public function addEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ) : void {
+	public function addEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ): void {
 		throw self::_unimplemented();
 	}
 
@@ -40,7 +40,7 @@ trait EventTarget {
 	 * @param EventListenerOptions|associative-array|bool|null $options
 	 * @return void
 	 */
-	public function removeEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ) : void {
+	public function removeEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ): void {
 		throw self::_unimplemented();
 	}
 
@@ -48,7 +48,7 @@ trait EventTarget {
 	 * @param Event $event
 	 * @return bool
 	 */
-	public function dispatchEvent( /* Event */ $event ) : bool {
+	public function dispatchEvent( /* Event */ $event ): bool {
 		throw self::_unimplemented();
 	}
 

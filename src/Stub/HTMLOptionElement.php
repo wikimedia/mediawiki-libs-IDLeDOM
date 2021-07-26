@@ -17,7 +17,7 @@ trait HTMLOptionElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -31,63 +31,63 @@ trait HTMLOptionElement {
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string {
+	public function getLabel(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setLabel( string $val ) : void {
+	public function setLabel( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getSelected() : bool {
+	public function getSelected(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setSelected( bool $val ) : void {
+	public function setSelected( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string {
+	public function getValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void {
+	public function setValue( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getText() : string {
+	public function getText(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setText( string $val ) : void {
+	public function setText( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getIndex() : int {
+	public function getIndex(): int {
 		throw self::_unimplemented();
 	}
 

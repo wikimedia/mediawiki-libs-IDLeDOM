@@ -19,7 +19,7 @@ trait MutationObserver {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -28,21 +28,21 @@ trait MutationObserver {
 	 * @param MutationObserverInit|associative-array|null $options
 	 * @return void
 	 */
-	public function observe( /* Node */ $target, /* ?mixed */ $options = null ) : void {
+	public function observe( /* Node */ $target, /* ?mixed */ $options = null ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function disconnect() : void {
+	public function disconnect(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return list<MutationRecord>
 	 */
-	public function takeRecords() : array {
+	public function takeRecords(): array {
 		throw self::_unimplemented();
 	}
 

@@ -25,7 +25,7 @@ interface MutationRecord {
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @return Node
@@ -55,16 +55,16 @@ interface MutationRecord {
 	/**
 	 * @return ?string
 	 */
-	public function getAttributeName() : ?string;
+	public function getAttributeName(): ?string;
 
 	/**
 	 * @return ?string
 	 */
-	public function getAttributeNamespace() : ?string;
+	public function getAttributeNamespace(): ?string;
 
 	/**
 	 * @return ?string
 	 */
-	public function getOldValue() : ?string;
+	public function getOldValue(): ?string;
 
 }

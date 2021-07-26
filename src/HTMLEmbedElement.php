@@ -82,61 +82,61 @@ interface HTMLEmbedElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHeight() : string;
+	public function getHeight(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHeight( string $val ) : void;
+	public function setHeight( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 }

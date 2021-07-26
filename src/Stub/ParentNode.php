@@ -20,7 +20,7 @@ trait ParentNode {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -48,7 +48,7 @@ trait ParentNode {
 	/**
 	 * @return int
 	 */
-	public function getChildElementCount() : int {
+	public function getChildElementCount(): int {
 		throw self::_unimplemented();
 	}
 
@@ -56,7 +56,7 @@ trait ParentNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function prepend( /* mixed */ ...$nodes ) : void {
+	public function prepend( /* mixed */ ...$nodes ): void {
 		throw self::_unimplemented();
 	}
 
@@ -64,7 +64,7 @@ trait ParentNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function append( /* mixed */ ...$nodes ) : void {
+	public function append( /* mixed */ ...$nodes ): void {
 		throw self::_unimplemented();
 	}
 
@@ -72,7 +72,7 @@ trait ParentNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function replaceChildren( /* mixed */ ...$nodes ) : void {
+	public function replaceChildren( /* mixed */ ...$nodes ): void {
 		throw self::_unimplemented();
 	}
 

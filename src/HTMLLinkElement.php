@@ -90,32 +90,32 @@ interface HTMLLinkElement extends HTMLElement, CrossOrigin, LinkStyle, ReferrerP
 	/**
 	 * @return string
 	 */
-	public function getHref() : string;
+	public function getHref(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHref( string $val ) : void;
+	public function setHref( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getRel() : string;
+	public function getRel(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setRel( string $val ) : void;
+	public function setRel( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAs() : string;
+	public function getAs(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAs( string $val ) : void;
+	public function setAs( string $val ): void;
 
 	/**
 	 * @return DOMTokenList
@@ -125,37 +125,37 @@ interface HTMLLinkElement extends HTMLElement, CrossOrigin, LinkStyle, ReferrerP
 	/**
 	 * @param string $val
 	 */
-	public function setRelList( string $val ) : void;
+	public function setRelList( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getMedia() : string;
+	public function getMedia(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setMedia( string $val ) : void;
+	public function setMedia( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHreflang() : string;
+	public function getHreflang(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHreflang( string $val ) : void;
+	public function setHreflang( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return DOMTokenList
@@ -165,36 +165,36 @@ interface HTMLLinkElement extends HTMLElement, CrossOrigin, LinkStyle, ReferrerP
 	/**
 	 * @param string $val
 	 */
-	public function setSizes( string $val ) : void;
+	public function setSizes( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCharset() : string;
+	public function getCharset(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCharset( string $val ) : void;
+	public function setCharset( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getRev() : string;
+	public function getRev(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setRev( string $val ) : void;
+	public function setRev( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string;
+	public function getTarget(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setTarget( string $val ) : void;
+	public function setTarget( string $val ): void;
 
 }

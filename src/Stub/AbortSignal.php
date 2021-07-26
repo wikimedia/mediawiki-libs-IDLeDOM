@@ -17,14 +17,14 @@ trait AbortSignal {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getAborted() : bool {
+	public function getAborted(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -38,7 +38,7 @@ trait AbortSignal {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnabort( /* ?mixed */ $val ) : void {
+	public function setOnabort( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 

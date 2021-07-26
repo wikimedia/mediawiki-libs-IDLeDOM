@@ -31,7 +31,7 @@ trait HTMLVideoElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -233,7 +233,7 @@ trait HTMLVideoElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLVideoElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLVideoElement $this
 		switch ( $name ) {
@@ -425,7 +425,7 @@ trait HTMLVideoElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLVideoElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLVideoElement $this
 		switch ( $name ) {
@@ -563,7 +563,7 @@ trait HTMLVideoElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLVideoElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLVideoElement $this
 		switch ( $name ) {
@@ -770,7 +770,7 @@ trait HTMLVideoElement {
 	/**
 	 * @return bool
 	 */
-	public function getPlaysInline() : bool {
+	public function getPlaysInline(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'playsinline' );
@@ -779,7 +779,7 @@ trait HTMLVideoElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setPlaysInline( bool $val ) : void {
+	public function setPlaysInline( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {

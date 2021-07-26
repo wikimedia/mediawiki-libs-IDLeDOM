@@ -31,7 +31,7 @@ trait HTMLAreaElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -209,7 +209,7 @@ trait HTMLAreaElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLAreaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLAreaElement $this
 		switch ( $name ) {
@@ -377,7 +377,7 @@ trait HTMLAreaElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLAreaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLAreaElement $this
 		switch ( $name ) {
@@ -521,7 +521,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLAreaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLAreaElement $this
 		switch ( $name ) {
@@ -703,7 +703,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setRelList( string $val ) : void {
+	public function setRelList( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLAreaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLAreaElement $this
 		$this->getRelList()->setValue( $val );
@@ -712,7 +712,7 @@ trait HTMLAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getReferrerPolicy() : string {
+	public function getReferrerPolicy(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'referrerpolicy' );
@@ -739,7 +739,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setReferrerPolicy( string $val ) : void {
+	public function setReferrerPolicy( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'referrerpolicy', $val );
@@ -748,7 +748,7 @@ trait HTMLAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getAlt() : string {
+	public function getAlt(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'alt' ) ?? '';
@@ -757,7 +757,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAlt( string $val ) : void {
+	public function setAlt( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'alt', $val );
@@ -766,7 +766,7 @@ trait HTMLAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getCoords() : string {
+	public function getCoords(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'coords' ) ?? '';
@@ -775,7 +775,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setCoords( string $val ) : void {
+	public function setCoords( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'coords', $val );
@@ -784,7 +784,7 @@ trait HTMLAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getShape() : string {
+	public function getShape(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'shape' ) ?? '';
@@ -793,7 +793,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setShape( string $val ) : void {
+	public function setShape( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'shape', $val );
@@ -802,7 +802,7 @@ trait HTMLAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string {
+	public function getTarget(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'target' ) ?? '';
@@ -811,7 +811,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setTarget( string $val ) : void {
+	public function setTarget( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'target', $val );
@@ -820,7 +820,7 @@ trait HTMLAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getRel() : string {
+	public function getRel(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'rel' ) ?? '';
@@ -829,7 +829,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setRel( string $val ) : void {
+	public function setRel( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'rel', $val );
@@ -838,7 +838,7 @@ trait HTMLAreaElement {
 	/**
 	 * @return bool
 	 */
-	public function getNoHref() : bool {
+	public function getNoHref(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'nohref' );
@@ -847,7 +847,7 @@ trait HTMLAreaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setNoHref( bool $val ) : void {
+	public function setNoHref( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {

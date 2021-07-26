@@ -77,11 +77,11 @@ interface HTMLPreElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getWidth() : int;
+	public function getWidth(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setWidth( int $val ) : void;
+	public function setWidth( int $val ): void;
 
 }

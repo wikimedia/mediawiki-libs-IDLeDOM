@@ -90,22 +90,22 @@ interface HTMLButtonElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool;
+	public function getAutofocus(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setAutofocus( bool $val ) : void;
+	public function setAutofocus( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool;
+	public function getDisabled(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void;
+	public function setDisabled( bool $val ): void;
 
 	/**
 	 * @return HTMLFormElement|null
@@ -115,77 +115,77 @@ interface HTMLButtonElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getFormEnctype() : string;
+	public function getFormEnctype(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFormEnctype( string $val ) : void;
+	public function setFormEnctype( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFormMethod() : string;
+	public function getFormMethod(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFormMethod( string $val ) : void;
+	public function setFormMethod( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getFormNoValidate() : bool;
+	public function getFormNoValidate(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setFormNoValidate( bool $val ) : void;
+	public function setFormNoValidate( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFormTarget() : string;
+	public function getFormTarget(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFormTarget( string $val ) : void;
+	public function setFormTarget( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void;
+	public function setValue( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool;
+	public function getWillValidate(): bool;
 
 	/**
 	 * @return ValidityState
@@ -195,23 +195,23 @@ interface HTMLButtonElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string;
+	public function getValidationMessage(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool;
+	public function checkValidity(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool;
+	public function reportValidity(): bool;
 
 	/**
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void;
+	public function setCustomValidity( string $error ): void;
 
 	/**
 	 * @return NodeList

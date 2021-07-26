@@ -17,19 +17,19 @@ interface DOMStringMap extends \ArrayAccess {
 	 * @param string $name
 	 * @return string
 	 */
-	public function namedItem( string $name ) : string;
+	public function namedItem( string $name ): string;
 
 	/**
 	 * @param string $name
 	 * @param string $value
 	 * @return void
 	 */
-	public function setNamedItem( string $name, string $value ) : void;
+	public function setNamedItem( string $name, string $value ): void;
 
 	/**
 	 * @param string $name
 	 * @return void
 	 */
-	public function removeNamedItem( string $name ) : void;
+	public function removeNamedItem( string $name ): void;
 
 }

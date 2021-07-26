@@ -18,7 +18,7 @@ trait CSSStyleSheet {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -41,7 +41,7 @@ trait CSSStyleSheet {
 	 * @param int $index
 	 * @return int
 	 */
-	public function insertRule( string $rule, int $index = 0 ) : int {
+	public function insertRule( string $rule, int $index = 0 ): int {
 		throw self::_unimplemented();
 	}
 
@@ -49,7 +49,7 @@ trait CSSStyleSheet {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRule( int $index ) : void {
+	public function deleteRule( int $index ): void {
 		throw self::_unimplemented();
 	}
 
@@ -57,7 +57,7 @@ trait CSSStyleSheet {
 	 * @param string $text
 	 * @return void
 	 */
-	public function replaceSync( string $text ) : void {
+	public function replaceSync( string $text ): void {
 		throw self::_unimplemented();
 	}
 
@@ -74,7 +74,7 @@ trait CSSStyleSheet {
 	 * @param ?int $index
 	 * @return int
 	 */
-	public function addRule( string $selector = 'undefined', string $style = 'undefined', ?int $index = null ) : int {
+	public function addRule( string $selector = 'undefined', string $style = 'undefined', ?int $index = null ): int {
 		throw self::_unimplemented();
 	}
 
@@ -82,7 +82,7 @@ trait CSSStyleSheet {
 	 * @param int $index
 	 * @return void
 	 */
-	public function removeRule( int $index = 0 ) : void {
+	public function removeRule( int $index = 0 ): void {
 		throw self::_unimplemented();
 	}
 

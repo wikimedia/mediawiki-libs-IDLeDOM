@@ -85,62 +85,62 @@ interface HTMLFrameElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getScrolling() : string;
+	public function getScrolling(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setScrolling( string $val ) : void;
+	public function setScrolling( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFrameBorder() : string;
+	public function getFrameBorder(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFrameBorder( string $val ) : void;
+	public function setFrameBorder( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLongDesc() : string;
+	public function getLongDesc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLongDesc( string $val ) : void;
+	public function setLongDesc( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getNoResize() : bool;
+	public function getNoResize(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setNoResize( bool $val ) : void;
+	public function setNoResize( bool $val ): void;
 
 	/**
 	 * @return Document|null
@@ -150,21 +150,21 @@ interface HTMLFrameElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getMarginHeight() : string;
+	public function getMarginHeight(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setMarginHeight( ?string $val ) : void;
+	public function setMarginHeight( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getMarginWidth() : string;
+	public function getMarginWidth(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setMarginWidth( ?string $val ) : void;
+	public function setMarginWidth( ?string $val ): void;
 
 }

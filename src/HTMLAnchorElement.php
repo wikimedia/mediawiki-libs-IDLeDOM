@@ -101,42 +101,42 @@ interface HTMLAnchorElement extends HTMLElement, HTMLHyperlinkElementUtils, Refe
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string;
+	public function getTarget(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setTarget( string $val ) : void;
+	public function setTarget( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDownload() : string;
+	public function getDownload(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDownload( string $val ) : void;
+	public function setDownload( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getPing() : string;
+	public function getPing(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setPing( string $val ) : void;
+	public function setPing( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getRel() : string;
+	public function getRel(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setRel( string $val ) : void;
+	public function setRel( string $val ): void;
 
 	/**
 	 * @return DOMTokenList
@@ -146,86 +146,86 @@ interface HTMLAnchorElement extends HTMLElement, HTMLHyperlinkElementUtils, Refe
 	/**
 	 * @param string $val
 	 */
-	public function setRelList( string $val ) : void;
+	public function setRelList( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHreflang() : string;
+	public function getHreflang(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHreflang( string $val ) : void;
+	public function setHreflang( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getText() : string;
+	public function getText(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setText( string $val ) : void;
+	public function setText( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCoords() : string;
+	public function getCoords(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCoords( string $val ) : void;
+	public function setCoords( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCharset() : string;
+	public function getCharset(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCharset( string $val ) : void;
+	public function setCharset( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getRev() : string;
+	public function getRev(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setRev( string $val ) : void;
+	public function setRev( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getShape() : string;
+	public function getShape(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setShape( string $val ) : void;
+	public function setShape( string $val ): void;
 
 }

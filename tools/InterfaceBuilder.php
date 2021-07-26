@@ -36,7 +36,7 @@ class InterfaceBuilder extends Builder {
 		$this->nl( '/**' );
 		$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
 		$this->nl( ' */' );
-		$this->nl( "$public function {$info['setter']}( {$info['setterType']} \$val ) : void;" );
+		$this->nl( "$public function {$info['setter']}( {$info['setterType']} \$val ): void;" );
 	}
 
 	/**
@@ -179,7 +179,7 @@ class InterfaceBuilder extends Builder {
 			'paramDocs' => $paramDocs,
 			'retType' => $retType,
 			'retTypeDoc' => $retTypeDoc,
-			'return' => ( $retType === ' : void' ) ? '' : 'return ',
+			'return' => ( $retType === ': void' ) ? '' : 'return ',
 			'special' => $special,
 		];
 	}

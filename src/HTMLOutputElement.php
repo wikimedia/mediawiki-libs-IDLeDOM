@@ -91,7 +91,7 @@ interface HTMLOutputElement extends HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setHtmlFor( string $val ) : void;
+	public function setHtmlFor( string $val ): void;
 
 	/**
 	 * @return HTMLFormElement|null
@@ -101,42 +101,42 @@ interface HTMLOutputElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getDefaultValue() : string;
+	public function getDefaultValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDefaultValue( string $val ) : void;
+	public function setDefaultValue( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void;
+	public function setValue( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool;
+	public function getWillValidate(): bool;
 
 	/**
 	 * @return ValidityState
@@ -146,23 +146,23 @@ interface HTMLOutputElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string;
+	public function getValidationMessage(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool;
+	public function checkValidity(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool;
+	public function reportValidity(): bool;
 
 	/**
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void;
+	public function setCustomValidity( string $error ): void;
 
 	/**
 	 * @return NodeList

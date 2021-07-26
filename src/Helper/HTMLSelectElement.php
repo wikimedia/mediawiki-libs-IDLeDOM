@@ -31,7 +31,7 @@ trait HTMLSelectElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -207,7 +207,7 @@ trait HTMLSelectElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLSelectElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLSelectElement $this
 		switch ( $name ) {
@@ -373,7 +373,7 @@ trait HTMLSelectElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLSelectElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLSelectElement $this
 		switch ( $name ) {
@@ -493,7 +493,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLSelectElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLSelectElement $this
 		switch ( $name ) {
@@ -673,7 +673,7 @@ trait HTMLSelectElement {
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string {
+	public function getAutocomplete(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'autocomplete' );
@@ -693,7 +693,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void {
+	public function setAutocomplete( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'autocomplete', $val );
@@ -702,7 +702,7 @@ trait HTMLSelectElement {
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool {
+	public function getAutofocus(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autofocus' );
@@ -711,7 +711,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setAutofocus( bool $val ) : void {
+	public function setAutofocus( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -724,7 +724,7 @@ trait HTMLSelectElement {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool {
+	public function getDisabled(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
@@ -733,7 +733,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void {
+	public function setDisabled( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -746,7 +746,7 @@ trait HTMLSelectElement {
 	/**
 	 * @return bool
 	 */
-	public function getMultiple() : bool {
+	public function getMultiple(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'multiple' );
@@ -755,7 +755,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setMultiple( bool $val ) : void {
+	public function setMultiple( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -768,7 +768,7 @@ trait HTMLSelectElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -777,7 +777,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
@@ -786,7 +786,7 @@ trait HTMLSelectElement {
 	/**
 	 * @return bool
 	 */
-	public function getRequired() : bool {
+	public function getRequired(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'required' );
@@ -795,7 +795,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setRequired( bool $val ) : void {
+	public function setRequired( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -854,7 +854,7 @@ trait HTMLSelectElement {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLSelectElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLSelectElement $this
 		if ( is_numeric( $offset ) ) {
@@ -881,7 +881,7 @@ trait HTMLSelectElement {
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLSelectElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLSelectElement $this
 		if ( is_numeric( $offset ) ) {

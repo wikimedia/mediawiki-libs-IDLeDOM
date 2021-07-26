@@ -16,14 +16,14 @@ trait TimeRanges {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
@@ -31,7 +31,7 @@ trait TimeRanges {
 	 * @param int $index
 	 * @return float
 	 */
-	public function start( int $index ) : float {
+	public function start( int $index ): float {
 		throw self::_unimplemented();
 	}
 
@@ -39,7 +39,7 @@ trait TimeRanges {
 	 * @param int $index
 	 * @return float
 	 */
-	public function end( int $index ) : float {
+	public function end( int $index ): float {
 		throw self::_unimplemented();
 	}
 

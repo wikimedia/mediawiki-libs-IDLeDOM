@@ -94,32 +94,32 @@ interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string;
+	public function getAutocomplete(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void;
+	public function setAutocomplete( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool;
+	public function getAutofocus(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setAutofocus( bool $val ) : void;
+	public function setAutofocus( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool;
+	public function getDisabled(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void;
+	public function setDisabled( bool $val ): void;
 
 	/**
 	 * @return HTMLFormElement|null
@@ -129,47 +129,47 @@ interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	/**
 	 * @return bool
 	 */
-	public function getMultiple() : bool;
+	public function getMultiple(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setMultiple( bool $val ) : void;
+	public function setMultiple( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getRequired() : bool;
+	public function getRequired(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setRequired( bool $val ) : void;
+	public function setRequired( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getSize() : int;
+	public function getSize(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setSize( int $val ) : void;
+	public function setSize( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @return HTMLOptionsCollection
@@ -179,12 +179,12 @@ interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setLength( int $val ) : void;
+	public function setLength( int $val ): void;
 
 	/**
 	 * @param int $index
@@ -203,14 +203,14 @@ interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	 * @param HTMLElement|int|null $before
 	 * @return void
 	 */
-	public function add( /* mixed */ $element, /* ?mixed */ $before = null ) : void;
+	public function add( /* mixed */ $element, /* ?mixed */ $before = null ): void;
 
 	/**
 	 * @param int $index
 	 * @param HTMLOptionElement|null $option
 	 * @return void
 	 */
-	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void;
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ): void;
 
 	/**
 	 * @return HTMLCollection
@@ -220,27 +220,27 @@ interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	public function getSelectedIndex() : int;
+	public function getSelectedIndex(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setSelectedIndex( int $val ) : void;
+	public function setSelectedIndex( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void;
+	public function setValue( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool;
+	public function getWillValidate(): bool;
 
 	/**
 	 * @return ValidityState
@@ -250,23 +250,23 @@ interface HTMLSelectElement extends HTMLElement, \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string;
+	public function getValidationMessage(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool;
+	public function checkValidity(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool;
+	public function reportValidity(): bool;
 
 	/**
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void;
+	public function setCustomValidity( string $error ): void;
 
 	/**
 	 * @return NodeList

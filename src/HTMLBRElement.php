@@ -77,11 +77,11 @@ interface HTMLBRElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getClear() : string;
+	public function getClear(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setClear( string $val ) : void;
+	public function setClear( string $val ): void;
 
 }

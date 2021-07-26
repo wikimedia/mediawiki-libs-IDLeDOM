@@ -47,7 +47,7 @@ trait MutationObserverInit {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -100,7 +100,7 @@ trait MutationObserverInit {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\MutationObserverInit $this';
 		// @var \Wikimedia\IDLeDOM\MutationObserverInit $this
 		switch ( $name ) {
@@ -156,14 +156,14 @@ trait MutationObserverInit {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		$this->$offset = $value;
 	}
 
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		unset( $this->$offset );
 	}
 
@@ -193,49 +193,49 @@ trait MutationObserverInit {
 			/**
 			 * @return bool
 			 */
-			public function getChildList() : bool {
+			public function getChildList(): bool {
 				return $this->a["childList"] ?? false;
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getAttributes() : bool {
+			public function getAttributes(): bool {
 				return $this->a["attributes"];
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getCharacterData() : bool {
+			public function getCharacterData(): bool {
 				return $this->a["characterData"];
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getSubtree() : bool {
+			public function getSubtree(): bool {
 				return $this->a["subtree"] ?? false;
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getAttributeOldValue() : bool {
+			public function getAttributeOldValue(): bool {
 				return $this->a["attributeOldValue"];
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getCharacterDataOldValue() : bool {
+			public function getCharacterDataOldValue(): bool {
 				return $this->a["characterDataOldValue"];
 			}
 
 			/**
 			 * @return list<string>
 			 */
-			public function getAttributeFilter() : array {
+			public function getAttributeFilter(): array {
 				return $this->a["attributeFilter"];
 			}
 

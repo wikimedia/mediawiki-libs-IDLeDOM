@@ -18,7 +18,7 @@ trait TreeWalker {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -32,7 +32,7 @@ trait TreeWalker {
 	/**
 	 * @return int
 	 */
-	public function getWhatToShow() : int {
+	public function getWhatToShow(): int {
 		throw self::_unimplemented();
 	}
 
@@ -53,7 +53,7 @@ trait TreeWalker {
 	/**
 	 * @param Node $val
 	 */
-	public function setCurrentNode( /* Node */ $val ) : void {
+	public function setCurrentNode( /* Node */ $val ): void {
 		throw self::_unimplemented();
 	}
 

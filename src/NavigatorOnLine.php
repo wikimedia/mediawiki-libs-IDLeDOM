@@ -17,6 +17,6 @@ interface NavigatorOnLine {
 	/**
 	 * @return bool
 	 */
-	public function getOnLine() : bool;
+	public function getOnLine(): bool;
 
 }

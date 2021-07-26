@@ -47,7 +47,7 @@ trait Event {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -112,7 +112,7 @@ trait Event {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Event $this';
 		// @var \Wikimedia\IDLeDOM\Event $this
 		switch ( $name ) {
@@ -152,7 +152,7 @@ trait Event {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Event $this';
 		// @var \Wikimedia\IDLeDOM\Event $this
 		switch ( $name ) {
@@ -173,7 +173,7 @@ trait Event {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Event $this';
 		// @var \Wikimedia\IDLeDOM\Event $this
 		switch ( $name ) {

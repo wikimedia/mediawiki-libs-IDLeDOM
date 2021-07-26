@@ -31,7 +31,7 @@ trait HTMLElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -171,7 +171,7 @@ trait HTMLElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLElement $this
 		switch ( $name ) {
@@ -301,7 +301,7 @@ trait HTMLElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLElement $this
 		switch ( $name ) {
@@ -391,7 +391,7 @@ trait HTMLElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLElement $this
 		switch ( $name ) {
@@ -535,7 +535,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setStyle( string $val ) : void {
+	public function setStyle( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLElement $this
 		$this->getStyle()->setCssText( $val );
@@ -544,7 +544,7 @@ trait HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getEnterKeyHint() : string {
+	public function getEnterKeyHint(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enterkeyhint' );
@@ -569,7 +569,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setEnterKeyHint( string $val ) : void {
+	public function setEnterKeyHint( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enterkeyhint', $val );
@@ -578,7 +578,7 @@ trait HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getInputMode() : string {
+	public function getInputMode(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'inputmode' );
@@ -604,7 +604,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setInputMode( string $val ) : void {
+	public function setInputMode( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'inputmode', $val );
@@ -613,7 +613,7 @@ trait HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getNonce() : string {
+	public function getNonce(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'nonce' ) ?? '';
@@ -622,7 +622,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setNonce( string $val ) : void {
+	public function setNonce( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'nonce', $val );
@@ -631,7 +631,7 @@ trait HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getTitle() : string {
+	public function getTitle(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'title' ) ?? '';
@@ -640,7 +640,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setTitle( string $val ) : void {
+	public function setTitle( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'title', $val );
@@ -649,7 +649,7 @@ trait HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getLang() : string {
+	public function getLang(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'lang' ) ?? '';
@@ -658,7 +658,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setLang( string $val ) : void {
+	public function setLang( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'lang', $val );
@@ -667,7 +667,7 @@ trait HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getDir() : string {
+	public function getDir(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'dir' );
@@ -688,7 +688,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setDir( string $val ) : void {
+	public function setDir( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'dir', $val );
@@ -697,7 +697,7 @@ trait HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getHidden() : bool {
+	public function getHidden(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'hidden' );
@@ -706,7 +706,7 @@ trait HTMLElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setHidden( bool $val ) : void {
+	public function setHidden( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -719,7 +719,7 @@ trait HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getAccessKey() : string {
+	public function getAccessKey(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'accesskey' ) ?? '';
@@ -728,7 +728,7 @@ trait HTMLElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAccessKey( string $val ) : void {
+	public function setAccessKey( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'accesskey', $val );

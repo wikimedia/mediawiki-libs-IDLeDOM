@@ -17,7 +17,7 @@ trait StaticRangeInit {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -31,7 +31,7 @@ trait StaticRangeInit {
 	/**
 	 * @return int
 	 */
-	public function getStartOffset() : int {
+	public function getStartOffset(): int {
 		throw self::_unimplemented();
 	}
 
@@ -45,7 +45,7 @@ trait StaticRangeInit {
 	/**
 	 * @return int
 	 */
-	public function getEndOffset() : int {
+	public function getEndOffset(): int {
 		throw self::_unimplemented();
 	}
 

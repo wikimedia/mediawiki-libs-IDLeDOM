@@ -76,112 +76,112 @@ interface HTMLElement extends Element, DocumentAndElementEventHandlers, ElementC
 	/**
 	 * @return string
 	 */
-	public function getTitle() : string;
+	public function getTitle(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setTitle( string $val ) : void;
+	public function setTitle( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLang() : string;
+	public function getLang(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLang( string $val ) : void;
+	public function setLang( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getTranslate() : bool;
+	public function getTranslate(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setTranslate( bool $val ) : void;
+	public function setTranslate( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDir() : string;
+	public function getDir(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDir( string $val ) : void;
+	public function setDir( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getHidden() : bool;
+	public function getHidden(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setHidden( bool $val ) : void;
+	public function setHidden( bool $val ): void;
 
 	/**
 	 * @return void
 	 */
-	public function click() : void;
+	public function click(): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAccessKey() : string;
+	public function getAccessKey(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAccessKey( string $val ) : void;
+	public function setAccessKey( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAccessKeyLabel() : string;
+	public function getAccessKeyLabel(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function getDraggable() : bool;
+	public function getDraggable(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDraggable( bool $val ) : void;
+	public function setDraggable( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getSpellcheck() : bool;
+	public function getSpellcheck(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setSpellcheck( bool $val ) : void;
+	public function setSpellcheck( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAutocapitalize() : string;
+	public function getAutocapitalize(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAutocapitalize( string $val ) : void;
+	public function setAutocapitalize( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getInnerText() : string;
+	public function getInnerText(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setInnerText( ?string $val ) : void;
+	public function setInnerText( ?string $val ): void;
 
 	/**
 	 * @return Element|null
@@ -191,21 +191,21 @@ interface HTMLElement extends Element, DocumentAndElementEventHandlers, ElementC
 	/**
 	 * @return int
 	 */
-	public function getOffsetTop() : int;
+	public function getOffsetTop(): int;
 
 	/**
 	 * @return int
 	 */
-	public function getOffsetLeft() : int;
+	public function getOffsetLeft(): int;
 
 	/**
 	 * @return int
 	 */
-	public function getOffsetWidth() : int;
+	public function getOffsetWidth(): int;
 
 	/**
 	 * @return int
 	 */
-	public function getOffsetHeight() : int;
+	public function getOffsetHeight(): int;
 
 }

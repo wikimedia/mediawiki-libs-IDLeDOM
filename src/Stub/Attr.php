@@ -17,49 +17,49 @@ trait Attr {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return ?string
 	 */
-	public function getNamespaceURI() : ?string {
+	public function getNamespaceURI(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
-	public function getPrefix() : ?string {
+	public function getPrefix(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLocalName() : string {
+	public function getLocalName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string {
+	public function getValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void {
+	public function setValue( string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -73,7 +73,7 @@ trait Attr {
 	/**
 	 * @return bool
 	 */
-	public function getSpecified() : bool {
+	public function getSpecified(): bool {
 		throw self::_unimplemented();
 	}
 

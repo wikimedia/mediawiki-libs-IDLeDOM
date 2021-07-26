@@ -18,14 +18,14 @@ trait AudioTrackList {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
@@ -55,7 +55,7 @@ trait AudioTrackList {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnchange( /* ?mixed */ $val ) : void {
+	public function setOnchange( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -69,7 +69,7 @@ trait AudioTrackList {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnaddtrack( /* ?mixed */ $val ) : void {
+	public function setOnaddtrack( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -83,7 +83,7 @@ trait AudioTrackList {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnremovetrack( /* ?mixed */ $val ) : void {
+	public function setOnremovetrack( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 

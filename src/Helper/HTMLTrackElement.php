@@ -31,7 +31,7 @@ trait HTMLTrackElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -183,7 +183,7 @@ trait HTMLTrackElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTrackElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTrackElement $this
 		switch ( $name ) {
@@ -325,7 +325,7 @@ trait HTMLTrackElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTrackElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTrackElement $this
 		switch ( $name ) {
@@ -430,7 +430,7 @@ trait HTMLTrackElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTrackElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTrackElement $this
 		switch ( $name ) {
@@ -586,7 +586,7 @@ trait HTMLTrackElement {
 	/**
 	 * @return string
 	 */
-	public function getKind() : string {
+	public function getKind(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'kind' );
@@ -609,7 +609,7 @@ trait HTMLTrackElement {
 	/**
 	 * @param string $val
 	 */
-	public function setKind( string $val ) : void {
+	public function setKind( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'kind', $val );
@@ -618,7 +618,7 @@ trait HTMLTrackElement {
 	/**
 	 * @return string
 	 */
-	public function getSrclang() : string {
+	public function getSrclang(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'srclang' ) ?? '';
@@ -627,7 +627,7 @@ trait HTMLTrackElement {
 	/**
 	 * @param string $val
 	 */
-	public function setSrclang( string $val ) : void {
+	public function setSrclang( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'srclang', $val );
@@ -636,7 +636,7 @@ trait HTMLTrackElement {
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string {
+	public function getLabel(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'label' ) ?? '';
@@ -645,7 +645,7 @@ trait HTMLTrackElement {
 	/**
 	 * @param string $val
 	 */
-	public function setLabel( string $val ) : void {
+	public function setLabel( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'label', $val );
@@ -654,7 +654,7 @@ trait HTMLTrackElement {
 	/**
 	 * @return bool
 	 */
-	public function getDefault() : bool {
+	public function getDefault(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'default' );
@@ -663,7 +663,7 @@ trait HTMLTrackElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDefault( bool $val ) : void {
+	public function setDefault( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {

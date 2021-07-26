@@ -17,7 +17,7 @@ trait GlobalEventHandlers {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -31,7 +31,7 @@ trait GlobalEventHandlers {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnload( /* ?mixed */ $val ) : void {
+	public function setOnload( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 

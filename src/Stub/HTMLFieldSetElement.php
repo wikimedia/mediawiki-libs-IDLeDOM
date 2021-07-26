@@ -19,7 +19,7 @@ trait HTMLFieldSetElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -33,7 +33,7 @@ trait HTMLFieldSetElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		throw self::_unimplemented();
 	}
 
@@ -47,7 +47,7 @@ trait HTMLFieldSetElement {
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool {
+	public function getWillValidate(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -61,21 +61,21 @@ trait HTMLFieldSetElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string {
+	public function getValidationMessage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool {
+	public function checkValidity(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool {
+	public function reportValidity(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -83,7 +83,7 @@ trait HTMLFieldSetElement {
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void {
+	public function setCustomValidity( string $error ): void {
 		throw self::_unimplemented();
 	}
 

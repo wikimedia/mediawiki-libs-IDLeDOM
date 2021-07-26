@@ -82,52 +82,52 @@ interface HTMLTrackElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getKind() : string;
+	public function getKind(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setKind( string $val ) : void;
+	public function setKind( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrclang() : string;
+	public function getSrclang(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrclang( string $val ) : void;
+	public function setSrclang( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string;
+	public function getLabel(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLabel( string $val ) : void;
+	public function setLabel( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDefault() : bool;
+	public function getDefault(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDefault( bool $val ) : void;
+	public function setDefault( bool $val ): void;
 
 	/** @var int */
 	public const NONE = 0;
@@ -144,6 +144,6 @@ interface HTMLTrackElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getReadyState() : int;
+	public function getReadyState(): int;
 
 }

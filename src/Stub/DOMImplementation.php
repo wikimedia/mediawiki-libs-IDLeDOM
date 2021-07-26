@@ -19,7 +19,7 @@ trait DOMImplementation {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -54,7 +54,7 @@ trait DOMImplementation {
 	/**
 	 * @return bool
 	 */
-	public function hasFeature() : bool {
+	public function hasFeature(): bool {
 		throw self::_unimplemented();
 	}
 

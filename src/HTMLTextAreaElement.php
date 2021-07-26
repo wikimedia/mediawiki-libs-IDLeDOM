@@ -101,52 +101,52 @@ interface HTMLTextAreaElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string;
+	public function getAutocomplete(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void;
+	public function setAutocomplete( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool;
+	public function getAutofocus(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setAutofocus( bool $val ) : void;
+	public function setAutofocus( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getCols() : int;
+	public function getCols(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setCols( int $val ) : void;
+	public function setCols( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDirName() : string;
+	public function getDirName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDirName( string $val ) : void;
+	public function setDirName( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool;
+	public function getDisabled(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void;
+	public function setDisabled( bool $val ): void;
 
 	/**
 	 * @return HTMLFormElement|null
@@ -156,117 +156,117 @@ interface HTMLTextAreaElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getMaxLength() : int;
+	public function getMaxLength(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setMaxLength( int $val ) : void;
+	public function setMaxLength( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getMinLength() : int;
+	public function getMinLength(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setMinLength( int $val ) : void;
+	public function setMinLength( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getPlaceholder() : string;
+	public function getPlaceholder(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setPlaceholder( string $val ) : void;
+	public function setPlaceholder( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getReadOnly() : bool;
+	public function getReadOnly(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setReadOnly( bool $val ) : void;
+	public function setReadOnly( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getRequired() : bool;
+	public function getRequired(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setRequired( bool $val ) : void;
+	public function setRequired( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getRows() : int;
+	public function getRows(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setRows( int $val ) : void;
+	public function setRows( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWrap() : string;
+	public function getWrap(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWrap( string $val ) : void;
+	public function setWrap( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getDefaultValue() : string;
+	public function getDefaultValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDefaultValue( string $val ) : void;
+	public function setDefaultValue( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setValue( ?string $val ) : void;
+	public function setValue( ?string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getTextLength() : int;
+	public function getTextLength(): int;
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool;
+	public function getWillValidate(): bool;
 
 	/**
 	 * @return ValidityState
@@ -276,23 +276,23 @@ interface HTMLTextAreaElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string;
+	public function getValidationMessage(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool;
+	public function checkValidity(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool;
+	public function reportValidity(): bool;
 
 	/**
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void;
+	public function setCustomValidity( string $error ): void;
 
 	/**
 	 * @return NodeList
@@ -302,43 +302,43 @@ interface HTMLTextAreaElement extends HTMLElement {
 	/**
 	 * @return void
 	 */
-	public function select() : void;
+	public function select(): void;
 
 	/**
 	 * @return int
 	 */
-	public function getSelectionStart() : int;
+	public function getSelectionStart(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setSelectionStart( int $val ) : void;
+	public function setSelectionStart( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getSelectionEnd() : int;
+	public function getSelectionEnd(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setSelectionEnd( int $val ) : void;
+	public function setSelectionEnd( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSelectionDirection() : string;
+	public function getSelectionDirection(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSelectionDirection( string $val ) : void;
+	public function setSelectionDirection( string $val ): void;
 
 	/**
 	 * @param string $replacement
 	 * @return void
 	 */
-	public function setRangeText( string $replacement ) : void;
+	public function setRangeText( string $replacement ): void;
 
 	/**
 	 * @param int $start
@@ -346,6 +346,6 @@ interface HTMLTextAreaElement extends HTMLElement {
 	 * @param ?string $direction
 	 * @return void
 	 */
-	public function setSelectionRange( int $start, int $end, ?string $direction = null ) : void;
+	public function setSelectionRange( int $start, int $end, ?string $direction = null ): void;
 
 }

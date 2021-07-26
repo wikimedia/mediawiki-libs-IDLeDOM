@@ -16,63 +16,63 @@ trait HTMLVideoElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getWidth() : int {
+	public function getWidth(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setWidth( int $val ) : void {
+	public function setWidth( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getHeight() : int {
+	public function getHeight(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setHeight( int $val ) : void {
+	public function setHeight( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getVideoWidth() : int {
+	public function getVideoWidth(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getVideoHeight() : int {
+	public function getVideoHeight(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getPoster() : string {
+	public function getPoster(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setPoster( string $val ) : void {
+	public function setPoster( string $val ): void {
 		throw self::_unimplemented();
 	}
 

@@ -31,7 +31,7 @@ trait HTMLScriptElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -187,7 +187,7 @@ trait HTMLScriptElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLScriptElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLScriptElement $this
 		switch ( $name ) {
@@ -333,7 +333,7 @@ trait HTMLScriptElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLScriptElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLScriptElement $this
 		switch ( $name ) {
@@ -447,7 +447,7 @@ trait HTMLScriptElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLScriptElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLScriptElement $this
 		switch ( $name ) {
@@ -608,7 +608,7 @@ trait HTMLScriptElement {
 	/**
 	 * @return ?string
 	 */
-	public function getCrossOrigin() : ?string {
+	public function getCrossOrigin(): ?string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
@@ -628,7 +628,7 @@ trait HTMLScriptElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setCrossOrigin( ?string $val ) : void {
+	public function setCrossOrigin( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {
@@ -641,7 +641,7 @@ trait HTMLScriptElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
@@ -650,7 +650,7 @@ trait HTMLScriptElement {
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void {
+	public function setType( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
@@ -659,7 +659,7 @@ trait HTMLScriptElement {
 	/**
 	 * @return bool
 	 */
-	public function getDefer() : bool {
+	public function getDefer(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'defer' );
@@ -668,7 +668,7 @@ trait HTMLScriptElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDefer( bool $val ) : void {
+	public function setDefer( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -681,7 +681,7 @@ trait HTMLScriptElement {
 	/**
 	 * @return string
 	 */
-	public function getCharset() : string {
+	public function getCharset(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charset' ) ?? '';
@@ -690,7 +690,7 @@ trait HTMLScriptElement {
 	/**
 	 * @param string $val
 	 */
-	public function setCharset( string $val ) : void {
+	public function setCharset( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charset', $val );
@@ -699,7 +699,7 @@ trait HTMLScriptElement {
 	/**
 	 * @return string
 	 */
-	public function getEvent() : string {
+	public function getEvent(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'event' ) ?? '';
@@ -708,7 +708,7 @@ trait HTMLScriptElement {
 	/**
 	 * @param string $val
 	 */
-	public function setEvent( string $val ) : void {
+	public function setEvent( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'event', $val );
@@ -717,7 +717,7 @@ trait HTMLScriptElement {
 	/**
 	 * @return string
 	 */
-	public function getHtmlFor() : string {
+	public function getHtmlFor(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'for' ) ?? '';
@@ -726,7 +726,7 @@ trait HTMLScriptElement {
 	/**
 	 * @param string $val
 	 */
-	public function setHtmlFor( string $val ) : void {
+	public function setHtmlFor( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'for', $val );

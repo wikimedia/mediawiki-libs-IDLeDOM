@@ -78,21 +78,21 @@ interface HTMLOptGroupElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool;
+	public function getDisabled(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void;
+	public function setDisabled( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string;
+	public function getLabel(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLabel( string $val ) : void;
+	public function setLabel( string $val ): void;
 
 }

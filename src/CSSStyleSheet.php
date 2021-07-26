@@ -40,19 +40,19 @@ interface CSSStyleSheet extends StyleSheet {
 	 * @param int $index
 	 * @return int
 	 */
-	public function insertRule( string $rule, int $index = 0 ) : int;
+	public function insertRule( string $rule, int $index = 0 ): int;
 
 	/**
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRule( int $index ) : void;
+	public function deleteRule( int $index ): void;
 
 	/**
 	 * @param string $text
 	 * @return void
 	 */
-	public function replaceSync( string $text ) : void;
+	public function replaceSync( string $text ): void;
 
 	/**
 	 * @return CSSRuleList
@@ -65,12 +65,12 @@ interface CSSStyleSheet extends StyleSheet {
 	 * @param ?int $index
 	 * @return int
 	 */
-	public function addRule( string $selector = 'undefined', string $style = 'undefined', ?int $index = null ) : int;
+	public function addRule( string $selector = 'undefined', string $style = 'undefined', ?int $index = null ): int;
 
 	/**
 	 * @param int $index
 	 * @return void
 	 */
-	public function removeRule( int $index = 0 ) : void;
+	public function removeRule( int $index = 0 ): void;
 
 }

@@ -41,6 +41,6 @@ interface CustomEvent extends Event {
 	 * @param mixed|null $detail
 	 * @return void
 	 */
-	public function initCustomEvent( string $type, bool $bubbles = false, bool $cancelable = false, /* any */ $detail = null ) : void;
+	public function initCustomEvent( string $type, bool $bubbles = false, bool $cancelable = false, /* any */ $detail = null ): void;
 
 }

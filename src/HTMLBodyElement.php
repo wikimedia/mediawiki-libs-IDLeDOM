@@ -82,61 +82,61 @@ interface HTMLBodyElement extends HTMLElement, WindowEventHandlers {
 	/**
 	 * @return string
 	 */
-	public function getText() : string;
+	public function getText(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setText( ?string $val ) : void;
+	public function setText( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLink() : string;
+	public function getLink(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setLink( ?string $val ) : void;
+	public function setLink( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getVLink() : string;
+	public function getVLink(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setVLink( ?string $val ) : void;
+	public function setVLink( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getALink() : string;
+	public function getALink(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setALink( ?string $val ) : void;
+	public function setALink( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBgColor() : string;
+	public function getBgColor(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setBgColor( ?string $val ) : void;
+	public function setBgColor( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBackground() : string;
+	public function getBackground(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setBackground( string $val ) : void;
+	public function setBackground( string $val ): void;
 
 }

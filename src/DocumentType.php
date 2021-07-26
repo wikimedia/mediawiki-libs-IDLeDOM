@@ -35,16 +35,16 @@ interface DocumentType extends Node, ChildNode {
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getPublicId() : string;
+	public function getPublicId(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getSystemId() : string;
+	public function getSystemId(): string;
 
 }

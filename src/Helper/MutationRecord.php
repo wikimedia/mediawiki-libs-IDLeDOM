@@ -47,7 +47,7 @@ trait MutationRecord {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -104,7 +104,7 @@ trait MutationRecord {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\MutationRecord $this';
 		// @var \Wikimedia\IDLeDOM\MutationRecord $this
 		switch ( $name ) {

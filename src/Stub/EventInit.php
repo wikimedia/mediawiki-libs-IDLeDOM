@@ -16,28 +16,28 @@ trait EventInit {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getBubbles() : bool {
+	public function getBubbles(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getCancelable() : bool {
+	public function getCancelable(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getComposed() : bool {
+	public function getComposed(): bool {
 		throw self::_unimplemented();
 	}
 

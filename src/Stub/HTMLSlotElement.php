@@ -19,7 +19,7 @@ trait HTMLSlotElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -27,7 +27,7 @@ trait HTMLSlotElement {
 	 * @param AssignedNodesOptions|associative-array|null $options
 	 * @return list<Node>
 	 */
-	public function assignedNodes( /* ?mixed */ $options = null ) : array {
+	public function assignedNodes( /* ?mixed */ $options = null ): array {
 		throw self::_unimplemented();
 	}
 
@@ -35,7 +35,7 @@ trait HTMLSlotElement {
 	 * @param AssignedNodesOptions|associative-array|null $options
 	 * @return list<Element>
 	 */
-	public function assignedElements( /* ?mixed */ $options = null ) : array {
+	public function assignedElements( /* ?mixed */ $options = null ): array {
 		throw self::_unimplemented();
 	}
 

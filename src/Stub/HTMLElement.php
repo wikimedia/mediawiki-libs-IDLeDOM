@@ -22,91 +22,91 @@ trait HTMLElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getTranslate() : bool {
+	public function getTranslate(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setTranslate( bool $val ) : void {
+	public function setTranslate( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function click() : void {
+	public function click(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAccessKeyLabel() : string {
+	public function getAccessKeyLabel(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getDraggable() : bool {
+	public function getDraggable(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDraggable( bool $val ) : void {
+	public function setDraggable( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getSpellcheck() : bool {
+	public function getSpellcheck(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setSpellcheck( bool $val ) : void {
+	public function setSpellcheck( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAutocapitalize() : string {
+	public function getAutocapitalize(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setAutocapitalize( string $val ) : void {
+	public function setAutocapitalize( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getInnerText() : string {
+	public function getInnerText(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setInnerText( ?string $val ) : void {
+	public function setInnerText( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -120,28 +120,28 @@ trait HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getOffsetTop() : int {
+	public function getOffsetTop(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getOffsetLeft() : int {
+	public function getOffsetLeft(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getOffsetWidth() : int {
+	public function getOffsetWidth(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getOffsetHeight() : int {
+	public function getOffsetHeight(): int {
 		throw self::_unimplemented();
 	}
 

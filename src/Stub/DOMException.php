@@ -16,14 +16,14 @@ trait DOMException {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		throw self::_unimplemented();
 	}
 

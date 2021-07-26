@@ -29,7 +29,7 @@ abstract class StaticRangeInit implements \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	abstract public function getStartOffset() : int;
+	abstract public function getStartOffset(): int;
 
 	/**
 	 * @return Node
@@ -39,6 +39,6 @@ abstract class StaticRangeInit implements \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	abstract public function getEndOffset() : int;
+	abstract public function getEndOffset(): int;
 
 }

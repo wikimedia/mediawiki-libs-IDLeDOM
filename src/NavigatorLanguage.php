@@ -17,6 +17,6 @@ interface NavigatorLanguage {
 	/**
 	 * @return string
 	 */
-	public function getLanguage() : string;
+	public function getLanguage(): string;
 
 }

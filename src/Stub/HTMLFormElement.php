@@ -18,21 +18,21 @@ trait HTMLFormElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getAction() : string {
+	public function getAction(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setAction( string $val ) : void {
+	public function setAction( string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -46,14 +46,14 @@ trait HTMLFormElement {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function submit() : void {
+	public function submit(): void {
 		throw self::_unimplemented();
 	}
 
@@ -61,28 +61,28 @@ trait HTMLFormElement {
 	 * @param HTMLElement|null $submitter
 	 * @return void
 	 */
-	public function requestSubmit( /* ?HTMLElement */ $submitter = null ) : void {
+	public function requestSubmit( /* ?HTMLElement */ $submitter = null ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function reset() : void {
+	public function reset(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool {
+	public function checkValidity(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool {
+	public function reportValidity(): bool {
 		throw self::_unimplemented();
 	}
 

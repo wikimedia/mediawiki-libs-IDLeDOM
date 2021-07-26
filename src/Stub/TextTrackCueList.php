@@ -17,14 +17,14 @@ trait TextTrackCueList {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 

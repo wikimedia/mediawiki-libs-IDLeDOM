@@ -23,7 +23,7 @@ interface VideoTrackList extends EventTarget, \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @param int $index
@@ -40,7 +40,7 @@ interface VideoTrackList extends EventTarget, \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	public function getSelectedIndex() : int;
+	public function getSelectedIndex(): int;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -50,7 +50,7 @@ interface VideoTrackList extends EventTarget, \ArrayAccess {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnchange( /* ?mixed */ $val ) : void;
+	public function setOnchange( /* ?mixed */ $val ): void;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -60,7 +60,7 @@ interface VideoTrackList extends EventTarget, \ArrayAccess {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnaddtrack( /* ?mixed */ $val ) : void;
+	public function setOnaddtrack( /* ?mixed */ $val ): void;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -70,6 +70,6 @@ interface VideoTrackList extends EventTarget, \ArrayAccess {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnremovetrack( /* ?mixed */ $val ) : void;
+	public function setOnremovetrack( /* ?mixed */ $val ): void;
 
 }

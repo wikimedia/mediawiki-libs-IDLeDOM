@@ -16,28 +16,28 @@ trait ElementContentEditable {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getContentEditable() : string {
+	public function getContentEditable(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setContentEditable( string $val ) : void {
+	public function setContentEditable( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getIsContentEditable() : bool {
+	public function getIsContentEditable(): bool {
 		throw self::_unimplemented();
 	}
 

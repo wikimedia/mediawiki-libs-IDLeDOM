@@ -20,7 +20,7 @@ trait HTMLOutputElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -41,42 +41,42 @@ trait HTMLOutputElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getDefaultValue() : string {
+	public function getDefaultValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setDefaultValue( string $val ) : void {
+	public function setDefaultValue( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string {
+	public function getValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void {
+	public function setValue( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool {
+	public function getWillValidate(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -90,21 +90,21 @@ trait HTMLOutputElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string {
+	public function getValidationMessage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool {
+	public function checkValidity(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool {
+	public function reportValidity(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -112,7 +112,7 @@ trait HTMLOutputElement {
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void {
+	public function setCustomValidity( string $error ): void {
 		throw self::_unimplemented();
 	}
 

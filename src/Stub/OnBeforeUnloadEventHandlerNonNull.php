@@ -17,7 +17,7 @@ trait OnBeforeUnloadEventHandlerNonNull {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -25,7 +25,7 @@ trait OnBeforeUnloadEventHandlerNonNull {
 	 * @param Event $event
 	 * @return ?string
 	 */
-	public function invoke( /* Event */ $event ) : ?string {
+	public function invoke( /* Event */ $event ): ?string {
 		throw self::_unimplemented();
 	}
 

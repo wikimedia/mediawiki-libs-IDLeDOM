@@ -24,7 +24,7 @@ interface CSSMarginRule extends CSSRule {
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @return CSSStyleDeclaration
@@ -34,6 +34,6 @@ interface CSSMarginRule extends CSSRule {
 	/**
 	 * @param string $val
 	 */
-	public function setStyle( string $val ) : void;
+	public function setStyle( string $val ): void;
 
 }

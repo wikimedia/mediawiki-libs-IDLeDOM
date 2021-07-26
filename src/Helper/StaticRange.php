@@ -31,7 +31,7 @@ trait StaticRange {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -65,7 +65,7 @@ trait StaticRange {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\StaticRange $this';
 		// @var \Wikimedia\IDLeDOM\StaticRange $this
 		switch ( $name ) {

@@ -31,7 +31,7 @@ trait HTMLHRElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -181,7 +181,7 @@ trait HTMLHRElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLHRElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLHRElement $this
 		switch ( $name ) {
@@ -321,7 +321,7 @@ trait HTMLHRElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLHRElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLHRElement $this
 		switch ( $name ) {
@@ -426,7 +426,7 @@ trait HTMLHRElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLHRElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLHRElement $this
 		switch ( $name ) {
@@ -580,7 +580,7 @@ trait HTMLHRElement {
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string {
+	public function getAlign(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
@@ -589,7 +589,7 @@ trait HTMLHRElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void {
+	public function setAlign( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
@@ -598,7 +598,7 @@ trait HTMLHRElement {
 	/**
 	 * @return string
 	 */
-	public function getColor() : string {
+	public function getColor(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'color' ) ?? '';
@@ -607,7 +607,7 @@ trait HTMLHRElement {
 	/**
 	 * @param string $val
 	 */
-	public function setColor( string $val ) : void {
+	public function setColor( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'color', $val );
@@ -616,7 +616,7 @@ trait HTMLHRElement {
 	/**
 	 * @return bool
 	 */
-	public function getNoShade() : bool {
+	public function getNoShade(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'noshade' );
@@ -625,7 +625,7 @@ trait HTMLHRElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setNoShade( bool $val ) : void {
+	public function setNoShade( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -638,7 +638,7 @@ trait HTMLHRElement {
 	/**
 	 * @return string
 	 */
-	public function getSize() : string {
+	public function getSize(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'size' ) ?? '';
@@ -647,7 +647,7 @@ trait HTMLHRElement {
 	/**
 	 * @param string $val
 	 */
-	public function setSize( string $val ) : void {
+	public function setSize( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'size', $val );
@@ -656,7 +656,7 @@ trait HTMLHRElement {
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string {
+	public function getWidth(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'width' ) ?? '';
@@ -665,7 +665,7 @@ trait HTMLHRElement {
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void {
+	public function setWidth( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'width', $val );

@@ -16,21 +16,21 @@ trait HTMLLIElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getValue() : int {
+	public function getValue(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setValue( int $val ) : void {
+	public function setValue( int $val ): void {
 		throw self::_unimplemented();
 	}
 

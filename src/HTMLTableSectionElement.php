@@ -93,46 +93,46 @@ interface HTMLTableSectionElement extends HTMLElement {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRow( int $index ) : void;
+	public function deleteRow( int $index ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCh() : string;
+	public function getCh(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCh( string $val ) : void;
+	public function setCh( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getChOff() : string;
+	public function getChOff(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setChOff( string $val ) : void;
+	public function setChOff( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getVAlign() : string;
+	public function getVAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setVAlign( string $val ) : void;
+	public function setVAlign( string $val ): void;
 
 }

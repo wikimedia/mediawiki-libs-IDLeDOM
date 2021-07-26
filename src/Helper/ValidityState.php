@@ -47,7 +47,7 @@ trait ValidityState {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -108,7 +108,7 @@ trait ValidityState {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\ValidityState $this';
 		// @var \Wikimedia\IDLeDOM\ValidityState $this
 		switch ( $name ) {

@@ -77,11 +77,11 @@ interface HTMLDialogElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getOpen() : bool;
+	public function getOpen(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setOpen( bool $val ) : void;
+	public function setOpen( bool $val ): void;
 
 }

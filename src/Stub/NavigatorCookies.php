@@ -16,14 +16,14 @@ trait NavigatorCookies {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getCookieEnabled() : bool {
+	public function getCookieEnabled(): bool {
 		throw self::_unimplemented();
 	}
 

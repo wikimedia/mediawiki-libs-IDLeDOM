@@ -77,11 +77,11 @@ interface HTMLDListElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getCompact() : bool;
+	public function getCompact(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setCompact( bool $val ) : void;
+	public function setCompact( bool $val ): void;
 
 }

@@ -20,21 +20,21 @@ trait HTMLLinkElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getHref() : string {
+	public function getHref(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setHref( string $val ) : void {
+	public function setHref( string $val ): void {
 		throw self::_unimplemented();
 	}
 

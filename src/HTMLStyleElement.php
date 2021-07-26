@@ -79,21 +79,21 @@ interface HTMLStyleElement extends HTMLElement, LinkStyle {
 	/**
 	 * @return string
 	 */
-	public function getMedia() : string;
+	public function getMedia(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setMedia( string $val ) : void;
+	public function setMedia( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 }

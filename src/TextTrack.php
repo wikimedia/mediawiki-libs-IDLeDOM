@@ -26,27 +26,27 @@ interface TextTrack extends EventTarget {
 	/**
 	 * @return string
 	 */
-	public function getKind() : /* TextTrackKind */ string;
+	public function getKind(): /* TextTrackKind */ string;
 
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string;
+	public function getLabel(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getLanguage() : string;
+	public function getLanguage(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getId() : string;
+	public function getId(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getInBandMetadataTrackDispatchType() : string;
+	public function getInBandMetadataTrackDispatchType(): string;
 
 	/**
 	 * @return TextTrackCueList|null
@@ -62,13 +62,13 @@ interface TextTrack extends EventTarget {
 	 * @param TextTrackCue $cue
 	 * @return void
 	 */
-	public function addCue( /* TextTrackCue */ $cue ) : void;
+	public function addCue( /* TextTrackCue */ $cue ): void;
 
 	/**
 	 * @param TextTrackCue $cue
 	 * @return void
 	 */
-	public function removeCue( /* TextTrackCue */ $cue ) : void;
+	public function removeCue( /* TextTrackCue */ $cue ): void;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -78,6 +78,6 @@ interface TextTrack extends EventTarget {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOncuechange( /* ?mixed */ $val ) : void;
+	public function setOncuechange( /* ?mixed */ $val ): void;
 
 }

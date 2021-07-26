@@ -17,11 +17,11 @@ interface InnerHTML {
 	/**
 	 * @return string
 	 */
-	public function getInnerHTML() : string;
+	public function getInnerHTML(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setInnerHTML( ?string $val ) : void;
+	public function setInnerHTML( ?string $val ): void;
 
 }

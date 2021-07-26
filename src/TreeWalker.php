@@ -25,7 +25,7 @@ interface TreeWalker {
 	/**
 	 * @return int
 	 */
-	public function getWhatToShow() : int;
+	public function getWhatToShow(): int;
 
 	/**
 	 * @return NodeFilter|callable|null
@@ -40,7 +40,7 @@ interface TreeWalker {
 	/**
 	 * @param Node $val
 	 */
-	public function setCurrentNode( /* Node */ $val ) : void;
+	public function setCurrentNode( /* Node */ $val ): void;
 
 	/**
 	 * @return Node|null

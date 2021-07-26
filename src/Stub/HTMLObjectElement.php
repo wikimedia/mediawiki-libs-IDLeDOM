@@ -19,21 +19,21 @@ trait HTMLObjectElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getData() : string {
+	public function getData(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setData( string $val ) : void {
+	public function setData( string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -54,7 +54,7 @@ trait HTMLObjectElement {
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool {
+	public function getWillValidate(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -68,21 +68,21 @@ trait HTMLObjectElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string {
+	public function getValidationMessage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool {
+	public function checkValidity(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool {
+	public function reportValidity(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -90,49 +90,49 @@ trait HTMLObjectElement {
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void {
+	public function setCustomValidity( string $error ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getHspace() : int {
+	public function getHspace(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setHspace( int $val ) : void {
+	public function setHspace( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getVspace() : int {
+	public function getVspace(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setVspace( int $val ) : void {
+	public function setVspace( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getCodeBase() : string {
+	public function getCodeBase(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setCodeBase( string $val ) : void {
+	public function setCodeBase( string $val ): void {
 		throw self::_unimplemented();
 	}
 

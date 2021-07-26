@@ -49,7 +49,7 @@ trait ShadowRootInit {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -92,7 +92,7 @@ trait ShadowRootInit {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\ShadowRootInit $this';
 		// @var \Wikimedia\IDLeDOM\ShadowRootInit $this
 		switch ( $name ) {
@@ -133,14 +133,14 @@ trait ShadowRootInit {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		$this->$offset = $value;
 	}
 
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		unset( $this->$offset );
 	}
 
@@ -170,14 +170,14 @@ trait ShadowRootInit {
 			/**
 			 * @return string
 			 */
-			public function getMode() : /* ShadowRootMode */ string {
+			public function getMode(): /* ShadowRootMode */ string {
 				return ShadowRootMode::cast( $this->a["mode"] );
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getDelegatesFocus() : bool {
+			public function getDelegatesFocus(): bool {
 				return $this->a["delegatesFocus"] ?? false;
 			}
 

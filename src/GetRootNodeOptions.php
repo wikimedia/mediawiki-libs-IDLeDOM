@@ -21,6 +21,6 @@ abstract class GetRootNodeOptions implements \ArrayAccess {
 	/**
 	 * @return bool
 	 */
-	abstract public function getComposed() : bool;
+	abstract public function getComposed(): bool;
 
 }

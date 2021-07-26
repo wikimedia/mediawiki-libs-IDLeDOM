@@ -39,32 +39,32 @@ interface Attr extends Node {
 	/**
 	 * @return ?string
 	 */
-	public function getNamespaceURI() : ?string;
+	public function getNamespaceURI(): ?string;
 
 	/**
 	 * @return ?string
 	 */
-	public function getPrefix() : ?string;
+	public function getPrefix(): ?string;
 
 	/**
 	 * @return string
 	 */
-	public function getLocalName() : string;
+	public function getLocalName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void;
+	public function setValue( string $val ): void;
 
 	/**
 	 * @return Element|null
@@ -74,6 +74,6 @@ interface Attr extends Node {
 	/**
 	 * @return bool
 	 */
-	public function getSpecified() : bool;
+	public function getSpecified(): bool;
 
 }

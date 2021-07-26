@@ -82,61 +82,61 @@ interface HTMLTableColElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getSpan() : int;
+	public function getSpan(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setSpan( int $val ) : void;
+	public function setSpan( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCh() : string;
+	public function getCh(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCh( string $val ) : void;
+	public function setCh( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getChOff() : string;
+	public function getChOff(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setChOff( string $val ) : void;
+	public function setChOff( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getVAlign() : string;
+	public function getVAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setVAlign( string $val ) : void;
+	public function setVAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 }

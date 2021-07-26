@@ -25,12 +25,12 @@ interface CSSPageRule extends CSSGroupingRule {
 	/**
 	 * @return string
 	 */
-	public function getSelectorText() : string;
+	public function getSelectorText(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSelectorText( string $val ) : void;
+	public function setSelectorText( string $val ): void;
 
 	/**
 	 * @return CSSStyleDeclaration
@@ -40,6 +40,6 @@ interface CSSPageRule extends CSSGroupingRule {
 	/**
 	 * @param string $val
 	 */
-	public function setStyle( string $val ) : void;
+	public function setStyle( string $val ): void;
 
 }

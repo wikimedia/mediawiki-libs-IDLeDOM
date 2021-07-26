@@ -31,7 +31,7 @@ trait CustomEventInit {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -63,7 +63,7 @@ trait CustomEventInit {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\CustomEventInit $this';
 		// @var \Wikimedia\IDLeDOM\CustomEventInit $this
 		switch ( $name ) {
@@ -110,14 +110,14 @@ trait CustomEventInit {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		$this->$offset = $value;
 	}
 
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		unset( $this->$offset );
 	}
 
@@ -147,21 +147,21 @@ trait CustomEventInit {
 			/**
 			 * @return bool
 			 */
-			public function getBubbles() : bool {
+			public function getBubbles(): bool {
 				return $this->a["bubbles"] ?? false;
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getCancelable() : bool {
+			public function getCancelable(): bool {
 				return $this->a["cancelable"] ?? false;
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getComposed() : bool {
+			public function getComposed(): bool {
 				return $this->a["composed"] ?? false;
 			}
 

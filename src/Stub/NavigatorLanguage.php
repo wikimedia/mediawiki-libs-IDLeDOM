@@ -16,14 +16,14 @@ trait NavigatorLanguage {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getLanguage() : string {
+	public function getLanguage(): string {
 		throw self::_unimplemented();
 	}
 

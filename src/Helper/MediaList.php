@@ -47,7 +47,7 @@ trait MediaList {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -90,7 +90,7 @@ trait MediaList {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\MediaList $this';
 		// @var \Wikimedia\IDLeDOM\MediaList $this
 		switch ( $name ) {
@@ -108,7 +108,7 @@ trait MediaList {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\MediaList $this';
 		// @var \Wikimedia\IDLeDOM\MediaList $this
 		switch ( $name ) {
@@ -126,7 +126,7 @@ trait MediaList {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\MediaList $this';
 		// @var \Wikimedia\IDLeDOM\MediaList $this
 		switch ( $name ) {
@@ -156,7 +156,7 @@ trait MediaList {
 	/**
 	 * @return string
 	 */
-	public function __toString() : string {
+	public function __toString(): string {
 		'@phan-var \Wikimedia\IDLeDOM\MediaList $this';
 		// @var \Wikimedia\IDLeDOM\MediaList $this
 		return $this->getMediaText();
@@ -211,7 +211,7 @@ trait MediaList {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\MediaList $this';
 		// @var \Wikimedia\IDLeDOM\MediaList $this
 		if ( is_numeric( $offset ) ) {
@@ -238,7 +238,7 @@ trait MediaList {
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		'@phan-var \Wikimedia\IDLeDOM\MediaList $this';
 		// @var \Wikimedia\IDLeDOM\MediaList $this
 		if ( is_numeric( $offset ) ) {

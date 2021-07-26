@@ -21,6 +21,6 @@ abstract class AssignedNodesOptions implements \ArrayAccess {
 	/**
 	 * @return bool
 	 */
-	abstract public function getFlatten() : bool;
+	abstract public function getFlatten(): bool;
 
 }

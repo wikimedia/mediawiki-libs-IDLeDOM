@@ -16,7 +16,7 @@ trait XPathNSResolver {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -24,7 +24,7 @@ trait XPathNSResolver {
 	 * @param ?string $prefix
 	 * @return ?string
 	 */
-	public function lookupNamespaceURI( ?string $prefix ) : ?string {
+	public function lookupNamespaceURI( ?string $prefix ): ?string {
 		throw self::_unimplemented();
 	}
 

@@ -20,7 +20,7 @@ interface AbortSignal extends EventTarget {
 	/**
 	 * @return bool
 	 */
-	public function getAborted() : bool;
+	public function getAborted(): bool;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -30,6 +30,6 @@ interface AbortSignal extends EventTarget {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnabort( /* ?mixed */ $val ) : void;
+	public function setOnabort( /* ?mixed */ $val ): void;
 
 }

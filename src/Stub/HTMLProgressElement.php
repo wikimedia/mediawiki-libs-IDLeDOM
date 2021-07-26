@@ -17,42 +17,42 @@ trait HTMLProgressElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return float
 	 */
-	public function getValue() : float {
+	public function getValue(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param float $val
 	 */
-	public function setValue( float $val ) : void {
+	public function setValue( float $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getMax() : float {
+	public function getMax(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param float $val
 	 */
-	public function setMax( float $val ) : void {
+	public function setMax( float $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getPosition() : float {
+	public function getPosition(): float {
 		throw self::_unimplemented();
 	}
 

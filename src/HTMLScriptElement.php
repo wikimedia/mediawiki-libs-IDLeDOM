@@ -84,71 +84,71 @@ interface HTMLScriptElement extends HTMLElement, CrossOrigin {
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDefer() : bool;
+	public function getDefer(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDefer( bool $val ) : void;
+	public function setDefer( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getText() : string;
+	public function getText(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setText( string $val ) : void;
+	public function setText( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCharset() : string;
+	public function getCharset(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCharset( string $val ) : void;
+	public function setCharset( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getEvent() : string;
+	public function getEvent(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setEvent( string $val ) : void;
+	public function setEvent( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHtmlFor() : string;
+	public function getHtmlFor(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHtmlFor( string $val ) : void;
+	public function setHtmlFor( string $val ): void;
 
 }

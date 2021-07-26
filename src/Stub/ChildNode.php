@@ -17,7 +17,7 @@ trait ChildNode {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -25,7 +25,7 @@ trait ChildNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function before( /* mixed */ ...$nodes ) : void {
+	public function before( /* mixed */ ...$nodes ): void {
 		throw self::_unimplemented();
 	}
 
@@ -33,7 +33,7 @@ trait ChildNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function after( /* mixed */ ...$nodes ) : void {
+	public function after( /* mixed */ ...$nodes ): void {
 		throw self::_unimplemented();
 	}
 
@@ -41,14 +41,14 @@ trait ChildNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function replaceWith( /* mixed */ ...$nodes ) : void {
+	public function replaceWith( /* mixed */ ...$nodes ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function remove() : void {
+	public function remove(): void {
 		throw self::_unimplemented();
 	}
 

@@ -95,7 +95,7 @@ interface HTMLTableElement extends HTMLElement {
 	/**
 	 * @param HTMLTableCaptionElement|null $val
 	 */
-	public function setCaption( /* ?HTMLTableCaptionElement */ $val ) : void;
+	public function setCaption( /* ?HTMLTableCaptionElement */ $val ): void;
 
 	/**
 	 * @return HTMLTableCaptionElement
@@ -105,7 +105,7 @@ interface HTMLTableElement extends HTMLElement {
 	/**
 	 * @return void
 	 */
-	public function deleteCaption() : void;
+	public function deleteCaption(): void;
 
 	/**
 	 * @return HTMLTableSectionElement|null
@@ -115,7 +115,7 @@ interface HTMLTableElement extends HTMLElement {
 	/**
 	 * @param HTMLTableSectionElement|null $val
 	 */
-	public function setTHead( /* ?HTMLTableSectionElement */ $val ) : void;
+	public function setTHead( /* ?HTMLTableSectionElement */ $val ): void;
 
 	/**
 	 * @return HTMLTableSectionElement
@@ -125,7 +125,7 @@ interface HTMLTableElement extends HTMLElement {
 	/**
 	 * @return void
 	 */
-	public function deleteTHead() : void;
+	public function deleteTHead(): void;
 
 	/**
 	 * @return HTMLTableSectionElement|null
@@ -135,7 +135,7 @@ interface HTMLTableElement extends HTMLElement {
 	/**
 	 * @param HTMLTableSectionElement|null $val
 	 */
-	public function setTFoot( /* ?HTMLTableSectionElement */ $val ) : void;
+	public function setTFoot( /* ?HTMLTableSectionElement */ $val ): void;
 
 	/**
 	 * @return HTMLTableSectionElement
@@ -145,7 +145,7 @@ interface HTMLTableElement extends HTMLElement {
 	/**
 	 * @return void
 	 */
-	public function deleteTFoot() : void;
+	public function deleteTFoot(): void;
 
 	/**
 	 * @return HTMLCollection
@@ -172,96 +172,96 @@ interface HTMLTableElement extends HTMLElement {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRow( int $index ) : void;
+	public function deleteRow( int $index ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBorder() : string;
+	public function getBorder(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setBorder( string $val ) : void;
+	public function setBorder( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFrame() : string;
+	public function getFrame(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFrame( string $val ) : void;
+	public function setFrame( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getRules() : string;
+	public function getRules(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setRules( string $val ) : void;
+	public function setRules( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSummary() : string;
+	public function getSummary(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSummary( string $val ) : void;
+	public function setSummary( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBgColor() : string;
+	public function getBgColor(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setBgColor( ?string $val ) : void;
+	public function setBgColor( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCellPadding() : string;
+	public function getCellPadding(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setCellPadding( ?string $val ) : void;
+	public function setCellPadding( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCellSpacing() : string;
+	public function getCellSpacing(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setCellSpacing( ?string $val ) : void;
+	public function setCellSpacing( ?string $val ): void;
 
 }

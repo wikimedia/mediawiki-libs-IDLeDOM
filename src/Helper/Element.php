@@ -31,7 +31,7 @@ trait Element {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -121,7 +121,7 @@ trait Element {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		switch ( $name ) {
@@ -201,7 +201,7 @@ trait Element {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		switch ( $name ) {
@@ -240,7 +240,7 @@ trait Element {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		switch ( $name ) {
@@ -334,7 +334,7 @@ trait Element {
 	/**
 	 * @param string $val
 	 */
-	public function setClassList( string $val ) : void {
+	public function setClassList( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->getClassList()->setValue( $val );
@@ -343,7 +343,7 @@ trait Element {
 	/**
 	 * @return string
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'id' ) ?? '';
@@ -352,7 +352,7 @@ trait Element {
 	/**
 	 * @param string $val
 	 */
-	public function setId( string $val ) : void {
+	public function setId( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'id', $val );
@@ -361,7 +361,7 @@ trait Element {
 	/**
 	 * @return string
 	 */
-	public function getClassName() : string {
+	public function getClassName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'class' ) ?? '';
@@ -370,7 +370,7 @@ trait Element {
 	/**
 	 * @param string $val
 	 */
-	public function setClassName( string $val ) : void {
+	public function setClassName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'class', $val );
@@ -379,7 +379,7 @@ trait Element {
 	/**
 	 * @return string
 	 */
-	public function getSlot() : string {
+	public function getSlot(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'slot' ) ?? '';
@@ -388,7 +388,7 @@ trait Element {
 	/**
 	 * @param string $val
 	 */
-	public function setSlot( string $val ) : void {
+	public function setSlot( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'slot', $val );

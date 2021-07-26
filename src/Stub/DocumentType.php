@@ -17,28 +17,28 @@ trait DocumentType {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getPublicId() : string {
+	public function getPublicId(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getSystemId() : string {
+	public function getSystemId(): string {
 		throw self::_unimplemented();
 	}
 

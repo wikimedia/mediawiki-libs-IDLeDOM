@@ -31,7 +31,7 @@ trait HTMLDataElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -173,7 +173,7 @@ trait HTMLDataElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLDataElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLDataElement $this
 		switch ( $name ) {
@@ -305,7 +305,7 @@ trait HTMLDataElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLDataElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLDataElement $this
 		switch ( $name ) {
@@ -398,7 +398,7 @@ trait HTMLDataElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLDataElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLDataElement $this
 		switch ( $name ) {
@@ -544,7 +544,7 @@ trait HTMLDataElement {
 	/**
 	 * @return string
 	 */
-	public function getValue() : string {
+	public function getValue(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'value' ) ?? '';
@@ -553,7 +553,7 @@ trait HTMLDataElement {
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void {
+	public function setValue( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'value', $val );

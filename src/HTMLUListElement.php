@@ -78,21 +78,21 @@ interface HTMLUListElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getCompact() : bool;
+	public function getCompact(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setCompact( bool $val ) : void;
+	public function setCompact( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 }

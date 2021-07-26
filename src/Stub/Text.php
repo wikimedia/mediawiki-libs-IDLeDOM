@@ -17,7 +17,7 @@ trait Text {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -32,7 +32,7 @@ trait Text {
 	/**
 	 * @return string
 	 */
-	public function getWholeText() : string {
+	public function getWholeText(): string {
 		throw self::_unimplemented();
 	}
 

@@ -16,21 +16,21 @@ trait ShadowRootInit {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getMode() : /* ShadowRootMode */ string {
+	public function getMode(): /* ShadowRootMode */ string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getDelegatesFocus() : bool {
+	public function getDelegatesFocus(): bool {
 		throw self::_unimplemented();
 	}
 

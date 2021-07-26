@@ -21,6 +21,6 @@ abstract class EventListenerOptions implements \ArrayAccess {
 	/**
 	 * @return bool
 	 */
-	abstract public function getCapture() : bool;
+	abstract public function getCapture(): bool;
 
 }

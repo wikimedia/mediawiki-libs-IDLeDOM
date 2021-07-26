@@ -16,7 +16,7 @@ trait URLSearchParams {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -25,7 +25,7 @@ trait URLSearchParams {
 	 * @param string $value
 	 * @return void
 	 */
-	public function append( string $name, string $value ) : void {
+	public function append( string $name, string $value ): void {
 		throw self::_unimplemented();
 	}
 
@@ -33,7 +33,7 @@ trait URLSearchParams {
 	 * @param string $name
 	 * @return void
 	 */
-	public function delete( string $name ) : void {
+	public function delete( string $name ): void {
 		throw self::_unimplemented();
 	}
 
@@ -41,7 +41,7 @@ trait URLSearchParams {
 	 * @param string $name
 	 * @return ?string
 	 */
-	public function get( string $name ) : ?string {
+	public function get( string $name ): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -49,7 +49,7 @@ trait URLSearchParams {
 	 * @param string $name
 	 * @return list<string>
 	 */
-	public function getAll( string $name ) : array {
+	public function getAll( string $name ): array {
 		throw self::_unimplemented();
 	}
 
@@ -57,7 +57,7 @@ trait URLSearchParams {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function has( string $name ) : bool {
+	public function has( string $name ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -66,14 +66,14 @@ trait URLSearchParams {
 	 * @param string $value
 	 * @return void
 	 */
-	public function set( string $name, string $value ) : void {
+	public function set( string $name, string $value ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function sort() : void {
+	public function sort(): void {
 		throw self::_unimplemented();
 	}
 
@@ -87,7 +87,7 @@ trait URLSearchParams {
 	/**
 	 * @return string
 	 */
-	public function toString() : string {
+	public function toString(): string {
 		throw self::_unimplemented();
 	}
 

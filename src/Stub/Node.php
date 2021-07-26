@@ -20,35 +20,35 @@ trait Node {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getNodeType() : int {
+	public function getNodeType(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getNodeName() : string {
+	public function getNodeName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getBaseURI() : string {
+	public function getBaseURI(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getIsConnected() : bool {
+	public function getIsConnected(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -84,7 +84,7 @@ trait Node {
 	/**
 	 * @return bool
 	 */
-	public function hasChildNodes() : bool {
+	public function hasChildNodes(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -126,35 +126,35 @@ trait Node {
 	/**
 	 * @return ?string
 	 */
-	public function getNodeValue() : ?string {
+	public function getNodeValue(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setNodeValue( ?string $val ) : void {
+	public function setNodeValue( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
-	public function getTextContent() : ?string {
+	public function getTextContent(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setTextContent( ?string $val ) : void {
+	public function setTextContent( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function normalize() : void {
+	public function normalize(): void {
 		throw self::_unimplemented();
 	}
 
@@ -170,7 +170,7 @@ trait Node {
 	 * @param \Wikimedia\IDLeDOM\Node|null $otherNode
 	 * @return bool
 	 */
-	public function isEqualNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool {
+	public function isEqualNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -178,7 +178,7 @@ trait Node {
 	 * @param \Wikimedia\IDLeDOM\Node|null $otherNode
 	 * @return bool
 	 */
-	public function isSameNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool {
+	public function isSameNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -186,7 +186,7 @@ trait Node {
 	 * @param \Wikimedia\IDLeDOM\Node $other
 	 * @return int
 	 */
-	public function compareDocumentPosition( /* \Wikimedia\IDLeDOM\Node */ $other ) : int {
+	public function compareDocumentPosition( /* \Wikimedia\IDLeDOM\Node */ $other ): int {
 		throw self::_unimplemented();
 	}
 
@@ -194,7 +194,7 @@ trait Node {
 	 * @param \Wikimedia\IDLeDOM\Node|null $other
 	 * @return bool
 	 */
-	public function contains( /* ?\Wikimedia\IDLeDOM\Node */ $other ) : bool {
+	public function contains( /* ?\Wikimedia\IDLeDOM\Node */ $other ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -202,7 +202,7 @@ trait Node {
 	 * @param ?string $namespace
 	 * @return ?string
 	 */
-	public function lookupPrefix( ?string $namespace ) : ?string {
+	public function lookupPrefix( ?string $namespace ): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -210,7 +210,7 @@ trait Node {
 	 * @param ?string $prefix
 	 * @return ?string
 	 */
-	public function lookupNamespaceURI( ?string $prefix ) : ?string {
+	public function lookupNamespaceURI( ?string $prefix ): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -218,7 +218,7 @@ trait Node {
 	 * @param ?string $namespace
 	 * @return bool
 	 */
-	public function isDefaultNamespace( ?string $namespace ) : bool {
+	public function isDefaultNamespace( ?string $namespace ): bool {
 		throw self::_unimplemented();
 	}
 

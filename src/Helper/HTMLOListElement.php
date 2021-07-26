@@ -31,7 +31,7 @@ trait HTMLOListElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -179,7 +179,7 @@ trait HTMLOListElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOListElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOListElement $this
 		switch ( $name ) {
@@ -317,7 +317,7 @@ trait HTMLOListElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOListElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOListElement $this
 		switch ( $name ) {
@@ -419,7 +419,7 @@ trait HTMLOListElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOListElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOListElement $this
 		switch ( $name ) {
@@ -571,7 +571,7 @@ trait HTMLOListElement {
 	/**
 	 * @return bool
 	 */
-	public function getReversed() : bool {
+	public function getReversed(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'reversed' );
@@ -580,7 +580,7 @@ trait HTMLOListElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setReversed( bool $val ) : void {
+	public function setReversed( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -593,7 +593,7 @@ trait HTMLOListElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
@@ -602,7 +602,7 @@ trait HTMLOListElement {
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void {
+	public function setType( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
@@ -611,7 +611,7 @@ trait HTMLOListElement {
 	/**
 	 * @return bool
 	 */
-	public function getCompact() : bool {
+	public function getCompact(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'compact' );
@@ -620,7 +620,7 @@ trait HTMLOListElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setCompact( bool $val ) : void {
+	public function setCompact( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {

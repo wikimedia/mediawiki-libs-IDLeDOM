@@ -20,21 +20,21 @@ trait HTMLInputElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getChecked() : bool {
+	public function getChecked(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setChecked( bool $val ) : void {
+	public function setChecked( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -48,14 +48,14 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getIndeterminate() : bool {
+	public function getIndeterminate(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setIndeterminate( bool $val ) : void {
+	public function setIndeterminate( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -69,84 +69,84 @@ trait HTMLInputElement {
 	/**
 	 * @return int
 	 */
-	public function getMaxLength() : int {
+	public function getMaxLength(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setMaxLength( int $val ) : void {
+	public function setMaxLength( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getMinLength() : int {
+	public function getMinLength(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setMinLength( int $val ) : void {
+	public function setMinLength( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getSize() : int {
+	public function getSize(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setSize( int $val ) : void {
+	public function setSize( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string {
+	public function getSrc(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void {
+	public function setSrc( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string {
+	public function getValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setValue( ?string $val ) : void {
+	public function setValue( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getValueAsNumber() : float {
+	public function getValueAsNumber(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param float $val
 	 */
-	public function setValueAsNumber( float $val ) : void {
+	public function setValueAsNumber( float $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -154,7 +154,7 @@ trait HTMLInputElement {
 	 * @param int $n
 	 * @return void
 	 */
-	public function stepUp( int $n = 1 ) : void {
+	public function stepUp( int $n = 1 ): void {
 		throw self::_unimplemented();
 	}
 
@@ -162,14 +162,14 @@ trait HTMLInputElement {
 	 * @param int $n
 	 * @return void
 	 */
-	public function stepDown( int $n = 1 ) : void {
+	public function stepDown( int $n = 1 ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool {
+	public function getWillValidate(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -183,21 +183,21 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string {
+	public function getValidationMessage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool {
+	public function checkValidity(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool {
+	public function reportValidity(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -205,7 +205,7 @@ trait HTMLInputElement {
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void {
+	public function setCustomValidity( string $error ): void {
 		throw self::_unimplemented();
 	}
 
@@ -219,49 +219,49 @@ trait HTMLInputElement {
 	/**
 	 * @return void
 	 */
-	public function select() : void {
+	public function select(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?int
 	 */
-	public function getSelectionStart() : ?int {
+	public function getSelectionStart(): ?int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?int $val
 	 */
-	public function setSelectionStart( ?int $val ) : void {
+	public function setSelectionStart( ?int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?int
 	 */
-	public function getSelectionEnd() : ?int {
+	public function getSelectionEnd(): ?int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?int $val
 	 */
-	public function setSelectionEnd( ?int $val ) : void {
+	public function setSelectionEnd( ?int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
-	public function getSelectionDirection() : ?string {
+	public function getSelectionDirection(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setSelectionDirection( ?string $val ) : void {
+	public function setSelectionDirection( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -269,7 +269,7 @@ trait HTMLInputElement {
 	 * @param string $replacement
 	 * @return void
 	 */
-	public function setRangeText( string $replacement ) : void {
+	public function setRangeText( string $replacement ): void {
 		throw self::_unimplemented();
 	}
 
@@ -279,7 +279,7 @@ trait HTMLInputElement {
 	 * @param ?string $direction
 	 * @return void
 	 */
-	public function setSelectionRange( int $start, int $end, ?string $direction = null ) : void {
+	public function setSelectionRange( int $start, int $end, ?string $direction = null ): void {
 		throw self::_unimplemented();
 	}
 

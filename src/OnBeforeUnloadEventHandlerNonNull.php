@@ -17,5 +17,5 @@ interface OnBeforeUnloadEventHandlerNonNull {
 	 * @param Event $event
 	 * @return ?string
 	 */
-	public function invoke( /* Event */ $event ) : ?string;
+	public function invoke( /* Event */ $event ): ?string;
 }

@@ -26,7 +26,7 @@ interface AbstractRange {
 	/**
 	 * @return int
 	 */
-	public function getStartOffset() : int;
+	public function getStartOffset(): int;
 
 	/**
 	 * @return Node
@@ -36,11 +36,11 @@ interface AbstractRange {
 	/**
 	 * @return int
 	 */
-	public function getEndOffset() : int;
+	public function getEndOffset(): int;
 
 	/**
 	 * @return bool
 	 */
-	public function getCollapsed() : bool;
+	public function getCollapsed(): bool;
 
 }

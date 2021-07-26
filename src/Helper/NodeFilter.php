@@ -49,7 +49,7 @@ trait NodeFilter {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -106,7 +106,7 @@ trait NodeFilter {
 			 * @param Node $node
 			 * @return int
 			 */
-			public function acceptNode( /* Node */ $node ) : int {
+			public function acceptNode( /* Node */ $node ): int {
 				$f = $this->f;
 				return $f( $node );
 			}

@@ -17,14 +17,14 @@ trait ProcessingInstruction {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string {
+	public function getTarget(): string {
 		throw self::_unimplemented();
 	}
 

@@ -31,7 +31,7 @@ trait HTMLMetaElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -179,7 +179,7 @@ trait HTMLMetaElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMetaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMetaElement $this
 		switch ( $name ) {
@@ -317,7 +317,7 @@ trait HTMLMetaElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMetaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMetaElement $this
 		switch ( $name ) {
@@ -419,7 +419,7 @@ trait HTMLMetaElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMetaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMetaElement $this
 		switch ( $name ) {
@@ -571,7 +571,7 @@ trait HTMLMetaElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -580,7 +580,7 @@ trait HTMLMetaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
@@ -589,7 +589,7 @@ trait HTMLMetaElement {
 	/**
 	 * @return string
 	 */
-	public function getHttpEquiv() : string {
+	public function getHttpEquiv(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'http-equiv' ) ?? '';
@@ -598,7 +598,7 @@ trait HTMLMetaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setHttpEquiv( string $val ) : void {
+	public function setHttpEquiv( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'http-equiv', $val );
@@ -607,7 +607,7 @@ trait HTMLMetaElement {
 	/**
 	 * @return string
 	 */
-	public function getContent() : string {
+	public function getContent(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'content' ) ?? '';
@@ -616,7 +616,7 @@ trait HTMLMetaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setContent( string $val ) : void {
+	public function setContent( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'content', $val );
@@ -625,7 +625,7 @@ trait HTMLMetaElement {
 	/**
 	 * @return string
 	 */
-	public function getScheme() : string {
+	public function getScheme(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'scheme' ) ?? '';
@@ -634,7 +634,7 @@ trait HTMLMetaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setScheme( string $val ) : void {
+	public function setScheme( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'scheme', $val );

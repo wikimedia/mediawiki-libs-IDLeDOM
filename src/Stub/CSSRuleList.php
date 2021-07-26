@@ -17,7 +17,7 @@ trait CSSRuleList {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -32,7 +32,7 @@ trait CSSRuleList {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 

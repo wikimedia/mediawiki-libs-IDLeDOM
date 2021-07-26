@@ -77,11 +77,11 @@ interface HTMLHtmlElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getVersion() : string;
+	public function getVersion(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setVersion( string $val ) : void;
+	public function setVersion( string $val ): void;
 
 }

@@ -20,35 +20,35 @@ interface CSSStyleDeclaration extends \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	public function getCssText() : string;
+	public function getCssText(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCssText( string $val ) : void;
+	public function setCssText( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @param int $index
 	 * @return string
 	 */
-	public function item( int $index ) : string;
+	public function item( int $index ): string;
 
 	/**
 	 * @param string $property
 	 * @return string
 	 */
-	public function getPropertyValue( string $property ) : string;
+	public function getPropertyValue( string $property ): string;
 
 	/**
 	 * @param string $property
 	 * @return string
 	 */
-	public function getPropertyPriority( string $property ) : string;
+	public function getPropertyPriority( string $property ): string;
 
 	/**
 	 * @param string $property
@@ -56,13 +56,13 @@ interface CSSStyleDeclaration extends \ArrayAccess {
 	 * @param string $priority
 	 * @return void
 	 */
-	public function setProperty( string $property, ?string $value = '', string $priority = '' ) : void;
+	public function setProperty( string $property, ?string $value = '', string $priority = '' ): void;
 
 	/**
 	 * @param string $property
 	 * @return string
 	 */
-	public function removeProperty( string $property ) : string;
+	public function removeProperty( string $property ): string;
 
 	/**
 	 * @return CSSRule|null
@@ -72,11 +72,11 @@ interface CSSStyleDeclaration extends \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	public function getCssFloat() : string;
+	public function getCssFloat(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setCssFloat( ?string $val ) : void;
+	public function setCssFloat( ?string $val ): void;
 
 }

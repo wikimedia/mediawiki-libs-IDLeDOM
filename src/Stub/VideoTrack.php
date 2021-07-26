@@ -16,49 +16,49 @@ trait VideoTrack {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getKind() : string {
+	public function getKind(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string {
+	public function getLabel(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLanguage() : string {
+	public function getLanguage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getSelected() : bool {
+	public function getSelected(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setSelected( bool $val ) : void {
+	public function setSelected( bool $val ): void {
 		throw self::_unimplemented();
 	}
 

@@ -81,51 +81,51 @@ interface HTMLSourceElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrcset() : string;
+	public function getSrcset(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrcset( string $val ) : void;
+	public function setSrcset( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSizes() : string;
+	public function getSizes(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSizes( string $val ) : void;
+	public function setSizes( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getMedia() : string;
+	public function getMedia(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setMedia( string $val ) : void;
+	public function setMedia( string $val ): void;
 
 }

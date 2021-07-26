@@ -47,7 +47,7 @@ trait HTMLOrSVGElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -69,7 +69,7 @@ trait HTMLOrSVGElement {
 	/**
 	 * @return string
 	 */
-	public function getNonce() : string {
+	public function getNonce(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'nonce' ) ?? '';
@@ -78,7 +78,7 @@ trait HTMLOrSVGElement {
 	/**
 	 * @param string $val
 	 */
-	public function setNonce( string $val ) : void {
+	public function setNonce( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'nonce', $val );

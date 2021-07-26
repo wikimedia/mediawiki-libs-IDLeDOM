@@ -45,7 +45,7 @@ trait Document {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -59,49 +59,49 @@ trait Document {
 	/**
 	 * @return string
 	 */
-	public function getURL() : string {
+	public function getURL(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getDocumentURI() : string {
+	public function getDocumentURI(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getCompatMode() : string {
+	public function getCompatMode(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getCharacterSet() : string {
+	public function getCharacterSet(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getCharset() : string {
+	public function getCharset(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getInputEncoding() : string {
+	public function getInputEncoding(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getContentType() : string {
+	public function getContentType(): string {
 		throw self::_unimplemented();
 	}
 
@@ -282,56 +282,56 @@ trait Document {
 	/**
 	 * @return string
 	 */
-	public function getReferrer() : string {
+	public function getReferrer(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getCookie() : string {
+	public function getCookie(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setCookie( string $val ) : void {
+	public function setCookie( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLastModified() : string {
+	public function getLastModified(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getTitle() : string {
+	public function getTitle(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setTitle( string $val ) : void {
+	public function setTitle( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getDir() : string {
+	public function getDir(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setDir( string $val ) : void {
+	public function setDir( string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -345,7 +345,7 @@ trait Document {
 	/**
 	 * @param HTMLElement|null $val
 	 */
-	public function setBody( /* ?HTMLElement */ $val ) : void {
+	public function setBody( /* ?HTMLElement */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -425,7 +425,7 @@ trait Document {
 	/**
 	 * @return void
 	 */
-	public function close() : void {
+	public function close(): void {
 		throw self::_unimplemented();
 	}
 
@@ -433,7 +433,7 @@ trait Document {
 	 * @param string ...$text
 	 * @return void
 	 */
-	public function write( string ...$text ) : void {
+	public function write( string ...$text ): void {
 		throw self::_unimplemented();
 	}
 
@@ -441,14 +441,14 @@ trait Document {
 	 * @param string ...$text
 	 * @return void
 	 */
-	public function writeln( string ...$text ) : void {
+	public function writeln( string ...$text ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function hasFocus() : bool {
+	public function hasFocus(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -462,7 +462,7 @@ trait Document {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnreadystatechange( /* ?mixed */ $val ) : void {
+	public function setOnreadystatechange( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -483,35 +483,35 @@ trait Document {
 	/**
 	 * @return void
 	 */
-	public function clear() : void {
+	public function clear(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function captureEvents() : void {
+	public function captureEvents(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function releaseEvents() : void {
+	public function releaseEvents(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getHidden() : bool {
+	public function getHidden(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getVisibilityState() : /* VisibilityState */ string {
+	public function getVisibilityState(): /* VisibilityState */ string {
 		throw self::_unimplemented();
 	}
 
@@ -525,21 +525,21 @@ trait Document {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnvisibilitychange( /* ?mixed */ $val ) : void {
+	public function setOnvisibilitychange( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getEncoding() : string {
+	public function getEncoding(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setEncoding( string $val ) : void {
+	public function setEncoding( string $val ): void {
 		throw self::_unimplemented();
 	}
 

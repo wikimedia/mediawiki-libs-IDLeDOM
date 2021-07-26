@@ -31,7 +31,7 @@ trait HTMLFrameSetElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -175,7 +175,7 @@ trait HTMLFrameSetElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFrameSetElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFrameSetElement $this
 		switch ( $name ) {
@@ -309,7 +309,7 @@ trait HTMLFrameSetElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFrameSetElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFrameSetElement $this
 		switch ( $name ) {
@@ -405,7 +405,7 @@ trait HTMLFrameSetElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFrameSetElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFrameSetElement $this
 		switch ( $name ) {
@@ -553,7 +553,7 @@ trait HTMLFrameSetElement {
 	/**
 	 * @return string
 	 */
-	public function getCols() : string {
+	public function getCols(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'cols' ) ?? '';
@@ -562,7 +562,7 @@ trait HTMLFrameSetElement {
 	/**
 	 * @param string $val
 	 */
-	public function setCols( string $val ) : void {
+	public function setCols( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'cols', $val );
@@ -571,7 +571,7 @@ trait HTMLFrameSetElement {
 	/**
 	 * @return string
 	 */
-	public function getRows() : string {
+	public function getRows(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'rows' ) ?? '';
@@ -580,7 +580,7 @@ trait HTMLFrameSetElement {
 	/**
 	 * @param string $val
 	 */
-	public function setRows( string $val ) : void {
+	public function setRows( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'rows', $val );

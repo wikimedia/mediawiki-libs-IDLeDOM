@@ -30,7 +30,7 @@ interface Event {
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @return EventTarget|null
@@ -50,7 +50,7 @@ interface Event {
 	/**
 	 * @return list<EventTarget>
 	 */
-	public function composedPath() : array;
+	public function composedPath(): array;
 
 	/** @var int */
 	public const NONE = 0;
@@ -67,72 +67,72 @@ interface Event {
 	/**
 	 * @return int
 	 */
-	public function getEventPhase() : int;
+	public function getEventPhase(): int;
 
 	/**
 	 * @return void
 	 */
-	public function stopPropagation() : void;
+	public function stopPropagation(): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getCancelBubble() : bool;
+	public function getCancelBubble(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setCancelBubble( bool $val ) : void;
+	public function setCancelBubble( bool $val ): void;
 
 	/**
 	 * @return void
 	 */
-	public function stopImmediatePropagation() : void;
+	public function stopImmediatePropagation(): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getBubbles() : bool;
+	public function getBubbles(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getCancelable() : bool;
+	public function getCancelable(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getReturnValue() : bool;
+	public function getReturnValue(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setReturnValue( bool $val ) : void;
+	public function setReturnValue( bool $val ): void;
 
 	/**
 	 * @return void
 	 */
-	public function preventDefault() : void;
+	public function preventDefault(): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDefaultPrevented() : bool;
+	public function getDefaultPrevented(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getComposed() : bool;
+	public function getComposed(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getIsTrusted() : bool;
+	public function getIsTrusted(): bool;
 
 	/**
 	 * @return float
 	 */
-	public function getTimeStamp() : float;
+	public function getTimeStamp(): float;
 
 	/**
 	 * @param string $type
@@ -140,6 +140,6 @@ interface Event {
 	 * @param bool $cancelable
 	 * @return void
 	 */
-	public function initEvent( string $type, bool $bubbles = false, bool $cancelable = false ) : void;
+	public function initEvent( string $type, bool $bubbles = false, bool $cancelable = false ): void;
 
 }

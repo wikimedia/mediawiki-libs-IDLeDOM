@@ -17,11 +17,11 @@ interface CrossOrigin {
 	/**
 	 * @return ?string
 	 */
-	public function getCrossOrigin() : ?string;
+	public function getCrossOrigin(): ?string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setCrossOrigin( ?string $val ) : void;
+	public function setCrossOrigin( ?string $val ): void;
 
 }

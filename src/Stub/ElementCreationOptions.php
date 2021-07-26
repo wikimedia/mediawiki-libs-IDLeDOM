@@ -16,14 +16,14 @@ trait ElementCreationOptions {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getIs() : string {
+	public function getIs(): string {
 		throw self::_unimplemented();
 	}
 

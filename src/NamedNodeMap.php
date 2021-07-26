@@ -17,7 +17,7 @@ interface NamedNodeMap extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @param int $index

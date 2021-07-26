@@ -16,42 +16,42 @@ trait HTMLTableCellElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getColSpan() : int {
+	public function getColSpan(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setColSpan( int $val ) : void {
+	public function setColSpan( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getRowSpan() : int {
+	public function getRowSpan(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setRowSpan( int $val ) : void {
+	public function setRowSpan( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getCellIndex() : int {
+	public function getCellIndex(): int {
 		throw self::_unimplemented();
 	}
 

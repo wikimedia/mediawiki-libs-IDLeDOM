@@ -31,7 +31,7 @@ trait HTMLOutputElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -191,7 +191,7 @@ trait HTMLOutputElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOutputElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOutputElement $this
 		switch ( $name ) {
@@ -341,7 +341,7 @@ trait HTMLOutputElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOutputElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOutputElement $this
 		switch ( $name ) {
@@ -443,7 +443,7 @@ trait HTMLOutputElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOutputElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOutputElement $this
 		switch ( $name ) {
@@ -607,7 +607,7 @@ trait HTMLOutputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setHtmlFor( string $val ) : void {
+	public function setHtmlFor( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOutputElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOutputElement $this
 		$this->getHtmlFor()->setValue( $val );
@@ -616,7 +616,7 @@ trait HTMLOutputElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -625,7 +625,7 @@ trait HTMLOutputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );

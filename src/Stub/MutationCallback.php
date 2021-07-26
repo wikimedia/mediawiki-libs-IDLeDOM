@@ -18,7 +18,7 @@ trait MutationCallback {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -27,7 +27,7 @@ trait MutationCallback {
 	 * @param MutationObserver $observer
 	 * @return void
 	 */
-	public function invoke( array $mutations, /* MutationObserver */ $observer ) : void {
+	public function invoke( array $mutations, /* MutationObserver */ $observer ): void {
 		throw self::_unimplemented();
 	}
 

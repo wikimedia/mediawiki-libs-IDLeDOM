@@ -17,7 +17,7 @@ trait AbortController {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -31,7 +31,7 @@ trait AbortController {
 	/**
 	 * @return void
 	 */
-	public function abort() : void {
+	public function abort(): void {
 		throw self::_unimplemented();
 	}
 

@@ -101,17 +101,17 @@ interface HTMLMediaElement extends HTMLElement, CrossOrigin {
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCurrentSrc() : string;
+	public function getCurrentSrc(): string;
 
 	/** @var int */
 	public const NETWORK_EMPTY = 0;
@@ -128,17 +128,17 @@ interface HTMLMediaElement extends HTMLElement, CrossOrigin {
 	/**
 	 * @return int
 	 */
-	public function getNetworkState() : int;
+	public function getNetworkState(): int;
 
 	/**
 	 * @return string
 	 */
-	public function getPreload() : string;
+	public function getPreload(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setPreload( string $val ) : void;
+	public function setPreload( string $val ): void;
 
 	/**
 	 * @return TimeRanges
@@ -148,7 +148,7 @@ interface HTMLMediaElement extends HTMLElement, CrossOrigin {
 	/**
 	 * @return void
 	 */
-	public function load() : void;
+	public function load(): void;
 
 	/** @var int */
 	public const HAVE_NOTHING = 0;
@@ -168,52 +168,52 @@ interface HTMLMediaElement extends HTMLElement, CrossOrigin {
 	/**
 	 * @return int
 	 */
-	public function getReadyState() : int;
+	public function getReadyState(): int;
 
 	/**
 	 * @return bool
 	 */
-	public function getSeeking() : bool;
+	public function getSeeking(): bool;
 
 	/**
 	 * @return float
 	 */
-	public function getCurrentTime() : float;
+	public function getCurrentTime(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setCurrentTime( float $val ) : void;
+	public function setCurrentTime( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getDuration() : float;
+	public function getDuration(): float;
 
 	/**
 	 * @return bool
 	 */
-	public function getPaused() : bool;
+	public function getPaused(): bool;
 
 	/**
 	 * @return float
 	 */
-	public function getDefaultPlaybackRate() : float;
+	public function getDefaultPlaybackRate(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setDefaultPlaybackRate( float $val ) : void;
+	public function setDefaultPlaybackRate( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getPlaybackRate() : float;
+	public function getPlaybackRate(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setPlaybackRate( float $val ) : void;
+	public function setPlaybackRate( float $val ): void;
 
 	/**
 	 * @return TimeRanges
@@ -228,72 +228,72 @@ interface HTMLMediaElement extends HTMLElement, CrossOrigin {
 	/**
 	 * @return bool
 	 */
-	public function getEnded() : bool;
+	public function getEnded(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getAutoplay() : bool;
+	public function getAutoplay(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setAutoplay( bool $val ) : void;
+	public function setAutoplay( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getLoop() : bool;
+	public function getLoop(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setLoop( bool $val ) : void;
+	public function setLoop( bool $val ): void;
 
 	/**
 	 * @return void
 	 */
-	public function pause() : void;
+	public function pause(): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getControls() : bool;
+	public function getControls(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setControls( bool $val ) : void;
+	public function setControls( bool $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getVolume() : float;
+	public function getVolume(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setVolume( float $val ) : void;
+	public function setVolume( float $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getMuted() : bool;
+	public function getMuted(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setMuted( bool $val ) : void;
+	public function setMuted( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDefaultMuted() : bool;
+	public function getDefaultMuted(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDefaultMuted( bool $val ) : void;
+	public function setDefaultMuted( bool $val ): void;
 
 	/**
 	 * @return AudioTrackList

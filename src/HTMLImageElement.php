@@ -99,191 +99,191 @@ interface HTMLImageElement extends HTMLElement, CrossOrigin, ReferrerPolicy {
 	/**
 	 * @return string
 	 */
-	public function getAlt() : string;
+	public function getAlt(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlt( string $val ) : void;
+	public function setAlt( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrcset() : string;
+	public function getSrcset(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrcset( string $val ) : void;
+	public function setSrcset( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSizes() : string;
+	public function getSizes(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSizes( string $val ) : void;
+	public function setSizes( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getUseMap() : string;
+	public function getUseMap(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setUseMap( string $val ) : void;
+	public function setUseMap( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getIsMap() : bool;
+	public function getIsMap(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setIsMap( bool $val ) : void;
+	public function setIsMap( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getWidth() : int;
+	public function getWidth(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setWidth( int $val ) : void;
+	public function setWidth( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getHeight() : int;
+	public function getHeight(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setHeight( int $val ) : void;
+	public function setHeight( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getNaturalWidth() : int;
+	public function getNaturalWidth(): int;
 
 	/**
 	 * @return int
 	 */
-	public function getNaturalHeight() : int;
+	public function getNaturalHeight(): int;
 
 	/**
 	 * @return bool
 	 */
-	public function getComplete() : bool;
+	public function getComplete(): bool;
 
 	/**
 	 * @return string
 	 */
-	public function getCurrentSrc() : string;
+	public function getCurrentSrc(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getDecoding() : string;
+	public function getDecoding(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDecoding( string $val ) : void;
+	public function setDecoding( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLoading() : string;
+	public function getLoading(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLoading( string $val ) : void;
+	public function setLoading( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLowsrc() : string;
+	public function getLowsrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLowsrc( string $val ) : void;
+	public function setLowsrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getHspace() : int;
+	public function getHspace(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setHspace( int $val ) : void;
+	public function setHspace( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getVspace() : int;
+	public function getVspace(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setVspace( int $val ) : void;
+	public function setVspace( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLongDesc() : string;
+	public function getLongDesc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLongDesc( string $val ) : void;
+	public function setLongDesc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBorder() : string;
+	public function getBorder(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setBorder( ?string $val ) : void;
+	public function setBorder( ?string $val ): void;
 
 }

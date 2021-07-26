@@ -20,7 +20,7 @@ interface EventTarget {
 	 * @param AddEventListenerOptions|associative-array|bool|null $options
 	 * @return void
 	 */
-	public function addEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ) : void;
+	public function addEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ): void;
 
 	/**
 	 * @param string $type
@@ -28,12 +28,12 @@ interface EventTarget {
 	 * @param EventListenerOptions|associative-array|bool|null $options
 	 * @return void
 	 */
-	public function removeEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ) : void;
+	public function removeEventListener( string $type, /* ?mixed */ $callback, /* ?mixed */ $options = null ): void;
 
 	/**
 	 * @param Event $event
 	 * @return bool
 	 */
-	public function dispatchEvent( /* Event */ $event ) : bool;
+	public function dispatchEvent( /* Event */ $event ): bool;
 
 }

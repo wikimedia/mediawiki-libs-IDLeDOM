@@ -31,7 +31,7 @@ trait AudioTrackList {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -63,7 +63,7 @@ trait AudioTrackList {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\AudioTrackList $this';
 		// @var \Wikimedia\IDLeDOM\AudioTrackList $this
 		switch ( $name ) {
@@ -85,7 +85,7 @@ trait AudioTrackList {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\AudioTrackList $this';
 		// @var \Wikimedia\IDLeDOM\AudioTrackList $this
 		switch ( $name ) {
@@ -109,7 +109,7 @@ trait AudioTrackList {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\AudioTrackList $this';
 		// @var \Wikimedia\IDLeDOM\AudioTrackList $this
 		switch ( $name ) {
@@ -189,7 +189,7 @@ trait AudioTrackList {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\AudioTrackList $this';
 		// @var \Wikimedia\IDLeDOM\AudioTrackList $this
 		if ( is_numeric( $offset ) ) {
@@ -216,7 +216,7 @@ trait AudioTrackList {
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		'@phan-var \Wikimedia\IDLeDOM\AudioTrackList $this';
 		// @var \Wikimedia\IDLeDOM\AudioTrackList $this
 		if ( is_numeric( $offset ) ) {

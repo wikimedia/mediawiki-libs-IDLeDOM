@@ -23,12 +23,12 @@ interface StyleSheet {
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @return ?string
 	 */
-	public function getHref() : ?string;
+	public function getHref(): ?string;
 
 	/**
 	 * @return Element|ProcessingInstruction|null
@@ -43,7 +43,7 @@ interface StyleSheet {
 	/**
 	 * @return ?string
 	 */
-	public function getTitle() : ?string;
+	public function getTitle(): ?string;
 
 	/**
 	 * @return MediaList
@@ -53,16 +53,16 @@ interface StyleSheet {
 	/**
 	 * @param ?string $val
 	 */
-	public function setMedia( ?string $val ) : void;
+	public function setMedia( ?string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool;
+	public function getDisabled(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void;
+	public function setDisabled( bool $val ): void;
 
 }

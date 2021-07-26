@@ -20,7 +20,7 @@ trait HTMLTableElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -34,7 +34,7 @@ trait HTMLTableElement {
 	/**
 	 * @param HTMLTableCaptionElement|null $val
 	 */
-	public function setCaption( /* ?HTMLTableCaptionElement */ $val ) : void {
+	public function setCaption( /* ?HTMLTableCaptionElement */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -48,7 +48,7 @@ trait HTMLTableElement {
 	/**
 	 * @return void
 	 */
-	public function deleteCaption() : void {
+	public function deleteCaption(): void {
 		throw self::_unimplemented();
 	}
 
@@ -62,7 +62,7 @@ trait HTMLTableElement {
 	/**
 	 * @param HTMLTableSectionElement|null $val
 	 */
-	public function setTHead( /* ?HTMLTableSectionElement */ $val ) : void {
+	public function setTHead( /* ?HTMLTableSectionElement */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -76,7 +76,7 @@ trait HTMLTableElement {
 	/**
 	 * @return void
 	 */
-	public function deleteTHead() : void {
+	public function deleteTHead(): void {
 		throw self::_unimplemented();
 	}
 
@@ -90,7 +90,7 @@ trait HTMLTableElement {
 	/**
 	 * @param HTMLTableSectionElement|null $val
 	 */
-	public function setTFoot( /* ?HTMLTableSectionElement */ $val ) : void {
+	public function setTFoot( /* ?HTMLTableSectionElement */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -104,7 +104,7 @@ trait HTMLTableElement {
 	/**
 	 * @return void
 	 */
-	public function deleteTFoot() : void {
+	public function deleteTFoot(): void {
 		throw self::_unimplemented();
 	}
 
@@ -141,7 +141,7 @@ trait HTMLTableElement {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRow( int $index ) : void {
+	public function deleteRow( int $index ): void {
 		throw self::_unimplemented();
 	}
 

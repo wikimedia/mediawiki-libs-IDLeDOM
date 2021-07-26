@@ -17,14 +17,14 @@ trait Event {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		throw self::_unimplemented();
 	}
 
@@ -52,105 +52,105 @@ trait Event {
 	/**
 	 * @return list<EventTarget>
 	 */
-	public function composedPath() : array {
+	public function composedPath(): array {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getEventPhase() : int {
+	public function getEventPhase(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function stopPropagation() : void {
+	public function stopPropagation(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getCancelBubble() : bool {
+	public function getCancelBubble(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setCancelBubble( bool $val ) : void {
+	public function setCancelBubble( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function stopImmediatePropagation() : void {
+	public function stopImmediatePropagation(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getBubbles() : bool {
+	public function getBubbles(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getCancelable() : bool {
+	public function getCancelable(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getReturnValue() : bool {
+	public function getReturnValue(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setReturnValue( bool $val ) : void {
+	public function setReturnValue( bool $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function preventDefault() : void {
+	public function preventDefault(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getDefaultPrevented() : bool {
+	public function getDefaultPrevented(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getComposed() : bool {
+	public function getComposed(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getIsTrusted() : bool {
+	public function getIsTrusted(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getTimeStamp() : float {
+	public function getTimeStamp(): float {
 		throw self::_unimplemented();
 	}
 
@@ -160,7 +160,7 @@ trait Event {
 	 * @param bool $cancelable
 	 * @return void
 	 */
-	public function initEvent( string $type, bool $bubbles = false, bool $cancelable = false ) : void {
+	public function initEvent( string $type, bool $bubbles = false, bool $cancelable = false ): void {
 		throw self::_unimplemented();
 	}
 

@@ -22,11 +22,11 @@ abstract class ShadowRootInit implements \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	abstract public function getMode() : /* ShadowRootMode */ string;
+	abstract public function getMode(): /* ShadowRootMode */ string;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getDelegatesFocus() : bool;
+	abstract public function getDelegatesFocus(): bool;
 
 }

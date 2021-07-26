@@ -22,6 +22,6 @@ interface ElementCSSInlineStyle {
 	/**
 	 * @param string $val
 	 */
-	public function setStyle( string $val ) : void;
+	public function setStyle( string $val ): void;
 
 }

@@ -53,22 +53,22 @@ interface XPathResult {
 	/**
 	 * @return int
 	 */
-	public function getResultType() : int;
+	public function getResultType(): int;
 
 	/**
 	 * @return float
 	 */
-	public function getNumberValue() : float;
+	public function getNumberValue(): float;
 
 	/**
 	 * @return string
 	 */
-	public function getStringValue() : string;
+	public function getStringValue(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function getBooleanValue() : bool;
+	public function getBooleanValue(): bool;
 
 	/**
 	 * @return Node|null
@@ -78,12 +78,12 @@ interface XPathResult {
 	/**
 	 * @return bool
 	 */
-	public function getInvalidIteratorState() : bool;
+	public function getInvalidIteratorState(): bool;
 
 	/**
 	 * @return int
 	 */
-	public function getSnapshotLength() : int;
+	public function getSnapshotLength(): int;
 
 	/**
 	 * @return Node|null

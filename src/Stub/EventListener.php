@@ -17,7 +17,7 @@ trait EventListener {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -25,7 +25,7 @@ trait EventListener {
 	 * @param Event $event
 	 * @return void
 	 */
-	public function handleEvent( /* Event */ $event ) : void {
+	public function handleEvent( /* Event */ $event ): void {
 		throw self::_unimplemented();
 	}
 

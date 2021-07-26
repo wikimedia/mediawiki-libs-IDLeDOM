@@ -47,7 +47,7 @@ trait StyleSheetList {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -88,7 +88,7 @@ trait StyleSheetList {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheetList $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheetList $this
 		switch ( $name ) {
@@ -149,7 +149,7 @@ trait StyleSheetList {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheetList $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheetList $this
 		if ( is_numeric( $offset ) ) {
@@ -176,7 +176,7 @@ trait StyleSheetList {
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheetList $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheetList $this
 		if ( is_numeric( $offset ) ) {

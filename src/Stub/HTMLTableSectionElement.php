@@ -18,7 +18,7 @@ trait HTMLTableSectionElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -41,7 +41,7 @@ trait HTMLTableSectionElement {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRow( int $index ) : void {
+	public function deleteRow( int $index ): void {
 		throw self::_unimplemented();
 	}
 

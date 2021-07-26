@@ -18,7 +18,7 @@ trait NodeIterator {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -39,14 +39,14 @@ trait NodeIterator {
 	/**
 	 * @return bool
 	 */
-	public function getPointerBeforeReferenceNode() : bool {
+	public function getPointerBeforeReferenceNode(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getWhatToShow() : int {
+	public function getWhatToShow(): int {
 		throw self::_unimplemented();
 	}
 
@@ -74,7 +74,7 @@ trait NodeIterator {
 	/**
 	 * @return void
 	 */
-	public function detach() : void {
+	public function detach(): void {
 		throw self::_unimplemented();
 	}
 

@@ -31,7 +31,7 @@ trait HTMLOptionElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -187,7 +187,7 @@ trait HTMLOptionElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptionElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOptionElement $this
 		switch ( $name ) {
@@ -333,7 +333,7 @@ trait HTMLOptionElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptionElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOptionElement $this
 		switch ( $name ) {
@@ -441,7 +441,7 @@ trait HTMLOptionElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptionElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOptionElement $this
 		switch ( $name ) {
@@ -601,7 +601,7 @@ trait HTMLOptionElement {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool {
+	public function getDisabled(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
@@ -610,7 +610,7 @@ trait HTMLOptionElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void {
+	public function setDisabled( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -623,7 +623,7 @@ trait HTMLOptionElement {
 	/**
 	 * @return bool
 	 */
-	public function getDefaultSelected() : bool {
+	public function getDefaultSelected(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'selected' );
@@ -632,7 +632,7 @@ trait HTMLOptionElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDefaultSelected( bool $val ) : void {
+	public function setDefaultSelected( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {

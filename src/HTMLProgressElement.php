@@ -80,27 +80,27 @@ interface HTMLProgressElement extends HTMLElement {
 	/**
 	 * @return float
 	 */
-	public function getValue() : float;
+	public function getValue(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setValue( float $val ) : void;
+	public function setValue( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getMax() : float;
+	public function getMax(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setMax( float $val ) : void;
+	public function setMax( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getPosition() : float;
+	public function getPosition(): float;
 
 	/**
 	 * @return NodeList

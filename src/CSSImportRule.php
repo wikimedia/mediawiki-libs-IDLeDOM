@@ -25,7 +25,7 @@ interface CSSImportRule extends CSSRule {
 	/**
 	 * @return string
 	 */
-	public function getHref() : string;
+	public function getHref(): string;
 
 	/**
 	 * @return MediaList
@@ -35,7 +35,7 @@ interface CSSImportRule extends CSSRule {
 	/**
 	 * @param ?string $val
 	 */
-	public function setMedia( ?string $val ) : void;
+	public function setMedia( ?string $val ): void;
 
 	/**
 	 * @return CSSStyleSheet

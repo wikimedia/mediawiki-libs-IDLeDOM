@@ -77,11 +77,11 @@ interface HTMLTitleElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getText() : string;
+	public function getText(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setText( string $val ) : void;
+	public function setText( string $val ): void;
 
 }

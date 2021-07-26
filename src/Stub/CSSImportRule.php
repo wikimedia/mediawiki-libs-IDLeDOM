@@ -18,14 +18,14 @@ trait CSSImportRule {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getHref() : string {
+	public function getHref(): string {
 		throw self::_unimplemented();
 	}
 

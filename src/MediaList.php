@@ -18,34 +18,34 @@ interface MediaList extends \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	public function getMediaText() : string;
+	public function getMediaText(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setMediaText( ?string $val ) : void;
+	public function setMediaText( ?string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @param int $index
 	 * @return ?string
 	 */
-	public function item( int $index ) : ?string;
+	public function item( int $index ): ?string;
 
 	/**
 	 * @param string $medium
 	 * @return void
 	 */
-	public function appendMedium( string $medium ) : void;
+	public function appendMedium( string $medium ): void;
 
 	/**
 	 * @param string $medium
 	 * @return void
 	 */
-	public function deleteMedium( string $medium ) : void;
+	public function deleteMedium( string $medium ): void;
 
 }

@@ -78,21 +78,21 @@ interface HTMLLIElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getValue() : int;
+	public function getValue(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setValue( int $val ) : void;
+	public function setValue( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 }

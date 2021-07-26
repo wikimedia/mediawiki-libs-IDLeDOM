@@ -18,6 +18,6 @@ interface XMLSerializer {
 	 * @param Node $root
 	 * @return string
 	 */
-	public function serializeToString( /* Node */ $root ) : string;
+	public function serializeToString( /* Node */ $root ): string;
 
 }

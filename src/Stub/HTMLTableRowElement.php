@@ -18,21 +18,21 @@ trait HTMLTableRowElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getRowIndex() : int {
+	public function getRowIndex(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getSectionRowIndex() : int {
+	public function getSectionRowIndex(): int {
 		throw self::_unimplemented();
 	}
 
@@ -55,7 +55,7 @@ trait HTMLTableRowElement {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteCell( int $index ) : void {
+	public function deleteCell( int $index ): void {
 		throw self::_unimplemented();
 	}
 

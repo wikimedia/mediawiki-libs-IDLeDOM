@@ -26,56 +26,56 @@ interface NavigatorID {
 	/**
 	 * @return string
 	 */
-	public function getAppCodeName() : string;
+	public function getAppCodeName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getAppName() : string;
+	public function getAppName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getAppVersion() : string;
+	public function getAppVersion(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getPlatform() : string;
+	public function getPlatform(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getProduct() : string;
+	public function getProduct(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getProductSub() : string;
+	public function getProductSub(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getUserAgent() : string;
+	public function getUserAgent(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getVendor() : string;
+	public function getVendor(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getVendorSub() : string;
+	public function getVendorSub(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function taintEnabled() : bool;
+	public function taintEnabled(): bool;
 
 	/**
 	 * @return string
 	 */
-	public function getOscpu() : string;
+	public function getOscpu(): string;
 
 }

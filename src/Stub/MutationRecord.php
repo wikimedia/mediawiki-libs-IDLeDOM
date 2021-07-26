@@ -18,14 +18,14 @@ trait MutationRecord {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		throw self::_unimplemented();
 	}
 
@@ -67,21 +67,21 @@ trait MutationRecord {
 	/**
 	 * @return ?string
 	 */
-	public function getAttributeName() : ?string {
+	public function getAttributeName(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
-	public function getAttributeNamespace() : ?string {
+	public function getAttributeNamespace(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
-	public function getOldValue() : ?string {
+	public function getOldValue(): ?string {
 		throw self::_unimplemented();
 	}
 

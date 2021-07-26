@@ -23,7 +23,7 @@ abstract class CSSStyleSheetInit implements \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	abstract public function getBaseURL() : string;
+	abstract public function getBaseURL(): string;
 
 	/**
 	 * @return MediaList|string
@@ -33,6 +33,6 @@ abstract class CSSStyleSheetInit implements \ArrayAccess {
 	/**
 	 * @return bool
 	 */
-	abstract public function getDisabled() : bool;
+	abstract public function getDisabled(): bool;
 
 }

@@ -97,42 +97,42 @@ interface HTMLObjectElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getData() : string;
+	public function getData(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setData( string $val ) : void;
+	public function setData( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getUseMap() : string;
+	public function getUseMap(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setUseMap( string $val ) : void;
+	public function setUseMap( string $val ): void;
 
 	/**
 	 * @return HTMLFormElement|null
@@ -142,22 +142,22 @@ interface HTMLObjectElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHeight() : string;
+	public function getHeight(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHeight( string $val ) : void;
+	public function setHeight( string $val ): void;
 
 	/**
 	 * @return Document|null
@@ -167,7 +167,7 @@ interface HTMLObjectElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool;
+	public function getWillValidate(): bool;
 
 	/**
 	 * @return ValidityState
@@ -177,122 +177,122 @@ interface HTMLObjectElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string;
+	public function getValidationMessage(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool;
+	public function checkValidity(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool;
+	public function reportValidity(): bool;
 
 	/**
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void;
+	public function setCustomValidity( string $error ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getArchive() : string;
+	public function getArchive(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setArchive( string $val ) : void;
+	public function setArchive( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCode() : string;
+	public function getCode(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCode( string $val ) : void;
+	public function setCode( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDeclare() : bool;
+	public function getDeclare(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDeclare( bool $val ) : void;
+	public function setDeclare( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getHspace() : int;
+	public function getHspace(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setHspace( int $val ) : void;
+	public function setHspace( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getStandby() : string;
+	public function getStandby(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setStandby( string $val ) : void;
+	public function setStandby( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getVspace() : int;
+	public function getVspace(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setVspace( int $val ) : void;
+	public function setVspace( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCodeBase() : string;
+	public function getCodeBase(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCodeBase( string $val ) : void;
+	public function setCodeBase( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCodeType() : string;
+	public function getCodeType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCodeType( string $val ) : void;
+	public function setCodeType( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBorder() : string;
+	public function getBorder(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setBorder( ?string $val ) : void;
+	public function setBorder( ?string $val ): void;
 
 }

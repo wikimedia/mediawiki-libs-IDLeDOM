@@ -17,6 +17,6 @@ interface XPathNSResolver {
 	 * @param ?string $prefix
 	 * @return ?string
 	 */
-	public function lookupNamespaceURI( ?string $prefix ) : ?string;
+	public function lookupNamespaceURI( ?string $prefix ): ?string;
 
 }

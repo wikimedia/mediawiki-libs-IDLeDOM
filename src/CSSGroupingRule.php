@@ -30,12 +30,12 @@ interface CSSGroupingRule extends CSSRule {
 	 * @param int $index
 	 * @return int
 	 */
-	public function insertRule( string $rule, int $index = 0 ) : int;
+	public function insertRule( string $rule, int $index = 0 ): int;
 
 	/**
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRule( int $index ) : void;
+	public function deleteRule( int $index ): void;
 
 }

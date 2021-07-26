@@ -16,49 +16,49 @@ trait AudioTrack {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getKind() : string {
+	public function getKind(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string {
+	public function getLabel(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLanguage() : string {
+	public function getLanguage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getEnabled() : bool {
+	public function getEnabled(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setEnabled( bool $val ) : void {
+	public function setEnabled( bool $val ): void {
 		throw self::_unimplemented();
 	}
 

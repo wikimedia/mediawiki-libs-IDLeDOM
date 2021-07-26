@@ -75,37 +75,37 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @return string
 	 */
-	public function getURL() : string;
+	public function getURL(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getDocumentURI() : string;
+	public function getDocumentURI(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getCompatMode() : string;
+	public function getCompatMode(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getCharacterSet() : string;
+	public function getCharacterSet(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getCharset() : string;
+	public function getCharset(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getInputEncoding() : string;
+	public function getInputEncoding(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getContentType() : string;
+	public function getContentType(): string;
 
 	/**
 	 * @return DocumentType|null
@@ -242,47 +242,47 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @param string $val
 	 */
-	public function setLocation( string $val ) : void;
+	public function setLocation( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getReferrer() : string;
+	public function getReferrer(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getCookie() : string;
+	public function getCookie(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCookie( string $val ) : void;
+	public function setCookie( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLastModified() : string;
+	public function getLastModified(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getTitle() : string;
+	public function getTitle(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setTitle( string $val ) : void;
+	public function setTitle( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDir() : string;
+	public function getDir(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDir( string $val ) : void;
+	public function setDir( string $val ): void;
 
 	/**
 	 * @return HTMLElement|null
@@ -292,7 +292,7 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @param HTMLElement|null $val
 	 */
-	public function setBody( /* ?HTMLElement */ $val ) : void;
+	public function setBody( /* ?HTMLElement */ $val ): void;
 
 	/**
 	 * @return HTMLHeadElement|null
@@ -350,24 +350,24 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @return void
 	 */
-	public function close() : void;
+	public function close(): void;
 
 	/**
 	 * @param string ...$text
 	 * @return void
 	 */
-	public function write( string ...$text ) : void;
+	public function write( string ...$text ): void;
 
 	/**
 	 * @param string ...$text
 	 * @return void
 	 */
-	public function writeln( string ...$text ) : void;
+	public function writeln( string ...$text ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function hasFocus() : bool;
+	public function hasFocus(): bool;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -377,7 +377,7 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnreadystatechange( /* ?mixed */ $val ) : void;
+	public function setOnreadystatechange( /* ?mixed */ $val ): void;
 
 	/**
 	 * @return HTMLCollection
@@ -392,27 +392,27 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @return void
 	 */
-	public function clear() : void;
+	public function clear(): void;
 
 	/**
 	 * @return void
 	 */
-	public function captureEvents() : void;
+	public function captureEvents(): void;
 
 	/**
 	 * @return void
 	 */
-	public function releaseEvents() : void;
+	public function releaseEvents(): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getHidden() : bool;
+	public function getHidden(): bool;
 
 	/**
 	 * @return string
 	 */
-	public function getVisibilityState() : /* VisibilityState */ string;
+	public function getVisibilityState(): /* VisibilityState */ string;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -422,17 +422,17 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnvisibilitychange( /* ?mixed */ $val ) : void;
+	public function setOnvisibilitychange( /* ?mixed */ $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getEncoding() : string;
+	public function getEncoding(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setEncoding( string $val ) : void;
+	public function setEncoding( string $val ): void;
 
 	/**
 	 * @param string $source

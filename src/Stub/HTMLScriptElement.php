@@ -17,35 +17,35 @@ trait HTMLScriptElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string {
+	public function getSrc(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void {
+	public function setSrc( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getText() : string {
+	public function getText(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setText( string $val ) : void {
+	public function setText( string $val ): void {
 		throw self::_unimplemented();
 	}
 

@@ -20,11 +20,11 @@ interface RadioNodeList extends NodeList {
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void;
+	public function setValue( string $val ): void;
 
 }

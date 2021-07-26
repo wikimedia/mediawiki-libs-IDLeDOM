@@ -17,18 +17,18 @@ interface TimeRanges {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @param int $index
 	 * @return float
 	 */
-	public function start( int $index ) : float;
+	public function start( int $index ): float;
 
 	/**
 	 * @param int $index
 	 * @return float
 	 */
-	public function end( int $index ) : float;
+	public function end( int $index ): float;
 
 }

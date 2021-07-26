@@ -25,12 +25,12 @@ abstract class AddEventListenerOptions extends EventListenerOptions {
 	/**
 	 * @return bool
 	 */
-	abstract public function getPassive() : bool;
+	abstract public function getPassive(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getOnce() : bool;
+	abstract public function getOnce(): bool;
 
 	/**
 	 * @return AbortSignal

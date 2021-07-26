@@ -16,14 +16,14 @@ trait DOMTokenList {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
@@ -31,7 +31,7 @@ trait DOMTokenList {
 	 * @param int $index
 	 * @return ?string
 	 */
-	public function item( int $index ) : ?string {
+	public function item( int $index ): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -39,7 +39,7 @@ trait DOMTokenList {
 	 * @param string $token
 	 * @return bool
 	 */
-	public function contains( string $token ) : bool {
+	public function contains( string $token ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -47,7 +47,7 @@ trait DOMTokenList {
 	 * @param string ...$tokens
 	 * @return void
 	 */
-	public function add( string ...$tokens ) : void {
+	public function add( string ...$tokens ): void {
 		throw self::_unimplemented();
 	}
 
@@ -55,7 +55,7 @@ trait DOMTokenList {
 	 * @param string ...$tokens
 	 * @return void
 	 */
-	public function remove( string ...$tokens ) : void {
+	public function remove( string ...$tokens ): void {
 		throw self::_unimplemented();
 	}
 
@@ -64,7 +64,7 @@ trait DOMTokenList {
 	 * @param ?bool $force
 	 * @return bool
 	 */
-	public function toggle( string $token, ?bool $force = null ) : bool {
+	public function toggle( string $token, ?bool $force = null ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -73,7 +73,7 @@ trait DOMTokenList {
 	 * @param string $newToken
 	 * @return bool
 	 */
-	public function replace( string $token, string $newToken ) : bool {
+	public function replace( string $token, string $newToken ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -81,21 +81,21 @@ trait DOMTokenList {
 	 * @param string $token
 	 * @return bool
 	 */
-	public function supports( string $token ) : bool {
+	public function supports( string $token ): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string {
+	public function getValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void {
+	public function setValue( string $val ): void {
 		throw self::_unimplemented();
 	}
 

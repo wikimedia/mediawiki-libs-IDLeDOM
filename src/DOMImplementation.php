@@ -38,6 +38,6 @@ interface DOMImplementation {
 	/**
 	 * @return bool
 	 */
-	public function hasFeature() : bool;
+	public function hasFeature(): bool;
 
 }

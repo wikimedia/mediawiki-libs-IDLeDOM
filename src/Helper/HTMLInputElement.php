@@ -31,7 +31,7 @@ trait HTMLInputElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -253,7 +253,7 @@ trait HTMLInputElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLInputElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLInputElement $this
 		switch ( $name ) {
@@ -465,7 +465,7 @@ trait HTMLInputElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLInputElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLInputElement $this
 		switch ( $name ) {
@@ -660,7 +660,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLInputElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLInputElement $this
 		switch ( $name ) {
@@ -889,7 +889,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getAccept() : string {
+	public function getAccept(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'accept' ) ?? '';
@@ -898,7 +898,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAccept( string $val ) : void {
+	public function setAccept( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'accept', $val );
@@ -907,7 +907,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getAlt() : string {
+	public function getAlt(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'alt' ) ?? '';
@@ -916,7 +916,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAlt( string $val ) : void {
+	public function setAlt( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'alt', $val );
@@ -925,7 +925,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string {
+	public function getAutocomplete(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'autocomplete' );
@@ -945,7 +945,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void {
+	public function setAutocomplete( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'autocomplete', $val );
@@ -954,7 +954,7 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool {
+	public function getAutofocus(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autofocus' );
@@ -963,7 +963,7 @@ trait HTMLInputElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setAutofocus( bool $val ) : void {
+	public function setAutofocus( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -976,7 +976,7 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getDefaultChecked() : bool {
+	public function getDefaultChecked(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'checked' );
@@ -985,7 +985,7 @@ trait HTMLInputElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDefaultChecked( bool $val ) : void {
+	public function setDefaultChecked( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -998,7 +998,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getDirName() : string {
+	public function getDirName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'dirname' ) ?? '';
@@ -1007,7 +1007,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setDirName( string $val ) : void {
+	public function setDirName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'dirname', $val );
@@ -1016,7 +1016,7 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool {
+	public function getDisabled(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
@@ -1025,7 +1025,7 @@ trait HTMLInputElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void {
+	public function setDisabled( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -1038,7 +1038,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getFormEnctype() : string {
+	public function getFormEnctype(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'formenctype' );
@@ -1059,7 +1059,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setFormEnctype( string $val ) : void {
+	public function setFormEnctype( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'formenctype', $val );
@@ -1068,7 +1068,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getFormMethod() : string {
+	public function getFormMethod(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'formmethod' );
@@ -1089,7 +1089,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setFormMethod( string $val ) : void {
+	public function setFormMethod( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'formmethod', $val );
@@ -1098,7 +1098,7 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getFormNoValidate() : bool {
+	public function getFormNoValidate(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'formnovalidate' );
@@ -1107,7 +1107,7 @@ trait HTMLInputElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setFormNoValidate( bool $val ) : void {
+	public function setFormNoValidate( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -1120,7 +1120,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getFormTarget() : string {
+	public function getFormTarget(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'formtarget' ) ?? '';
@@ -1129,7 +1129,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setFormTarget( string $val ) : void {
+	public function setFormTarget( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'formtarget', $val );
@@ -1138,7 +1138,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getMax() : string {
+	public function getMax(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'max' ) ?? '';
@@ -1147,7 +1147,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setMax( string $val ) : void {
+	public function setMax( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'max', $val );
@@ -1156,7 +1156,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getMin() : string {
+	public function getMin(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'min' ) ?? '';
@@ -1165,7 +1165,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setMin( string $val ) : void {
+	public function setMin( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'min', $val );
@@ -1174,7 +1174,7 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getMultiple() : bool {
+	public function getMultiple(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'multiple' );
@@ -1183,7 +1183,7 @@ trait HTMLInputElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setMultiple( bool $val ) : void {
+	public function setMultiple( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -1196,7 +1196,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -1205,7 +1205,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
@@ -1214,7 +1214,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getPattern() : string {
+	public function getPattern(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'pattern' ) ?? '';
@@ -1223,7 +1223,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setPattern( string $val ) : void {
+	public function setPattern( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'pattern', $val );
@@ -1232,7 +1232,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getPlaceholder() : string {
+	public function getPlaceholder(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'placeholder' ) ?? '';
@@ -1241,7 +1241,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setPlaceholder( string $val ) : void {
+	public function setPlaceholder( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'placeholder', $val );
@@ -1250,7 +1250,7 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getReadOnly() : bool {
+	public function getReadOnly(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'readonly' );
@@ -1259,7 +1259,7 @@ trait HTMLInputElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setReadOnly( bool $val ) : void {
+	public function setReadOnly( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -1272,7 +1272,7 @@ trait HTMLInputElement {
 	/**
 	 * @return bool
 	 */
-	public function getRequired() : bool {
+	public function getRequired(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'required' );
@@ -1281,7 +1281,7 @@ trait HTMLInputElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setRequired( bool $val ) : void {
+	public function setRequired( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -1294,7 +1294,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getStep() : string {
+	public function getStep(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'step' ) ?? '';
@@ -1303,7 +1303,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setStep( string $val ) : void {
+	public function setStep( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'step', $val );
@@ -1312,7 +1312,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'type' );
@@ -1352,7 +1352,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void {
+	public function setType( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );
@@ -1361,7 +1361,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getDefaultValue() : string {
+	public function getDefaultValue(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'value' ) ?? '';
@@ -1370,7 +1370,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setDefaultValue( string $val ) : void {
+	public function setDefaultValue( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'value', $val );
@@ -1379,7 +1379,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string {
+	public function getAlign(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
@@ -1388,7 +1388,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void {
+	public function setAlign( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
@@ -1397,7 +1397,7 @@ trait HTMLInputElement {
 	/**
 	 * @return string
 	 */
-	public function getUseMap() : string {
+	public function getUseMap(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'usemap' ) ?? '';
@@ -1406,7 +1406,7 @@ trait HTMLInputElement {
 	/**
 	 * @param string $val
 	 */
-	public function setUseMap( string $val ) : void {
+	public function setUseMap( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'usemap', $val );

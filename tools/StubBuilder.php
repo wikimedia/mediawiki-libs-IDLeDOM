@@ -37,13 +37,19 @@ class StubBuilder extends Builder {
 		$this->nl( '/**' );
 		$this->nl( ' * @return Exception' );
 		$this->nl( ' */' );
-		$this->nl( 'abstract protected function _unimplemented() : Exception;' );
+		$this->nl( 'abstract protected function _unimplemented(): Exception;' );
 		$this->nl();
 		$this->nl( '// phpcs:enable' );
 		$this->nl();
 	}
 
-	private function collectMixins( string $topName, array &$mixins ) {
+	/**
+	 * Recursively follow inheritance tree to ensure that `$mixins` contains
+	 * *all* the mixins inherited by `$topName`.
+	 * @param string $topName
+	 * @param array &$mixins
+	 */
+	private function collectMixins( string $topName, array &$mixins ): void {
 		foreach ( $this->gen->mixins( $topName ) as $m ) {
 			if ( !in_array( $m, $mixins, true ) ) {
 				$mixins[] = $m;
@@ -79,7 +85,7 @@ class StubBuilder extends Builder {
 		$this->nl( '/**' );
 		$this->nl( " * @param {$info['setterTypeDoc']} \$val" );
 		$this->nl( ' */' );
-		$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ) : void {" );
+		$this->nl( "public function {$info['setter']}( {$info['setterType']} \$val ): void {" );
 		$this->nl( 'throw self::_unimplemented();' );
 		$this->nl( '}' );
 	}

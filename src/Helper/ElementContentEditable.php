@@ -47,7 +47,7 @@ trait ElementContentEditable {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -69,7 +69,7 @@ trait ElementContentEditable {
 	/**
 	 * @return string
 	 */
-	public function getEnterKeyHint() : string {
+	public function getEnterKeyHint(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enterkeyhint' );
@@ -94,7 +94,7 @@ trait ElementContentEditable {
 	/**
 	 * @param string $val
 	 */
-	public function setEnterKeyHint( string $val ) : void {
+	public function setEnterKeyHint( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enterkeyhint', $val );
@@ -103,7 +103,7 @@ trait ElementContentEditable {
 	/**
 	 * @return string
 	 */
-	public function getInputMode() : string {
+	public function getInputMode(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'inputmode' );
@@ -129,7 +129,7 @@ trait ElementContentEditable {
 	/**
 	 * @param string $val
 	 */
-	public function setInputMode( string $val ) : void {
+	public function setInputMode( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'inputmode', $val );

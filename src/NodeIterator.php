@@ -31,12 +31,12 @@ interface NodeIterator {
 	/**
 	 * @return bool
 	 */
-	public function getPointerBeforeReferenceNode() : bool;
+	public function getPointerBeforeReferenceNode(): bool;
 
 	/**
 	 * @return int
 	 */
-	public function getWhatToShow() : int;
+	public function getWhatToShow(): int;
 
 	/**
 	 * @return NodeFilter|callable|null
@@ -56,6 +56,6 @@ interface NodeIterator {
 	/**
 	 * @return void
 	 */
-	public function detach() : void;
+	public function detach(): void;
 
 }

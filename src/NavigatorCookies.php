@@ -17,6 +17,6 @@ interface NavigatorCookies {
 	/**
 	 * @return bool
 	 */
-	public function getCookieEnabled() : bool;
+	public function getCookieEnabled(): bool;
 
 }

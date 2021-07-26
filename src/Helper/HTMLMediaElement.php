@@ -31,7 +31,7 @@ trait HTMLMediaElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -221,7 +221,7 @@ trait HTMLMediaElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMediaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMediaElement $this
 		switch ( $name ) {
@@ -401,7 +401,7 @@ trait HTMLMediaElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMediaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMediaElement $this
 		switch ( $name ) {
@@ -527,7 +527,7 @@ trait HTMLMediaElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMediaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMediaElement $this
 		switch ( $name ) {
@@ -722,7 +722,7 @@ trait HTMLMediaElement {
 	/**
 	 * @return ?string
 	 */
-	public function getCrossOrigin() : ?string {
+	public function getCrossOrigin(): ?string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
@@ -742,7 +742,7 @@ trait HTMLMediaElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setCrossOrigin( ?string $val ) : void {
+	public function setCrossOrigin( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {
@@ -755,7 +755,7 @@ trait HTMLMediaElement {
 	/**
 	 * @return string
 	 */
-	public function getPreload() : string {
+	public function getPreload(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'preload' );
@@ -776,7 +776,7 @@ trait HTMLMediaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setPreload( string $val ) : void {
+	public function setPreload( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'preload', $val );
@@ -785,7 +785,7 @@ trait HTMLMediaElement {
 	/**
 	 * @return bool
 	 */
-	public function getAutoplay() : bool {
+	public function getAutoplay(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autoplay' );
@@ -794,7 +794,7 @@ trait HTMLMediaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setAutoplay( bool $val ) : void {
+	public function setAutoplay( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -807,7 +807,7 @@ trait HTMLMediaElement {
 	/**
 	 * @return bool
 	 */
-	public function getLoop() : bool {
+	public function getLoop(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'loop' );
@@ -816,7 +816,7 @@ trait HTMLMediaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setLoop( bool $val ) : void {
+	public function setLoop( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -829,7 +829,7 @@ trait HTMLMediaElement {
 	/**
 	 * @return bool
 	 */
-	public function getControls() : bool {
+	public function getControls(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'controls' );
@@ -838,7 +838,7 @@ trait HTMLMediaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setControls( bool $val ) : void {
+	public function setControls( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -851,7 +851,7 @@ trait HTMLMediaElement {
 	/**
 	 * @return bool
 	 */
-	public function getDefaultMuted() : bool {
+	public function getDefaultMuted(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'muted' );
@@ -860,7 +860,7 @@ trait HTMLMediaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDefaultMuted( bool $val ) : void {
+	public function setDefaultMuted( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {

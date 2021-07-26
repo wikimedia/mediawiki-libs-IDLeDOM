@@ -80,41 +80,41 @@ interface HTMLOListElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getReversed() : bool;
+	public function getReversed(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setReversed( bool $val ) : void;
+	public function setReversed( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getStart() : int;
+	public function getStart(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setStart( int $val ) : void;
+	public function setStart( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getCompact() : bool;
+	public function getCompact(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setCompact( bool $val ) : void;
+	public function setCompact( bool $val ): void;
 
 }

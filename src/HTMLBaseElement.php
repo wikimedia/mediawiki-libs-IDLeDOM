@@ -78,21 +78,21 @@ interface HTMLBaseElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getHref() : string;
+	public function getHref(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHref( string $val ) : void;
+	public function setHref( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string;
+	public function getTarget(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setTarget( string $val ) : void;
+	public function setTarget( string $val ): void;
 
 }

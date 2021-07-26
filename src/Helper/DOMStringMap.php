@@ -47,7 +47,7 @@ trait DOMStringMap {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -115,7 +115,7 @@ trait DOMStringMap {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\DOMStringMap $this';
 		// @var \Wikimedia\IDLeDOM\DOMStringMap $this
 		if ( is_numeric( $offset ) ) {
@@ -142,7 +142,7 @@ trait DOMStringMap {
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		'@phan-var \Wikimedia\IDLeDOM\DOMStringMap $this';
 		// @var \Wikimedia\IDLeDOM\DOMStringMap $this
 		if ( is_numeric( $offset ) ) {

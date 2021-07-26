@@ -41,7 +41,7 @@ interface ShadowRoot extends DocumentFragment, DocumentOrShadowRoot, InnerHTML {
 	/**
 	 * @return string
 	 */
-	public function getMode() : /* ShadowRootMode */ string;
+	public function getMode(): /* ShadowRootMode */ string;
 
 	/**
 	 * @return Element
@@ -56,6 +56,6 @@ interface ShadowRoot extends DocumentFragment, DocumentOrShadowRoot, InnerHTML {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnslotchange( /* ?mixed */ $val ) : void;
+	public function setOnslotchange( /* ?mixed */ $val ): void;
 
 }

@@ -33,7 +33,7 @@ trait HTMLFormControlsCollection {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -59,7 +59,7 @@ trait HTMLFormControlsCollection {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this
 		switch ( $name ) {
@@ -74,7 +74,7 @@ trait HTMLFormControlsCollection {
 	/**
 	 * @return int
 	 */
-	public function count() : int {
+	public function count(): int {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this
 		return $this->getLength();
@@ -129,7 +129,7 @@ trait HTMLFormControlsCollection {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this
 		if ( is_numeric( $offset ) ) {
@@ -156,7 +156,7 @@ trait HTMLFormControlsCollection {
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFormControlsCollection $this
 		if ( is_numeric( $offset ) ) {

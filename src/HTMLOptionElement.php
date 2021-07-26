@@ -84,12 +84,12 @@ interface HTMLOptionElement extends HTMLElement {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool;
+	public function getDisabled(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void;
+	public function setDisabled( bool $val ): void;
 
 	/**
 	 * @return HTMLFormElement|null
@@ -99,56 +99,56 @@ interface HTMLOptionElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string;
+	public function getLabel(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLabel( string $val ) : void;
+	public function setLabel( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDefaultSelected() : bool;
+	public function getDefaultSelected(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDefaultSelected( bool $val ) : void;
+	public function setDefaultSelected( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getSelected() : bool;
+	public function getSelected(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setSelected( bool $val ) : void;
+	public function setSelected( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void;
+	public function setValue( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getText() : string;
+	public function getText(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setText( string $val ) : void;
+	public function setText( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getIndex() : int;
+	public function getIndex(): int;
 
 }

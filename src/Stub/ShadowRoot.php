@@ -20,14 +20,14 @@ trait ShadowRoot {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getMode() : /* ShadowRootMode */ string {
+	public function getMode(): /* ShadowRootMode */ string {
 		throw self::_unimplemented();
 	}
 
@@ -48,7 +48,7 @@ trait ShadowRoot {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnslotchange( /* ?mixed */ $val ) : void {
+	public function setOnslotchange( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 

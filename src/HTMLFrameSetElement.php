@@ -78,21 +78,21 @@ interface HTMLFrameSetElement extends HTMLElement, WindowEventHandlers {
 	/**
 	 * @return string
 	 */
-	public function getCols() : string;
+	public function getCols(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCols( string $val ) : void;
+	public function setCols( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getRows() : string;
+	public function getRows(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setRows( string $val ) : void;
+	public function setRows( string $val ): void;
 
 }

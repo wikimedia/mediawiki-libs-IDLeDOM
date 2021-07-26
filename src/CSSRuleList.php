@@ -23,6 +23,6 @@ interface CSSRuleList extends \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 }

@@ -19,7 +19,7 @@ trait HTMLOptionsCollection {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -28,7 +28,7 @@ trait HTMLOptionsCollection {
 	 * @param HTMLOptionElement|null $option
 	 * @return void
 	 */
-	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void {
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ): void {
 		throw self::_unimplemented();
 	}
 
@@ -37,7 +37,7 @@ trait HTMLOptionsCollection {
 	 * @param HTMLElement|int|null $before
 	 * @return void
 	 */
-	public function add( /* mixed */ $element, /* ?mixed */ $before = null ) : void {
+	public function add( /* mixed */ $element, /* ?mixed */ $before = null ): void {
 		throw self::_unimplemented();
 	}
 
@@ -45,21 +45,21 @@ trait HTMLOptionsCollection {
 	 * @param int $index
 	 * @return void
 	 */
-	public function remove( int $index ) : void {
+	public function remove( int $index ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getSelectedIndex() : int {
+	public function getSelectedIndex(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setSelectedIndex( int $val ) : void {
+	public function setSelectedIndex( int $val ): void {
 		throw self::_unimplemented();
 	}
 

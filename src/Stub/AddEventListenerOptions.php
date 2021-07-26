@@ -17,21 +17,21 @@ trait AddEventListenerOptions {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getPassive() : bool {
+	public function getPassive(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getOnce() : bool {
+	public function getOnce(): bool {
 		throw self::_unimplemented();
 	}
 

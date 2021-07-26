@@ -95,52 +95,52 @@ interface HTMLAreaElement extends HTMLElement, HTMLHyperlinkElementUtils, Referr
 	/**
 	 * @return string
 	 */
-	public function getAlt() : string;
+	public function getAlt(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlt( string $val ) : void;
+	public function setAlt( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCoords() : string;
+	public function getCoords(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCoords( string $val ) : void;
+	public function setCoords( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getShape() : string;
+	public function getShape(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setShape( string $val ) : void;
+	public function setShape( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string;
+	public function getTarget(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setTarget( string $val ) : void;
+	public function setTarget( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getRel() : string;
+	public function getRel(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setRel( string $val ) : void;
+	public function setRel( string $val ): void;
 
 	/**
 	 * @return DOMTokenList
@@ -150,16 +150,16 @@ interface HTMLAreaElement extends HTMLElement, HTMLHyperlinkElementUtils, Referr
 	/**
 	 * @param string $val
 	 */
-	public function setRelList( string $val ) : void;
+	public function setRelList( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getNoHref() : bool;
+	public function getNoHref(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setNoHref( bool $val ) : void;
+	public function setNoHref( bool $val ): void;
 
 }

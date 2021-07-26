@@ -25,7 +25,7 @@ trait HTMLSelectElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -39,21 +39,21 @@ trait HTMLSelectElement {
 	/**
 	 * @return int
 	 */
-	public function getSize() : int {
+	public function getSize(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setSize( int $val ) : void {
+	public function setSize( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		throw self::_unimplemented();
 	}
 
@@ -67,14 +67,14 @@ trait HTMLSelectElement {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setLength( int $val ) : void {
+	public function setLength( int $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -99,7 +99,7 @@ trait HTMLSelectElement {
 	 * @param HTMLElement|int|null $before
 	 * @return void
 	 */
-	public function add( /* mixed */ $element, /* ?mixed */ $before = null ) : void {
+	public function add( /* mixed */ $element, /* ?mixed */ $before = null ): void {
 		throw self::_unimplemented();
 	}
 
@@ -108,7 +108,7 @@ trait HTMLSelectElement {
 	 * @param HTMLOptionElement|null $option
 	 * @return void
 	 */
-	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void {
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ): void {
 		throw self::_unimplemented();
 	}
 
@@ -122,35 +122,35 @@ trait HTMLSelectElement {
 	/**
 	 * @return int
 	 */
-	public function getSelectedIndex() : int {
+	public function getSelectedIndex(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setSelectedIndex( int $val ) : void {
+	public function setSelectedIndex( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string {
+	public function getValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setValue( string $val ) : void {
+	public function setValue( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool {
+	public function getWillValidate(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -164,21 +164,21 @@ trait HTMLSelectElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string {
+	public function getValidationMessage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool {
+	public function checkValidity(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool {
+	public function reportValidity(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -186,7 +186,7 @@ trait HTMLSelectElement {
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void {
+	public function setCustomValidity( string $error ): void {
 		throw self::_unimplemented();
 	}
 

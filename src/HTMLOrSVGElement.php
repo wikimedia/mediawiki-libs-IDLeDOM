@@ -24,26 +24,26 @@ interface HTMLOrSVGElement {
 	/**
 	 * @return string
 	 */
-	public function getNonce() : string;
+	public function getNonce(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setNonce( string $val ) : void;
+	public function setNonce( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getTabIndex() : int;
+	public function getTabIndex(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setTabIndex( int $val ) : void;
+	public function setTabIndex( int $val ): void;
 
 	/**
 	 * @return void
 	 */
-	public function blur() : void;
+	public function blur(): void;
 
 }

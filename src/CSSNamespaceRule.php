@@ -24,11 +24,11 @@ interface CSSNamespaceRule extends CSSRule {
 	/**
 	 * @return string
 	 */
-	public function getNamespaceURI() : string;
+	public function getNamespaceURI(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getPrefix() : string;
+	public function getPrefix(): string;
 
 }

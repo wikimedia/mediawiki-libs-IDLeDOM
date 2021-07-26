@@ -93,32 +93,32 @@ interface HTMLIFrameElement extends HTMLElement, ReferrerPolicy {
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrcdoc() : string;
+	public function getSrcdoc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrcdoc( string $val ) : void;
+	public function setSrcdoc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return DOMTokenList
@@ -128,57 +128,57 @@ interface HTMLIFrameElement extends HTMLElement, ReferrerPolicy {
 	/**
 	 * @param string $val
 	 */
-	public function setSandbox( string $val ) : void;
+	public function setSandbox( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAllow() : string;
+	public function getAllow(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAllow( string $val ) : void;
+	public function setAllow( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getAllowFullscreen() : bool;
+	public function getAllowFullscreen(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setAllowFullscreen( bool $val ) : void;
+	public function setAllowFullscreen( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHeight() : string;
+	public function getHeight(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHeight( string $val ) : void;
+	public function setHeight( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLoading() : string;
+	public function getLoading(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLoading( string $val ) : void;
+	public function setLoading( string $val ): void;
 
 	/**
 	 * @return Document|null
@@ -193,61 +193,61 @@ interface HTMLIFrameElement extends HTMLElement, ReferrerPolicy {
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getScrolling() : string;
+	public function getScrolling(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setScrolling( string $val ) : void;
+	public function setScrolling( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFrameBorder() : string;
+	public function getFrameBorder(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFrameBorder( string $val ) : void;
+	public function setFrameBorder( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getLongDesc() : string;
+	public function getLongDesc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setLongDesc( string $val ) : void;
+	public function setLongDesc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getMarginHeight() : string;
+	public function getMarginHeight(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setMarginHeight( ?string $val ) : void;
+	public function setMarginHeight( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getMarginWidth() : string;
+	public function getMarginWidth(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setMarginWidth( ?string $val ) : void;
+	public function setMarginWidth( ?string $val ): void;
 
 }

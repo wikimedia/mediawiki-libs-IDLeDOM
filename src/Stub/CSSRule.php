@@ -17,21 +17,21 @@ trait CSSRule {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getCssText() : string {
+	public function getCssText(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setCssText( string $val ) : void {
+	public function setCssText( string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -52,7 +52,7 @@ trait CSSRule {
 	/**
 	 * @return int
 	 */
-	public function getType() : int {
+	public function getType(): int {
 		throw self::_unimplemented();
 	}
 

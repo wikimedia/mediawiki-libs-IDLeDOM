@@ -79,31 +79,31 @@ interface HTMLFontElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getColor() : string;
+	public function getColor(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setColor( ?string $val ) : void;
+	public function setColor( ?string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFace() : string;
+	public function getFace(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFace( string $val ) : void;
+	public function setFace( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSize() : string;
+	public function getSize(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSize( string $val ) : void;
+	public function setSize( string $val ): void;
 
 }

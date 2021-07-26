@@ -16,14 +16,14 @@ trait NavigatorOnLine {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getOnLine() : bool {
+	public function getOnLine(): bool {
 		throw self::_unimplemented();
 	}
 

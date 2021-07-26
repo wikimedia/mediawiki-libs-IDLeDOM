@@ -16,56 +16,56 @@ trait MutationObserverInit {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getChildList() : bool {
+	public function getChildList(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getAttributes() : bool {
+	public function getAttributes(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getCharacterData() : bool {
+	public function getCharacterData(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getSubtree() : bool {
+	public function getSubtree(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getAttributeOldValue() : bool {
+	public function getAttributeOldValue(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getCharacterDataOldValue() : bool {
+	public function getCharacterDataOldValue(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return list<string>
 	 */
-	public function getAttributeFilter() : array {
+	public function getAttributeFilter(): array {
 		throw self::_unimplemented();
 	}
 

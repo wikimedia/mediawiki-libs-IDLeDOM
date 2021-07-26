@@ -17,7 +17,7 @@ trait CSSGroupingRule {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -33,7 +33,7 @@ trait CSSGroupingRule {
 	 * @param int $index
 	 * @return int
 	 */
-	public function insertRule( string $rule, int $index = 0 ) : int {
+	public function insertRule( string $rule, int $index = 0 ): int {
 		throw self::_unimplemented();
 	}
 
@@ -41,7 +41,7 @@ trait CSSGroupingRule {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteRule( int $index ) : void {
+	public function deleteRule( int $index ): void {
 		throw self::_unimplemented();
 	}
 

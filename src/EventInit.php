@@ -23,16 +23,16 @@ abstract class EventInit implements \ArrayAccess {
 	/**
 	 * @return bool
 	 */
-	abstract public function getBubbles() : bool;
+	abstract public function getBubbles(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getCancelable() : bool;
+	abstract public function getCancelable(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getComposed() : bool;
+	abstract public function getComposed(): bool;
 
 }

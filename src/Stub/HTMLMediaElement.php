@@ -21,35 +21,35 @@ trait HTMLMediaElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string {
+	public function getSrc(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void {
+	public function setSrc( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getCurrentSrc() : string {
+	public function getCurrentSrc(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getNetworkState() : int {
+	public function getNetworkState(): int {
 		throw self::_unimplemented();
 	}
 
@@ -63,77 +63,77 @@ trait HTMLMediaElement {
 	/**
 	 * @return void
 	 */
-	public function load() : void {
+	public function load(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getReadyState() : int {
+	public function getReadyState(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getSeeking() : bool {
+	public function getSeeking(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getCurrentTime() : float {
+	public function getCurrentTime(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param float $val
 	 */
-	public function setCurrentTime( float $val ) : void {
+	public function setCurrentTime( float $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getDuration() : float {
+	public function getDuration(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getPaused() : bool {
+	public function getPaused(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getDefaultPlaybackRate() : float {
+	public function getDefaultPlaybackRate(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param float $val
 	 */
-	public function setDefaultPlaybackRate( float $val ) : void {
+	public function setDefaultPlaybackRate( float $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getPlaybackRate() : float {
+	public function getPlaybackRate(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param float $val
 	 */
-	public function setPlaybackRate( float $val ) : void {
+	public function setPlaybackRate( float $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -154,42 +154,42 @@ trait HTMLMediaElement {
 	/**
 	 * @return bool
 	 */
-	public function getEnded() : bool {
+	public function getEnded(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function pause() : void {
+	public function pause(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getVolume() : float {
+	public function getVolume(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param float $val
 	 */
-	public function setVolume( float $val ) : void {
+	public function setVolume( float $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getMuted() : bool {
+	public function getMuted(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setMuted( bool $val ) : void {
+	public function setMuted( bool $val ): void {
 		throw self::_unimplemented();
 	}
 

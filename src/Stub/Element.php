@@ -27,35 +27,35 @@ trait Element {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return ?string
 	 */
-	public function getNamespaceURI() : ?string {
+	public function getNamespaceURI(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
-	public function getPrefix() : ?string {
+	public function getPrefix(): ?string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLocalName() : string {
+	public function getLocalName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getTagName() : string {
+	public function getTagName(): string {
 		throw self::_unimplemented();
 	}
 
@@ -69,7 +69,7 @@ trait Element {
 	/**
 	 * @return bool
 	 */
-	public function hasAttributes() : bool {
+	public function hasAttributes(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -83,7 +83,7 @@ trait Element {
 	/**
 	 * @return list<string>
 	 */
-	public function getAttributeNames() : array {
+	public function getAttributeNames(): array {
 		throw self::_unimplemented();
 	}
 
@@ -91,7 +91,7 @@ trait Element {
 	 * @param string $qualifiedName
 	 * @return ?string
 	 */
-	public function getAttribute( string $qualifiedName ) : ?string {
+	public function getAttribute( string $qualifiedName ): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -100,7 +100,7 @@ trait Element {
 	 * @param string $localName
 	 * @return ?string
 	 */
-	public function getAttributeNS( ?string $namespace, string $localName ) : ?string {
+	public function getAttributeNS( ?string $namespace, string $localName ): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -109,7 +109,7 @@ trait Element {
 	 * @param string $value
 	 * @return void
 	 */
-	public function setAttribute( string $qualifiedName, string $value ) : void {
+	public function setAttribute( string $qualifiedName, string $value ): void {
 		throw self::_unimplemented();
 	}
 
@@ -119,7 +119,7 @@ trait Element {
 	 * @param string $value
 	 * @return void
 	 */
-	public function setAttributeNS( ?string $namespace, string $qualifiedName, string $value ) : void {
+	public function setAttributeNS( ?string $namespace, string $qualifiedName, string $value ): void {
 		throw self::_unimplemented();
 	}
 
@@ -127,7 +127,7 @@ trait Element {
 	 * @param string $qualifiedName
 	 * @return void
 	 */
-	public function removeAttribute( string $qualifiedName ) : void {
+	public function removeAttribute( string $qualifiedName ): void {
 		throw self::_unimplemented();
 	}
 
@@ -136,7 +136,7 @@ trait Element {
 	 * @param string $localName
 	 * @return void
 	 */
-	public function removeAttributeNS( ?string $namespace, string $localName ) : void {
+	public function removeAttributeNS( ?string $namespace, string $localName ): void {
 		throw self::_unimplemented();
 	}
 
@@ -145,7 +145,7 @@ trait Element {
 	 * @param ?bool $force
 	 * @return bool
 	 */
-	public function toggleAttribute( string $qualifiedName, ?bool $force = null ) : bool {
+	public function toggleAttribute( string $qualifiedName, ?bool $force = null ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -153,7 +153,7 @@ trait Element {
 	 * @param string $qualifiedName
 	 * @return bool
 	 */
-	public function hasAttribute( string $qualifiedName ) : bool {
+	public function hasAttribute( string $qualifiedName ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -162,7 +162,7 @@ trait Element {
 	 * @param string $localName
 	 * @return bool
 	 */
-	public function hasAttributeNS( ?string $namespace, string $localName ) : bool {
+	public function hasAttributeNS( ?string $namespace, string $localName ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -234,7 +234,7 @@ trait Element {
 	 * @param string $selectors
 	 * @return bool
 	 */
-	public function matches( string $selectors ) : bool {
+	public function matches( string $selectors ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -242,7 +242,7 @@ trait Element {
 	 * @param string $selectors
 	 * @return bool
 	 */
-	public function webkitMatchesSelector( string $selectors ) : bool {
+	public function webkitMatchesSelector( string $selectors ): bool {
 		throw self::_unimplemented();
 	}
 
@@ -285,21 +285,21 @@ trait Element {
 	 * @param string $data
 	 * @return void
 	 */
-	public function insertAdjacentText( string $where, string $data ) : void {
+	public function insertAdjacentText( string $where, string $data ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getOuterHTML() : string {
+	public function getOuterHTML(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setOuterHTML( ?string $val ) : void {
+	public function setOuterHTML( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -308,7 +308,7 @@ trait Element {
 	 * @param string $text
 	 * @return void
 	 */
-	public function insertAdjacentHTML( string $position, string $text ) : void {
+	public function insertAdjacentHTML( string $position, string $text ): void {
 		throw self::_unimplemented();
 	}
 
@@ -317,7 +317,7 @@ trait Element {
 	 * @param bool $isId
 	 * @return void
 	 */
-	public function setIdAttribute( string $qualifiedName, bool $isId ) : void {
+	public function setIdAttribute( string $qualifiedName, bool $isId ): void {
 		throw self::_unimplemented();
 	}
 
@@ -326,7 +326,7 @@ trait Element {
 	 * @param bool $isId
 	 * @return void
 	 */
-	public function setIdAttributeNode( /* Attr */ $attr, bool $isId ) : void {
+	public function setIdAttributeNode( /* Attr */ $attr, bool $isId ): void {
 		throw self::_unimplemented();
 	}
 
@@ -336,7 +336,7 @@ trait Element {
 	 * @param bool $isId
 	 * @return void
 	 */
-	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void {
+	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ): void {
 		throw self::_unimplemented();
 	}
 

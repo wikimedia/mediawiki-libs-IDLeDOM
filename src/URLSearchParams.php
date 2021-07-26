@@ -19,43 +19,43 @@ interface URLSearchParams extends \IteratorAggregate {
 	 * @param string $value
 	 * @return void
 	 */
-	public function append( string $name, string $value ) : void;
+	public function append( string $name, string $value ): void;
 
 	/**
 	 * @param string $name
 	 * @return void
 	 */
-	public function delete( string $name ) : void;
+	public function delete( string $name ): void;
 
 	/**
 	 * @param string $name
 	 * @return ?string
 	 */
-	public function get( string $name ) : ?string;
+	public function get( string $name ): ?string;
 
 	/**
 	 * @param string $name
 	 * @return list<string>
 	 */
-	public function getAll( string $name ) : array;
+	public function getAll( string $name ): array;
 
 	/**
 	 * @param string $name
 	 * @return bool
 	 */
-	public function has( string $name ) : bool;
+	public function has( string $name ): bool;
 
 	/**
 	 * @param string $name
 	 * @param string $value
 	 * @return void
 	 */
-	public function set( string $name, string $value ) : void;
+	public function set( string $name, string $value ): void;
 
 	/**
 	 * @return void
 	 */
-	public function sort() : void;
+	public function sort(): void;
 
 	/**
 	 * @return \Iterator<string,string> Pair iterator: string => string
@@ -65,6 +65,6 @@ interface URLSearchParams extends \IteratorAggregate {
 	/**
 	 * @return string
 	 */
-	public function toString() : string;
+	public function toString(): string;
 
 }

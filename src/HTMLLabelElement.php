@@ -84,12 +84,12 @@ interface HTMLLabelElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getHtmlFor() : string;
+	public function getHtmlFor(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHtmlFor( string $val ) : void;
+	public function setHtmlFor( string $val ): void;
 
 	/**
 	 * @return HTMLElement|null

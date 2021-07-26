@@ -49,7 +49,7 @@ trait EventListener {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -106,7 +106,7 @@ trait EventListener {
 			 * @param Event $event
 			 * @return void
 			 */
-			public function handleEvent( /* Event */ $event ) : void {
+			public function handleEvent( /* Event */ $event ): void {
 				$f = $this->f;
 				$f( $event );
 			}

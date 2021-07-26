@@ -78,21 +78,21 @@ interface HTMLModElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getCite() : string;
+	public function getCite(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCite( string $val ) : void;
+	public function setCite( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDateTime() : string;
+	public function getDateTime(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDateTime( string $val ) : void;
+	public function setDateTime( string $val ): void;
 
 }

@@ -17,23 +17,23 @@ interface ChildNode {
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function before( /* mixed */ ...$nodes ) : void;
+	public function before( /* mixed */ ...$nodes ): void;
 
 	/**
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function after( /* mixed */ ...$nodes ) : void;
+	public function after( /* mixed */ ...$nodes ): void;
 
 	/**
 	 * @param Node|string ...$nodes
 	 * @return void
 	 */
-	public function replaceWith( /* mixed */ ...$nodes ) : void;
+	public function replaceWith( /* mixed */ ...$nodes ): void;
 
 	/**
 	 * @return void
 	 */
-	public function remove() : void;
+	public function remove(): void;
 
 }

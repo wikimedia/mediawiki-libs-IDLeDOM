@@ -47,7 +47,7 @@ trait CrossOrigin {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -69,7 +69,7 @@ trait CrossOrigin {
 	/**
 	 * @return ?string
 	 */
-	public function getCrossOrigin() : ?string {
+	public function getCrossOrigin(): ?string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
@@ -89,7 +89,7 @@ trait CrossOrigin {
 	/**
 	 * @param ?string $val
 	 */
-	public function setCrossOrigin( ?string $val ) : void {
+	public function setCrossOrigin( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {

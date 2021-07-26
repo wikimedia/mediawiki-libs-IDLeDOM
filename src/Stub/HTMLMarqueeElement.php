@@ -16,63 +16,63 @@ trait HTMLMarqueeElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getHspace() : int {
+	public function getHspace(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setHspace( int $val ) : void {
+	public function setHspace( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getScrollAmount() : int {
+	public function getScrollAmount(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setScrollAmount( int $val ) : void {
+	public function setScrollAmount( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getScrollDelay() : int {
+	public function getScrollDelay(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setScrollDelay( int $val ) : void {
+	public function setScrollDelay( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getVspace() : int {
+	public function getVspace(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setVspace( int $val ) : void {
+	public function setVspace( int $val ): void {
 		throw self::_unimplemented();
 	}
 

@@ -47,7 +47,7 @@ trait ReferrerPolicy {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -69,7 +69,7 @@ trait ReferrerPolicy {
 	/**
 	 * @return string
 	 */
-	public function getReferrerPolicy() : string {
+	public function getReferrerPolicy(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'referrerpolicy' );
@@ -96,7 +96,7 @@ trait ReferrerPolicy {
 	/**
 	 * @param string $val
 	 */
-	public function setReferrerPolicy( string $val ) : void {
+	public function setReferrerPolicy( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'referrerpolicy', $val );

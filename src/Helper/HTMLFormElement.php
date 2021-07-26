@@ -31,7 +31,7 @@ trait HTMLFormElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -193,7 +193,7 @@ trait HTMLFormElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFormElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFormElement $this
 		switch ( $name ) {
@@ -345,7 +345,7 @@ trait HTMLFormElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFormElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFormElement $this
 		switch ( $name ) {
@@ -462,7 +462,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFormElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFormElement $this
 		switch ( $name ) {
@@ -628,7 +628,7 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getAcceptCharset() : string {
+	public function getAcceptCharset(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'accept-charset' ) ?? '';
@@ -637,7 +637,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAcceptCharset( string $val ) : void {
+	public function setAcceptCharset( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'accept-charset', $val );
@@ -646,7 +646,7 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string {
+	public function getAutocomplete(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'autocomplete' );
@@ -666,7 +666,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void {
+	public function setAutocomplete( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'autocomplete', $val );
@@ -675,7 +675,7 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getEnctype() : string {
+	public function getEnctype(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enctype' );
@@ -696,7 +696,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $val
 	 */
-	public function setEnctype( string $val ) : void {
+	public function setEnctype( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enctype', $val );
@@ -705,7 +705,7 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getEncoding() : string {
+	public function getEncoding(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'enctype' );
@@ -726,7 +726,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $val
 	 */
-	public function setEncoding( string $val ) : void {
+	public function setEncoding( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'enctype', $val );
@@ -735,7 +735,7 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getMethod() : string {
+	public function getMethod(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'method' );
@@ -756,7 +756,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $val
 	 */
-	public function setMethod( string $val ) : void {
+	public function setMethod( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'method', $val );
@@ -765,7 +765,7 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -774,7 +774,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
@@ -783,7 +783,7 @@ trait HTMLFormElement {
 	/**
 	 * @return bool
 	 */
-	public function getNoValidate() : bool {
+	public function getNoValidate(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'novalidate' );
@@ -792,7 +792,7 @@ trait HTMLFormElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setNoValidate( bool $val ) : void {
+	public function setNoValidate( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -805,7 +805,7 @@ trait HTMLFormElement {
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string {
+	public function getTarget(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'target' ) ?? '';
@@ -814,7 +814,7 @@ trait HTMLFormElement {
 	/**
 	 * @param string $val
 	 */
-	public function setTarget( string $val ) : void {
+	public function setTarget( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'target', $val );

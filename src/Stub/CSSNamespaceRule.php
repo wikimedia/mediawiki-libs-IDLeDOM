@@ -16,21 +16,21 @@ trait CSSNamespaceRule {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getNamespaceURI() : string {
+	public function getNamespaceURI(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getPrefix() : string {
+	public function getPrefix(): string {
 		throw self::_unimplemented();
 	}
 

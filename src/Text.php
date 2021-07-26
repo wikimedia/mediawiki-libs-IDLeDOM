@@ -44,6 +44,6 @@ interface Text extends CharacterData, Slottable {
 	/**
 	 * @return string
 	 */
-	public function getWholeText() : string;
+	public function getWholeText(): string;
 
 }

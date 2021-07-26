@@ -31,7 +31,7 @@ trait HTMLImageElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -217,7 +217,7 @@ trait HTMLImageElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLImageElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLImageElement $this
 		switch ( $name ) {
@@ -393,7 +393,7 @@ trait HTMLImageElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLImageElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLImageElement $this
 		switch ( $name ) {
@@ -540,7 +540,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLImageElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLImageElement $this
 		switch ( $name ) {
@@ -731,7 +731,7 @@ trait HTMLImageElement {
 	/**
 	 * @return ?string
 	 */
-	public function getCrossOrigin() : ?string {
+	public function getCrossOrigin(): ?string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'crossorigin' );
@@ -751,7 +751,7 @@ trait HTMLImageElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setCrossOrigin( ?string $val ) : void {
+	public function setCrossOrigin( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val !== null ) {
@@ -764,7 +764,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getReferrerPolicy() : string {
+	public function getReferrerPolicy(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'referrerpolicy' );
@@ -791,7 +791,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setReferrerPolicy( string $val ) : void {
+	public function setReferrerPolicy( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'referrerpolicy', $val );
@@ -800,7 +800,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getAlt() : string {
+	public function getAlt(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'alt' ) ?? '';
@@ -809,7 +809,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAlt( string $val ) : void {
+	public function setAlt( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'alt', $val );
@@ -818,7 +818,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getSizes() : string {
+	public function getSizes(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'sizes' ) ?? '';
@@ -827,7 +827,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setSizes( string $val ) : void {
+	public function setSizes( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'sizes', $val );
@@ -836,7 +836,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getUseMap() : string {
+	public function getUseMap(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'usemap' ) ?? '';
@@ -845,7 +845,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setUseMap( string $val ) : void {
+	public function setUseMap( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'usemap', $val );
@@ -854,7 +854,7 @@ trait HTMLImageElement {
 	/**
 	 * @return bool
 	 */
-	public function getIsMap() : bool {
+	public function getIsMap(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'ismap' );
@@ -863,7 +863,7 @@ trait HTMLImageElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setIsMap( bool $val ) : void {
+	public function setIsMap( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -876,7 +876,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getDecoding() : string {
+	public function getDecoding(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'decoding' );
@@ -897,7 +897,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setDecoding( string $val ) : void {
+	public function setDecoding( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'decoding', $val );
@@ -906,7 +906,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getLoading() : string {
+	public function getLoading(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'loading' );
@@ -926,7 +926,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setLoading( string $val ) : void {
+	public function setLoading( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'loading', $val );
@@ -935,7 +935,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -944,7 +944,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
@@ -953,7 +953,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string {
+	public function getAlign(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
@@ -962,7 +962,7 @@ trait HTMLImageElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void {
+	public function setAlign( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
@@ -971,7 +971,7 @@ trait HTMLImageElement {
 	/**
 	 * @return string
 	 */
-	public function getBorder() : string {
+	public function getBorder(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'border' ) ?? '';
@@ -980,7 +980,7 @@ trait HTMLImageElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setBorder( ?string $val ) : void {
+	public function setBorder( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'border', $val ?? '' );

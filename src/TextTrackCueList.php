@@ -17,7 +17,7 @@ interface TextTrackCueList extends \ArrayAccess {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @param int $index

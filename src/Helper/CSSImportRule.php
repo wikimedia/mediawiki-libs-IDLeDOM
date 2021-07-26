@@ -31,7 +31,7 @@ trait CSSImportRule {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -69,7 +69,7 @@ trait CSSImportRule {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\CSSImportRule $this';
 		// @var \Wikimedia\IDLeDOM\CSSImportRule $this
 		switch ( $name ) {
@@ -97,7 +97,7 @@ trait CSSImportRule {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\CSSImportRule $this';
 		// @var \Wikimedia\IDLeDOM\CSSImportRule $this
 		switch ( $name ) {
@@ -118,7 +118,7 @@ trait CSSImportRule {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\CSSImportRule $this';
 		// @var \Wikimedia\IDLeDOM\CSSImportRule $this
 		switch ( $name ) {
@@ -158,7 +158,7 @@ trait CSSImportRule {
 	/**
 	 * @param ?string $val
 	 */
-	public function setMedia( ?string $val ) : void {
+	public function setMedia( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\CSSImportRule $this';
 		// @var \Wikimedia\IDLeDOM\CSSImportRule $this
 		$this->getMedia()->setMediaText( $val );

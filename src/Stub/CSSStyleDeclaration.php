@@ -17,28 +17,28 @@ trait CSSStyleDeclaration {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getCssText() : string {
+	public function getCssText(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setCssText( string $val ) : void {
+	public function setCssText( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
@@ -46,7 +46,7 @@ trait CSSStyleDeclaration {
 	 * @param int $index
 	 * @return string
 	 */
-	public function item( int $index ) : string {
+	public function item( int $index ): string {
 		throw self::_unimplemented();
 	}
 
@@ -54,7 +54,7 @@ trait CSSStyleDeclaration {
 	 * @param string $property
 	 * @return string
 	 */
-	public function getPropertyValue( string $property ) : string {
+	public function getPropertyValue( string $property ): string {
 		throw self::_unimplemented();
 	}
 
@@ -62,7 +62,7 @@ trait CSSStyleDeclaration {
 	 * @param string $property
 	 * @return string
 	 */
-	public function getPropertyPriority( string $property ) : string {
+	public function getPropertyPriority( string $property ): string {
 		throw self::_unimplemented();
 	}
 
@@ -72,7 +72,7 @@ trait CSSStyleDeclaration {
 	 * @param string $priority
 	 * @return void
 	 */
-	public function setProperty( string $property, ?string $value = '', string $priority = '' ) : void {
+	public function setProperty( string $property, ?string $value = '', string $priority = '' ): void {
 		throw self::_unimplemented();
 	}
 
@@ -80,7 +80,7 @@ trait CSSStyleDeclaration {
 	 * @param string $property
 	 * @return string
 	 */
-	public function removeProperty( string $property ) : string {
+	public function removeProperty( string $property ): string {
 		throw self::_unimplemented();
 	}
 
@@ -94,14 +94,14 @@ trait CSSStyleDeclaration {
 	/**
 	 * @return string
 	 */
-	public function getCssFloat() : string {
+	public function getCssFloat(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setCssFloat( ?string $val ) : void {
+	public function setCssFloat( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 

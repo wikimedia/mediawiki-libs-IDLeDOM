@@ -27,56 +27,56 @@ interface ValidityState {
 	/**
 	 * @return bool
 	 */
-	public function getValueMissing() : bool;
+	public function getValueMissing(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getTypeMismatch() : bool;
+	public function getTypeMismatch(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getPatternMismatch() : bool;
+	public function getPatternMismatch(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getTooLong() : bool;
+	public function getTooLong(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getTooShort() : bool;
+	public function getTooShort(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getRangeUnderflow() : bool;
+	public function getRangeUnderflow(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getRangeOverflow() : bool;
+	public function getRangeOverflow(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getStepMismatch() : bool;
+	public function getStepMismatch(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getBadInput() : bool;
+	public function getBadInput(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getCustomError() : bool;
+	public function getCustomError(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function getValid() : bool;
+	public function getValid(): bool;
 
 }

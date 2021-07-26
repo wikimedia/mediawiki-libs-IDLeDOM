@@ -31,7 +31,7 @@ trait HTMLMarqueeElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -191,7 +191,7 @@ trait HTMLMarqueeElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMarqueeElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMarqueeElement $this
 		switch ( $name ) {
@@ -341,7 +341,7 @@ trait HTMLMarqueeElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMarqueeElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMarqueeElement $this
 		switch ( $name ) {
@@ -461,7 +461,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMarqueeElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMarqueeElement $this
 		switch ( $name ) {
@@ -625,7 +625,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @return string
 	 */
-	public function getBehavior() : string {
+	public function getBehavior(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'behavior' ) ?? '';
@@ -634,7 +634,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @param string $val
 	 */
-	public function setBehavior( string $val ) : void {
+	public function setBehavior( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'behavior', $val );
@@ -643,7 +643,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @return string
 	 */
-	public function getBgColor() : string {
+	public function getBgColor(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'bgcolor' ) ?? '';
@@ -652,7 +652,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @param string $val
 	 */
-	public function setBgColor( string $val ) : void {
+	public function setBgColor( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'bgcolor', $val );
@@ -661,7 +661,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @return string
 	 */
-	public function getDirection() : string {
+	public function getDirection(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'direction' ) ?? '';
@@ -670,7 +670,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @param string $val
 	 */
-	public function setDirection( string $val ) : void {
+	public function setDirection( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'direction', $val );
@@ -679,7 +679,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @return string
 	 */
-	public function getHeight() : string {
+	public function getHeight(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'height' ) ?? '';
@@ -688,7 +688,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @param string $val
 	 */
-	public function setHeight( string $val ) : void {
+	public function setHeight( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'height', $val );
@@ -697,7 +697,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @return bool
 	 */
-	public function getTrueSpeed() : bool {
+	public function getTrueSpeed(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'truespeed' );
@@ -706,7 +706,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setTrueSpeed( bool $val ) : void {
+	public function setTrueSpeed( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -719,7 +719,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string {
+	public function getWidth(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'width' ) ?? '';
@@ -728,7 +728,7 @@ trait HTMLMarqueeElement {
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void {
+	public function setWidth( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'width', $val );

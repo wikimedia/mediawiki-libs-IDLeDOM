@@ -31,7 +31,7 @@ trait HTMLFontElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -177,7 +177,7 @@ trait HTMLFontElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFontElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFontElement $this
 		switch ( $name ) {
@@ -313,7 +313,7 @@ trait HTMLFontElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFontElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFontElement $this
 		switch ( $name ) {
@@ -412,7 +412,7 @@ trait HTMLFontElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFontElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFontElement $this
 		switch ( $name ) {
@@ -562,7 +562,7 @@ trait HTMLFontElement {
 	/**
 	 * @return string
 	 */
-	public function getColor() : string {
+	public function getColor(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'color' ) ?? '';
@@ -571,7 +571,7 @@ trait HTMLFontElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setColor( ?string $val ) : void {
+	public function setColor( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'color', $val ?? '' );
@@ -580,7 +580,7 @@ trait HTMLFontElement {
 	/**
 	 * @return string
 	 */
-	public function getFace() : string {
+	public function getFace(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'face' ) ?? '';
@@ -589,7 +589,7 @@ trait HTMLFontElement {
 	/**
 	 * @param string $val
 	 */
-	public function setFace( string $val ) : void {
+	public function setFace( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'face', $val );
@@ -598,7 +598,7 @@ trait HTMLFontElement {
 	/**
 	 * @return string
 	 */
-	public function getSize() : string {
+	public function getSize(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'size' ) ?? '';
@@ -607,7 +607,7 @@ trait HTMLFontElement {
 	/**
 	 * @param string $val
 	 */
-	public function setSize( string $val ) : void {
+	public function setSize( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'size', $val );

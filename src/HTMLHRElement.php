@@ -81,51 +81,51 @@ interface HTMLHRElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getColor() : string;
+	public function getColor(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setColor( string $val ) : void;
+	public function setColor( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getNoShade() : bool;
+	public function getNoShade(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setNoShade( bool $val ) : void;
+	public function setNoShade( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSize() : string;
+	public function getSize(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSize( string $val ) : void;
+	public function setSize( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 }

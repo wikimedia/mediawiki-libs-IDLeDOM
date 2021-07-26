@@ -49,7 +49,7 @@ trait OnBeforeUnloadEventHandlerNonNull {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -106,7 +106,7 @@ trait OnBeforeUnloadEventHandlerNonNull {
 			 * @param Event $event
 			 * @return ?string
 			 */
-			public function invoke( /* Event */ $event ) : ?string {
+			public function invoke( /* Event */ $event ): ?string {
 				$f = $this->f;
 				return $f( $event );
 			}

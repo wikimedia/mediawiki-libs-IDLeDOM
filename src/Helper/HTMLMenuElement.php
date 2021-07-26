@@ -31,7 +31,7 @@ trait HTMLMenuElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -173,7 +173,7 @@ trait HTMLMenuElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMenuElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMenuElement $this
 		switch ( $name ) {
@@ -305,7 +305,7 @@ trait HTMLMenuElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMenuElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMenuElement $this
 		switch ( $name ) {
@@ -398,7 +398,7 @@ trait HTMLMenuElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLMenuElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLMenuElement $this
 		switch ( $name ) {
@@ -544,7 +544,7 @@ trait HTMLMenuElement {
 	/**
 	 * @return bool
 	 */
-	public function getCompact() : bool {
+	public function getCompact(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'compact' );
@@ -553,7 +553,7 @@ trait HTMLMenuElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setCompact( bool $val ) : void {
+	public function setCompact( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {

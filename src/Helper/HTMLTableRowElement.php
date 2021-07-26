@@ -31,7 +31,7 @@ trait HTMLTableRowElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -187,7 +187,7 @@ trait HTMLTableRowElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTableRowElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTableRowElement $this
 		switch ( $name ) {
@@ -333,7 +333,7 @@ trait HTMLTableRowElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTableRowElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTableRowElement $this
 		switch ( $name ) {
@@ -438,7 +438,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTableRowElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTableRowElement $this
 		switch ( $name ) {
@@ -598,7 +598,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string {
+	public function getAlign(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'align' ) ?? '';
@@ -607,7 +607,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void {
+	public function setAlign( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'align', $val );
@@ -616,7 +616,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @return string
 	 */
-	public function getCh() : string {
+	public function getCh(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'char' ) ?? '';
@@ -625,7 +625,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @param string $val
 	 */
-	public function setCh( string $val ) : void {
+	public function setCh( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'char', $val );
@@ -634,7 +634,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @return string
 	 */
-	public function getChOff() : string {
+	public function getChOff(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'charoff' ) ?? '';
@@ -643,7 +643,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @param string $val
 	 */
-	public function setChOff( string $val ) : void {
+	public function setChOff( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'charoff', $val );
@@ -652,7 +652,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @return string
 	 */
-	public function getVAlign() : string {
+	public function getVAlign(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'valign' ) ?? '';
@@ -661,7 +661,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @param string $val
 	 */
-	public function setVAlign( string $val ) : void {
+	public function setVAlign( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'valign', $val );
@@ -670,7 +670,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @return string
 	 */
-	public function getBgColor() : string {
+	public function getBgColor(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'bgcolor' ) ?? '';
@@ -679,7 +679,7 @@ trait HTMLTableRowElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setBgColor( ?string $val ) : void {
+	public function setBgColor( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'bgcolor', $val ?? '' );

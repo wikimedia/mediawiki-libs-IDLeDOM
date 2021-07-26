@@ -20,21 +20,21 @@ trait StyleSheet {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return ?string
 	 */
-	public function getHref() : ?string {
+	public function getHref(): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -55,7 +55,7 @@ trait StyleSheet {
 	/**
 	 * @return ?string
 	 */
-	public function getTitle() : ?string {
+	public function getTitle(): ?string {
 		throw self::_unimplemented();
 	}
 
@@ -69,14 +69,14 @@ trait StyleSheet {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool {
+	public function getDisabled(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void {
+	public function setDisabled( bool $val ): void {
 		throw self::_unimplemented();
 	}
 

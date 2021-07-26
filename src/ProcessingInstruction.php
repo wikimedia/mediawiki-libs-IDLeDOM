@@ -38,6 +38,6 @@ interface ProcessingInstruction extends CharacterData, LinkStyle {
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string;
+	public function getTarget(): string;
 
 }

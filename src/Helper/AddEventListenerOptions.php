@@ -33,7 +33,7 @@ trait AddEventListenerOptions {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -65,7 +65,7 @@ trait AddEventListenerOptions {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\AddEventListenerOptions $this';
 		// @var \Wikimedia\IDLeDOM\AddEventListenerOptions $this
 		switch ( $name ) {
@@ -112,14 +112,14 @@ trait AddEventListenerOptions {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		$this->$offset = $value;
 	}
 
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		unset( $this->$offset );
 	}
 
@@ -149,21 +149,21 @@ trait AddEventListenerOptions {
 			/**
 			 * @return bool
 			 */
-			public function getCapture() : bool {
+			public function getCapture(): bool {
 				return $this->a["capture"] ?? false;
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getPassive() : bool {
+			public function getPassive(): bool {
 				return $this->a["passive"] ?? false;
 			}
 
 			/**
 			 * @return bool
 			 */
-			public function getOnce() : bool {
+			public function getOnce(): bool {
 				return $this->a["once"] ?? false;
 			}
 

@@ -17,7 +17,7 @@ trait XMLSerializer {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -25,7 +25,7 @@ trait XMLSerializer {
 	 * @param Node $root
 	 * @return string
 	 */
-	public function serializeToString( /* Node */ $root ) : string {
+	public function serializeToString( /* Node */ $root ): string {
 		throw self::_unimplemented();
 	}
 

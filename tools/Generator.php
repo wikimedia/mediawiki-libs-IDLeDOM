@@ -169,6 +169,13 @@ class Generator {
 		}
 	}
 
+	/**
+	 * Rename all members in the IDL definitions to resolve conflicts with
+	 * previously-defined functions or reserved words.
+	 * @param array &$def
+	 * @param array &$done
+	 * @return array
+	 */
 	private function resolveNames( array &$def, array &$done ): array {
 		$topName = $def['name'];
 		$allNames = [];
@@ -418,6 +425,13 @@ class Generator {
 		return null;
 	}
 
+	/**
+	 * Return true if the given type (which may be a union or other
+	 * complex type) includes the given type `$which`.
+	 * @param array $ty The complex type to test
+	 * @param string $which The type to search for
+	 * @return bool
+	 */
 	private function typeIncludes( array $ty, string $which ) {
 		if ( $ty['union'] ?? false ) {
 			foreach ( $ty['idlType'] as $subtype ) {
@@ -474,7 +488,7 @@ class Generator {
 			if ( substr( $result, 0, 2 ) === '/*' && substr( $result, -2 ) === '*/' ) {
 				return '';
 			} else {
-				return " : $result";
+				return ": $result";
 			}
 		}
 		if (

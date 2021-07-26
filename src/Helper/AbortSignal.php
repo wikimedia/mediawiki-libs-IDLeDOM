@@ -31,7 +31,7 @@ trait AbortSignal {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -59,7 +59,7 @@ trait AbortSignal {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\AbortSignal $this';
 		// @var \Wikimedia\IDLeDOM\AbortSignal $this
 		switch ( $name ) {
@@ -77,7 +77,7 @@ trait AbortSignal {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\AbortSignal $this';
 		// @var \Wikimedia\IDLeDOM\AbortSignal $this
 		switch ( $name ) {
@@ -95,7 +95,7 @@ trait AbortSignal {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\AbortSignal $this';
 		// @var \Wikimedia\IDLeDOM\AbortSignal $this
 		switch ( $name ) {

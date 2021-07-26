@@ -68,22 +68,22 @@ interface Node extends EventTarget {
 	/**
 	 * @return int
 	 */
-	public function getNodeType() : int;
+	public function getNodeType(): int;
 
 	/**
 	 * @return string
 	 */
-	public function getNodeName() : string;
+	public function getNodeName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getBaseURI() : string;
+	public function getBaseURI(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function getIsConnected() : bool;
+	public function getIsConnected(): bool;
 
 	/**
 	 * @return Document|null
@@ -109,7 +109,7 @@ interface Node extends EventTarget {
 	/**
 	 * @return bool
 	 */
-	public function hasChildNodes() : bool;
+	public function hasChildNodes(): bool;
 
 	/**
 	 * @return NodeList
@@ -139,27 +139,27 @@ interface Node extends EventTarget {
 	/**
 	 * @return ?string
 	 */
-	public function getNodeValue() : ?string;
+	public function getNodeValue(): ?string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setNodeValue( ?string $val ) : void;
+	public function setNodeValue( ?string $val ): void;
 
 	/**
 	 * @return ?string
 	 */
-	public function getTextContent() : ?string;
+	public function getTextContent(): ?string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setTextContent( ?string $val ) : void;
+	public function setTextContent( ?string $val ): void;
 
 	/**
 	 * @return void
 	 */
-	public function normalize() : void;
+	public function normalize(): void;
 
 	/**
 	 * @param bool $deep
@@ -171,13 +171,13 @@ interface Node extends EventTarget {
 	 * @param \Wikimedia\IDLeDOM\Node|null $otherNode
 	 * @return bool
 	 */
-	public function isEqualNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool;
+	public function isEqualNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ): bool;
 
 	/**
 	 * @param \Wikimedia\IDLeDOM\Node|null $otherNode
 	 * @return bool
 	 */
-	public function isSameNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ) : bool;
+	public function isSameNode( /* ?\Wikimedia\IDLeDOM\Node */ $otherNode ): bool;
 
 	/** @var int */
 	public const DOCUMENT_POSITION_DISCONNECTED = 0x01;
@@ -201,31 +201,31 @@ interface Node extends EventTarget {
 	 * @param \Wikimedia\IDLeDOM\Node $other
 	 * @return int
 	 */
-	public function compareDocumentPosition( /* \Wikimedia\IDLeDOM\Node */ $other ) : int;
+	public function compareDocumentPosition( /* \Wikimedia\IDLeDOM\Node */ $other ): int;
 
 	/**
 	 * @param \Wikimedia\IDLeDOM\Node|null $other
 	 * @return bool
 	 */
-	public function contains( /* ?\Wikimedia\IDLeDOM\Node */ $other ) : bool;
+	public function contains( /* ?\Wikimedia\IDLeDOM\Node */ $other ): bool;
 
 	/**
 	 * @param ?string $namespace
 	 * @return ?string
 	 */
-	public function lookupPrefix( ?string $namespace ) : ?string;
+	public function lookupPrefix( ?string $namespace ): ?string;
 
 	/**
 	 * @param ?string $prefix
 	 * @return ?string
 	 */
-	public function lookupNamespaceURI( ?string $prefix ) : ?string;
+	public function lookupNamespaceURI( ?string $prefix ): ?string;
 
 	/**
 	 * @param ?string $namespace
 	 * @return bool
 	 */
-	public function isDefaultNamespace( ?string $namespace ) : bool;
+	public function isDefaultNamespace( ?string $namespace ): bool;
 
 	/**
 	 * @param \Wikimedia\IDLeDOM\Node $node

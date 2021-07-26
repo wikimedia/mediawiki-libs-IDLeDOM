@@ -50,7 +50,7 @@ trait MutationCallback {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -108,7 +108,7 @@ trait MutationCallback {
 			 * @param MutationObserver $observer
 			 * @return void
 			 */
-			public function invoke( array $mutations, /* MutationObserver */ $observer ) : void {
+			public function invoke( array $mutations, /* MutationObserver */ $observer ): void {
 				$f = $this->f;
 				$f( $mutations, $observer );
 			}

@@ -31,7 +31,7 @@ trait HTMLFrameElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -189,7 +189,7 @@ trait HTMLFrameElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFrameElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFrameElement $this
 		switch ( $name ) {
@@ -337,7 +337,7 @@ trait HTMLFrameElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFrameElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFrameElement $this
 		switch ( $name ) {
@@ -451,7 +451,7 @@ trait HTMLFrameElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLFrameElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLFrameElement $this
 		switch ( $name ) {
@@ -613,7 +613,7 @@ trait HTMLFrameElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -622,7 +622,7 @@ trait HTMLFrameElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
@@ -631,7 +631,7 @@ trait HTMLFrameElement {
 	/**
 	 * @return string
 	 */
-	public function getScrolling() : string {
+	public function getScrolling(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'scrolling' ) ?? '';
@@ -640,7 +640,7 @@ trait HTMLFrameElement {
 	/**
 	 * @param string $val
 	 */
-	public function setScrolling( string $val ) : void {
+	public function setScrolling( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'scrolling', $val );
@@ -649,7 +649,7 @@ trait HTMLFrameElement {
 	/**
 	 * @return string
 	 */
-	public function getFrameBorder() : string {
+	public function getFrameBorder(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'frameborder' ) ?? '';
@@ -658,7 +658,7 @@ trait HTMLFrameElement {
 	/**
 	 * @param string $val
 	 */
-	public function setFrameBorder( string $val ) : void {
+	public function setFrameBorder( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'frameborder', $val );
@@ -667,7 +667,7 @@ trait HTMLFrameElement {
 	/**
 	 * @return bool
 	 */
-	public function getNoResize() : bool {
+	public function getNoResize(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'noresize' );
@@ -676,7 +676,7 @@ trait HTMLFrameElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setNoResize( bool $val ) : void {
+	public function setNoResize( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -689,7 +689,7 @@ trait HTMLFrameElement {
 	/**
 	 * @return string
 	 */
-	public function getMarginHeight() : string {
+	public function getMarginHeight(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'marginheight' ) ?? '';
@@ -698,7 +698,7 @@ trait HTMLFrameElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setMarginHeight( ?string $val ) : void {
+	public function setMarginHeight( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'marginheight', $val ?? '' );
@@ -707,7 +707,7 @@ trait HTMLFrameElement {
 	/**
 	 * @return string
 	 */
-	public function getMarginWidth() : string {
+	public function getMarginWidth(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'marginwidth' ) ?? '';
@@ -716,7 +716,7 @@ trait HTMLFrameElement {
 	/**
 	 * @param ?string $val
 	 */
-	public function setMarginWidth( ?string $val ) : void {
+	public function setMarginWidth( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'marginwidth', $val ?? '' );

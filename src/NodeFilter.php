@@ -65,6 +65,6 @@ interface NodeFilter {
 	 * @param Node $node
 	 * @return int
 	 */
-	public function acceptNode( /* Node */ $node ) : int;
+	public function acceptNode( /* Node */ $node ): int;
 
 }

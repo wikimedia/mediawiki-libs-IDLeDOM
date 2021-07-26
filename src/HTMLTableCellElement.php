@@ -91,146 +91,146 @@ interface HTMLTableCellElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getColSpan() : int;
+	public function getColSpan(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setColSpan( int $val ) : void;
+	public function setColSpan( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getRowSpan() : int;
+	public function getRowSpan(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setRowSpan( int $val ) : void;
+	public function setRowSpan( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHeaders() : string;
+	public function getHeaders(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHeaders( string $val ) : void;
+	public function setHeaders( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getCellIndex() : int;
+	public function getCellIndex(): int;
 
 	/**
 	 * @return string
 	 */
-	public function getScope() : string;
+	public function getScope(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setScope( string $val ) : void;
+	public function setScope( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAbbr() : string;
+	public function getAbbr(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAbbr( string $val ) : void;
+	public function setAbbr( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAxis() : string;
+	public function getAxis(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAxis( string $val ) : void;
+	public function setAxis( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHeight() : string;
+	public function getHeight(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHeight( string $val ) : void;
+	public function setHeight( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCh() : string;
+	public function getCh(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCh( string $val ) : void;
+	public function setCh( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getChOff() : string;
+	public function getChOff(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setChOff( string $val ) : void;
+	public function setChOff( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getNoWrap() : bool;
+	public function getNoWrap(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setNoWrap( bool $val ) : void;
+	public function setNoWrap( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getVAlign() : string;
+	public function getVAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setVAlign( string $val ) : void;
+	public function setVAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBgColor() : string;
+	public function getBgColor(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setBgColor( ?string $val ) : void;
+	public function setBgColor( ?string $val ): void;
 
 }

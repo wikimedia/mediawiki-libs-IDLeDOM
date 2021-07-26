@@ -16,14 +16,14 @@ trait EventListenerOptions {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getCapture() : bool {
+	public function getCapture(): bool {
 		throw self::_unimplemented();
 	}
 

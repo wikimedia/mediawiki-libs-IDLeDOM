@@ -84,12 +84,12 @@ interface HTMLTableRowElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getRowIndex() : int;
+	public function getRowIndex(): int;
 
 	/**
 	 * @return int
 	 */
-	public function getSectionRowIndex() : int;
+	public function getSectionRowIndex(): int;
 
 	/**
 	 * @return HTMLCollection
@@ -106,56 +106,56 @@ interface HTMLTableRowElement extends HTMLElement {
 	 * @param int $index
 	 * @return void
 	 */
-	public function deleteCell( int $index ) : void;
+	public function deleteCell( int $index ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getCh() : string;
+	public function getCh(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCh( string $val ) : void;
+	public function setCh( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getChOff() : string;
+	public function getChOff(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setChOff( string $val ) : void;
+	public function setChOff( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getVAlign() : string;
+	public function getVAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setVAlign( string $val ) : void;
+	public function setVAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBgColor() : string;
+	public function getBgColor(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setBgColor( ?string $val ) : void;
+	public function setBgColor( ?string $val ): void;
 
 }

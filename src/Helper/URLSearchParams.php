@@ -47,7 +47,7 @@ trait URLSearchParams {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -69,7 +69,7 @@ trait URLSearchParams {
 	/**
 	 * @return string
 	 */
-	public function __toString() : string {
+	public function __toString(): string {
 		'@phan-var \Wikimedia\IDLeDOM\URLSearchParams $this';
 		// @var \Wikimedia\IDLeDOM\URLSearchParams $this
 		return $this->toString();

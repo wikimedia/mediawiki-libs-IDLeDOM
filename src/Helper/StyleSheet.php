@@ -47,7 +47,7 @@ trait StyleSheet {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -100,7 +100,7 @@ trait StyleSheet {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheet $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheet $this
 		switch ( $name ) {
@@ -128,7 +128,7 @@ trait StyleSheet {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheet $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheet $this
 		switch ( $name ) {
@@ -149,7 +149,7 @@ trait StyleSheet {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheet $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheet $this
 		switch ( $name ) {
@@ -189,7 +189,7 @@ trait StyleSheet {
 	/**
 	 * @param ?string $val
 	 */
-	public function setMedia( ?string $val ) : void {
+	public function setMedia( ?string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\StyleSheet $this';
 		// @var \Wikimedia\IDLeDOM\StyleSheet $this
 		$this->getMedia()->setMediaText( $val );

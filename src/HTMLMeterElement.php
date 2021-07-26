@@ -83,62 +83,62 @@ interface HTMLMeterElement extends HTMLElement {
 	/**
 	 * @return float
 	 */
-	public function getValue() : float;
+	public function getValue(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setValue( float $val ) : void;
+	public function setValue( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getMin() : float;
+	public function getMin(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setMin( float $val ) : void;
+	public function setMin( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getMax() : float;
+	public function getMax(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setMax( float $val ) : void;
+	public function setMax( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getLow() : float;
+	public function getLow(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setLow( float $val ) : void;
+	public function setLow( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getHigh() : float;
+	public function getHigh(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setHigh( float $val ) : void;
+	public function setHigh( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getOptimum() : float;
+	public function getOptimum(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setOptimum( float $val ) : void;
+	public function setOptimum( float $val ): void;
 
 	/**
 	 * @return NodeList

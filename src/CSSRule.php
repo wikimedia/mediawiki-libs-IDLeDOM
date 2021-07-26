@@ -20,12 +20,12 @@ interface CSSRule {
 	/**
 	 * @return string
 	 */
-	public function getCssText() : string;
+	public function getCssText(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setCssText( string $val ) : void;
+	public function setCssText( string $val ): void;
 
 	/**
 	 * @return CSSRule|null
@@ -40,7 +40,7 @@ interface CSSRule {
 	/**
 	 * @return int
 	 */
-	public function getType() : int;
+	public function getType(): int;
 
 	/** @var int */
 	public const STYLE_RULE = 1;

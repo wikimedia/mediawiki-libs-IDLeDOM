@@ -17,21 +17,21 @@ trait CSSPageRule {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getSelectorText() : string {
+	public function getSelectorText(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setSelectorText( string $val ) : void {
+	public function setSelectorText( string $val ): void {
 		throw self::_unimplemented();
 	}
 

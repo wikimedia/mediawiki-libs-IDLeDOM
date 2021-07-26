@@ -78,28 +78,28 @@ interface HTMLCanvasElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getWidth() : int;
+	public function getWidth(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setWidth( int $val ) : void;
+	public function setWidth( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getHeight() : int;
+	public function getHeight(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setHeight( int $val ) : void;
+	public function setHeight( int $val ): void;
 
 	/**
 	 * @param ?string $type
 	 * @param mixed|null $quality
 	 * @return string
 	 */
-	public function toDataURL( ?string $type = null, /* any */ $quality = null ) : string;
+	public function toDataURL( ?string $type = null, /* any */ $quality = null ): string;
 
 }

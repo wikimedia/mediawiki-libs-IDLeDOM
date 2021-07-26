@@ -31,7 +31,7 @@ trait Range {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -67,7 +67,7 @@ trait Range {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Range $this';
 		// @var \Wikimedia\IDLeDOM\Range $this
 		switch ( $name ) {
@@ -92,7 +92,7 @@ trait Range {
 	/**
 	 * @return string
 	 */
-	public function __toString() : string {
+	public function __toString(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Range $this';
 		// @var \Wikimedia\IDLeDOM\Range $this
 		return $this->toString();

@@ -19,21 +19,21 @@ trait HTMLIFrameElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string {
+	public function getSrc(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void {
+	public function setSrc( string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -61,14 +61,14 @@ trait HTMLIFrameElement {
 	/**
 	 * @return string
 	 */
-	public function getLongDesc() : string {
+	public function getLongDesc(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setLongDesc( string $val ) : void {
+	public function setLongDesc( string $val ): void {
 		throw self::_unimplemented();
 	}
 

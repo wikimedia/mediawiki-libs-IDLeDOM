@@ -86,101 +86,101 @@ interface HTMLMarqueeElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getBehavior() : string;
+	public function getBehavior(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setBehavior( string $val ) : void;
+	public function setBehavior( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getBgColor() : string;
+	public function getBgColor(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setBgColor( string $val ) : void;
+	public function setBgColor( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDirection() : string;
+	public function getDirection(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDirection( string $val ) : void;
+	public function setDirection( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHeight() : string;
+	public function getHeight(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHeight( string $val ) : void;
+	public function setHeight( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getHspace() : int;
+	public function getHspace(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setHspace( int $val ) : void;
+	public function setHspace( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getScrollAmount() : int;
+	public function getScrollAmount(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setScrollAmount( int $val ) : void;
+	public function setScrollAmount( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getScrollDelay() : int;
+	public function getScrollDelay(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setScrollDelay( int $val ) : void;
+	public function setScrollDelay( int $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getTrueSpeed() : bool;
+	public function getTrueSpeed(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setTrueSpeed( bool $val ) : void;
+	public function setTrueSpeed( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getVspace() : int;
+	public function getVspace(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setVspace( int $val ) : void;
+	public function setVspace( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getWidth() : string;
+	public function getWidth(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setWidth( string $val ) : void;
+	public function setWidth( string $val ): void;
 
 }

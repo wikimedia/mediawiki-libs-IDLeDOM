@@ -49,7 +49,7 @@ trait CSSStyleSheetInit {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -94,7 +94,7 @@ trait CSSStyleSheetInit {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\CSSStyleSheetInit $this';
 		// @var \Wikimedia\IDLeDOM\CSSStyleSheetInit $this
 		switch ( $name ) {
@@ -138,14 +138,14 @@ trait CSSStyleSheetInit {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		$this->$offset = $value;
 	}
 
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		unset( $this->$offset );
 	}
 
@@ -175,7 +175,7 @@ trait CSSStyleSheetInit {
 			/**
 			 * @return string
 			 */
-			public function getBaseURL() : string {
+			public function getBaseURL(): string {
 				return $this->a["baseURL"] ?? null;
 			}
 
@@ -189,7 +189,7 @@ trait CSSStyleSheetInit {
 			/**
 			 * @return bool
 			 */
-			public function getDisabled() : bool {
+			public function getDisabled(): bool {
 				return $this->a["disabled"] ?? false;
 			}
 

@@ -27,36 +27,36 @@ abstract class MutationObserverInit implements \ArrayAccess {
 	/**
 	 * @return bool
 	 */
-	abstract public function getChildList() : bool;
+	abstract public function getChildList(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getAttributes() : bool;
+	abstract public function getAttributes(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getCharacterData() : bool;
+	abstract public function getCharacterData(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getSubtree() : bool;
+	abstract public function getSubtree(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getAttributeOldValue() : bool;
+	abstract public function getAttributeOldValue(): bool;
 
 	/**
 	 * @return bool
 	 */
-	abstract public function getCharacterDataOldValue() : bool;
+	abstract public function getCharacterDataOldValue(): bool;
 
 	/**
 	 * @return list<string>
 	 */
-	abstract public function getAttributeFilter() : array;
+	abstract public function getAttributeFilter(): array;
 
 }

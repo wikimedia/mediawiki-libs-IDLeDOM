@@ -21,6 +21,6 @@ abstract class ElementCreationOptions implements \ArrayAccess {
 	/**
 	 * @return string
 	 */
-	abstract public function getIs() : string;
+	abstract public function getIs(): string;
 
 }

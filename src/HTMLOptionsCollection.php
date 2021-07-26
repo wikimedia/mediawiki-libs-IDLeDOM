@@ -22,29 +22,29 @@ interface HTMLOptionsCollection extends HTMLCollection {
 	 * @param HTMLOptionElement|null $option
 	 * @return void
 	 */
-	public function setItem( int $index, /* ?HTMLOptionElement */ $option ) : void;
+	public function setItem( int $index, /* ?HTMLOptionElement */ $option ): void;
 
 	/**
 	 * @param HTMLOptionElement|HTMLOptGroupElement $element
 	 * @param HTMLElement|int|null $before
 	 * @return void
 	 */
-	public function add( /* mixed */ $element, /* ?mixed */ $before = null ) : void;
+	public function add( /* mixed */ $element, /* ?mixed */ $before = null ): void;
 
 	/**
 	 * @param int $index
 	 * @return void
 	 */
-	public function remove( int $index ) : void;
+	public function remove( int $index ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getSelectedIndex() : int;
+	public function getSelectedIndex(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setSelectedIndex( int $val ) : void;
+	public function setSelectedIndex( int $val ): void;
 
 }

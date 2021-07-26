@@ -49,7 +49,7 @@ trait HTMLCollection {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	protected function _setMissingProp( string $prop, $value ) : void {
+	protected function _setMissingProp( string $prop, $value ): void {
 		$trace = debug_backtrace();
 		while (
 			count( $trace ) > 0 &&
@@ -90,7 +90,7 @@ trait HTMLCollection {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		switch ( $name ) {
@@ -105,7 +105,7 @@ trait HTMLCollection {
 	/**
 	 * @return int
 	 */
-	public function count() : int {
+	public function count(): int {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		return $this->getLength();
@@ -160,7 +160,7 @@ trait HTMLCollection {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) : void {
+	public function offsetSet( $offset, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		if ( is_numeric( $offset ) ) {
@@ -187,7 +187,7 @@ trait HTMLCollection {
 	/**
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) : void {
+	public function offsetUnset( $offset ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLCollection $this';
 		// @var \Wikimedia\IDLeDOM\HTMLCollection $this
 		if ( is_numeric( $offset ) ) {

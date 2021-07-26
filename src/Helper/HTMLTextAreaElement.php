@@ -31,7 +31,7 @@ trait HTMLTextAreaElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -221,7 +221,7 @@ trait HTMLTextAreaElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTextAreaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTextAreaElement $this
 		switch ( $name ) {
@@ -401,7 +401,7 @@ trait HTMLTextAreaElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTextAreaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTextAreaElement $this
 		switch ( $name ) {
@@ -545,7 +545,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLTextAreaElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLTextAreaElement $this
 		switch ( $name ) {
@@ -739,7 +739,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string {
+	public function getAutocomplete(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$val = $this->getAttribute( 'autocomplete' );
@@ -759,7 +759,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void {
+	public function setAutocomplete( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'autocomplete', $val );
@@ -768,7 +768,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool {
+	public function getAutofocus(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'autofocus' );
@@ -777,7 +777,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setAutofocus( bool $val ) : void {
+	public function setAutofocus( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -790,7 +790,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getDirName() : string {
+	public function getDirName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'dirname' ) ?? '';
@@ -799,7 +799,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setDirName( string $val ) : void {
+	public function setDirName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'dirname', $val );
@@ -808,7 +808,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool {
+	public function getDisabled(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
@@ -817,7 +817,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void {
+	public function setDisabled( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -830,7 +830,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'name' ) ?? '';
@@ -839,7 +839,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'name', $val );
@@ -848,7 +848,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getPlaceholder() : string {
+	public function getPlaceholder(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'placeholder' ) ?? '';
@@ -857,7 +857,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setPlaceholder( string $val ) : void {
+	public function setPlaceholder( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'placeholder', $val );
@@ -866,7 +866,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return bool
 	 */
-	public function getReadOnly() : bool {
+	public function getReadOnly(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'readonly' );
@@ -875,7 +875,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setReadOnly( bool $val ) : void {
+	public function setReadOnly( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -888,7 +888,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return bool
 	 */
-	public function getRequired() : bool {
+	public function getRequired(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'required' );
@@ -897,7 +897,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setRequired( bool $val ) : void {
+	public function setRequired( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -910,7 +910,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @return string
 	 */
-	public function getWrap() : string {
+	public function getWrap(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'wrap' ) ?? '';
@@ -919,7 +919,7 @@ trait HTMLTextAreaElement {
 	/**
 	 * @param string $val
 	 */
-	public function setWrap( string $val ) : void {
+	public function setWrap( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'wrap', $val );

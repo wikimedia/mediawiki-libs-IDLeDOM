@@ -51,42 +51,42 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	/**
 	 * @return ?string
 	 */
-	public function getNamespaceURI() : ?string;
+	public function getNamespaceURI(): ?string;
 
 	/**
 	 * @return ?string
 	 */
-	public function getPrefix() : ?string;
+	public function getPrefix(): ?string;
 
 	/**
 	 * @return string
 	 */
-	public function getLocalName() : string;
+	public function getLocalName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getTagName() : string;
+	public function getTagName(): string;
 
 	/**
 	 * @return string
 	 */
-	public function getId() : string;
+	public function getId(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setId( string $val ) : void;
+	public function setId( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getClassName() : string;
+	public function getClassName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setClassName( string $val ) : void;
+	public function setClassName( string $val ): void;
 
 	/**
 	 * @return DOMTokenList
@@ -96,22 +96,22 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	/**
 	 * @param string $val
 	 */
-	public function setClassList( string $val ) : void;
+	public function setClassList( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSlot() : string;
+	public function getSlot(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSlot( string $val ) : void;
+	public function setSlot( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function hasAttributes() : bool;
+	public function hasAttributes(): bool;
 
 	/**
 	 * @return NamedNodeMap
@@ -121,27 +121,27 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	/**
 	 * @return list<string>
 	 */
-	public function getAttributeNames() : array;
+	public function getAttributeNames(): array;
 
 	/**
 	 * @param string $qualifiedName
 	 * @return ?string
 	 */
-	public function getAttribute( string $qualifiedName ) : ?string;
+	public function getAttribute( string $qualifiedName ): ?string;
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
 	 * @return ?string
 	 */
-	public function getAttributeNS( ?string $namespace, string $localName ) : ?string;
+	public function getAttributeNS( ?string $namespace, string $localName ): ?string;
 
 	/**
 	 * @param string $qualifiedName
 	 * @param string $value
 	 * @return void
 	 */
-	public function setAttribute( string $qualifiedName, string $value ) : void;
+	public function setAttribute( string $qualifiedName, string $value ): void;
 
 	/**
 	 * @param ?string $namespace
@@ -149,40 +149,40 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	 * @param string $value
 	 * @return void
 	 */
-	public function setAttributeNS( ?string $namespace, string $qualifiedName, string $value ) : void;
+	public function setAttributeNS( ?string $namespace, string $qualifiedName, string $value ): void;
 
 	/**
 	 * @param string $qualifiedName
 	 * @return void
 	 */
-	public function removeAttribute( string $qualifiedName ) : void;
+	public function removeAttribute( string $qualifiedName ): void;
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
 	 * @return void
 	 */
-	public function removeAttributeNS( ?string $namespace, string $localName ) : void;
+	public function removeAttributeNS( ?string $namespace, string $localName ): void;
 
 	/**
 	 * @param string $qualifiedName
 	 * @param ?bool $force
 	 * @return bool
 	 */
-	public function toggleAttribute( string $qualifiedName, ?bool $force = null ) : bool;
+	public function toggleAttribute( string $qualifiedName, ?bool $force = null ): bool;
 
 	/**
 	 * @param string $qualifiedName
 	 * @return bool
 	 */
-	public function hasAttribute( string $qualifiedName ) : bool;
+	public function hasAttribute( string $qualifiedName ): bool;
 
 	/**
 	 * @param ?string $namespace
 	 * @param string $localName
 	 * @return bool
 	 */
-	public function hasAttributeNS( ?string $namespace, string $localName ) : bool;
+	public function hasAttributeNS( ?string $namespace, string $localName ): bool;
 
 	/**
 	 * @param string $qualifiedName
@@ -236,13 +236,13 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	 * @param string $selectors
 	 * @return bool
 	 */
-	public function matches( string $selectors ) : bool;
+	public function matches( string $selectors ): bool;
 
 	/**
 	 * @param string $selectors
 	 * @return bool
 	 */
-	public function webkitMatchesSelector( string $selectors ) : bool;
+	public function webkitMatchesSelector( string $selectors ): bool;
 
 	/**
 	 * @param string $qualifiedName
@@ -275,38 +275,38 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	 * @param string $data
 	 * @return void
 	 */
-	public function insertAdjacentText( string $where, string $data ) : void;
+	public function insertAdjacentText( string $where, string $data ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getOuterHTML() : string;
+	public function getOuterHTML(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setOuterHTML( ?string $val ) : void;
+	public function setOuterHTML( ?string $val ): void;
 
 	/**
 	 * @param string $position
 	 * @param string $text
 	 * @return void
 	 */
-	public function insertAdjacentHTML( string $position, string $text ) : void;
+	public function insertAdjacentHTML( string $position, string $text ): void;
 
 	/**
 	 * @param string $qualifiedName
 	 * @param bool $isId
 	 * @return void
 	 */
-	public function setIdAttribute( string $qualifiedName, bool $isId ) : void;
+	public function setIdAttribute( string $qualifiedName, bool $isId ): void;
 
 	/**
 	 * @param Attr $attr
 	 * @param bool $isId
 	 * @return void
 	 */
-	public function setIdAttributeNode( /* Attr */ $attr, bool $isId ) : void;
+	public function setIdAttributeNode( /* Attr */ $attr, bool $isId ): void;
 
 	/**
 	 * @param string $namespace
@@ -314,6 +314,6 @@ interface Element extends Node, ChildNode, InnerHTML, NonDocumentTypeChildNode, 
 	 * @param bool $isId
 	 * @return void
 	 */
-	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ) : void;
+	public function setIdAttributeNS( string $namespace, string $qualifiedName, bool $isId ): void;
 
 }

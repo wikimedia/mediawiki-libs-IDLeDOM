@@ -35,12 +35,12 @@ interface Window extends EventTarget, GlobalEventHandlers, WindowEventHandlers {
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return Location
@@ -50,47 +50,47 @@ interface Window extends EventTarget, GlobalEventHandlers, WindowEventHandlers {
 	/**
 	 * @param string $val
 	 */
-	public function setLocation( string $val ) : void;
+	public function setLocation( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getStatus() : string;
+	public function getStatus(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setStatus( string $val ) : void;
+	public function setStatus( string $val ): void;
 
 	/**
 	 * @return void
 	 */
-	public function close() : void;
+	public function close(): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getClosed() : bool;
+	public function getClosed(): bool;
 
 	/**
 	 * @return void
 	 */
-	public function stop() : void;
+	public function stop(): void;
 
 	/**
 	 * @return void
 	 */
-	public function focus() : void;
+	public function focus(): void;
 
 	/**
 	 * @return void
 	 */
-	public function blur() : void;
+	public function blur(): void;
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @return mixed|null
@@ -100,7 +100,7 @@ interface Window extends EventTarget, GlobalEventHandlers, WindowEventHandlers {
 	/**
 	 * @param mixed|null $val
 	 */
-	public function setOpener( /* any */ $val ) : void;
+	public function setOpener( /* any */ $val ): void;
 
 	/**
 	 * @return Element|null
@@ -115,12 +115,12 @@ interface Window extends EventTarget, GlobalEventHandlers, WindowEventHandlers {
 	/**
 	 * @return bool
 	 */
-	public function getOriginAgentCluster() : bool;
+	public function getOriginAgentCluster(): bool;
 
 	/**
 	 * @return void
 	 */
-	public function print() : void;
+	public function print(): void;
 
 	/**
 	 * @return Event|null

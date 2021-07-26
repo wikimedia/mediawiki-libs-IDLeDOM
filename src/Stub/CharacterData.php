@@ -18,28 +18,28 @@ trait CharacterData {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getData() : string {
+	public function getData(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setData( ?string $val ) : void {
+	public function setData( ?string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
@@ -48,7 +48,7 @@ trait CharacterData {
 	 * @param int $count
 	 * @return string
 	 */
-	public function substringData( int $offset, int $count ) : string {
+	public function substringData( int $offset, int $count ): string {
 		throw self::_unimplemented();
 	}
 
@@ -56,7 +56,7 @@ trait CharacterData {
 	 * @param string $data
 	 * @return void
 	 */
-	public function appendData( string $data ) : void {
+	public function appendData( string $data ): void {
 		throw self::_unimplemented();
 	}
 
@@ -65,26 +65,26 @@ trait CharacterData {
 	 * @param string $data
 	 * @return void
 	 */
-	public function insertData( int $offset, string $data ) : void {
-		throw self::_unimplemented();
-	}
-
-	/**
-	 * @param int $offset
-	 * @param int $count
-	 * @return void
-	 */
-	public function deleteData( int $offset, int $count ) : void {
+	public function insertData( int $offset, string $data ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $offset
 	 * @param int $count
+	 * @return void
+	 */
+	public function deleteData( int $offset, int $count ): void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param int $offset
+	 * @param int $count
 	 * @param string $data
 	 * @return void
 	 */
-	public function replaceData( int $offset, int $count, string $data ) : void {
+	public function replaceData( int $offset, int $count, string $data ): void {
 		throw self::_unimplemented();
 	}
 

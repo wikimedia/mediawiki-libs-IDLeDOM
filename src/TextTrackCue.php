@@ -30,42 +30,42 @@ interface TextTrackCue extends EventTarget {
 	/**
 	 * @return string
 	 */
-	public function getId() : string;
+	public function getId(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setId( string $val ) : void;
+	public function setId( string $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getStartTime() : float;
+	public function getStartTime(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setStartTime( float $val ) : void;
+	public function setStartTime( float $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getEndTime() : float;
+	public function getEndTime(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setEndTime( float $val ) : void;
+	public function setEndTime( float $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getPauseOnExit() : bool;
+	public function getPauseOnExit(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setPauseOnExit( bool $val ) : void;
+	public function setPauseOnExit( bool $val ): void;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -75,7 +75,7 @@ interface TextTrackCue extends EventTarget {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnenter( /* ?mixed */ $val ) : void;
+	public function setOnenter( /* ?mixed */ $val ): void;
 
 	/**
 	 * @return EventHandlerNonNull|callable|null
@@ -85,6 +85,6 @@ interface TextTrackCue extends EventTarget {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnexit( /* ?mixed */ $val ) : void;
+	public function setOnexit( /* ?mixed */ $val ): void;
 
 }

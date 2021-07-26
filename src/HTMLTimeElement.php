@@ -77,11 +77,11 @@ interface HTMLTimeElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getDateTime() : string;
+	public function getDateTime(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDateTime( string $val ) : void;
+	public function setDateTime( string $val ): void;
 
 }

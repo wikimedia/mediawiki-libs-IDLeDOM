@@ -17,7 +17,7 @@ trait HTMLOrSVGElement {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -31,21 +31,21 @@ trait HTMLOrSVGElement {
 	/**
 	 * @return int
 	 */
-	public function getTabIndex() : int {
+	public function getTabIndex(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param int $val
 	 */
-	public function setTabIndex( int $val ) : void {
+	public function setTabIndex( int $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function blur() : void {
+	public function blur(): void {
 		throw self::_unimplemented();
 	}
 

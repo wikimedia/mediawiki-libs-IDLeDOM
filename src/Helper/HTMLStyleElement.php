@@ -31,7 +31,7 @@ trait HTMLStyleElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -177,7 +177,7 @@ trait HTMLStyleElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLStyleElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLStyleElement $this
 		switch ( $name ) {
@@ -313,7 +313,7 @@ trait HTMLStyleElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLStyleElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLStyleElement $this
 		switch ( $name ) {
@@ -409,7 +409,7 @@ trait HTMLStyleElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLStyleElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLStyleElement $this
 		switch ( $name ) {
@@ -559,7 +559,7 @@ trait HTMLStyleElement {
 	/**
 	 * @return string
 	 */
-	public function getMedia() : string {
+	public function getMedia(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'media' ) ?? '';
@@ -568,7 +568,7 @@ trait HTMLStyleElement {
 	/**
 	 * @param string $val
 	 */
-	public function setMedia( string $val ) : void {
+	public function setMedia( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'media', $val );
@@ -577,7 +577,7 @@ trait HTMLStyleElement {
 	/**
 	 * @return string
 	 */
-	public function getType() : string {
+	public function getType(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'type' ) ?? '';
@@ -586,7 +586,7 @@ trait HTMLStyleElement {
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void {
+	public function setType( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'type', $val );

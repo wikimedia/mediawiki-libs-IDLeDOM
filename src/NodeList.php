@@ -23,7 +23,7 @@ interface NodeList extends \ArrayAccess, \IteratorAggregate, \Countable {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @return \Iterator<Node> Value iterator returning Node items

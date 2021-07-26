@@ -87,92 +87,92 @@ interface HTMLFormElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getAcceptCharset() : string;
+	public function getAcceptCharset(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAcceptCharset( string $val ) : void;
+	public function setAcceptCharset( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAction() : string;
+	public function getAction(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAction( string $val ) : void;
+	public function setAction( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string;
+	public function getAutocomplete(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void;
+	public function setAutocomplete( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getEnctype() : string;
+	public function getEnctype(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setEnctype( string $val ) : void;
+	public function setEnctype( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getEncoding() : string;
+	public function getEncoding(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setEncoding( string $val ) : void;
+	public function setEncoding( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getMethod() : string;
+	public function getMethod(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setMethod( string $val ) : void;
+	public function setMethod( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getNoValidate() : bool;
+	public function getNoValidate(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setNoValidate( bool $val ) : void;
+	public function setNoValidate( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getTarget() : string;
+	public function getTarget(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setTarget( string $val ) : void;
+	public function setTarget( string $val ): void;
 
 	/**
 	 * @return HTMLFormControlsCollection
@@ -182,32 +182,32 @@ interface HTMLFormElement extends HTMLElement {
 	/**
 	 * @return int
 	 */
-	public function getLength() : int;
+	public function getLength(): int;
 
 	/**
 	 * @return void
 	 */
-	public function submit() : void;
+	public function submit(): void;
 
 	/**
 	 * @param HTMLElement|null $submitter
 	 * @return void
 	 */
-	public function requestSubmit( /* ?HTMLElement */ $submitter = null ) : void;
+	public function requestSubmit( /* ?HTMLElement */ $submitter = null ): void;
 
 	/**
 	 * @return void
 	 */
-	public function reset() : void;
+	public function reset(): void;
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool;
+	public function checkValidity(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool;
+	public function reportValidity(): bool;
 
 }

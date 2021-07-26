@@ -19,42 +19,42 @@ trait TextTrack {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getKind() : /* TextTrackKind */ string {
+	public function getKind(): /* TextTrackKind */ string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string {
+	public function getLabel(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getLanguage() : string {
+	public function getLanguage(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getInBandMetadataTrackDispatchType() : string {
+	public function getInBandMetadataTrackDispatchType(): string {
 		throw self::_unimplemented();
 	}
 
@@ -76,7 +76,7 @@ trait TextTrack {
 	 * @param TextTrackCue $cue
 	 * @return void
 	 */
-	public function addCue( /* TextTrackCue */ $cue ) : void {
+	public function addCue( /* TextTrackCue */ $cue ): void {
 		throw self::_unimplemented();
 	}
 
@@ -84,7 +84,7 @@ trait TextTrack {
 	 * @param TextTrackCue $cue
 	 * @return void
 	 */
-	public function removeCue( /* TextTrackCue */ $cue ) : void {
+	public function removeCue( /* TextTrackCue */ $cue ): void {
 		throw self::_unimplemented();
 	}
 
@@ -98,7 +98,7 @@ trait TextTrack {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOncuechange( /* ?mixed */ $val ) : void {
+	public function setOncuechange( /* ?mixed */ $val ): void {
 		throw self::_unimplemented();
 	}
 

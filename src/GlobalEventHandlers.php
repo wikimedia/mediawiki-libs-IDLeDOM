@@ -22,6 +22,6 @@ interface GlobalEventHandlers {
 	/**
 	 * @param EventHandlerNonNull|callable|null $val
 	 */
-	public function setOnload( /* ?mixed */ $val ) : void;
+	public function setOnload( /* ?mixed */ $val ): void;
 
 }

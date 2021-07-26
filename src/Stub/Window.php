@@ -24,7 +24,7 @@ trait Window {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -38,14 +38,14 @@ trait Window {
 	/**
 	 * @return string
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void {
+	public function setName( string $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -59,56 +59,56 @@ trait Window {
 	/**
 	 * @return string
 	 */
-	public function getStatus() : string {
+	public function getStatus(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @param string $val
 	 */
-	public function setStatus( string $val ) : void {
+	public function setStatus( string $val ): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function close() : void {
+	public function close(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getClosed() : bool {
+	public function getClosed(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function stop() : void {
+	public function stop(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function focus() : void {
+	public function focus(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function blur() : void {
+	public function blur(): void {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getLength() : int {
+	public function getLength(): int {
 		throw self::_unimplemented();
 	}
 
@@ -122,7 +122,7 @@ trait Window {
 	/**
 	 * @param mixed|null $val
 	 */
-	public function setOpener( /* any */ $val ) : void {
+	public function setOpener( /* any */ $val ): void {
 		throw self::_unimplemented();
 	}
 
@@ -143,14 +143,14 @@ trait Window {
 	/**
 	 * @return bool
 	 */
-	public function getOriginAgentCluster() : bool {
+	public function getOriginAgentCluster(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return void
 	 */
-	public function print() : void {
+	public function print(): void {
 		throw self::_unimplemented();
 	}
 

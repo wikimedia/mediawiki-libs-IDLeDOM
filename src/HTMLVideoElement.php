@@ -107,51 +107,51 @@ interface HTMLVideoElement extends HTMLMediaElement {
 	/**
 	 * @return int
 	 */
-	public function getWidth() : int;
+	public function getWidth(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setWidth( int $val ) : void;
+	public function setWidth( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getHeight() : int;
+	public function getHeight(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setHeight( int $val ) : void;
+	public function setHeight( int $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getVideoWidth() : int;
+	public function getVideoWidth(): int;
 
 	/**
 	 * @return int
 	 */
-	public function getVideoHeight() : int;
+	public function getVideoHeight(): int;
 
 	/**
 	 * @return string
 	 */
-	public function getPoster() : string;
+	public function getPoster(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setPoster( string $val ) : void;
+	public function setPoster( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getPlaysInline() : bool;
+	public function getPlaysInline(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setPlaysInline( bool $val ) : void;
+	public function setPlaysInline( bool $val ): void;
 
 }

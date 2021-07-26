@@ -31,7 +31,7 @@ trait HTMLOptGroupElement {
 	 * @param string $prop the name of the property requested
 	 * @param mixed $value the value to set
 	 */
-	abstract protected function _setMissingProp( string $prop, $value ) : void;
+	abstract protected function _setMissingProp( string $prop, $value ): void;
 
 	// phpcs:enable
 
@@ -175,7 +175,7 @@ trait HTMLOptGroupElement {
 	 * @param string $name
 	 * @return bool
 	 */
-	public function __isset( string $name ) : bool {
+	public function __isset( string $name ): bool {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptGroupElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOptGroupElement $this
 		switch ( $name ) {
@@ -309,7 +309,7 @@ trait HTMLOptGroupElement {
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set( string $name, $value ) : void {
+	public function __set( string $name, $value ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptGroupElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOptGroupElement $this
 		switch ( $name ) {
@@ -405,7 +405,7 @@ trait HTMLOptGroupElement {
 	/**
 	 * @param string $name
 	 */
-	public function __unset( string $name ) : void {
+	public function __unset( string $name ): void {
 		'@phan-var \Wikimedia\IDLeDOM\HTMLOptGroupElement $this';
 		// @var \Wikimedia\IDLeDOM\HTMLOptGroupElement $this
 		switch ( $name ) {
@@ -553,7 +553,7 @@ trait HTMLOptGroupElement {
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool {
+	public function getDisabled(): bool {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->hasAttribute( 'disabled' );
@@ -562,7 +562,7 @@ trait HTMLOptGroupElement {
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void {
+	public function setDisabled( bool $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		if ( $val ) {
@@ -575,7 +575,7 @@ trait HTMLOptGroupElement {
 	/**
 	 * @return string
 	 */
-	public function getLabel() : string {
+	public function getLabel(): string {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		return $this->getAttribute( 'label' ) ?? '';
@@ -584,7 +584,7 @@ trait HTMLOptGroupElement {
 	/**
 	 * @param string $val
 	 */
-	public function setLabel( string $val ) : void {
+	public function setLabel( string $val ): void {
 		'@phan-var \Wikimedia\IDLeDOM\Element $this';
 		// @var \Wikimedia\IDLeDOM\Element $this
 		$this->setAttribute( 'label', $val );

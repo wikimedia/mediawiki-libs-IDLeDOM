@@ -117,82 +117,82 @@ interface HTMLInputElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getAccept() : string;
+	public function getAccept(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAccept( string $val ) : void;
+	public function setAccept( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlt() : string;
+	public function getAlt(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlt( string $val ) : void;
+	public function setAlt( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAutocomplete() : string;
+	public function getAutocomplete(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAutocomplete( string $val ) : void;
+	public function setAutocomplete( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getAutofocus() : bool;
+	public function getAutofocus(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setAutofocus( bool $val ) : void;
+	public function setAutofocus( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDefaultChecked() : bool;
+	public function getDefaultChecked(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDefaultChecked( bool $val ) : void;
+	public function setDefaultChecked( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getChecked() : bool;
+	public function getChecked(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setChecked( bool $val ) : void;
+	public function setChecked( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDirName() : string;
+	public function getDirName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDirName( string $val ) : void;
+	public function setDirName( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getDisabled() : bool;
+	public function getDisabled(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setDisabled( bool $val ) : void;
+	public function setDisabled( bool $val ): void;
 
 	/**
 	 * @return HTMLFormElement|null
@@ -202,52 +202,52 @@ interface HTMLInputElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getFormEnctype() : string;
+	public function getFormEnctype(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFormEnctype( string $val ) : void;
+	public function setFormEnctype( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFormMethod() : string;
+	public function getFormMethod(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFormMethod( string $val ) : void;
+	public function setFormMethod( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getFormNoValidate() : bool;
+	public function getFormNoValidate(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setFormNoValidate( bool $val ) : void;
+	public function setFormNoValidate( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getFormTarget() : string;
+	public function getFormTarget(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setFormTarget( string $val ) : void;
+	public function setFormTarget( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getIndeterminate() : bool;
+	public function getIndeterminate(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setIndeterminate( bool $val ) : void;
+	public function setIndeterminate( bool $val ): void;
 
 	/**
 	 * @return HTMLElement|null
@@ -257,189 +257,189 @@ interface HTMLInputElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getMax() : string;
+	public function getMax(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setMax( string $val ) : void;
+	public function setMax( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getMaxLength() : int;
+	public function getMaxLength(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setMaxLength( int $val ) : void;
+	public function setMaxLength( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getMin() : string;
+	public function getMin(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setMin( string $val ) : void;
+	public function setMin( string $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getMinLength() : int;
+	public function getMinLength(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setMinLength( int $val ) : void;
+	public function setMinLength( int $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getMultiple() : bool;
+	public function getMultiple(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setMultiple( bool $val ) : void;
+	public function setMultiple( bool $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getPattern() : string;
+	public function getPattern(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setPattern( string $val ) : void;
+	public function setPattern( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getPlaceholder() : string;
+	public function getPlaceholder(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setPlaceholder( string $val ) : void;
+	public function setPlaceholder( string $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getReadOnly() : bool;
+	public function getReadOnly(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setReadOnly( bool $val ) : void;
+	public function setReadOnly( bool $val ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getRequired() : bool;
+	public function getRequired(): bool;
 
 	/**
 	 * @param bool $val
 	 */
-	public function setRequired( bool $val ) : void;
+	public function setRequired( bool $val ): void;
 
 	/**
 	 * @return int
 	 */
-	public function getSize() : int;
+	public function getSize(): int;
 
 	/**
 	 * @param int $val
 	 */
-	public function setSize( int $val ) : void;
+	public function setSize( int $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getSrc() : string;
+	public function getSrc(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setSrc( string $val ) : void;
+	public function setSrc( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getStep() : string;
+	public function getStep(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setStep( string $val ) : void;
+	public function setStep( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getType() : string;
+	public function getType(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setType( string $val ) : void;
+	public function setType( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getDefaultValue() : string;
+	public function getDefaultValue(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setDefaultValue( string $val ) : void;
+	public function setDefaultValue( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getValue() : string;
+	public function getValue(): string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setValue( ?string $val ) : void;
+	public function setValue( ?string $val ): void;
 
 	/**
 	 * @return float
 	 */
-	public function getValueAsNumber() : float;
+	public function getValueAsNumber(): float;
 
 	/**
 	 * @param float $val
 	 */
-	public function setValueAsNumber( float $val ) : void;
+	public function setValueAsNumber( float $val ): void;
 
 	/**
 	 * @param int $n
 	 * @return void
 	 */
-	public function stepUp( int $n = 1 ) : void;
+	public function stepUp( int $n = 1 ): void;
 
 	/**
 	 * @param int $n
 	 * @return void
 	 */
-	public function stepDown( int $n = 1 ) : void;
+	public function stepDown( int $n = 1 ): void;
 
 	/**
 	 * @return bool
 	 */
-	public function getWillValidate() : bool;
+	public function getWillValidate(): bool;
 
 	/**
 	 * @return ValidityState
@@ -449,23 +449,23 @@ interface HTMLInputElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getValidationMessage() : string;
+	public function getValidationMessage(): string;
 
 	/**
 	 * @return bool
 	 */
-	public function checkValidity() : bool;
+	public function checkValidity(): bool;
 
 	/**
 	 * @return bool
 	 */
-	public function reportValidity() : bool;
+	public function reportValidity(): bool;
 
 	/**
 	 * @param string $error
 	 * @return void
 	 */
-	public function setCustomValidity( string $error ) : void;
+	public function setCustomValidity( string $error ): void;
 
 	/**
 	 * @return NodeList|null
@@ -475,43 +475,43 @@ interface HTMLInputElement extends HTMLElement {
 	/**
 	 * @return void
 	 */
-	public function select() : void;
+	public function select(): void;
 
 	/**
 	 * @return ?int
 	 */
-	public function getSelectionStart() : ?int;
+	public function getSelectionStart(): ?int;
 
 	/**
 	 * @param ?int $val
 	 */
-	public function setSelectionStart( ?int $val ) : void;
+	public function setSelectionStart( ?int $val ): void;
 
 	/**
 	 * @return ?int
 	 */
-	public function getSelectionEnd() : ?int;
+	public function getSelectionEnd(): ?int;
 
 	/**
 	 * @param ?int $val
 	 */
-	public function setSelectionEnd( ?int $val ) : void;
+	public function setSelectionEnd( ?int $val ): void;
 
 	/**
 	 * @return ?string
 	 */
-	public function getSelectionDirection() : ?string;
+	public function getSelectionDirection(): ?string;
 
 	/**
 	 * @param ?string $val
 	 */
-	public function setSelectionDirection( ?string $val ) : void;
+	public function setSelectionDirection( ?string $val ): void;
 
 	/**
 	 * @param string $replacement
 	 * @return void
 	 */
-	public function setRangeText( string $replacement ) : void;
+	public function setRangeText( string $replacement ): void;
 
 	/**
 	 * @param int $start
@@ -519,26 +519,26 @@ interface HTMLInputElement extends HTMLElement {
 	 * @param ?string $direction
 	 * @return void
 	 */
-	public function setSelectionRange( int $start, int $end, ?string $direction = null ) : void;
+	public function setSelectionRange( int $start, int $end, ?string $direction = null ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getAlign() : string;
+	public function getAlign(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setAlign( string $val ) : void;
+	public function setAlign( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getUseMap() : string;
+	public function getUseMap(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setUseMap( string $val ) : void;
+	public function setUseMap( string $val ): void;
 
 }

@@ -17,7 +17,7 @@ trait AbstractRange {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
@@ -31,7 +31,7 @@ trait AbstractRange {
 	/**
 	 * @return int
 	 */
-	public function getStartOffset() : int {
+	public function getStartOffset(): int {
 		throw self::_unimplemented();
 	}
 
@@ -45,14 +45,14 @@ trait AbstractRange {
 	/**
 	 * @return int
 	 */
-	public function getEndOffset() : int {
+	public function getEndOffset(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getCollapsed() : bool {
+	public function getCollapsed(): bool {
 		throw self::_unimplemented();
 	}
 

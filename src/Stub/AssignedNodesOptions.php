@@ -16,14 +16,14 @@ trait AssignedNodesOptions {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return bool
 	 */
-	public function getFlatten() : bool {
+	public function getFlatten(): bool {
 		throw self::_unimplemented();
 	}
 

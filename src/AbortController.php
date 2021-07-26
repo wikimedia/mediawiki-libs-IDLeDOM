@@ -23,6 +23,6 @@ interface AbortController {
 	/**
 	 * @return void
 	 */
-	public function abort() : void;
+	public function abort(): void;
 
 }

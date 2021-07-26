@@ -80,41 +80,41 @@ interface HTMLMetaElement extends HTMLElement {
 	/**
 	 * @return string
 	 */
-	public function getName() : string;
+	public function getName(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setName( string $val ) : void;
+	public function setName( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getHttpEquiv() : string;
+	public function getHttpEquiv(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setHttpEquiv( string $val ) : void;
+	public function setHttpEquiv( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getContent() : string;
+	public function getContent(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setContent( string $val ) : void;
+	public function setContent( string $val ): void;
 
 	/**
 	 * @return string
 	 */
-	public function getScheme() : string;
+	public function getScheme(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setScheme( string $val ) : void;
+	public function setScheme( string $val ): void;
 
 }

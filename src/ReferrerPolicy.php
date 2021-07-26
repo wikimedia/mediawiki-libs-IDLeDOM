@@ -17,11 +17,11 @@ interface ReferrerPolicy {
 	/**
 	 * @return string
 	 */
-	public function getReferrerPolicy() : string;
+	public function getReferrerPolicy(): string;
 
 	/**
 	 * @param string $val
 	 */
-	public function setReferrerPolicy( string $val ) : void;
+	public function setReferrerPolicy( string $val ): void;
 
 }

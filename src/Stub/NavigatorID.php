@@ -16,84 +16,84 @@ trait NavigatorID {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return string
 	 */
-	public function getAppCodeName() : string {
+	public function getAppCodeName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAppName() : string {
+	public function getAppName(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAppVersion() : string {
+	public function getAppVersion(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getPlatform() : string {
+	public function getPlatform(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getProduct() : string {
+	public function getProduct(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getProductSub() : string {
+	public function getProductSub(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getUserAgent() : string {
+	public function getUserAgent(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getVendor() : string {
+	public function getVendor(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getVendorSub() : string {
+	public function getVendorSub(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function taintEnabled() : bool {
+	public function taintEnabled(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getOscpu() : string {
+	public function getOscpu(): string {
 		throw self::_unimplemented();
 	}
 

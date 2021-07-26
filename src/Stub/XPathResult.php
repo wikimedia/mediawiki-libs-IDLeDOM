@@ -17,35 +17,35 @@ trait XPathResult {
 	/**
 	 * @return Exception
 	 */
-	abstract protected function _unimplemented() : Exception;
+	abstract protected function _unimplemented(): Exception;
 
 	// phpcs:enable
 
 	/**
 	 * @return int
 	 */
-	public function getResultType() : int {
+	public function getResultType(): int {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return float
 	 */
-	public function getNumberValue() : float {
+	public function getNumberValue(): float {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getStringValue() : string {
+	public function getStringValue(): string {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function getBooleanValue() : bool {
+	public function getBooleanValue(): bool {
 		throw self::_unimplemented();
 	}
 
@@ -59,14 +59,14 @@ trait XPathResult {
 	/**
 	 * @return bool
 	 */
-	public function getInvalidIteratorState() : bool {
+	public function getInvalidIteratorState(): bool {
 		throw self::_unimplemented();
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getSnapshotLength() : int {
+	public function getSnapshotLength(): int {
 		throw self::_unimplemented();
 	}
 
