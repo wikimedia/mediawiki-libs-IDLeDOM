@@ -1,4 +1,5 @@
 # IDLeDOM x.x.x (not yet released)
+* Don't export .phan directory in composer package.
 
 # IDLeDOM 0.7.1 (2021-07-16)
 * Add `_getMissingProp`/`_setMissingProp` extension points for
