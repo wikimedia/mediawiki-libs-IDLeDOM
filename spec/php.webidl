@@ -27,3 +27,10 @@ partial interface Element {
   [PHPExtension]
   undefined setIdAttributeNS(DOMString namespace, DOMString qualifiedName, boolean isId);
 };
+
+partial interface DocumentFragment {
+  // This is often used in PHP code instead of the "proper"
+  // DOM parsing methods.
+  [PHPExtension]
+  boolean appendXML(DOMString data);
+};
