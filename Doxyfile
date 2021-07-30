@@ -24,7 +24,8 @@ ALIASES                = "type{1}=<b> \1 </b>:" \
                          "suppress=" \
                          "stable=Stable"
 INPUT                  = README.md CHANGELOG.md CODE_OF_CONDUCT.md WebIDL.md src/
-FILE_PATTERNS          = *.php
+FILE_PATTERNS          = *.php *.md
+MARKDOWN_SUPPORT       = YES
 RECURSIVE              = YES
 USE_MDFILE_AS_MAINPAGE = README.md
 FILTER_PATTERNS        = *md=build/doxygen_escape.sh *.php="php build/doxygen_php_filters.php"
