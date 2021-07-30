@@ -439,7 +439,7 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	 * @param int $options
 	 * @return \Wikimedia\IDLeDOM\Document|bool
 	 */
-	public function load( string $source, int $options = 0 );
+	public function loadHTML( string $source, int $options = 0 );
 
 	/**
 	 * @param string $source

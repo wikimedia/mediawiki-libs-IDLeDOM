@@ -10,7 +10,7 @@ partial interface Document {
 
   // These are often used in PHP code instead of the "proper" DOMImplementation
   // or DOM parsing methods.
-  [PHPExtension] (Document or boolean) load(DOMString source, optional unsigned long options = 0);
+  [PHPExtension] (Document or boolean) loadHTML(DOMString source, optional unsigned long options = 0);
   [PHPExtension] (Document or boolean) loadXML(DOMString source, optional unsigned long options = 0);
   [PHPExtension] (DOMString or boolean) saveHTML(optional Node? node = null);
   [PHPExtension] (DOMString or boolean) saveXML(optional Node? node = null, optional unsigned long options = 0);
