@@ -3,21 +3,29 @@
 namespace Wikimedia\IDLeDOM\Tools;
 
 class UpdateChangeLog {
-	public const PACKAGE_NAME = 'IDLeDOM';
-
 	public static function main() {
 		$changeLogPath = __DIR__ . '/../CHANGELOG.md';
 		$changeLog = file_get_contents( $changeLogPath );
 		$changeLog = preg_replace_callback(
-			'/^# ' . preg_quote( self::PACKAGE_NAME, '/' ) .
-			' (x\.x\.x|\d+\.\d+\.\d+)(.*)$/m',
-			static function ( $matches ) {
-				$line = '# ' . self::PACKAGE_NAME;
-				if ( $matches[1] === 'x.x.x' ) {
+			'/^(#+) (\S+) (x\.x\.x|\d+\.\d+\.\d+)(.*)$/m',
+			static function ( $matches ) use ( $changeLog ) {
+				$line = $matches[1] . ' ' . $matches[2];
+				if ( $matches[3] === 'x.x.x' ) {
+					// Find the previous version
+					if ( preg_match(
+						'/^#+ ' . preg_quote( $matches[2], '/' ) .
+						' (\d+)\.(\d+)\.(\d+)/m', $changeLog, $m2
+					) === false ) {
+						throw new \Exception( "Last version not found!" );
+					}
 					// Do a release!
-					$version = '0.7.1'; // XXX FIXME to fetch & bump version
+					list( $ignore,$major,$minor,$patch ) = $m2;
+					// We're only bumping patch levels for now.
+					// FIXME add a command-line option to select whether
+					// to bump major, minor, or patch.
+					$nextVersion = "$major.$minor." . ( intval( $patch ) + 1 );
 					$date = date( 'Y-m-d' );
-					return "$line $version ($date)";
+					return "$line $nextVersion ($date)";
 				} else {
 					// Bump after a release
 					return "$line x.x.x (not yet released)\n\n" . $matches[0];
