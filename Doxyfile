@@ -23,7 +23,7 @@ ALIASES                = "type{1}=<b> \1 </b>:" \
                          "phan=" \
                          "suppress=" \
                          "stable=Stable"
-INPUT                  = README.md src/
+INPUT                  = README.md CHANGELOG.md CODE_OF_CONDUCT.md WebIDL.md src/
 FILE_PATTERNS          = *.php
 RECURSIVE              = YES
 USE_MDFILE_AS_MAINPAGE = README.md
