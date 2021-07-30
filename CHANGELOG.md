@@ -1,6 +1,7 @@
 # IDLeDOM x.x.x (not yet released)
 * Add DocumentFragment::appendXML() for PHP compatibility.
 * Fix name of PHP-compatible Document::loadHTML() method.
+* Clarify the return types of Document::loadHTML()/Document::loadXML().
 
 # IDLeDOM 0.7.2 (2021-07-26)
 * Don't export .phan directory in composer package.

@@ -437,16 +437,16 @@ interface Document extends Node, DocumentAndElementEventHandlers, DocumentOrShad
 	/**
 	 * @param string $source
 	 * @param int $options
-	 * @return \Wikimedia\IDLeDOM\Document|bool
+	 * @return bool
 	 */
-	public function loadHTML( string $source, int $options = 0 );
+	public function loadHTML( string $source, int $options = 0 ): bool;
 
 	/**
 	 * @param string $source
 	 * @param int $options
-	 * @return \Wikimedia\IDLeDOM\Document|bool
+	 * @return bool
 	 */
-	public function loadXML( string $source, int $options = 0 );
+	public function loadXML( string $source, int $options = 0 ): bool;
 
 	/**
 	 * @param Node|null $node

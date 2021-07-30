@@ -701,7 +701,9 @@ Similarly,
 has a non-standard method named
 [`appendXML`](https://www.php.net/manual/en/domdocumentfragment.appendxml.php).
 It is recommended that implementers implement these for compatibility
-with legacy code.
+with legacy code.  (We don't support calling `DOMDocument::loadHTML()` or
+`DOMDocument::loadXML()` statically, which generates an `E_STRICT` error
+in modern PHP.)
 
 PHP contains methods on
 [`DOMElement`](https://www.php.net/manual/en/class.domelement.php)
