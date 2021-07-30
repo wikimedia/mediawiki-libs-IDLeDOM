@@ -1,6 +1,6 @@
 # Change Log
 
-## IDLeDOM x.x.x (not yet released)
+## IDLeDOM 0.8.0 (2021-07-30)
 * Add DocumentFragment::appendXML() for PHP compatibility.
 * Fix name of PHP-compatible Document::loadHTML() method.
 * Clarify the return types of Document::loadHTML()/Document::loadXML().
