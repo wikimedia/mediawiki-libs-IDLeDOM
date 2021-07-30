@@ -246,7 +246,8 @@ interface Node : EventTarget {
   DOMString? lookupNamespaceURI(DOMString? prefix);
   boolean isDefaultNamespace(DOMString? namespace);
 
-  [CEReactions] Node insertBefore(Node node, Node? child);
+  // It's a [PHPExtension] to make the second argument optional
+  [CEReactions] Node insertBefore(Node node, [PHPExtension] optional Node? child = null);
   [CEReactions] Node appendChild(Node node);
   [CEReactions] Node replaceChild(Node node, Node child);
   [CEReactions] Node removeChild(Node child);

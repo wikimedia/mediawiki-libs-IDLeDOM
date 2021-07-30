@@ -1,6 +1,8 @@
 # Change Log
 
 ## IDLeDOM x.x.x (not yet released)
+* The second argument to Node::insertBefore() is now optional, for
+  PHP compatibility.
 
 ## IDLeDOM 0.8.0 (2021-07-30)
 * Add DocumentFragment::appendXML() for PHP compatibility.
