@@ -26,7 +26,7 @@ avoid direct references to the particular implementation class,
 and instead refer to the IDLeDOM interface.
 
 It is expected that users can use type aliasing (ie, PHP
-[`class_alias`](https://www.php.net/manual/en/function.class-alias.php)
+[`class_alias`](https://www.php.net/manual/en/function.class-alias.php))
 to use a compatible DOM implementation—that is, implementations
 which adhere to this binding specification but don't inherit from
 the IDLeDOM interfaces.
