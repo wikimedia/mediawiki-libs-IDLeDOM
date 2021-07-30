@@ -1,21 +1,23 @@
-# IDLeDOM x.x.x (not yet released)
+# Change Log
+
+## IDLeDOM x.x.x (not yet released)
 * Add DocumentFragment::appendXML() for PHP compatibility.
 * Fix name of PHP-compatible Document::loadHTML() method.
 * Clarify the return types of Document::loadHTML()/Document::loadXML().
 
-# IDLeDOM 0.7.2 (2021-07-26)
+## IDLeDOM 0.7.2 (2021-07-26)
 * Don't export .phan directory in composer package.
 
-# IDLeDOM 0.7.1 (2021-07-16)
+## IDLeDOM 0.7.1 (2021-07-16)
 * Add `_getMissingProp`/`_setMissingProp` extension points for
   DOM implementations to support additional/alternative properties.
 
-# IDLeDOM 0.7.0 (2021-07-04)
+## IDLeDOM 0.7.0 (2021-07-04)
 * Add CSS Object Model (CSSOM) interfaces.
 * Add Location interface.
 * Support [PutForwards] extended attribute.
 
-# IDLeDOM 0.6.0 (2021-06-14)
+## IDLeDOM 0.6.0 (2021-06-14)
 * Map WebIDL enumeration types to PHP string type (previously enumerations
   were mapped to an integer type).
 * Map WebIDL dictionary types to an abstract class instead of an interface
@@ -26,21 +28,21 @@
   this time only the `onload` event handler is defined in order to
   avoid bloating the `__get`/`__set` helpers.
 
-# IDLeDOM 0.5.1 (2021-05-20)
+## IDLeDOM 0.5.1 (2021-05-20)
 * Suppress type hints on DOMException::getMessage() and
   DOMException::getCode() so that you can override a built-in
   \Exception class.
 * Support pair iterators.
 * Add URL and URLSearchParams interfaces.
 
-# IDLeDOM 0.5.0 (2021-05-19)
+## IDLeDOM 0.5.0 (2021-05-19)
 * Add HTML extensions to Document interface.
 * Add extensions from the DOM Parsing and Serialization specification.
 * Add Document::{load,loadXML,saveHTML,saveXML} which are commonly-used
   PHP-specific methods for compatibility with PHP code written for
   `DOMDocument`.
 
-# IDLeDOM 0.4.1 (2021-05-12)
+## IDLeDOM 0.4.1 (2021-05-12)
 * Add DOMException interface.
 * Add interfaces for WebIDL "simple exceptions".
 * Annotate `id`, `className`, and `slot` attributes of Element for reflection.
@@ -48,7 +50,7 @@
   `Element::setIdAttributeNS` for compatibility with PHP code written for
   `DOMElement`.
 
-# IDLeDOM 0.4.0 (2021-05-11)
+## IDLeDOM 0.4.0 (2021-05-11)
 * Add interfaces for HTML IDL, in particular the HTML*Element classes.
 * Support "unnamed" getter/setters/deleters/stringifiers.
 * Return return types for cast() helper methods, in order to accommodate
@@ -58,7 +60,7 @@
 * Add Document::encoding setter, for compatibility with PHP's
   DOMDocument.  This is marked as [PHPExtension].
 
-# IDLeDOM 0.3.0 (2021-04-12)
+## IDLeDOM 0.3.0 (2021-04-12)
 * Use interface (instead of class) for enumerations.  This allows
   DOM implementations to easily define a class implementing the interface
   to bring the constants into the implementation's namespace.
@@ -67,7 +69,7 @@
 * Support the [LegacyNullToEmptyString] extended attribute, by broadening
   type to allow `null` where appropriate.
 
-# IDLeDOM 0.2.0 (2021-02-12)
+## IDLeDOM 0.2.0 (2021-02-12)
 * Strip explicit PHP type hints for DOM interface types, in order to
   accomodate the weak covariant/contravariance checks in PHP 7.2.
 * Make NodeList, HTMLCollection, NamedNodeMap, and DOMTokenList
@@ -78,10 +80,10 @@
   and don't declare abstract methods (these were shadowing inherited method
   from superclasses).
 
-# IDLeDOM 0.1.1 (2021-02-11)
+## IDLeDOM 0.1.1 (2021-02-11)
 * Replace HTMLSlotElement/EventHandler/DOMHighRestTimeStamp stubs with
   proper definitions.
 * Replace stub method to ::_unimplemented() to avoid DOM name conflicts.
 
-# IDLeDOM 0.1.0 (2021-02-10)
+## IDLeDOM 0.1.0 (2021-02-10)
 Initial release.
