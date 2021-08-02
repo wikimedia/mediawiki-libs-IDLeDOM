@@ -1,6 +1,6 @@
 # Change Log
 
-## IDLeDOM x.x.x (not yet released)
+## IDLeDOM 0.9.0 (2021-08-02)
 * The second argument to Node::insertBefore() is now optional, for
   PHP compatibility.
 * Add PHP-compatible properties on Document:
