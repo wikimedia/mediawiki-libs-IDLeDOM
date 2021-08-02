@@ -544,6 +544,62 @@ trait Document {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function getPreserveWhiteSpace(): bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setPreserveWhiteSpace( bool $val ): void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getFormatOutput(): bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setFormatOutput( bool $val ): void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getValidateOnParse(): bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setValidateOnParse( bool $val ): void {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getStrictErrorChecking(): bool {
+		throw self::_unimplemented();
+	}
+
+	/**
+	 * @param bool $val
+	 */
+	public function setStrictErrorChecking( bool $val ): void {
+		throw self::_unimplemented();
+	}
+
+	/**
 	 * @param string $source
 	 * @param int $options
 	 * @return bool

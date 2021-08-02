@@ -3,6 +3,11 @@
 ## IDLeDOM x.x.x (not yet released)
 * The second argument to Node::insertBefore() is now optional, for
   PHP compatibility.
+* Add PHP-compatible properties on Document:
+  * ::preserveWhiteSpace
+  * ::formatOutput
+  * ::validateOnParse
+  * ::strictErrorChecking
 
 ## IDLeDOM 0.8.0 (2021-07-30)
 * Add DocumentFragment::appendXML() for PHP compatibility.

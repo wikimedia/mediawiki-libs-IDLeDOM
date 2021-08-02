@@ -7,6 +7,18 @@ partial interface Document {
   // but is the only way of manipulating XML document encoding in this
   // implementation."
   [PHPExtension] attribute DOMString encoding;
+  // PHP specs say: "Do not remove redundant white space. Default to true.
+  // Setting this to false has the same effect as passing LIBXML_NOBLANKS
+  // as option to DOMDocument::load() etc.
+  [PHPExtension] attribute boolean preserveWhiteSpace;
+  // PHP specs say: "Nicely formats output with indentation and extra space.
+  // This has no effect if the document was loaded with preserveWhitespace
+  // enabled."
+  [PHPExtension] attribute boolean formatOutput;
+  // PHP specs say: "Loads and validates against the DTD. Default to false."
+  [PHPExtension] attribute boolean validateOnParse;
+  // PHP specs say: "Throws DOMException on errors. Default to true."
+  [PHPExtension] attribute boolean strictErrorChecking;
 
   // These are often used in PHP code instead of the "proper" DOMImplementation
   // or DOM parsing methods.
