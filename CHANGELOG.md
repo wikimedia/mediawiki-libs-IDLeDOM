@@ -1,6 +1,11 @@
 # Change Log
 
 ## IDLeDOM x.x.x (not yet released)
+* The second and third arguments to DOMImplementation::createDocumentType()
+  are now optional, for PHP compatibility.
+* If the final argument to Document::createElement() or
+  Document::createElementNS() is a string, interpretation may be
+  implementation-dependent (PHP compatibility).
 
 ## IDLeDOM 0.9.0 (2021-08-02)
 * The second argument to Node::insertBefore() is now optional, for

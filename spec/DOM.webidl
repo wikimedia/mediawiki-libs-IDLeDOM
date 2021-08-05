@@ -276,8 +276,18 @@ interface Document : Node {
   HTMLCollection getElementsByTagNameNS(DOMString? namespace, DOMString localName);
   HTMLCollection getElementsByClassName(DOMString classNames);
 
+  // Note: PHP's DOMElement lets you pass a string as the second argument
+  // and uses that to create a Text node child of the Element, and
+  // implementations may choose to support that; don't rely on conversion
+  // of a string to ElementCreationOptions
   [CEReactions, NewObject] Element createElement(DOMString localName, optional (DOMString or ElementCreationOptions) options = {});
+
+  // Note: PHP's DOMElement lets you pass a string as the second argument
+  // and uses that to create a Text node child of the Element, and
+  // implementations may choose to support that; don't rely on conversion
+  // of a string to ElementCreationOptions
   [CEReactions, NewObject] Element createElementNS(DOMString? namespace, DOMString qualifiedName, optional (DOMString or ElementCreationOptions) options = {});
+
   [NewObject] DocumentFragment createDocumentFragment();
   [NewObject] Text createTextNode(DOMString data);
   [NewObject] CDATASection createCDATASection(DOMString data);
@@ -308,7 +318,8 @@ dictionary ElementCreationOptions {
 
 [Exposed=Window]
 interface DOMImplementation {
-  [NewObject] DocumentType createDocumentType(DOMString qualifiedName, DOMString publicId, DOMString systemId);
+  // It's a [PHPExtension] to make the second & third arguments optional
+  [NewObject] DocumentType createDocumentType(DOMString qualifiedName, [PHPExtension] optional DOMString publicId = "", [PHPExtension] optional DOMString systemId = "");
   [NewObject] XMLDocument createDocument(DOMString? namespace, [LegacyNullToEmptyString] DOMString qualifiedName, optional DocumentType? doctype = null);
   [NewObject] Document createHTMLDocument(optional DOMString title);
 
