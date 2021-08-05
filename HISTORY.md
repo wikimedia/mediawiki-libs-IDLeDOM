@@ -1,4 +1,4 @@
-# Change Log
+# Release History
 
 ## IDLeDOM x.x.x (not yet released)
 * The second and third arguments to DOMImplementation::createDocumentType()
