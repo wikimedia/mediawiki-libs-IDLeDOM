@@ -1,6 +1,6 @@
 # Release History
 
-## IDLeDOM x.x.x (not yet released)
+## IDLeDOM 0.10.0 (2021-08-07)
 * The second and third arguments to DOMImplementation::createDocumentType()
   are now optional, for PHP compatibility.
 * If the final argument to Document::createElement() or
