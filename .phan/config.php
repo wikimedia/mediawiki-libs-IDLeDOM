@@ -9,6 +9,8 @@ $cfg['directory_list'] = [
 	'.phan/stubs',
 	'vendor/wikimedia/assert',
 ];
-$cfg['suppress_issue_types'] = [];
+$cfg['suppress_issue_types'] = [
+	'PhanPluginNeverReturnMethod',
+];
 
 return $cfg;

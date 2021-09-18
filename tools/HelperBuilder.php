@@ -525,6 +525,7 @@ class HelperBuilder extends Builder {
 					$this->nl( "}" ); // close the if statement
 					// Here we are in the "missing value default" case
 					// (or if none, then the "no state represented")
+					// @phan-suppress-next-line PhanTypeInvalidDimOffset
 					if ( $info['reflectEnum']['missing'] !== null ) {
 						$v = var_export( $info['reflectEnum']['missing'], true );
 						$this->nl( "return $v;" );

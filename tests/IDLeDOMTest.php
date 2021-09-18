@@ -132,8 +132,6 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 			$useStubs = implode( "\n", array_map( static function ( $n ) {
 				return "use \\Wikimedia\\IDLeDOM\\Stub\\$n;";
 			}, $stubs ) );
-		} else {
-			$useStubs = "";
 		}
 
 		$helpers = [ $name ];
