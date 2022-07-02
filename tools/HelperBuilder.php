@@ -364,6 +364,7 @@ class HelperBuilder extends Builder {
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' * @return mixed' );
 		$this->nl( ' */' );
+		$this->nl( '#[\ReturnTypeWillChange]' );
 		$this->nl( 'public function offsetGet( $offset ) {' );
 		$this->nl( 'return $this->$offset;' );
 		$this->nl( '}' );
@@ -650,6 +651,7 @@ class HelperBuilder extends Builder {
 		$this->nl( ' * @param mixed $offset' );
 		$this->nl( ' * @return mixed' );
 		$this->nl( ' */' );
+		$this->nl( '#[\ReturnTypeWillChange]' );
 		$this->nl( 'public function offsetGet( $offset ) {' );
 		$this->emitThisHint( $topName );
 		$this->nl( 'if ( is_numeric( $offset ) ) {' );
@@ -738,7 +740,7 @@ class HelperBuilder extends Builder {
 			$this->nl( '/**' );
 			$this->nl( " * @return \\Iterator<$retTypeDoc> Value iterator returning $retTypeDoc items" );
 			$this->nl( ' */' );
-			$this->nl( "public function $iteratorName() {" );
+			$this->nl( "public function $iteratorName(): \\Iterator {" );
 			$this->emitThisHint( $topName );
 			$this->nl( "for ( \$i = 0; \$i < \$this->{$countable['funcName']}(); \$i++ ) {" );
 			$this->nl( "yield \$this->{$igetter['funcName']}( \$i );" );

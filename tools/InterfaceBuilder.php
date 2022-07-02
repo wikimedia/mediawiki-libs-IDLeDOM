@@ -231,7 +231,7 @@ class InterfaceBuilder extends Builder {
 			$this->nl( " * @return \\Iterator<$keyType,$valType> Pair iterator: $keyType => $valType" );
 		}
 		$this->nl( ' */' );
-		$this->nl( "public function $iteratorName();" );
+		$this->nl( "public function $iteratorName(): \\Iterator;" );
 	}
 
 	/** @inheritDoc */
