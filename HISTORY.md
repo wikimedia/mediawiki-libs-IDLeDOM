@@ -4,6 +4,7 @@
 * The WebIDL PHP binding has been altered to allow implementations to measure
   offsets and lengths in unicode code points for the attributes of
   `CharacterData`, instead of using UTF-16 code units.
+* Support for PHP 7.2 and PHP 7.3 has been dropped.
 
 ## IDLeDOM 0.10.0 (2021-08-07)
 * The second and third arguments to DOMImplementation::createDocumentType()
