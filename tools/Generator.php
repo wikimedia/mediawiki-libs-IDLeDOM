@@ -430,12 +430,15 @@ class Generator {
 	 * complex type) includes the given type `$which`.
 	 * @param array $ty The complex type to test
 	 * @param string $which The type to search for
+	 * @param bool $isPrimitive If false (the default), then $which names a
+	 *  complex IDL type such as 'dictionary' or 'enum' or 'callback'.
+	 *  If true, then $which names a primitive IDL type like 'unsigned long'.
 	 * @return bool
 	 */
-	private function typeIncludes( array $ty, string $which ) {
+	private function typeIncludes( array $ty, string $which, bool $isPrimitive = false ) {
 		if ( $ty['union'] ?? false ) {
 			foreach ( $ty['idlType'] as $subtype ) {
-				if ( $this->typeIncludes( $subtype, $which ) ) {
+				if ( $this->typeIncludes( $subtype, $which, $isPrimitive ) ) {
 					return true;
 				}
 			}
@@ -447,9 +450,16 @@ class Generator {
 		}
 		if ( array_key_exists( $ty['idlType'], $this->typedefs ) ) {
 			return $this->typeIncludes(
-				$this->typedefs[$ty['idlType']], $which
+				$this->typedefs[$ty['idlType']], $which, $isPrimitive
 			);
 		}
+		if ( $isPrimitive ) {
+			// Check for a primitive type
+			return $ty['idlType'] === $which;
+		}
+		// For a non-primitive type, it's a "enum Foo" or "dictionary Foo"
+		// so we need to look up the definition of 'Foo' and check its
+		// type.
 		if ( !array_key_exists( $ty['idlType'], $this->defs ) ) {
 			return false;
 		}
@@ -618,15 +628,37 @@ class Generator {
 	 * @return string
 	 */
 	public function valueToPHP( array $val, array $opts = [] ): string {
+		$idlType = $opts['idlType'] ?? null;
+		$v = $val['value'] ?? null;
 		switch ( $val['type'] ) {
 		case 'number':
-			return $val['value'];
+			if ( $idlType ) {
+				if ( $this->typeIncludes( $idlType, 'unsigned long', true ) ) {
+					// See the discussion of the handling of 'unsigned long'
+					// in WebIDL.md; briefly, we need to wrap this as signed
+					// to make sure it fits in a signed int on a 32-bit
+					// platform.  Note that we're doing the match as a float
+					// to ensure we've got enough integer bits even on a
+					// 32-bit system.
+					if ( preg_match( '/^0x/i', $v ) ) {
+						$v = hexdec( $v );
+					} else {
+						$v = floatval( $v );
+					}
+					// These literal constants are floats on a 32-bit system!
+					if ( $v >= 2147483648 ) {
+						$v -= 4294967296;
+					}
+					return "$v";
+				}
+			}
+			return $v;
 		case 'boolean':
-			return $val['value'] ? 'true' : 'false';
+			return $v ? 'true' : 'false';
 		case 'null':
 			return 'null';
 		case 'string':
-			return var_export( $val['value'], true );
+			return var_export( $v, true );
 		default:
 			self::unreachable( "Unknown value type " . var_export( $val, true ) );
 		}

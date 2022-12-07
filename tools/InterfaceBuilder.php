@@ -146,7 +146,7 @@ class InterfaceBuilder extends Builder {
 					$declareDefault = ' = null';
 					$invokeDefault = ' ?? null';
 				} else {
-					$val = $gen->valueToPHP( $a['default'] );
+					$val = $gen->valueToPHP( $a['default'], [ 'idlType' => $a['idlType'] ] );
 					$declareDefault = " = $val";
 					$invokeDefault = " ?? $val";
 				}
@@ -210,7 +210,7 @@ class InterfaceBuilder extends Builder {
 	protected function emitMemberConst( string $topName, string $name, array $m ) {
 		$constName = $this->map( $topName, 'const', $name );
 		$docType = $this->gen->typeToPHPDoc( $m['idlType'] );
-		$val = $this->gen->valueToPHP( $m['value'] );
+		$val = $this->gen->valueToPHP( $m['value'], [ 'idlType' => $m['idlType'] ] );
 		$this->nl( "/** @var $docType */" );
 		$this->nl( "public const $constName = $val;" );
 	}

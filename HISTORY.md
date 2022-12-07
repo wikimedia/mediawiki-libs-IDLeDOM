@@ -6,6 +6,8 @@
   `CharacterData`, instead of using UTF-16 code units.
 * Support for PHP 7.2 and PHP 7.3 has been dropped.
 * Various dependencies have been updated for PHP 8 compatibility.
+* Properly encode `unsigned long` constants from IDL as PHP's (signed)
+  `int` type for compatibility with 32-bit PHP systems (T324489).
 
 ## IDLeDOM 0.10.0 (2021-08-07)
 * The second and third arguments to DOMImplementation::createDocumentType()

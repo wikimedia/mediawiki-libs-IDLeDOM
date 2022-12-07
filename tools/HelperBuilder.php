@@ -230,7 +230,7 @@ class HelperBuilder extends Builder {
 		$readonly = ( $m['readonly'] ?? false ) || ( $m['type'] === 'field' );
 		$default = '';
 		if ( ( $m['required'] ?? false ) === false && ( $m['default'] ?? null ) !== null ) {
-			$val = $gen->valueToPHP( $m['default'] );
+			$val = $gen->valueToPHP( $m['default'], [ 'idlType' => $m['idlType'] ] );
 			$default = " ?? $val";
 		}
 		$fwd = $m;
