@@ -1,5 +1,7 @@
 # Release History
 
+## IDLeDOM x.x.x (not yet released)
+
 ## IDLeDOM 1.0.0 (2022-12-07)
 * The WebIDL PHP binding has been altered to allow implementations to measure
   offsets and lengths in unicode code points for the attributes of
