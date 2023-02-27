@@ -1,6 +1,7 @@
 # Release History
 
 ## IDLeDOM x.x.x (not yet released)
+* Allow use of wikimedia/webidl 1.1.0.
 
 ## IDLeDOM 1.0.0 (2022-12-07)
 * The WebIDL PHP binding has been altered to allow implementations to measure
