@@ -1,5 +1,7 @@
 # Release History
 
+## IDLeDOM x.x.x (not yet released)
+
 ## IDLeDOM 1.0.1 (2023-02-27)
 * Allow use of wikimedia/webidl 1.1.0.
 
