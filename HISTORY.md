@@ -1,9 +1,21 @@
 # Release History
 
-## IDLeDOM x.x.x (not yet released)
-
-## IDLeDOM 1.0.1 (2023-02-27)
+## IDLeDOM 2.0.0 (2023-02-27)
+* PHP 8.1 compatibility.
+* Added return types to inbuilt interfaces; in particular, the
+  interfaces which include ::getIterator() functions are now
+  declared to return \Iterator.  This is backwards-incompatible
+  with implementations which extend these interfaces without
+  specifying a return type, although implementations which use
+  the IDLeDOM helper classes to define the iterators will be
+  unaffected.
+* Added ReturnTypeWillChange annotations for ::offsetGet()
+  implementations in helper classes.
 * Allow use of wikimedia/webidl 1.1.0.
+
+## IDLeDOM 1.0.1 (not released)
+* This proposed version of IDLeDOM had backwards-incompatible changes
+  (included in 2.0.0) and so was not released.
 
 ## IDLeDOM 1.0.0 (2022-12-07)
 * The WebIDL PHP binding has been altered to allow implementations to measure
