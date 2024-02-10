@@ -2,6 +2,7 @@
 
 namespace Wikimedia\IDLeDOM\Tools;
 
+use UnexpectedValueException;
 use Wikimedia\Assert\Assert;
 
 /**
@@ -242,7 +243,7 @@ class HelperBuilder extends Builder {
 			$rhs = $putForwards['rhs']['value'];
 			$fwd = $gen->memberDef( $lhs, $rhs );
 			if ( $fwd === null || $fwd['type'] !== 'attribute' ) {
-				throw new \Exception(
+				throw new UnexpectedValueException(
 					"Can't find PutForwards: " . $lhs . '::' . $rhs
 				);
 			}
