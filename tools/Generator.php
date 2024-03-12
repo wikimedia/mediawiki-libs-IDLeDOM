@@ -226,7 +226,7 @@ class Generator {
 		) {
 			// *Top level* dictionaries implement ArrayAccess; reserve those
 			// names. (Subclasses get it from the parent.)
-			$aa = [ 'offsetExists','offsetGet','offsetSet','offsetUnset' ];
+			$aa = [ 'offsetExists', 'offsetGet', 'offsetSet', 'offsetUnset' ];
 			foreach ( $aa as $name ) {
 				$this->nameMap["$topName:op:_$name"] = $findName( $name, true );
 			}
@@ -523,15 +523,15 @@ class Generator {
 		}
 		$generic = $ty['generic'] ?? '';
 		switch ( $generic ) {
-		case 'sequence':
-			if ( !$phpdoc ) {
-				return 'array';
-			}
-			return $n . 'list<' . $this->typeToPHPDoc( $ty['idlType'][0], $opts ) . '>';
-		case '':
-			break;
-		default:
-			self::unreachable( "Unknown generic type: $generic" );
+			case 'sequence':
+				if ( !$phpdoc ) {
+					return 'array';
+				}
+				return $n . 'list<' . $this->typeToPHPDoc( $ty['idlType'][0], $opts ) . '>';
+			case '':
+				break;
+			default:
+				self::unreachable( "Unknown generic type: $generic" );
 		}
 
 		if ( array_key_exists( $ty['idlType'], $this->typedefs ) ) {
@@ -584,40 +584,40 @@ class Generator {
 			return "$n$result";
 		}
 		switch ( $ty['idlType'] ) {
-		case 'any':
-			if ( !$phpdoc ) {
-				return '/* any */';
-			}
-			return 'mixed|null';
-		case 'void':
-			self::unreachable( "void is now 'undefined'" );
-			// This could fall through if we weren't asserting
-		case 'undefined':
-			if ( $opts['returnType'] ?? false ) {
-				return 'void';
-			}
-			if ( $phpdoc ) {
-				return 'null';
-			}
-			return '/* undefined */'; // bail
-		case 'boolean':
-			return $n . 'bool';
-		case 'octet':
-		case 'short':
-		case 'unsigned short':
-		case 'long':
-		case 'unsigned long':
-			return $n . 'int';
-		case 'float':
-		case 'double':
-		case 'unrestricted double':
-			return $n . 'float';
-		case 'DOMString':
-		case 'USVString':
-		case 'CSSOMString':
-			return $n . 'string';
-		default:
-			self::unreachable( "Unknown type " . var_export( $ty, true ) );
+			case 'any':
+				if ( !$phpdoc ) {
+					return '/* any */';
+				}
+				return 'mixed|null';
+			case 'void':
+				self::unreachable( "void is now 'undefined'" );
+				// This could fall through if we weren't asserting
+			case 'undefined':
+				if ( $opts['returnType'] ?? false ) {
+					return 'void';
+				}
+				if ( $phpdoc ) {
+					return 'null';
+				}
+				return '/* undefined */'; // bail
+			case 'boolean':
+				return $n . 'bool';
+			case 'octet':
+			case 'short':
+			case 'unsigned short':
+			case 'long':
+			case 'unsigned long':
+				return $n . 'int';
+			case 'float':
+			case 'double':
+			case 'unrestricted double':
+				return $n . 'float';
+			case 'DOMString':
+			case 'USVString':
+			case 'CSSOMString':
+				return $n . 'string';
+			default:
+				self::unreachable( "Unknown type " . var_export( $ty, true ) );
 		}
 	}
 
@@ -631,36 +631,36 @@ class Generator {
 		$idlType = $opts['idlType'] ?? null;
 		$v = $val['value'] ?? null;
 		switch ( $val['type'] ) {
-		case 'number':
-			if ( $idlType ) {
-				if ( $this->typeIncludes( $idlType, 'unsigned long', true ) ) {
-					// See the discussion of the handling of 'unsigned long'
-					// in WebIDL.md; briefly, we need to wrap this as signed
-					// to make sure it fits in a signed int on a 32-bit
-					// platform.  Note that we're doing the match as a float
-					// to ensure we've got enough integer bits even on a
-					// 32-bit system.
-					if ( preg_match( '/^0x/i', $v ) ) {
-						$v = hexdec( $v );
-					} else {
-						$v = floatval( $v );
+			case 'number':
+				if ( $idlType ) {
+					if ( $this->typeIncludes( $idlType, 'unsigned long', true ) ) {
+						// See the discussion of the handling of 'unsigned long'
+						// in WebIDL.md; briefly, we need to wrap this as signed
+						// to make sure it fits in a signed int on a 32-bit
+						// platform.  Note that we're doing the match as a float
+						// to ensure we've got enough integer bits even on a
+						// 32-bit system.
+						if ( preg_match( '/^0x/i', $v ) ) {
+							$v = hexdec( $v );
+						} else {
+							$v = floatval( $v );
+						}
+						// These literal constants are floats on a 32-bit system!
+						if ( $v >= 2147483648 ) {
+							$v -= 4294967296;
+						}
+						return "$v";
 					}
-					// These literal constants are floats on a 32-bit system!
-					if ( $v >= 2147483648 ) {
-						$v -= 4294967296;
-					}
-					return "$v";
 				}
-			}
-			return $v;
-		case 'boolean':
-			return $v ? 'true' : 'false';
-		case 'null':
-			return 'null';
-		case 'string':
-			return var_export( $v, true );
-		default:
-			self::unreachable( "Unknown value type " . var_export( $val, true ) );
+				return $v;
+			case 'boolean':
+				return $v ? 'true' : 'false';
+			case 'null':
+				return 'null';
+			case 'string':
+				return var_export( $v, true );
+			default:
+				self::unreachable( "Unknown value type " . var_export( $val, true ) );
 		}
 		return '<broken>';
 	}

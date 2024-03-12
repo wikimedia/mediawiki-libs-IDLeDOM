@@ -500,49 +500,51 @@ class HelperBuilder extends Builder {
 			$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\Element \$this';" );
 			$this->nl( "// @var \\Wikimedia\\IDLeDOM\\Element \$this" );
 			switch ( $info['idlType']['idlType'] ) {
-			case 'DOMString':
-				if ( $info['reflectType'] === 'ReflectEnum' ) {
-					$novalue = ( $info['idlType']['nullable'] ?? false ) ?
+				case 'DOMString':
+					if ( $info['reflectType'] === 'ReflectEnum' ) {
+						$novalue = ( $info['idlType']['nullable'] ?? false ) ?
 							 "null" : "''";
-					$this->nl( "\$val = \$this->getAttribute( $attrName );" );
-					$this->nl( "if ( \$val !== null ) {" );
-					$this->nl( "\$val = strtr( \$val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );" );
-					$this->nl( "switch ( \$val ) {" );
-					foreach ( $info['reflectEnum']['values'] as $v ) {
-						$v = var_export( $v, true );
-						$this->nl( "case $v:" );
-					}
-					$this->nl( "\treturn \$val;" );
-					$this->nl( "default:" );
-					// Here we are in the "invalid value default" case
-					// (or if none, then the "no state represented")
-					if ( $info['reflectEnum']['invalid'] !== null ) {
-						$v = var_export( $info['reflectEnum']['invalid'], true );
-						$this->nl( "\treturn $v;" );
+						$this->nl( "\$val = \$this->getAttribute( $attrName );" );
+						$this->nl( "if ( \$val !== null ) {" );
+						$this->nl(
+							"\$val = strtr( \$val, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz' );"
+						);
+						$this->nl( "switch ( \$val ) {" );
+						foreach ( $info['reflectEnum']['values'] as $v ) {
+							$v = var_export( $v, true );
+							$this->nl( "case $v:" );
+						}
+						$this->nl( "\treturn \$val;" );
+						$this->nl( "default:" );
+						// Here we are in the "invalid value default" case
+						// (or if none, then the "no state represented")
+						if ( $info['reflectEnum']['invalid'] !== null ) {
+							$v = var_export( $info['reflectEnum']['invalid'], true );
+							$this->nl( "\treturn $v;" );
+						} else {
+							$this->nl( "\treturn $novalue;" );
+						}
+						$this->nl( "}" ); // close the switch statement
+						// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
+						$this->nl( "}" ); // close the if statement
+						// Here we are in the "missing value default" case
+						// (or if none, then the "no state represented")
+						// @phan-suppress-next-line PhanTypeInvalidDimOffset
+						if ( $info['reflectEnum']['missing'] !== null ) {
+							$v = var_export( $info['reflectEnum']['missing'], true );
+							$this->nl( "return $v;" );
+						} else {
+							$this->nl( "return $novalue;" );
+						}
+					} elseif ( $info['idlType']['nullable'] ?? false ) {
+						$this->nl( "return \$this->getAttribute( $attrName );" );
 					} else {
-						$this->nl( "\treturn $novalue;" );
+						$this->nl( "return \$this->getAttribute( $attrName ) ?? '';" );
 					}
-					$this->nl( "}" ); // close the switch statement
-					// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
-					$this->nl( "}" ); // close the if statement
-					// Here we are in the "missing value default" case
-					// (or if none, then the "no state represented")
-					// @phan-suppress-next-line PhanTypeInvalidDimOffset
-					if ( $info['reflectEnum']['missing'] !== null ) {
-						$v = var_export( $info['reflectEnum']['missing'], true );
-						$this->nl( "return $v;" );
-					} else {
-						$this->nl( "return $novalue;" );
-					}
-				} elseif ( $info['idlType']['nullable'] ?? false ) {
-					$this->nl( "return \$this->getAttribute( $attrName );" );
-				} else {
-					$this->nl( "return \$this->getAttribute( $attrName ) ?? '';" );
-				}
-				break;
-			case 'boolean':
-				$this->nl( "return \$this->hasAttribute( $attrName );" );
-				break;
+					break;
+				case 'boolean':
+					$this->nl( "return \$this->hasAttribute( $attrName );" );
+					break;
 			}
 			$this->nl( '}' );
 			$this->nl();
@@ -557,24 +559,24 @@ class HelperBuilder extends Builder {
 			$this->nl( "'@phan-var \\Wikimedia\\IDLeDOM\\Element \$this';" );
 			$this->nl( "// @var \\Wikimedia\\IDLeDOM\\Element \$this" );
 			switch ( $info['idlType']['idlType'] ) {
-			case 'DOMString':
-				if ( $info['idlType']['nullable'] ?? false ) {
-					$this->nl( "if ( \$val !== null ) {" );
-					$this->nl( "\$this->setAttribute( $attrName, \$val );" );
+				case 'DOMString':
+					if ( $info['idlType']['nullable'] ?? false ) {
+						$this->nl( "if ( \$val !== null ) {" );
+						$this->nl( "\$this->setAttribute( $attrName, \$val );" );
+						$this->nl( "} else {" );
+						$this->nl( "\$this->removeAttribute( $attrName );" );
+						$this->nl( "}" );
+					} else {
+						$this->nl( "\$this->setAttribute( $attrName, \$val{$trailer} );" );
+					}
+					break;
+				case 'boolean':
+					$this->nl( "if ( \$val ) {" );
+					$this->nl( "\$this->setAttribute( $attrName, '' );" );
 					$this->nl( "} else {" );
 					$this->nl( "\$this->removeAttribute( $attrName );" );
 					$this->nl( "}" );
-				} else {
-					$this->nl( "\$this->setAttribute( $attrName, \$val{$trailer} );" );
-				}
-				break;
-			case 'boolean':
-				$this->nl( "if ( \$val ) {" );
-				$this->nl( "\$this->setAttribute( $attrName, '' );" );
-				$this->nl( "} else {" );
-				$this->nl( "\$this->removeAttribute( $attrName );" );
-				$this->nl( "}" );
-				break;
+					break;
 			}
 			$this->nl( '}' );
 			$this->nl();
