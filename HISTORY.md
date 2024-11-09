@@ -1,5 +1,7 @@
 # Release History
 
+## IDLeDOM x.x.x (not yet released)
+
 ## IDLeDOM 2.0.1 (2024-11-09)
 * Use UnexpectedValueException instead of Exception in tooling.
 * Update dependencies.
