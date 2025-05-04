@@ -157,7 +157,7 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * List all interfaces.
 	 */
-	public function ifaceProvider() {
+	public static function ifaceProvider() {
 		return array_values( array_filter(
 			self::listFiles( __DIR__ . '/../src/' ),
 			function ( $args ) {
@@ -175,7 +175,7 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * List all enumerations
 	 */
-	public function enumProvider() {
+	public static function enumProvider() {
 		return array_values( array_filter(
 			self::listFiles( __DIR__ . '/../src/' ),
 			function ( $args ) { return self::fileIsEnumeration( $args[0] );
@@ -193,7 +193,7 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * List all dictionaries
 	 */
-	public function dictProvider() {
+	public static function dictProvider() {
 		return array_values( array_filter(
 			self::listFiles( __DIR__ . '/../src/' ),
 			function ( $args ) { return self::fileIsDictionary( $args[0] );
