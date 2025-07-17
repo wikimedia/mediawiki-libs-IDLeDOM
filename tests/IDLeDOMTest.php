@@ -26,7 +26,7 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 		$threw = false;
 		try {
 			eval( $expr );
-		} catch ( \Throwable $e ) {
+		} catch ( \Throwable ) {
 			$threw = true;
 		}
 		$this->assertTrue( !$threw );
@@ -38,12 +38,11 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider enumProvider
 	 */
 	public function testEnumInstantiationFails( string $name ) {
-		$className = self::makeClassName();
 		$expr = "return new \\Wikimedia\\IDLeDOM\\$name;";
 		$threw = false;
 		try {
 			eval( $expr );
-		} catch ( \Throwable $e ) {
+		} catch ( \Throwable ) {
 			$threw = true;
 		}
 		$this->assertTrue( $threw );
@@ -56,7 +55,6 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider enumProvider
 	 */
 	public function testEnumCastFails( string $name ) {
-		$className = self::makeClassName();
 		$expr = "\\Wikimedia\\IDLeDOM\\$name::cast('bogus not a valid value');";
 		$threw = false;
 		try {
@@ -74,7 +72,6 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider dictProvider
 	 */
 	public function testDictCast( string $name ) {
-		$className = self::makeClassName();
 		$expr = "return \\Wikimedia\\IDLeDOM\\$name::cast([]);";
 		$val = eval( $expr );
 		$this->assertInstanceOf( "\\Wikimedia\\IDLeDOM\\$name", $val );

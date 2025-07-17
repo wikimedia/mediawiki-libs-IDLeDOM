@@ -245,9 +245,6 @@ class InterfaceBuilder extends Builder {
 
 	/** @inheritDoc */
 	protected function emitDictionary( string $topName, array $def ): void {
-		// Only the top-level dictionary needs to extend \ArrayAccess;
-		// child classes will pick it up from the parent.
-		$extendArray = ( $def['inheritance'] ?? null ) === null;
 		$this->firstLine( 'abstract class', $topName, $def );
 		// Somewhat unusually: have the abstract class include the helper.
 		$this->nl( "use \\Wikimedia\\IDLeDOM\\Helper\\$topName;" );
@@ -307,7 +304,6 @@ class InterfaceBuilder extends Builder {
 		$this->nl( '}' );
 
 		// Emit the static "cast" method
-		$funcName = $this->map( $topName, 'op', '_cast' );
 		$this->nl();
 		$this->nl( '// @phan-file-suppress PhanTypeInvalidThrowsIsInterface' );
 		$this->nl();

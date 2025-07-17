@@ -100,7 +100,7 @@ class Builder {
 	protected function addUseStatements( string $namespace ): void {
 		ksort( $this->used, SORT_STRING | SORT_FLAG_CASE );
 		$useStmts = [];
-		foreach ( $this->used as $name => $ignore ) {
+		foreach ( $this->used as $name => $_ ) {
 			$useStmts[] = "use $namespace\\$name;";
 		}
 		$this->e->replaceMarker( 'UseStatements', ...$useStmts );

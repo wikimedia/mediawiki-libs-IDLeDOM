@@ -104,7 +104,6 @@ class StubBuilder extends Builder {
 			// Skip this stub; it's already present in the helper.
 			return;
 		}
-		$typeOpts = [ 'topName' => $topName ];
 		$iteratorName = $this->map( $topName, 'op', '_iterable' );
 		// pair iterator: https://heycam.github.io/webidl/#dfn-pair-iterator
 		// value iterator: https://heycam.github.io/webidl/#dfn-value-iterator

@@ -164,7 +164,7 @@ class Generator {
 		}
 		// Resolve name conflicts
 		$done = [];
-		foreach ( $this->defs as $name => &$def ) {
+		foreach ( $this->defs as &$def ) {
 			$this->resolveNames( $def, $done );
 		}
 	}

@@ -342,7 +342,7 @@ class HelperBuilder extends Builder {
 
 		$this->firstLine( $topName );
 		// Getters and setters
-		$this->emitGetterSetter( $topName, $attrs, $typeOpts );
+		$this->emitGetterSetter( $topName, $attrs );
 		// ArrayAccess
 		$this->nl( '/**' );
 		$this->nl( ' * @param mixed $offset' );
@@ -454,7 +454,7 @@ class HelperBuilder extends Builder {
 		if ( count( $attrs ) > 0 && $def['type'] !== 'interface mixin' ) {
 			/* Only create getter/setter helpers for interfaces which
 			 * contain attributes and are not mixins */
-			$this->emitGetterSetter( $topName, $attrs, $typeOpts );
+			$this->emitGetterSetter( $topName, $attrs );
 			$this->skip = false;
 		}
 
@@ -592,18 +592,6 @@ class HelperBuilder extends Builder {
 			return;
 		}
 		$this->skip = false;
-		// declarations of all the specials
-		foreach ( $specials as $s => $r ) {
-			// Record types used
-			$m = $r['ast'];
-			// $this->use( $m['idlType'], $typeOpts );
-			foreach ( $m['arguments'] ?? [] as $a ) {
-			// $this->use( $a['idlType'], $typeOpts );
-			}
-			if ( $m['type'] !== 'operation' ) {
-				continue;
-			}
-		}
 		// Handle stringifier first
 		$stringifier = $specials['stringifier'] ?? null;
 		if ( $stringifier ) {
@@ -802,9 +790,8 @@ class HelperBuilder extends Builder {
 	 * Create __get/__set/__isset/__unset methods.
 	 * @param string $topName
 	 * @param array $attrs
-	 * @param array $typeOpts
 	 */
-	private function emitGetterSetter( string $topName, array $attrs, array $typeOpts ): void {
+	private function emitGetterSetter( string $topName, array $attrs ): void {
 		$needsSetter = false;
 		foreach ( $attrs as $a ) {
 			if ( !$a['readonly'] ) {
