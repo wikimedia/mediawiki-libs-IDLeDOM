@@ -69,14 +69,14 @@ class Emitter {
 			$line = $this->partial . $line;
 			$this->partial = null;
 		}
-		if ( strpos( $line, "\n" ) !== false ) {
+		if ( str_contains( $line, "\n" ) ) {
 			// Not recommended to include literal newlines in $line!
 			foreach ( explode( "\n", $line ) as $s ) {
 				$this->nl( $s );
 			}
 			return;
 		}
-		if ( substr( trim( $line ), 0, 1 ) === '}' ) {
+		if ( str_starts_with( trim( $line ), '}' ) ) {
 			$this->indentLevel -= 1;
 		}
 		if ( preg_match( '/^\s*$/', $line ) ) {
@@ -88,7 +88,7 @@ class Emitter {
 			$this->out .= str_repeat( "\t", $this->indentLevel ) . $line . "\n";
 			$this->wasNL = false;
 		}
-		if ( substr( $line, -1 ) === '{' ) {
+		if ( str_ends_with( $line, '{' ) ) {
 			$this->indentLevel += 1;
 		}
 	}

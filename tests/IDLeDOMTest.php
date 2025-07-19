@@ -187,7 +187,7 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 		$contents = file_get_contents(
 			__DIR__ . "/../src/$name.php"
 		);
-		return strstr( $contents, "/* Enumeration values */\n" ) !== false;
+		return str_contains( $contents, "/* Enumeration values */\n" );
 	}
 
 	/**
@@ -205,16 +205,16 @@ class IDLeDOMTest extends \PHPUnit\Framework\TestCase {
 		$contents = file_get_contents(
 			__DIR__ . "/../src/$name.php"
 		);
-		return strstr( $contents, "// Dictionary type\n" ) !== false;
+		return str_contains( $contents, "// Dictionary type\n" );
 	}
 
 	private static function listFiles( $dirname ) {
 		$result = [];
 		foreach ( scandir( $dirname ) as $entry ) {
-			if ( substr( $entry, 0, 1 ) === "." ) {
+			if ( str_starts_with( $entry, "." ) ) {
 				continue;
 			}
-			if ( substr( $entry, -4 ) !== ".php" ) {
+			if ( !str_ends_with( $entry, ".php" ) ) {
 				continue;
 			}
 			$result[] = [ substr( $entry, 0, -4 ) ];

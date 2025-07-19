@@ -255,12 +255,12 @@ class HelperBuilder extends Builder {
 			'name' => $m['name'],
 			'idlType' => $m['idlType'],
 			'setterIdlType' => $fwd['idlType'],
-			'isEnum' => strstr(
+			'isEnum' => str_contains(
 				$gen->typeToPHP(
 					$m['idlType'], [ 'flagEnums' => true ] + $typeOpts
 				),
 				'/* enum */'
-			) !== false,
+			),
 			'readonly' => $readonly && !$putForwards,
 			'getterType' => $gen->typeToPHP( $m['idlType'], [ 'returnType' => true ] + $typeOpts ),
 			'getterTypeDoc' => $gen->typeToPHPDoc( $m['idlType'], $typeOpts ),

@@ -495,7 +495,7 @@ class Generator {
 				// suppress the PHP type hint
 				return '';
 			}
-			if ( substr( $result, 0, 2 ) === '/*' && substr( $result, -2 ) === '*/' ) {
+			if ( str_starts_with( $result, '/*' ) && str_ends_with( $result, '*/' ) ) {
 				return '';
 			} else {
 				return ": $result";
