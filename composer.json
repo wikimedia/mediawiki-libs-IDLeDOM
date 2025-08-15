@@ -34,7 +34,7 @@
 		"phpunit/phpunit": "9.6.21",
 		"wikimedia/assert": "^0.5.0",
 		"wikimedia/update-history": "^1.0.1",
-		"wikimedia/webidl": "^1.0.4 || ^1.1.0"
+		"wikimedia/webidl": "^1.2.0"
 	},
 	"scripts": {
 		"test": [
