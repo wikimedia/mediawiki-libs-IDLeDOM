@@ -1,4 +1,5 @@
 <?php
+declare( strict_types = 1 );
 
 // AUTOMATICALLY GENERATED.  DO NOT EDIT.
 // Use `composer build` to regenerate.

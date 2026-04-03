@@ -99,6 +99,7 @@ class Emitter {
 	 */
 	public function phpPrologue( string $namespace ) {
 		$this->nl( '<?php' );
+		$this->nl( 'declare( strict_types = 1 );' );
 		$this->nl();
 		$this->nl( '// AUTOMATICALLY GENERATED.  DO NOT EDIT.' );
 		$this->nl( '// Use `composer build` to regenerate.' );
